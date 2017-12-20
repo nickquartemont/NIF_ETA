@@ -1,0 +1,66 @@
+\documentclass[12pt,letterpaper,oneside]{book}
+\usepackage{../afitStyleFiles/afitThesis}
+\graphicspath{{../Figures/}}
+
+\input{Preamble/titlePage}
+\input{Preamble/myFigures}
+\input{Preamble/commonSymbols}
+
+\begin{document}
+\frontmatter
+	\flyleaf                        
+	\disclaimerpage                 
+	\titlepageAFIT                      
+	\committeepage  
+	\input{Front/abstract}
+	\tableofcontents
+	\listoffigures
+	\input{Front/preface}
+\mainmatter
+	
+	\chapter{The First Steps}
+		\input{chapter01/mySetup}
+		
+		\figMyFirstLaTeX
+		\section{\Latex a simple document}
+		\input{chapter01/startSimple}
+		\figafitStyle
+
+		\section{Add a style file}
+		\input{chapter01/addStyle}
+		
+		\section{Add the front matter}
+		\input{chapter01/addFrontMatter}
+		\figtitlePage
+
+		\figmyFlypage
+		\input{chapter01/addAbstract}
+		\figmyFirstAbstract
+		\input{chapter01/addMoreFrontMatter}
+
+		\section{Add figures to the main matter and start writing}
+		\figmyFigures
+		\input{chapter01/addFirstResults}
+		\input{chapter01/addMainMatter}
+		\figmyFirstFigures
+		
+		
+	\chapter{Customized Environments}
+		\input{chapter02/intro}
+		\section{Customized lists}
+		\input{chapter02/lists}
+		\section{Customized environments}
+		\input{chapter02/environments}
+		\input{chapter02/conclusion}
+	\chapter{Conclusion}
+	         This primer is intended to give a masters or PhD student the basics of preparing a \Latex document according to the AFIT style guide\cite{AFITStyle}.  If you have further questions on this topic, please contact the author (Maj Amy Magnus x4555) or the office the Dean of Research for more information. \cite{dumBook,dumArticle}
+	         
+\backmatter
+	\singlespace
+	\bibliographystyle{plain}
+	\bibliography{Back/myReferences} 
+	\clearpage
+\end{document}
+
+
+

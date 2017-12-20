@@ -1,0 +1,6 @@
+ChartOptions
+   titleText  Response 2: gold macro
+   xTitleText energy (eV)
+   yTitleText cross section (/cm)
+   legend true
+end ChartOptions

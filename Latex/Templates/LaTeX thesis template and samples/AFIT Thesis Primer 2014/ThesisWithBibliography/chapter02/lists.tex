@@ -1,0 +1,95 @@
+\Latex provides macros that automatically generate lists.  These lists
+are the table of contents, the list of figures, and list of tables;
+they are generally placed in the front of the document.  The afitThesis
+style file defines two more lists: a list of abbreviations and a list
+of symbols.  These lists are not required in an AFIT publication but
+may prove useful.  In this section, we show how to implement these
+lists in your document.
+
+\subsection{Creating a list of abbreviations}
+
+Given the diversity of acronyms in defense publications, it may
+be wise to add a glossary that defines the abbreviations used in a
+document.  Use the following commands to implement a list of
+abbreviations:
+
+\begin{description}
+    \item[$\backslash${listofabbreviations}] ~\\Produces a list of
+    abbreviations with entries from all the $\backslash${abbreviation}
+    and $\backslash${abbreviationFull} commands in the body of the
+    document.
+
+    \item[$\backslash${abbreviation}[{\em definition}{]}\{{\em
+    acronym}\}] ~\\Adds {\em acronym} to text and the {\em
+    acronym} and optional {\em definition} to the list of
+    abbreviations.
+
+    \item[\bf $\backslash${abbreviationFull}[{\em definition}{]}\{{\em
+    acronym}\}] ~\\Use $\backslash${abbreviationFull} as an alternate
+    to $\backslash$abbreviation when you wish to place the {\em
+    definition} followed by its {\em acronym} in parentheses in the
+    text.
+\end{description}
+
+\noindent To implement the abbreviation commands within your text, the code
+below\ldots
+
+\begin{verbatim}
+Here is an example of using $\backslash${abbreviation}: 
+              \abbreviation[As Soon As Possible]{ASAP}.
+Here is an example of using $\backslash${abbreviationFull}:  
+              \abbreviationFull[As Soon As Possible]{ASAP}.
+\end{verbatim}
+
+\noindent \ldots implements the following two lines.
+
+Here is an example of using $\backslash${abbreviation}: \abbreviation[As Soon As Possible]{ASAP}.
+
+Here is an example of using $\backslash${abbreviationFull}:  \abbreviationFull[As Soon As
+Possible]{ASAP}.
+
+\noindent If a $\backslash${listofabbreviations} command is added to the front
+matter, these lines of code will automatically add two entrees to the list.
+
+You may wish to adjust the spacing in the list of abbreviations.  To
+change the spacing between the abbreviation and its definition, look
+for the following lines of code in the {\em afitThesis.sty} file and
+adjust ``7em'' using a smaller or larger number.
+
+\begin{verbatim} 
+ \def\l@abbreviation{\pagebreak[3]
+ \vskip \lofSpace 
+ \@dottedtocline{1}{0em}{7em}}
+\end{verbatim}
+
+
+\subsection{Creating a list of symbols}
+
+Scientific publications may also benefit from a glossary that defines
+the mathematical symbols used in the document.  Use the following
+commands to implement a list of symbols:
+
+\begin{description}
+    \item[$\backslash${listofsymbols}] ~\\Produces a list of symbols
+    with entries from all the $\backslash${symbol} commands in the
+    body of the document.
+
+    \item[$\backslash${symbol}[{\em definition}{]}\{{\em
+    abbre}\}] ~\\Adds the {\em symbol} to text and the {\em
+    symbol} and optional {\em definition} to the list of
+    symbols.
+\end{description}
+
+\noindent The $\backslash${symbol} command acts like the
+$\backslash${abbreviation}.
+
+Again, you may wish to adjust the spacing in the list of symbols.  To
+change the spacing between the symbol and its definition, look for the
+following lines of code in the {\em afitThesis.sty} file and adjust 
+``5em'' using a smaller or larger number.
+
+\begin{verbatim}
+ \def\l@symbol{\pagebreak[3]
+ \vskip \lofSpace
+ \@dottedtocline{1}{0em}{5em}}
+\end{verbatim}

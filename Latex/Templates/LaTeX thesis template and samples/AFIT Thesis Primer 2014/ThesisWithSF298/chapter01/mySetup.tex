@@ -1,0 +1,44 @@
+Take the first steps in writing your thesis using the simple programs
+described in this chapter as a guide.  The source code and support files can be
+found on the student drive \primerAddress.  With a
+current \Latex distribution\footnote{\Latex distributions update
+annually in June.  As of June 2014, the current \Latex
+distributions are MiKTeX 2.9 for Windows, TeX Live 2014 for Linux, and
+MacTeX 2014 for Macintosh.}, you will be able to compile these programs
+without hiccup.
+
+The directory tree below provides a recommended file structure
+for the papers generated in your research.  Directories follow ``$>$'' signs; 
+standared\ files are
+specified in parentheses. 
+{\singlespace
+\begin{lstlisting}
+> myLatexDocuments
+  >> afitStyleFiles (afitThesis.sty)
+  >> Figures (afitlogo.pdf, afitlogo.eps)
+  >> Thesis  (myThesis.tex)
+     >>> Preamble (titlePage.tex,myFigures.tex)
+     >>> Front (abstract.tex)
+     >>> Chapter01 (sectionOne,sectionTwo,...)
+     >>> Chapter02 
+     . . .
+     >>> Appendix01
+     . . .
+  >> Archived Draft of Thesis 
+  >> Archived Perspectus 
+  >> Paper One
+  >> Paper Two
+\end{lstlisting}
+} \noindent In a parent directory, create three directories
+``afitStyleFiles'', ``Figures'', and ``Thesis''.  Place your graphics
+(such as afitlogo.pdf) in the directory Figures, your \Latex style
+files (afitThesis.sty, sf298.sty, sf298.dtx, and sf298.ins) in
+afitStyleFiles, and the latex code for your thesis document in Thesis.
+Organized in this way, the files in the Figures directory and the
+afitStyleFiles directory can be used by your thesis, perspectus, archived drafts,
+and other publications.  Typically, graphics account for most of the
+memory taken up by a digital document, and this efficiency in
+sharing saves significant disk space.
+
+
+

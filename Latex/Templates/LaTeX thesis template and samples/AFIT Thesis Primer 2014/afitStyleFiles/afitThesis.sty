@@ -1,0 +1,973 @@
+%% AFIT THESIS STYLE 2014
+%% afitThesis.sty
+% 20 March 2014
+% 
+% Implements a style based on the 2013 AFIT Style Guide.  Provides
+% a single point for loading packages and setting default document values.
+%
+% Use with book.cls
+%
+% Authors:
+% Maj Amy L. Magnus --- Amy.Magnus@us.af.mil
+% LtCol Monte Anderson --- Monte.Anderson@us.af.mil
+%
+% adapted from work by Mark Roth, Joel Young, and
+% LtCol Todd Hale --- Todd.Hale@us.af.mil
+%
+% Maintainers, for style file customizations, our Latex reference of choice is:
+% http://www.tug.org/utilities/plain/cseq.html
+%
+% Students, see ``L:\Courses\PHYS\Latex\LaTeX starter kit'' for starter files for
+% thesis and prospectus, etc.  A primer on using this style file to generate a thesis or 
+% prospectus located at ``L:\Courses\PHYS\LaTeX\AFIT LaTeX Primer''.
+%  
+% Please copy these files to your personal directory before editing or compiling!
+
+\ProvidesPackage{afitThesis}
+
+%==================================================================
+%																			
+%    		 Load Packages              
+%																			
+%================================================================== 
+\usepackage[font={bf,footnotesize},labelsep=period]{caption}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{indentfirst}
+\usepackage{float}
+\usepackage{flafter}
+\usepackage{amssymb,amsmath,amsfonts}
+\usepackage{theorem}
+%\usepackage[square]{natbib}
+\usepackage{varioref} 
+\usepackage{tocbibind} 
+\usepackage{listings} 
+\usepackage{xspace}
+\usepackage{fixltx2e}
+
+\usepackage{threeparttable}
+\usepackage{booktabs}
+\usepackage{color}
+\usepackage{url}
+
+\usepackage{ifpdf}
+
+\ifpdf
+\usepackage[pdftex]{graphicx}
+\DeclareGraphicsExtensions{.jpg, .pdf, .png}
+\else
+\usepackage{graphicx}
+\DeclareGraphicsExtensions{.eps}
+\fi
+
+
+%% Define default document values
+\geometry{top=1in,bottom=1.25in,left=1.25in,right=1.25in}
+\def\afittocfootskip{0.41in}      %if above margins change, routines 
+                                  %using this command may require 
+                                  %retuning (alm)
+\def\tocSpace{0.0em}
+\def\lofSpace{1.0em plus 1pt}
+\def\tocStart{1.0em plus 1pt}
+\def\lofStart{0.0in}
+
+\makeindex
+\doublespacing  % options include \singlespacing, \onehalfspacing, 
+                % \doublespacing or \setstretch{baselinestretch}
+\pagestyle{plain}
+
+% Some color definitions...
+\definecolor{LemonChiffon}{rgb}{1.,0.98,0.8}
+\definecolor{LightBlue}{rgb}{0.68,0.85,0.9}
+\definecolor{USAFblue}{rgb}{.1,.1,.6}
+\definecolor{Pink}{rgb}{1,0.75,0.8}
+\definecolor{Gold}{rgb}{1,0.84,0}
+\definecolor{Reda}{rgb}{0.9,0.3,0.7}
+\definecolor{Redb}{rgb}{0.9,0.3,1}
+\definecolor{Beige}{rgb}{0.96,0.96,0.86}
+\definecolor{Yellow}{rgb}{1,0.84,0.8}
+\definecolor{LightCyan}{rgb}{0.88,1,1}
+\definecolor{FireOrange}{rgb}{0.9,0.4,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{LTgray}{gray}{0.8}
+\definecolor{DKgray}{gray}{0.3}	
+\definecolor{Green}{rgb}{0,0.4,0}
+
+
+%==================================================================
+%																			
+%    		 REMOVE FROM RESET              
+%																			
+%==================================================================
+%Date: Sat, 30 Jul 1994 17:58:55 PST
+%From: Donald Arseneau <asnd@erich.triumf.ca>
+%
+%  \@removefromreset{B}{A} : Removes counter B from the list of
+%                       counters \cl@A to be reset when counter A
+%                       is stepped.  The opposite of \@addtoreset.
+
+\def\@removefromreset#1#2{\let\@tempb\@elt
+   \expandafter\let\expandafter\@tempa\csname c@#1\endcsname
+   \def\@elt##1{\expandafter\ifx\csname c@##1\endcsname\@tempa\else
+	 \noexpand\@elt{##1}\fi}%
+   \expandafter\edef\csname cl@#2\endcsname{\csname cl@#2\endcsname}%
+   \let\@elt\@tempb}
+
+    
+%==================================================================
+%
+%		COMPONENTS OF THESIS or DISSERTATION 
+%
+%	Items below this section implement style complying with the
+%	STYLE GUIDE for AFIT DISSERTATIONS, THESES and GRADUATE 
+%	RESEARCH PAPERS (July 2011)
+%
+%==================================================================
+	     
+%==================================================================
+%
+%		THESIS TYPE DEFAULT VALUES
+%
+%==================================================================
+%
+\def\THESISTYPE{THESIS}\def\thesistype{thesis}
+\def\doctype{\THESISTYPE}
+
+\def\doctypeDisseration{DISSERTATION}
+\def\doctypeThesis{THESIS}
+
+
+\def\diss@flag{dissertation}
+\def\report@flag{report}
+\def\thesis@flag{thesis}
+
+\def\afitthesis{%
+	\def\THESISTYPE{THESIS}\def\th@sistype{thesis}
+	\def\doctype{\THESISTYPE}
+}
+\def\afitreport{%
+	\def\THESISTYPE{REPORT}\def\thesistype{report}
+	\def\doctype{\THESISTYPE}
+}
+\def\dissertation{%
+	\def\THESISTYPE{DISSERTATION}\def\thesistype{dissertation}
+	\def\doctype{\THESISTYPE}
+}
+\def\prospectus{%
+	\def\THESISTYPE{PROSPECTUS}\def\thesistype{prospectus}
+	\def\doctype{\THESISTYPE}
+}	       
+	    
+%==================================================================
+%
+%		THESIS DATA
+%
+%==================================================================
+% Initiate commands to personalized thesis
+
+\def\flytitle#1{\gdef\@flytitle{#1}}
+\def\rank#1{\gdef\@rank{#1}}
+\def\docdesignator#1{\gdef\@docdesignator{#1}}
+\def\previousdegrees#1{\gdef\@previousdegrees{#1}}
+\def\acdegree#1{\gdef\@acdegree{#1}}
+\def\department#1{\gdef\@department{#1}}
+\def\graduationdate#1{\gdef\@graduationdate{#1}}
+\def\address#1{\gdef\@address{#1}}
+\def\distribution#1{\gdef\@distribution{#1}}
+\def\disclaimer#1{\gdef\@disclaimer{#1}}
+
+
+% Set defaults as directions
+\flytitle{SET YOUR FLYLEAF TITLE USING $\backslash$flytitle}
+\title{SET YOUR TITLE USING $\backslash$title}
+\author{Set author with $\backslash$author}
+%\rank{Set rank with $\backslash$rank}
+\docdesignator{Set document designator number using $\backslash$docdesignator}
+\previousdegrees{List previous degrees using $\backslash$previousdegrees}
+\acdegree{Set degree at graduation using $\backslash$acdegree}
+\department{Set department using $\backslash$department}
+\graduationdate{Provide graduation date using $\backslash$graduationdate}
+\address{2950 Hobson Way\\ Air Force Institute of Technology \\
+Wright-Patterson AFB, OH 45433} \disclaimer{The views expressed in
+this document are those of the author and do not reflect the official
+policy or position of the United States Air Force, the United States
+Department of Defense or the United States Government.  This material
+is declared a work of the U.S. Government and is not subject to
+copyright protection in the United States.}
+
+%==================================================================
+%																			
+%    		Flyleaf              
+%																			
+%==================================================================
+% Defines flyleaf created when \flyleaf is invoked
+% 09 Oct 2009 - A dummy line of code has been added after \begin{titlepage} 
+% as MikTeX was not executing the \vfill properly
+\def\flyleaf{%
+    \begin{titlepage}
+%	\vspace*{0.00 in} 
+	\vfill
+	\begin{center}
+	    \includegraphics[width=2.8in]{afitlogo}\\
+	    \centerline{
+	      \begin{minipage}[t]{4.0in}\singlespace
+		\begin{center} 
+		    {\bf {\@flytitle}}  
+		\end{center}
+	      \end{minipage}
+	     }
+	    \vspace*{0.40 in}
+	    \doctype\\[10pt]
+	    \@author\@ifundefined{@rank}{}{, \@rank}\\[-5pt]
+	    \@docdesignator\\[30pt]
+	    \begin{bfseries}
+		\textsf{DEPARTMENT OF THE AIR FORCE}\\[-10pt]
+		\textsf{AIR UNIVERSITY}\\[2pt]
+		\textsl{\Large AIR FORCE INSTITUTE OF TECHNOLOGY}\\[-19pt]
+		\rule{5.8in}{0.8mm}\\[-19pt]
+		\rule{5.8in}{0.3mm}\\[-6pt]
+		\textsf{Wright-Patterson Air Force Base, Ohio}\\[10pt]
+	    \end{bfseries}
+	    \@ifundefined{@distribution}{Set distribution using 
+	    $\backslash$distribution.  A typical statement is: 
+	    \MakeUppercase{Approved for Public Release; distribution unlimited}}
+	    {{\@distribution}}
+	\end{center}%
+	\vfill
+	\newpage 
+	\pagestyle{plain}
+    \end{titlepage}
+}
+
+
+%==================================================================		  						  
+%    						  	    
+%    		 Disclaimer Page              
+%																			
+%==================================================================
+% Defines disclaimer page created when \disclaimerpage is invoked
+\def\disclaimerpage{%
+	\thispagestyle{empty}
+	\singlespacing
+	\null	
+	\vfill 
+	\noindent \@disclaimer
+	\vfill 
+	\doublespacing
+	\newpage
+	\pagestyle{plain}
+}
+
+%==================================================================
+%																			
+%    		Title Page              
+%																			
+%==================================================================
+% Defines title page created when \titlepageAFIT is invoked
+\def\titlepageAFIT{%
+    \begin{titlepage}
+	\thispagestyle{empty}
+	\noindent \@docdesignator  
+	\vfill
+	\begin{center}
+	    {{\@title} \par}
+	    \vskip 1cm
+	    \MakeUppercase{\doctype}\par
+	    \vskip 1cm
+	    Presented to the Faculty\\
+	    \ifx\THESISTYPE\doctypeThesis
+	    \@department\\
+	    \fi
+	    Graduate School of Engineering and Management\\
+	    Air Force Institute of Technology\\
+	    Air University\\
+	    Air Education and Training Command\\
+	    in Partial Fulfillment of the Requirements for the\\
+	    Degree of \@acdegree\\
+	    \vskip 1cm
+	    {\@author , \@previousdegrees\par}
+	    \@ifundefined{@rank}{}{\@rank\par}
+	    \vskip 1cm
+	    \@graduationdate
+	    \vskip 1cm
+	    \@ifundefined{@distribution}{Set distribution using 
+	    $\backslash$distribution.  A typical statement is: 
+	    Approved for Public Release; distribution unlimited}
+	    {{\@distribution}}	    
+	    \vfill
+	\end{center}
+	\newpage 
+	\pagestyle{plain}
+    \end{titlepage}
+}
+
+%==================================================================
+%																			
+%    		 Committee Membership Page              
+%																			
+%==================================================================
+% Defines the committee membership page created when \committeepage is invoked
+
+\def\committee#1{\gdef\@committee{#1}}
+		     	   
+
+%prints out the committee membership
+
+\def\sign@turelines{\@ifundefined{@committee}%
+  {\@warning{Missing \string\committee\space command!}%
+   \def\@comem{MEMBER HERE\\TITLE HERE}%
+   \sign@line\sign@line\sign@line}%
+  {\@for \@comem:=\@committee \do{\sign@line}}%
+}
+
+\def\sign@line{\par 
+  \begingroup%
+  \singlespace
+    \@comem 
+    \par%
+  \endgroup
+}
+
+\def\author@line{\par 
+  \begingroup%
+  \singlespace
+    \@author , \@previousdegrees\\ 
+    \@ifundefined{@rank}{}{\@rank}
+    \par
+  \endgroup
+}
+
+
+\def\committeepage{%
+	\thispagestyle{empty}
+	\setcounter{page}{3}
+	\noindent \@docdesignator
+	\vfill
+	\begin{center}
+	    \@title\\[10pt]
+	    \doctype\\[10pt]
+	    \author@line
+	\bigskip
+	Committee Membership:
+	\bigskip\medskip
+	
+	\sign@turelines
+	\end{center}
+
+	\vfill
+	\newpage
+	
+}
+
+%==================================================================
+%																			
+%    		Dedication Environment              
+%																			
+%==================================================================
+
+\newenvironment{dedication}{
+       \noindent 
+       \@docdesignator               
+       \begin{center}
+	   \null
+	   \vfill \it} 
+      {\vspace*{100pt}\vfill\end{center}\newpage}
+    
+%==================================================================
+%																			
+%    	        ACKNOWLEDGEMENTS           
+%																			
+%==================================================================
+
+\newenvironment{acknowledgements}{\ackhead}{\acktail}
+\newenvironment{acknowledgments}{\ackhead}{\acktail}
+
+ \def\ackhead{\chapter*{Acknowledgements}
+  \addcontentsline{toc}{chapter}{Acknowledgements}
+  \addtocontents{toc}{\protect\addvspace{10\p@}}
+ }
+ \def\acktail{\par \null\vspace*{.75in}\hspace*{3in} \@author \newpage} 
+
+%==================================================================
+%																			
+%    	        PREFACE           
+%																			
+%==================================================================
+\newenvironment{preface}{
+\chapter*{Preface}     
+\addcontentsline{toc}{chapter}{Preface}
+\addtocontents{toc}{\protect\addvspace{10\p@}}
+}{}
+
+
+  
+%==================================================================
+%																			
+%    		ABSTRACT Environment              
+%																			
+%==================================================================
+\newenvironment{abstract}{
+    \newpage
+    \thispagestyle{plain}
+    \addcontentsline{toc}{chapter}{Abstract}
+    \addtocontents{toc}{\protect\addvspace{10\p@}}
+    \noindent \@docdesignator               
+    \begin{center}
+	\large\bfseries Abstract
+    \end{center}
+    \vspace{2em}
+    } {\newpage}
+    
+%==================================================================
+%																			
+%    		Vita Environment              
+%																			
+%==================================================================
+\newenvironment{vita}{
+    \addtocontents{toc}{\protect\addvspace{10\p@}}
+    \addcontentsline{toc}{chapter}{Vita}
+    \addtocontents{toc}{\protect\addvspace{10\p@}}
+    \newpage
+    \begin{center}
+	\bfseries Vita
+    \end{center}
+    \vspace{2em}
+    } { 
+%     \vfill
+%     \singlespace
+%     \hfill Permanent address:
+%     \begin{tabular}[t]{l}
+% 	\@address
+%     \end{tabular}
+    \newpage}
+
+%==================================================================
+%																			
+%    		Comment Environment              
+%
+%==================================================================
+%% EXTREMELY important topics need something to bring them out from
+%% the rest of the text.  Given examples from numerous other texts,
+%% Todd Hale created this environment.  
+\newcounter{com}[chapter]
+\newenvironment{comment}
+    {\begin{sloppypar}
+	 \noindent
+	 \begin{quote}
+	       \framebox[2\totalheight]{\Large!} 
+	       \sffamily
+	       \stepcounter{com}
+		    \hspace*{\fill}
+	 \end{quote}
+      \end{sloppypar}
+      \index{comments}
+     }
+
+%==================================================================
+%																			
+%		QUOTATION OR QUOTE ENVIRONMENTS           
+%																			
+%==================================================================
+%   QUOTATION -- Fills lines, indents paragraph, singlespace
+%
+\renewenvironment{quotation}
+	       {\list{}{\listparindent 1.5em%
+			\itemindent    \listparindent
+			\rightmargin   \leftmargin
+			\parsep        \z@ \@plus\p@}%
+		\medskip\singlespace\item\relax}
+	       {\endlist}
+
+% QUOTE -- Same as quotation except no paragraph indentation
+%
+\renewenvironment{quote}
+ {\list{}{\rightmargin\leftmargin}%
+  \smallskip\singlespace\item\relax}
+ {\endlist}
+	      
+	     
+%==================================================================
+%																			
+%    	Set LEVEL, NUMBERING, and HEADING defaults              
+%																			
+%==================================================================
+    
+% LEVELS
+\renewcommand\thechapter       {\Roman{chapter}}
+\renewcommand\thesection       {\arabic{chapter}.\arabic{section}}
+\renewcommand\thesubsection    {\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection {\thesubsection.\arabic{subsubsection}}
+\renewcommand\theparagraph     {\thesubsubsection.\arabic{paragraph}}
+\renewcommand\thesubparagraph  {\theparagraph.\arabic{subparagraph}}
+% NUMBERING ** Set page, equation, table, and figure to 
+% STRAIGHT-THROUGH-THE-TEXT vs. BY CHAPTER numbering here
+% Currently set to straight through
+\@removefromreset{figure}{chapter}
+\@removefromreset{equation}{chapter}
+\@removefromreset{table}{chapter}
+\renewcommand\theequation{\arabic{equation}}
+\renewcommand\thefigure{\arabic{figure}}
+\renewcommand\thetable{\arabic{table}}
+
+\def\appflag{Appendix}
+
+\renewcommand\appendix{\par
+    \setcounter{chapter}{0}%
+    \setcounter{section}{0}%
+    \gdef\@chapapp{Appendix}%
+    \gdef\thechapter{\@Alph\c@chapter}
+    }
+    
+%==================================================================
+%																			
+%    		 CHAPTERS             
+%																			
+%==================================================================   
+% Rewrite \chapter to add proper punctuation in Table of Contents
+
+\renewcommand\chapter{\if@openright\cleardoublepage\else\clearpage\fi
+      \thispagestyle{plain}
+      \global\@topnum\z@
+      \@afterindentfalse
+      \secdef\@chapter\@schapter}
+      \def\@chapter[#1]#2{
+      \ifnum \c@secnumdepth >\m@ne
+         \if@mainmatter
+            \refstepcounter{chapter}
+            \typeout{\@chapapp\space\thechapter.}
+            \addtocontents{toc}{\protect\addvspace{10\p@}}
+            \ifx\@chapapp\appflag
+                \addcontentsline{toc}{appendix}{\protect\numberline{Appendix \thechapter.}#1}
+            \else
+                \addcontentsline{toc}{chapter}{\protect\numberline{\thechapter.}#1}
+            \fi
+            \addtocontents{toc}{\protect\addvspace{10\p@}}
+         \else
+            \addcontentsline{toc}{chapter}{#1}
+         \fi
+      \else
+         \addcontentsline{toc}{chapter}{#1}
+      \fi
+      \chaptermark{#1}
+      \if@twocolumn
+         \@topnewpage[\@makechapterhead{#2}]
+      \else
+         \@makechapterhead{#2}
+         \@afterheading
+      \fi}
+
+% Standardize all chapter heads with an exception for Chapter I
+\def\@makechapterhead#1{%
+    {\parindent 0pt
+     \begin{center}
+	\singlespace 
+     \ifx\@chapapp\appflag
+	\large {\bfseries \@chapapp\ \thechapter.\ \ #1}
+	\else
+	\ifnum\value{chapter}=1
+	  \vspace*{2 pc}
+	  \doublespacing
+	  {\@title}\\
+	  \vspace*{1 pc}
+	\fi
+	\large{\bfseries \thechapter.\ \ #1}
+	\vspace*{1 pc}
+       \fi
+     \end{center}
+    }
+  }%
+
+
+  \def\@makeschapterhead#1{%
+    {\parindent 0pt%
+     \begin{center}%
+   \baselineskip=18.5pt%
+   \large {\bfseries #1}%
+   \vspace*{1 pc}
+     \end{center}%
+     \nobreak%
+    }}
+
+
+%==================================================================
+%																			
+%		SECTIONS, SUBSECTIONS, etc.              
+%																			
+%==================================================================
+
+\newcommand{\headingAfterskip}{2.3ex \@plus .2ex}
+
+\renewcommand\section{\@startsection 
+			{section}                           % name
+			{1}                                 % level
+			{\z@}                               % indent
+			{-3.5ex\@plus -1ex \@minus -.2ex}   % beforeskip
+			{\headingAfterskip}                 % afterskip
+			{\normalfont\normalsize\bfseries}}  % style
+\renewcommand\subsection{\@startsection{subsection}{2}{\parindent}%
+			{-3.25ex\@plus -1ex \@minus -.2ex}%
+			{1.5ex \@plus .2ex}%
+			 {\normalfont\normalsize\bfseries}}
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{2\parindent}%
+			{-3.25ex\@plus -1ex \@minus -.2ex}%
+			{1.5ex \@plus .2ex}%
+			{\normalfont\normalsize\bfseries}}
+\renewcommand\paragraph{\@startsection{paragraph}{4}{2\parindent}%
+			{3.25ex \@plus 1ex \@minus.2ex}%
+			{-1em}%
+			{\normalfont\normalsize\bfseries}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{5}{3\parindent}%
+			{3.25ex \@plus 1ex \@minus .2ex}%
+			{-1em}%
+			{\normalfont\normalsize\bfseries}}
+
+% Set depth of section numbering here; use a number from -1 to 3
+\setcounter{secnumdepth}{1}
+
+% Modified \@sect from latex.ltx code to supply a period for subsections and below 
+\def\@sect#1#2#3#4#5#6[#7]#8{%
+  \ifnum #2>\c@secnumdepth
+    \let\@svsec\@empty
+  \else
+    \refstepcounter{#1}%
+    \protected@edef\@svsec{\@seccntformat{#1}\relax}%
+  \fi
+  \@tempskipa #5\relax
+  \ifdim \@tempskipa>\z@
+  \ifnum #2>1                                
+    \begingroup
+      #6{%
+	\@hangfrom{\hskip #3\relax\@svsec}%
+	  \interlinepenalty \@M #8\@.\@@par}%
+    \endgroup
+   \else
+   \begingroup
+     #6{%
+       \@hangfrom{\hskip #3\relax\@svsec}%
+	 \interlinepenalty \@M #8\@@par}%
+   \endgroup
+   \fi
+    \csname #1mark\endcsname{#7}%
+    \addcontentsline{toc}{#1}{%
+      \ifnum #2>\c@secnumdepth \else
+	\protect\numberline{\csname the#1\endcsname}%
+      \fi
+      #7}%
+  \else
+    \def\@svsechd{%
+      #6{\hskip #3\relax
+      \@svsec #8\@.}%
+      \csname #1mark\endcsname{#7}%
+      \addcontentsline{toc}{#1}{%
+	\ifnum #2>\c@secnumdepth \else
+	  \protect\numberline{\csname the#1\endcsname}%
+	\fi
+	#7}}%
+  \fi
+  \@xsect{#5}}
+
+  % starred sections use this macro
+  \def\@ssect#1#2#3#4#5{%
+  \@tempskipa #3\relax
+  \ifdim \@tempskipa>\z@
+  \ifx #3\headingAfterskip
+    \begingroup
+      #4{%
+	\@hangfrom{\hskip #1}%
+	  \interlinepenalty \@M #5\@@par}%
+    \endgroup
+    \else
+    \begingroup
+      #4{%
+	\@hangfrom{\hskip #1}%
+	  \interlinepenalty \@M #5\@.\@@par}%
+    \endgroup
+    \fi
+  \else
+    \def\@svsechd{#4{\hskip #1\relax #5\@.}}%
+  \fi
+  \@xsect{#3}}
+
+
+%==================================================================
+%																			
+%		FIGURES AND TABLES              
+%																			
+%==================================================================
+% Use caption package above for most customizations
+%
+%   Modify the \@caption command to put a period after the figure or
+%   table number in the lof and lot tables
+\long\def\@caption#1[#2]#3{\par\addcontentsline{\csname
+  ext@#1\endcsname}{#1}{\protect\numberline{\csname
+  the#1\endcsname.}{\ignorespaces #2}}\begingroup
+    \@parboxrestore
+    \normalsize
+    \@makecaption{{\csname fnum@#1\endcsname}}{{\ignorespaces #3}}
+  \endgroup}
+  
+
+%==================================================================
+%																			
+%		TABLE OF CONTENTS, LIST OF FIGURES/TABLE, etc.             
+%																			
+%==================================================================
+% 
+%    define PAGE STYLES for the table of contents places headings
+%    within the designated margins and adjusts the textheight
+%    accordingly.  This code is not pretty.  When redefining vertical
+%    margins, command \vsplit is the key to success
+  
+\def\listEntry{Entry}
+\def\ps@afittoc{%
+	\let\@mkboth\@gobbletwo
+	\def \@oddhead{}
+	\def \@oddfoot{\rm 
+	      \hfil{\thepage}\hfil\thispagestyle{afittocn}}
+	\let \@evenhead\@oddhead \let \@evenfoot\@oddfoot
+	\footskip=\afittocfootskip
+}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                 %
+%   \def\ps@afittocn{                                             %
+%           \let\@mkboth\@gobbletwo                               %
+%           \def \@oddhead{}                                      %
+%           \def \@oddfoot{\rm                                    %
+%                 \hfil{\thepage}\hfil\thispagestyle{afittocn}}   %
+%           \let \@evenhead\@oddhead \let \@evenfoot\@oddfoot     %
+%           \footskip=\afittocfootskip                            %
+%   }                                                             %
+%                                                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newbox\@tocboxa
+\newbox\@tocboxb
+\def\ps@afittocn{
+        \let\@mkboth\@gobbletwo	
+	\def \@oddhead{}
+	\def \@oddfoot{\rm
+	      \hfil{\thepage}\hfil\thispagestyle{afittocn}}
+	\let \@evenhead\@oddhead \let \@evenfoot\@oddfoot
+	\footskip=\afittocfootskip 
+ 	\setbox\@outputbox\vbox{\listEntry\hfill{Page} \tocSkipStart 
+	\unvbox\@tocboxa \tocSkip 
+	                 \unvbox\@outputbox}        
+	\setbox\@tocboxb\vsplit\@outputbox to\textheight
+        \global\setbox\@tocboxa\vbox{\tocSkip \unvbox\@outputbox \unskip}
+	\setbox\@outputbox\copy\@tocboxb 
+}
+
+% =====================  TABLE OF CONTENTS  =======================
+
+\renewcommand\contentsname{Table of Contents}
+\renewcommand\@pnumwidth{0em {\hss}}
+\renewcommand{\@dotsep}{2}
+\renewcommand{\@tocrmarg}{8em plus2fil}
+\newif\if@toc \@tocfalse
+\renewcommand\tableofcontents{%
+    \if@twocolumn
+      \@restonecoltrue\onecolumn
+    \else
+      \@restonecolfalse
+    \fi
+    \begingroup% temporarily set if@toc so that \@schapter will not
+	        % put Table of Contents in the table of contents.
+      \@toctrue
+      \chapter*{\contentsname}
+    \endgroup
+    \def\listEntry{\@empty}
+%    \addcontentsline{toc}{chapter}{Table of Contents}
+    \thispagestyle{afittoc}
+    \baselineskip=14pt 
+    \def\tocSkip{\vskip \tocSpace}
+    \def\tocSkipStart{\vskip \tocStart}
+    {\raggedleft Page \vskip 1.0em \par\vskip-\parskip} 
+    \@starttoc{toc}%
+    \newpage   
+    \ifx\@tocboxa\@empty 
+    \else
+      \thispagestyle{afittocn}
+      \unvbox\@tocboxa
+      \newpage
+    \fi 
+    \if@restonecol\twocolumn\fi 
+    \baselineskip=\normalbaselineskip
+    \thispagestyle{plain}
+  }
+
+\def\l@appendix{\pagebreak[3]
+ \vskip \tocSpace % space above appendix line
+  \@dottedtocline{0}{0em}{6.4em}}
+
+\def\l@chapter{\pagebreak[3]
+ \vskip \tocSpace 
+  \@dottedtocline{0}{0em}{2.4em}}
+
+% For documents with more than 7 chapters you'll need to make
+% adjustments here
+\renewcommand\l@section{\@dottedtocline{1}{2.4em}{2em}}
+\renewcommand\l@subsection{\@dottedtocline{2}{4.4em}{3em}}
+\renewcommand\l@subsubsection{\@dottedtocline{3}{7.4em}{4em}}
+%\renewcommand\l@paragraph{\@dottedtocline{4}{13.5em}{5em}}
+%\renewcommand\l@subparagraph{\@dottedtocline{5}{16em}{6em}}
+
+
+% =====================  LIST OF FIGURES  =======================
+\renewcommand\listoffigures{%
+  \@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn\fi
+  \chapter*{\listfigurename}%
+  \def\listEntry{Figure}
+  \addcontentsline{toc}{chapter}{List of Figures}
+  \addtocontents{toc}{\protect\addvspace{10\p@}}
+  \thispagestyle{afittoc}
+  \baselineskip=14pt% 
+  \def\tocSkip{\vskip \lofSpace}
+  \def\tocSkipStart{\vskip \lofStart}
+
+  {\hbox to \hsize{Figure\hfil Page} \vskip 0.0em \par\vskip-\parskip}%
+  
+  \@starttoc{lof}%
+    \newpage   
+    \ifx\@tocboxa\@empty 
+    \else
+      \thispagestyle{afittocn}
+      \unvbox\@tocboxa
+      \newpage
+    \fi 
+   \if@restonecol\twocolumn\fi
+   \baselineskip=\normalbaselineskip 
+   \thispagestyle{plain}
+}%
+
+\def\l@figure{\pagebreak[3]
+ \vskip \lofSpace 
+ \@dottedtocline{1}{0.25em}{4.0em}}
+ 
+% =====================  LIST OF TABLES  =======================
+\renewcommand\listoftables{%
+  \@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn\fi
+  \chapter*{\listtablename}%
+  \def\listEntry{Table}
+  \addcontentsline{toc}{chapter}{List of Tables}
+  \addtocontents{toc}{\protect\addvspace{10\p@}}
+  \thispagestyle{afittoc}
+  \baselineskip=14pt%  
+  \def\tocSkip{\vskip \lofSpace}
+  \def\tocSkipStart{\vskip \lofStart}
+
+  {\hbox to \hsize{Table\hfil Page} \vskip 0.0em\par\vskip-\parskip}%   changed to 0.0em
+
+  \@starttoc{lot}%
+    \newpage   
+    \ifx\@tocboxa\@empty 
+    \else
+      \thispagestyle{afittocn}
+      \unvbox\@tocboxa
+      \newpage
+    \fi 
+  \if@restonecol\twocolumn\fi
+  \baselineskip=\normalbaselineskip 
+  \thispagestyle{plain}
+}%
+ 
+\let\l@table\l@figure
+
+% =====================  LIST OF SYMBOLS  =======================
+\newcommand\listsymbolname{List of Symbols}
+ 
+\def\listofsymbols{%
+  \@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn\fi
+  \chapter*{\listsymbolname}%
+  \def\listEntry{Symbol}
+  \addcontentsline{toc}{chapter}{List of Symbols}
+  \addtocontents{toc}{\protect\addvspace{10\p@}}
+
+  \thispagestyle{afittoc}
+
+  \baselineskip=14pt  
+  \def\tocSkip{\vskip \lofSpace}
+  \def\tocSkipStart{\vskip \lofStart}    
+  {\hbox to \hsize{Symbol\hfil Page} \vskip 0.0em\par\vskip-\parskip}%
+  
+  \@starttoc{los}%
+    \newpage   
+    \ifx\@tocboxa\@empty 
+    \else
+      \thispagestyle{afittocn}
+      \unvbox\@tocboxa
+      \newpage
+    \fi 
+   \if@restonecol\twocolumn\fi
+  \baselineskip=\normalbaselineskip 
+  \thispagestyle{plain}
+}%
+  
+\def\l@symbol{\pagebreak[3]
+ \vskip \lofSpace
+ \@dottedtocline{1}{0em}{5em}}
+
+%add symbol to los and in text with optional definition in the los
+ \def\symbol{\@ifnextchar[{\@symboldef}{\@symbolnodef}}
+ \def\@symboldef[#1]#2{#2\addcontentsline{los}{symbol}{\numberline{#2}{#1}}}
+ \def\@symbolnodef#1{#1\addcontentsline{los}{symbol}{#1}}
+
+% =====================  LIST OF ABBREVIATIONS  =======================
+\newcommand\listabbrevename{List of Abbreviations}
+
+\def\listofabbreviations{%
+  \@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn\fi
+  \chapter*{\listabbrevename}%
+  \renewcommand\listEntry{Abbreviation}
+  \addcontentsline{toc}{chapter}{List of Abbreviations}
+  \addtocontents{toc}{\protect\addvspace{10\p@}}
+
+  \thispagestyle{afittoc}
+  \baselineskip=14pt   
+  \def\tocSkip{\vskip \lofSpace}
+  \def\tocSkipStart{\vskip \lofStart}    
+  {\hbox to \hsize{Abbreviation\hfil Page} \vskip 0.0em \par\vskip-\parskip}%
+  
+  \@starttoc{loabb}%
+    \newpage   
+    \ifx\@tocboxa\@empty 
+    \else
+      \thispagestyle{afittocn}
+      \unvbox\@tocboxa
+      \newpage
+    \fi 
+  \if@restonecol\twocolumn\fi
+  \baselineskip=\normalbaselineskip 
+  \thispagestyle{plain}
+}%
+  
+\def\l@abbreviation{\pagebreak[3]
+ \vskip \lofSpace 
+ \@dottedtocline{1}{0em}{7em}}
+
+%add abbreviation to loabb and in text with optional definition in the loabb
+ \def\abbreviation{\@ifnextchar[{\@abbreviationdef}{\@abbreviationnodef}}
+ \def\@abbreviationdef[#1]#2{#2\addcontentsline{loabb}{abbreviation}{\numberline{#2}{#1}}}
+ \def\@abbreviationnodef#1{#1\addcontentsline{loabb}{abbreviation}{#1}}
+ 
+%use \abbreviationFull as an alternate to \abbreviation when you wish
+%to include the definition followed by its abbreviation in parentheses
+%in the text.
+ \def\abbreviationFull{\@ifnextchar[{\@fullAbbreviationdef}{\@abbreviationnodef}}
+ \def\@fullAbbreviationdef[#1]#2{#1 (#2)\addcontentsline{loabb}{abbreviation}{\numberline{#2}{#1}}}
+
+ 
+%==================================================================
+%																			
+%		Bibliography             
+%																			
+%==================================================================
+% 
+%    Change the default of square brackets to arabic numbers
+ 
+\renewcommand\@biblabel[1]{#1.}
+
+%% AFIT THESIS STYLE 2014
+%% End of afitThesis.sty
+
+

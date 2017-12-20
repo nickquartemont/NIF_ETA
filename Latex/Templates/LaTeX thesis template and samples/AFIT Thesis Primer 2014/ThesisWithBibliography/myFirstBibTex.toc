@@ -1,0 +1,27 @@
+\contentsline {chapter}{Abstract}{iv}
+\addvspace {10\p@ }
+\contentsline {chapter}{List of Figures}{vi}
+\addvspace {10\p@ }
+\contentsline {chapter}{Preface}{vii}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {chapter}{\numberline {I.}The First Steps}{1}
+\addvspace {10\p@ }
+\contentsline {section}{\numberline {1.1}\LaTeX \xspace a simple document}{2}
+\contentsline {section}{\numberline {1.2}Add a style file}{4}
+\contentsline {section}{\numberline {1.3}Add the front matter}{4}
+\contentsline {section}{\numberline {1.4}Add figures to the main matter and start writing}{9}
+\addvspace {10\p@ }
+\contentsline {chapter}{\numberline {II.}Customized Environments}{14}
+\addvspace {10\p@ }
+\contentsline {section}{\numberline {2.1}Customized lists}{14}
+\contentsline {subsection}{Creating a list of abbreviations}{14}
+\contentsline {subsection}{Creating a list of symbols}{15}
+\contentsline {section}{\numberline {2.2}Customized environments}{16}
+\contentsline {subsection}{Custom front matter environments}{17}
+\contentsline {subsection}{Custom main matter environments}{17}
+\contentsline {subsection}{Custom back matter environment}{17}
+\addvspace {10\p@ }
+\contentsline {chapter}{\numberline {III.}Conclusion}{19}
+\addvspace {10\p@ }
+\contentsline {chapter}{Bibliography}{20}

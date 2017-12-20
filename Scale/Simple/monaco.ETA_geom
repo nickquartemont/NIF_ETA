@@ -1,0 +1,390 @@
+' These tests are part of the example. Dont understand them... 
+'#TestRuntime# 360
+'#TestGrep# -i "erro[r]" ${OUTPUTFILENAME} | ${GREP} -v "[W]arnings and [E]rrors"
+'#TestGrep# "SCALE is finishe[d]" ${OUTPUTFILENAME} | ${AWK} "{print $1,$2,$3}"
+'#TestGrep# "is finishe[d]\." ${OUTPUTFILENAME} | ${AWK} "{print $1,$2,$3,$4,$5,$6,$7}"
+'#TestGrep# ".*\(\.dso\|\macroMixTable\|\.txt\|\.3dmap\|\.mim\|\.msm\|\.chart\|\.dff\|\.inp\|\.msl\) copied t[o]" ${OUTPUTFILENAME} | ${AWK} "{print $1,$2,$3}" | grep -v ".png" | grep -v ".ps"
+'#TestAwk# "/Warnings [\(]/,/\*\*\*\*\*\*/" ${OUTPUTFILENAME} | ${GREP} -v "repeated"
+'#TestAwk# "/Tally File[s]/,/Final Tally Results Summary/" ${OUTPUTFILENAME}
+'#TestGrep# "Neutron Region Tally [1]" ${OUTPUTFILENAME}
+'#TestGrep# "total flux (tl)  [ ]" ${OUTPUTFILENAME} | ${AWK} -v d="+ or -" -v std="TestNumStdDeviations 10" "{ print $1,$2,$3,$4,d,$5,std }"
+'#TestGrep# "total flux (cd)  [ ]" ${OUTPUTFILENAME} | ${AWK} -v d="+ or -" -v std="TestNumStdDeviations 10" "{ print $1,$2,$3,$4,d,$5,std }"
+'#TestGrep# "response 1       [ ]" ${OUTPUTFILENAME} | ${AWK} -v d="+ or -" -v std="TestNumStdDeviations 10" "{ print $1,$2,$3,d,$4,std }"
+
+'===============================================================================
+' Generate the Cross Sections 
+'===============================================================================
+=csas-mg
+Materials for Simplifed ETA Experiment 
+v7-27n19g
+' First Run is with 27 groups, switch to CE after Denovo has been run
+' These are just placeholders for now until I learn how this works 
+read composition
+    h2o         1 1.0 293.0 end
+    plexiglass  2 1.0 293.0 end
+    au          3 1.0 293.0 end
+    h2o         4 1.0 293.0 end
+    plexiglass  5 1.0 293.0 end
+    au          6 1.0 293.0 end
+    h2o         7 1.0 293.0 end
+    plexiglass  8 1.0 293.0 end
+    au          9 1.0 293.0 end
+    h2o         10 1.0 293.0 end
+    plexiglass  11 1.0 293.0 end
+    au          12 1.0 293.0 end
+    h2o         13 1.0 293.0 end
+    plexiglass  14 1.0 293.0 end
+    au          15 1.0 293.0 end
+    h2o         16 1.0 293.0 end
+    plexiglass  20 1.0 293.0 end
+    au          21 1.0 293.0 end
+    h2o         22 1.0 293.0 end
+    plexiglass  23 1.0 293.0 end
+    au          103 1.0 293.0 end
+    au          104 1.0 293.0 end
+    au          105 1.0 293.0 end
+end composition
+end
+
+
+'===============================================================================
+' Monaco functional module and title
+'===============================================================================
+=monaco
+Simplified ETA Experiment 
+
+'-------------------------------------------------------------------------------
+' Cross Section Information 
+'-------------------------------------------------------------------------------
+read crossSections
+' Again, these are placeholders 
+' This section is necessary to look up cross sections. This feeds the comp above
+    ampxFileunit=4
+' Need to lookup ampxFileunit 
+    mixture 1
+        element   1001 6.675146E-02
+        element   8016 3.337573E-02
+    end mixture
+    mixture 2
+        element   1001 5.678730E-02
+        element   6000 3.549206E-02
+        element   8016 1.419682E-02
+    end mixture
+    mixture 3
+        element  79197 5.772470E-02
+    end mixture
+    mixture 4
+        element  79197 5.772470E-02
+    end mixture
+    mixture 5
+        element  79197 5.772470E-02
+    end mixture
+    mixture 6
+        element  79197 5.772470E-02
+    end mixture
+    mixture 7
+        element  79197 5.772470E-02
+    end mixture
+    mixture 8
+        element  79197 5.772470E-02
+    end mixture
+    mixture 9
+        element  79197 5.772470E-02
+    end mixture
+    mixture 10
+        element  79197 5.772470E-02
+    end mixture
+    mixture 11
+        element  79197 5.772470E-02
+    end mixture
+    mixture 12
+        element  79197 5.772470E-02
+    end mixture
+    mixture 13
+        element  79197 5.772470E-02
+    end mixture
+    mixture 14
+        element  79197 5.772470E-02
+    end mixture
+    mixture 15
+        element  79197 5.772470E-02
+    end mixture
+    mixture 16
+        element  79197 5.772470E-02
+    end mixture
+    mixture 20
+        element  79197 5.772470E-02
+    end mixture
+    mixture 21
+        element  79197 5.772470E-02
+    end mixture
+    mixture 22
+        element  79197 5.772470E-02
+    end mixture
+    mixture 23
+        element  79197 5.772470E-02
+    end mixture
+    mixture 103
+        element  79197 5.772470E-02
+    end mixture
+    mixture 104
+        element  79197 5.772470E-02
+    end mixture
+    mixture 105
+        element  79197 5.772470E-02
+    end mixture
+
+end crossSections
+
+'-------------------------------------------------------------------------------
+' Geometry Block - SCALE standard geometry package (SGGP)
+'-------------------------------------------------------------------------------
+read geometry
+    global unit  1
+' origin” (followed by at least one of “x=”, “y=”, and/or“z=”) is available for all of the different source solid bodies
+' Inner Cone Rtop Ztop Rbot Zbot 
+        CONE 502 1.81 15.52 13.00 6.5 
+' Outer Cone 
+        CONE 503 2.19 15.52 14.00 6.0  
+' MCNP is Coordinates / Height / Radius 
+' Scale is R ZMAX ZMIN 
+' Inner Cylinder
+'        zCylinder 504 13.00 28.82 15.52 
+' Outer Cylinder 
+'        zCylinder 505 14.00 28.82 15.52
+' Cover 
+'        zCylinder 506 14.00 30.02 28.82     
+' Zr Foil  
+'        zCylinder 508 2.500 20.86 20.76 
+' Ni Foil 
+'        zCylinder 509 2.500 20.96 20.86
+' In Foil 
+'        zCylinder 510 2.500 21.06 20.96
+' Al Foil 
+'        zCylinder 511 2.004 21.1125 21.11
+' Au Foil 
+'        zCylinder 512 2.004 21.1379 21.11254
+' Al Foil 2 
+'        zCylinder 513 2.004 21.1405 21.13794 
+' HEU Foil 
+'        zCylinder 514 2.004 21.1456 21.14048
+' Al Foil 3 
+'        zCylinder 515 2.004 21.1481 21.14556 
+' TOAD 
+'        zCylinder 516 2.500 21.263 21.06
+' Al Foil 4 
+'        zCylinder 517 2.500 21.363 21.263
+' Ta Foil 
+'        zCylinder 518 2.500 21.373 21.363 
+' NAS 
+'        zCylinder 519 2.654 21.513 20.62 
+' Holder Fill 
+'        zCylinder 520 13.00 21.513 20.62 
+' Holder 
+'        zCylinder 521 13.00 21.713 20.42 
+' Vert #1, Si_1
+'        zCylinder 522 7.600 21.81 20.42 origin x=-0.2998 
+' Vert #1, Si_1
+'        zCylinder 523 8.600 21.81 20.42 origin x=-0.2998 
+' Vert #2, Si_2
+'        zCylinder 524 7.600 28.76 21.81 origin x=-0.2998 
+' Vert #2, Si_2
+'        zCylinder 525 8.600 28.76 21.81 origin x=-0.2998 
+' W Layer Rtop Ztop Rbot Zbot 
+'        CONE 526 1.61 10.98 7.167 6.500 origin x=-0.1997  
+' Bi_1 Layer  
+'        CONE 527 7.167 15.52 12.8 10.98 origin x=-0.1997    
+' Bi_2 
+'        zCylinder 528 12.8 20.42 15.52 origin x=-0.1997 
+' Bi_3A Outer 
+'        zCylinder 529 12.8 21.81 20.42 origin x=-0.1997 
+' Bi_3A Inner 
+'        zCylinder 530 8.70 21.81 20.42 origin x=-0.1997 
+' Bi_3B Inner 
+'        zCylinder 531 7.50 21.81 20.42 origin x=-0.3999 
+' Bi_4A Outer 
+'        zCylinder 532 12.8 22.72 21.81 origin x=-0.1997 
+' Bi_4A Inner 
+'        zCylinder 533 8.70 22.72 21.81 origin x=-0.1997 
+' Bi_4B 
+'        zCylinder 534 7.50 22.72 21.81 origin x=-0.3999 
+' PrA Outer 
+'        zCylinder 535 12.8 23.42 22.74 origin x=-0.1997 
+' PrA Inner 
+'        zCylinder 536 8.70 23.42 22.74 origin x=-0.1997 
+' PrB 
+'        zCylinder 537 7.50 23.42 22.74 origin x=-0.3999 
+' PrA Mylar Wrapper Outer 
+'        zCylinder 538 12.8 23.44 22.72 origin x=-0.1997 
+' PrA Mylar Wrapper Inner 
+'        zCylinder 539 8.70 23.44 22.72 origin x=-0.1997 
+' PrB Mylar Wrapper 
+'        zCylinder 540 7.50 23.44 22.72 origin x=-0.3999
+' B4CA Outer 
+'        zCylinder 541 12.8 28.82 23.44 origin x=-0.1997 
+' B4CA Inner 
+'        zCylinder 542 8.70 28.82 23.44 origin x=-0.1997 
+' B4CB 
+'        zCylinder 543 7.50 28.82 23.44 origin x=-0.3999 
+' Kill radius 
+'        sphere 544 63.75 
+' Drawer 
+' Plane in Scale is aX+bY+cZ+d=0
+' Format is PLANE LABEL XPL=a YPL=b ZPL=c CON=d
+'        PLANE 620 XPL=1 YPL=0 ZPL=0 CON=0 
+' NAS 
+'        zCylinder 621 2.89 23.31 20.42 
+' More Planes 
+'        PLANE 622 XPL=0 YPL=1 ZPL=0 CON=-2.69
+'        PLANE 623 XPL=0 YPL=1 ZPL=0 CON=2.69
+'        PLANE 624 XPL=0 YPL=1 ZPL=0 CON=-2.89
+'        PLANE 625 XPL=0 YPL=1 ZPL=0 CON=2.89
+'        PLANE 626 XPL=0 YPL=0 ZPL=1 CON=20.42 
+'        PLANE 627 XPL=0 YPL=0 ZPL=1 CON=20.62
+'        PLANE 628 XPL=0 YPL=0 ZPL=1 CON=21.513
+'        PLANE 629 XPL=0 YPL=0 ZPL=1 CON=21.713 
+'
+' Format for media filling media material# 1(relic) Fill Area 
+' Filling is opposite of MCNP definition so Pos is inside 
+' Density needs to be included in material definition instead 
+        media  1 1   502 
+        media  2 1   503 -502
+  
+'        media  2 1   3
+'        media  0 1   4 -11
+'
+'        com="gold foil"
+'        media  3 1   11  vol=0.001
+' Front Cone 
+'        media 1 1 -502 503 
+' Main Body 
+'        media 1 1 -504 505 
+' Back Cover
+'        media 1 1 506 
+' Zr Foil 
+'        media 3 1 508
+' Ni Foil 
+'        media 4 1 509 
+' In Foil 
+'        media 5 1 510
+' Al Foil 
+'        media 6 1 511 
+' Au Foil 
+'        media 8 1 512
+' Al Foil 
+'        media 6 1 513
+' HEU Foil 
+'        media 9 1 514
+' Al Foil 
+'        media 6 1 515
+' TOAD
+'        media 1 1 516 -511 -512 -513 -514 -515 
+' Al Foil 
+'        media 6 1 517 
+' NAS 
+'        media 1 1 519 -508 -509 -510 -511 -512 -513 -514 -515 -516 -517  
+' Drawer Filler 
+'        media 10 1 -519 -620 520 -627 628 -622 623  
+' Drawer 
+'        media 11 1 -519 -620 504 -624 625 -626 629 -520 627 -628 622 -623  
+'        media 11 1 621 -519 620 -520 627 -628 622 -623 
+' vert - Si_1
+'        media 11 1 -522 523 504 -520 627 -628 622 -623  -519 -620 -624 625 -626 629 621
+' $vert - Si_2
+'        media 11 1 -524 525 504 -521 vol=353.71
+' W Layer 
+'        media 12 1 526 
+' Bi_1 Layer 
+'        media 14 1 527 
+' Bi_2 layer 
+'        media 14 1 528 
+' Bi_3A 
+'        media 14 1 529 -530 -519 520 -627 628 -622 -623 504 -624 625 -626 629 621 -518 620 522 -523 vol=351.2 
+' Bi_3B 
+'        media 14 1 531 -519 520 -627 628 -622 -623 504 -624 625 -626 629 621 -518 620 522 -523 vol=164.8 
+' Bi_4A 
+'        media 14 1 532 -533 -524 525 504 -521 vol=252.01 
+' Bi_4B 
+'        media 14 1 534 -524 525 504 -521 vol=161.81 
+' PrA 
+'        media 13 1 535 -536 -524 525 504 -521 vol=188.31 
+' PrB 
+'        media 13 1 537 -524 525 504 -521 vol=120.17 
+' Mylar Wrapper 
+'        media 16 1 538 -539 -524 525 504 -521 535 -536 
+' Mylar Wrapper again 
+'        media 16 1 540 -539 -524 525 504 -521 535 -536 vol=950.72 
+' B4CA 
+'        media 15 1 541 -542 -524 525 504 -521 vol=1489.89 
+' B4CB 
+'        media 15 1 542 -524 525 504 -521 vol=950.72 
+' ETA Fill 
+'        media 16 1 502 -526 -527 
+'        media 16 1 504 520 -627 628 -622 623 -620 -624 625 -626 629 621 522 523 -524 525 -521 526 527 528 529 -530 -519 531 532 -533 534 535 -536 537 538 -539 540 541 -542 543 
+
+end geometry
+
+'-------------------------------------------------------------------------------
+' Definitions Block
+'-------------------------------------------------------------------------------
+read definitions
+    response 1
+        title="gold macro"
+        mat=3 ZAID=79197 MT=102 macro
+        makeChart
+    end response
+
+    distribution 1
+        title="Pu-Be Source Energy Spectra - from Knoll (Anderson & Neff)"
+        abscissa 11.0E+06 10.5E+06 10.0E+06  9.5E+06  9.0E+06 
+                  8.5E+06  8.0E+06  7.5E+06  7.0E+06  6.5E+06 
+                  6.0E+06  5.5E+06  5.0E+06  4.5E+06  4.0E+06 
+                  3.5E+06  3.0E+06  2.5E+06  2.0E+06  1.5E+06 
+                  1.0E+06  0.5E+06  0.0E+06  end
+        truePDF 2.74935E-03 7.94257E-03 1.38995E-02 8.70628E-03 1.40522E-02 
+                3.37559E-02 4.13930E-02 3.54361E-02 4.12403E-02 2.93264E-02 
+                3.89491E-02 5.97220E-02 6.76646E-02 6.56789E-02 6.41515E-02 
+                8.11059E-02 6.00275E-02 5.59035E-02 4.78082E-02 5.78891E-02 
+                8.20223E-02 9.05758E-02 end
+        runSampleTest
+    end distribution
+end definitions
+
+'-------------------------------------------------------------------------------
+' Sources Block
+'-------------------------------------------------------------------------------
+read sources
+    src 1
+        neutrons  strength=1.377E+07	
+        cuboid  0 0  0 0  0 0
+        eDistributionID=1
+    end src
+end sources
+
+'-------------------------------------------------------------------------------
+' Tallies Block
+'-------------------------------------------------------------------------------
+read tallies
+    regionTally 1
+        neutron 
+        unit=1 region=5
+        responseID=1
+    end regionTally
+end tallies
+
+'-------------------------------------------------------------------------------
+' Parameters Block
+'-------------------------------------------------------------------------------
+read parameters 
+    randomSeed=8650005740006085
+    batches=10
+    neutrons  noPhotons
+    fissionMult=0  secondaryMult=0 
+
+'   speed things up for the sample problem
+    perBatch=25000
+end parameters
+
+end data
+end
+

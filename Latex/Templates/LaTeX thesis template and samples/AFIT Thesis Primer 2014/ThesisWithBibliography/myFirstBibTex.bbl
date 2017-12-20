@@ -1,0 +1,17 @@
+\begin{thebibliography}{1}
+
+\bibitem{AFITStyle}
+Style guide for afit dissertations, theses and graduate research papers.
+\newblock Technical report, Air Force Institute of Technology, 2013.
+
+\bibitem{dumBook}
+Another~A. Name.
+\newblock {\em Book Title}.
+\newblock College Publishing, Anytown, State, 2008.
+
+\bibitem{dumArticle}
+Authors Name.
+\newblock Article title.
+\newblock {\em Journel Title}, 1(1):201--208, 2009.
+
+\end{thebibliography}

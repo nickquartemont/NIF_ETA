@@ -1,0 +1,34 @@
+Other common items that can be added to the front matter are
+acknowledgements, the table of contents and lists of figures and
+tables.  The acknowledgements can be added in the same manner as the
+abstract; use the environment commands for the
+Acknowledgement: {\bf $\backslash$begin\{acknowledgement\}} and {\bf
+$\backslash$end\{acknowledgement\}}.  The table of contents and other lists
+build automatically as you add sections, figures, and tables and are placed
+in the front matter using the commands below.  
+
+\vspace{-0.3in} {\singlespace
+\begin{verbatim}
+\frontmatter
+        \flyleaf                        
+        \disclaimerpage                 
+        \titlepageAFIT                      
+        \committeepage
+        \input{Front/abstract}
+        \input{Front/acknowledgement}
+        \tableofcontents
+        \listoffigures
+        \listoftables
+\end{verbatim}
+}
+
+\noindent The order follows the AFIT style guide\cite{AFITStyle}.  The {\em
+afitThesis.sty} defines additional environments and lists.  We
+will describe how to implement those items in the next chapter.
+For now, we will simply keep the abstract and perhaps the list of
+figures in our front matter as we move on to the
+main body of the thesis.
+
+
+
+

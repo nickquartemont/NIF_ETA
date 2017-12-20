@@ -1,0 +1,89 @@
+The style file {\em afitThesis.sty} contains code that generates the
+first, standardized pages of the thesis document.  Theses pages are the
+flyleaf, disclaimer page, the title page, and the committee page.  For
+each thesis, we customize these four pages by editing a tex file
+called {\em titlePage.tex}.  The customizable items for a thesis are:
+
+\vspace{-0.15in}
+\begin{tabular}{p{2.2in}p{4in}}
+    \begin{itemize}\itemsep-10pt
+	    \item Author
+	    \item Rank
+	    \item Graduation Date
+	    \item Document Designator
+	    \item Flypage title
+	    \item Title
+     \end{itemize} &
+    \begin{itemize}\itemsep-10pt
+	    \item Previous degrees
+	    \item Academic degree upon AFIT graduation
+	    \item Committee membership
+	    \item Department granting your degree
+	    \item School address
+	    \item Distribution statement
+	    \item Disclaimer
+     \end{itemize} 
+\end{tabular}
+
+\noindent Add this information to {\em titlePage.tex} as you obtain
+it.  One item to include as soon as possible is the distribution
+statement; ask your advisor which distribution statement is
+appropriate for your draft document.
+    
+If your document is something other than a thesis, you can set a flag at
+the beginning of {\em titlePage.tex}.  Use the $\%$ symbol to comment
+out unused flags and remove the $\%$ from the line of the
+appropriate flag.  In this way, the correct flag will execute at
+compilation.  The available flags correspond to the following
+documents:
+
+\vspace{-0.3in}
+{\singlespace
+\begin{center}
+\begin{tabular}{|l|l|}
+    \hline
+    \bf Document & \bf Flag\\
+    \hline
+    Thesis & {\bf $\backslash$afitthesis}  \\
+    Report & {\bf $\backslash$afitreport} \\
+    Dissertation & {\bf $\backslash$dissertation} \\
+    Prospectus & {\bf $\backslash$prospectus}\\
+    \hline
+\end{tabular}
+\end{center}}
+
+Once you customize the {\em titlePage.tex} file, we can typeset
+the first four pages of an AFIT thesis: the flypage, the disclaimer
+page, the title page and the committee page. 
+
+We must add a few lines to our typesetting program.  Within the
+document environment, we list the first four pages (See line 7-11)
+under front matter.  The flypage includes our first graphic---the AFIT
+logo---so we provide a path to our figures by using the {\bf
+$\backslash$graphicspath} command\footnote{Note the double brackets
+used in the graphicspath command; they are necessary for the command
+to execute properly with some compilers.} in the preamble.  Note line
+3 below where we set the path.  The {\em titlePage.tex} provides
+customization, not content, so it is called in the preamble;
+call the file by using the command {\bf $\backslash$input} as in line
+4 of the code below.  In all, we have added seven lines of code to our
+short program to create a four page document.
+
+\vspace{-0.25in}
+{\singlespace
+\begin{verbatim}
+\documentclass[12pt,letterpaper,oneside]{book}
+\usepackage{afitThesis}
+\graphicspath{{..\Figures}}
+\input{Preamble/titlepage}
+
+\begin{document}
+\frontmatter
+        \flyleaf                        
+        \disclaimerpage                 
+        \titlepageAFIT                      
+        \committeepage  	
+\end{document}
+\end{verbatim}
+}
+
