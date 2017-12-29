@@ -90,14 +90,13 @@ read composition
 ' Pr Density 6.4 g/cc 
     Praseodymium   13 den=6.400 1 300 59141 100 end 
 ' Bi Density 9.8 g/cc 
-    Bismuth    14 den=9.800 1 300 83209 1.0000e+02 end  
+    bismuth    14 den=9.800 1 300 83209 1.0000e+02 end  
 ' B4C Density 2.49 20% B-10, 80% B-11
 ' The MCNP script had 19.9% B-10, which is below natural abundance
-    B4C         15 den=2.49 1 300 end
-' Mylar https://physics.nist.gov/cgi-bin/Star/compos.pl?mode=text&refer=ap&matno=222
-wtptMylar  16 1.40 3      1000 4.1959
-                          6000 62.5017
-                          8000 33.3025 1 300 end
+    b4c        15 den=2.49 1 300 end
+' Mylar Wrapper, Density 1.38 g/cc 
+    Nitrogen      16 den=1.38 1 300 7014 99.61 
+                          7015  0.38982 end
 end composition
 end
 
@@ -214,6 +213,7 @@ read crossSections
         element  6013            2.903780e-004              
     end mixture 
     mixture 16 
+' THIS IS WRONG HERE. NEED TO UPDATE 
         element  1001            3.509272e-002              
         element  1002            4.036126e-006              
         element  6012            4.340395e-002              
