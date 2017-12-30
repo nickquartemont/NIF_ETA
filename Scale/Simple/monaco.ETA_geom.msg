@@ -1,12 +1,11 @@
-SCALE Job started on Tue 19/12/2017 20:25:31
+SCALE Job started on Fri 29/12/2017 20:02:59
 With Host name NICK
-working directory C:\Users\nickq\AppData\Local\Temp\scale.nickq.10672
-and process id 10672.
-Input file named C:\Users\nickq\Documents\Thesis-NIF\Scale\Simple\monaco.ETA_geom.inp
-and output file named C:\Users\nickq\Documents\Thesis-NIF\Scale\Simple\monaco.ETA_geom.out
+working directory C:\Users\nickq\AppData\Local\Temp\scale.nickq.23560
+and process id 23560.
+Input file named C:\Users\nickq\Documents\AFIT_Masters\NIF_ETA\Scale\Simple\monaco.ETA_geom.inp
+and output file named C:\Users\nickq\Documents\AFIT_Masters\NIF_ETA\Scale\Simple\monaco.ETA_geom.out
 ##########################################################
 ***Created 14 infinite homogeneous cells from unreferenced mixtures.
-***Warning: Nuclide 8018 is missing cross sections. Introducing zero cross sections.
 ***Warning: Nuclide 74180 is not contained in the specified library .
 Attempting to use element 74000 failed. It is also not contained in the library
 ***Warning: 'Because nuclide 74180 is missing from the cross section library, its mixture 12 composition definition follows:
