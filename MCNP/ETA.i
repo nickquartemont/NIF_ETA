@@ -156,7 +156,7 @@ c  Data Cards
 c ****************************************************************************
 c  Physics  
 MODE n
-NPS 2E10
+NPS 1E7
 PHYS:n 100 0 0 J J J 0 -1 J J J 0 0 
 MPHYS ON
 LCA 8J 1 1
