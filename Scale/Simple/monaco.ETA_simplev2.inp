@@ -460,6 +460,7 @@ end geometry
 '-------------------------------------------------------------------------------
 read definitions
 ' FYI Neutron disappearance(101); equal to sum of MT=102–117.
+' MT=18 is (z,fission). Reaction types start on page 2646. 
     response 11
         title="U-235 Foil Fission Macro"
         mat=9 MT=18 ZAID=92235 macro
