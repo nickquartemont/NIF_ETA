@@ -1,0 +1,136 @@
+'#TestRuntime# 360
+'#TestGrep# -i "erro[r]" ${OUTPUTFILENAME} | ${GREP} -v "[W]arnings and [E]rrors"
+'#TestGrep# "SCALE is finishe[d]" ${OUTPUTFILENAME} | ${AWK} "{print $1,$2,$3}"
+'#TestGrep# "is finishe[d]\." ${OUTPUTFILENAME} | ${AWK} "{print $1,$2,$3,$4,$5,$6,$7}"
+'#TestGrep# ".*\(\.dso\|\macroMixTable\|\.txt\|\.3dmap\|\.mim\|\.msm\|\.chart\|\.dff\|\.inp\|\.msl\) copied t[o]" ${OUTPUTFILENAME} | ${AWK} "{print $1,$2,$3}" | grep -v ".png" | grep -v ".ps"
+'#TestAwk# "/Warnings [\(]/,/\*\*\*\*\*\*/" ${OUTPUTFILENAME} | ${GREP} -v "repeated"
+'#TestAwk# "/Tally File[s]/,/Final Tally Results Summary/" ${OUTPUTFILENAME}
+'#TestGrep# "Neutron Region Tally [1]" ${OUTPUTFILENAME}
+'#TestGrep# "total flux (tl)  [ ]" ${OUTPUTFILENAME} | ${AWK} -v d="+ or -" -v std="TestNumStdDeviations 10" "{ print $1,$2,$3,$4,d,$5,std }"
+'#TestGrep# "total flux (cd)  [ ]" ${OUTPUTFILENAME} | ${AWK} -v d="+ or -" -v std="TestNumStdDeviations 10" "{ print $1,$2,$3,$4,d,$5,std }"
+'#TestGrep# "response 1       [ ]" ${OUTPUTFILENAME} | ${AWK} -v d="+ or -" -v std="TestNumStdDeviations 10" "{ print $1,$2,$3,d,$4,std }"
+
+'===============================================================================
+' Generate the Cross Sections 
+'===============================================================================
+=csas-mg
+Materials for Monaco/MAVRIC Training - Exercise Problem 1.
+v7-27n19g
+read composition
+    h2o         1 1.0 293.0 end
+    plexiglass  2 1.0 293.0 end
+    au          3 1.0 293.0 end
+end composition
+end
+
+
+'===============================================================================
+' Monaco functional module and title
+'===============================================================================
+=monaco
+Monaco/MAVRIC Training - Exercise Problem 1.  Neutron Howitzer
+
+'-------------------------------------------------------------------------------
+' Cross Section Information 
+'-------------------------------------------------------------------------------
+read crossSections
+    ampxFileunit=4
+    mixture 1
+        element   1001 6.675146E-02
+        element   8016 3.337573E-02
+    end mixture
+    mixture 2
+        element   1001 5.678730E-02
+        element   6000 3.549206E-02
+        element   8016 1.419682E-02
+    end mixture
+    mixture 3
+        element  79197 5.772470E-02
+    end mixture
+end crossSections
+
+'-------------------------------------------------------------------------------
+' Geometry Block - SCALE standard geometry package (SGGP)
+'-------------------------------------------------------------------------------
+read geometry
+    global unit  1
+        cylinder  1  30    35 -35
+        cylinder  2  28    33 -33
+        xcylinder 3   2    30  10
+        xcylinder 4   2    10   5
+        cuboid   11   7.501 7.500  0.5 -0.5  0.5 -0.5
+
+        media  1 1   2 -3 -4
+        media  2 1   1 -2 -3 
+        media  2 1   3
+        media  0 1   4 -11
+
+        com="gold foil"
+        media  3 1   11  vol=0.001
+    boundary 1
+end geometry
+
+'-------------------------------------------------------------------------------
+' Definitions Block
+'-------------------------------------------------------------------------------
+read definitions
+    response 1
+        title="gold macro"
+        mat=3 ZAID=79197 MT=102 macro
+        makeChart
+    end response
+
+    distribution 1
+        title="Pu-Be Source Energy Spectra - from Knoll (Anderson & Neff)"
+        abscissa 11.0E+06 10.5E+06 10.0E+06  9.5E+06  9.0E+06 
+                  8.5E+06  8.0E+06  7.5E+06  7.0E+06  6.5E+06 
+                  6.0E+06  5.5E+06  5.0E+06  4.5E+06  4.0E+06 
+                  3.5E+06  3.0E+06  2.5E+06  2.0E+06  1.5E+06 
+                  1.0E+06  0.5E+06  0.0E+06  end
+        truePDF 2.74935E-03 7.94257E-03 1.38995E-02 8.70628E-03 1.40522E-02 
+                3.37559E-02 4.13930E-02 3.54361E-02 4.12403E-02 2.93264E-02 
+                3.89491E-02 5.97220E-02 6.76646E-02 6.56789E-02 6.41515E-02 
+                8.11059E-02 6.00275E-02 5.59035E-02 4.78082E-02 5.78891E-02 
+                8.20223E-02 9.05758E-02 end
+        runSampleTest
+    end distribution
+end definitions
+
+'-------------------------------------------------------------------------------
+' Sources Block
+'-------------------------------------------------------------------------------
+read sources
+    src 1
+        neutrons  strength=1.377E+07	
+        cuboid  0 0  0 0  0 0
+        eDistributionID=1
+    end src
+end sources
+
+'-------------------------------------------------------------------------------
+' Tallies Block
+'-------------------------------------------------------------------------------
+read tallies
+    regionTally 1
+        neutron 
+        unit=1 region=5
+        responseID=1
+    end regionTally
+end tallies
+
+'-------------------------------------------------------------------------------
+' Parameters Block
+'-------------------------------------------------------------------------------
+read parameters 
+    randomSeed=8650005740006085
+    batches=10
+    neutrons  noPhotons
+    fissionMult=0  secondaryMult=0 
+
+'   speed things up for the sample problem
+    perBatch=250000000
+end parameters
+
+end data
+end
+
