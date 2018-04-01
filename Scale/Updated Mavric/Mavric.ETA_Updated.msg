@@ -153,3 +153,16 @@ Attempting to use element 74000 failed. It is also not contained in the library
          12 of     75      9.38 seconds   2.11 minutes     3D50E6572B96051F
          13 of     75      13.1 seconds   2.32 minutes     60A312551EF1AA06
          14 of     75      10.5 seconds   2.50 minutes     4DB424D0296CCDAC
+         15 of     75      10.0 seconds   2.67 minutes     1AB8C205496ED1FA
+
+ '===========================================================================
+
+     batch    batches        batch time   elapsed time      next randomSeed
+     ----------------     -------------  -------------     ----------------
+         16 of     75      12.7 seconds   2.88 minutes     33B60336542F2AF6
+         17 of     75      14.0 seconds   3.11 minutes     272B04255715A927
+         18 of     75      13.9 seconds   3.34 minutes     506E832D71266F18
+         19 of     75      14.0 seconds   3.58 minutes     21D81BC7480BED04
+         20 of     75      14.0 seconds   3.81 minutes     38DCDB5511CA1586
+         21 of     75      14.0 seconds   4.04 minutes     61CAA92F2EB515E9
+         22 of     75      13.8 seconds   4.28 minutes     25FC0F732A2BACD1
