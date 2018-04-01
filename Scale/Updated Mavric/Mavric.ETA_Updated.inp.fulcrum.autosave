@@ -1991,7 +1991,7 @@ read sources
 ' Source needs reference. 
     src 11
         title="NIF DT Source"
-        neutrons  strength=1	
+        neutrons  strength=3.7E+15	
 ' Source Strength in n. Needs to be updated to real value 
 ' Info from email from LLNL
         sphere 0 origin x=0 y=0 z=-9
