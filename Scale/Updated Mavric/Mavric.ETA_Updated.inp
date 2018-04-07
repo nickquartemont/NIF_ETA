@@ -13,66 +13,37 @@ read composition
 ' Requires the percentages to add up to 100
 ' name: Aluminum alloy 6061-O
 ' density = 2.65
-    wtptAl6061  1 2.65 28 12024 7.7949e-01
-                          12025 1.0280e-01
-                          12026 1.1770e-01
-                          13027 9.7199e+01
-                          14028 5.5119e-01
-                          14029 2.9001e-02
-                          14030 1.9799e-02
-                          22046 6.9696e-03
-                          22047 6.4220e-03
-                          22048 6.4983e-02
-                          22049 4.8683e-03
-                          22050 4.7562e-03
-                          24050 8.1386e-03
-                          24052 1.6321e-01
-                          24053 1.8863e-02
-                          24054 4.7840e-03
-                          25055 8.7999e-02
-                          26054 2.3090e-02
-                          26056 3.7587e-01
-                          26057 8.8358e-03
-                          26058 1.1965e-03
-                          29063 1.8832e-01
-                          29065 8.6681e-02
-                          30064 7.0197e-02
-                          30066 4.0825e-02
-                          30067 6.0381e-03
-                          30068 2.7986e-02
-                          30070 9.5254e-04 1 300 end
+    wtptAl6061  1 2.65 28 12024 7.7949e-01 12025 1.0280e-01
+                12026 1.1770e-01 13027 9.7199e+01 14028 5.5119e-01 14029 2.9001e-02
+                14030 1.9799e-02 22046 6.9696e-03 22047 6.4220e-03 22048 6.4983e-02
+                22049 4.8683e-03 22050 4.7562e-03 24050 8.1386e-03 24052 1.6321e-01
+                24053 1.8863e-02 24054 4.7840e-03 25055 8.7999e-02 26054 2.3090e-02
+                26056 3.7587e-01 26057 8.8358e-03 26058 1.1965e-03 29063 1.8832e-01
+                29065 8.6681e-02 30064 7.0197e-02 30066 4.0825e-02 30067 6.0381e-03
+                30068 2.7986e-02 30070 9.5254e-04 1 300 end
 ' Zr Foil, Density 6.511 g/cc
-    zirconium 3 den=6.511 1 300 40090 5.1450e+1
-               40091 1.1220e+01 40092 1.7150e+1
+    zirconium 3 den=6.511 1 300 40090 5.1450e+1 40091 1.1220e+01 40092 1.7150e+1
                40094 1.7380e+01 40096 2.8000 end
 ' Ni Foil, Density 8.908 g/cc
-    nickel    4 den=8.908 1 300 28058 6.8077e+01
-               28060 2.6223e+01 28061 1.1399
+    nickel    4 den=8.908 1 300 28058 6.8077e+01 28060 2.6223e+01 28061 1.1399
                28062 3.6346     28064 9.2550e-01 end 
 ' In Foil, Density 7.31 g/cc
-    indium    5 den=7.310 1 300 49113 4.2900
-                      49115 9.5710e+1 end 
+    indium    5 den=7.310 1 300 49113 4.2900 49115 9.5710e+1 end 
 ' Al Foil Density 2.7 g/cc
     aluminum  6 den=2.700 1 300 13027 100 end 
 ' Au Foil Density 19.3 g/cc 
     gold      8 den=19.30 1 300 79197 100 end 
 ' HEU Foil Density 18.7248 g/cc
-    wtptU     9 18.7248 5 92233 2.0000e-03
-                          92234 9.3898e-01
-                          92235 9.3215e+01
-                          92236 2.9999e-01
-                          92238 5.5439 1 300 end 
+    wtptU     9 18.7248 5 92233 2.0000e-03 92234 9.3898e-01 92235 9.3215e+01
+                          92236 2.9999e-01 92238 5.5439 1 300 end 
 ' Pb Density 11.34 g/cc / Drawer 
-    Lead      10 den=11.34 1 300 82204 1.4000
-               82206 2.4100e+01  82207 2.2100e+01
+    Lead      10 den=11.34 1 300 82204 1.4000 82206 2.4100e+01  82207 2.2100e+01
                82208 5.2400e+01 end 
 ' Si Density 2.28 g/cc 
-    Silicon   11 den=2.280 1 300 14028 9.2223e+01
-                14029 4.6850 14030 3.0920 end 
+    Silicon   11 den=2.280 1 300 14028 9.2223e+01 14029 4.6850 14030 3.0920 end 
 ' W Density 18.87 g/cc
-    Tungsten   12 den=18.87 1 300 74180 0.12                                                               
-                    74182 26.50 74183 14.31                                                               
-                    74184 30.64 74186 28.43 end 
+    Tungsten   12 den=18.87 1 300 74180 0.12 74182 26.50 74183 14.31                                                               
+                                  74184 30.64 74186 28.43 end 
 ' Pr Density 6.4 g/cc 
     Praseodymium   13 den=6.400 1 300 59141 100 end 
 ' Bi Density 9.8 g/cc 
@@ -80,11 +51,9 @@ read composition
 ' B4C Density 2.49 20% B-10, 80% B-11
     b4c        15 den=2.49 1 300 end
 ' Mylar Wrapper, Density 1.38 g/cc 
-    Nitrogen      16 den=1.38 1 300 7014 99.61 
-                          7015  0.38982 end
+    Nitrogen      16 den=1.38 1 300 7014 99.61018 7015  0.38982 end
 ' Surrounding Air, Density near void 
-    Nitrogen      17 den=1.165E-09 1 300 7014 99.61 
-                          7015  0.38982 end
+    Nitrogen      17 den=1.165E-09 1 300 7014 99.61 7015  0.38982 end
 end composition
 
 '-------------------------------------------------------------------------------
@@ -95,242 +64,156 @@ read geometry
     global unit  1
 ' origin” (followed by at least one of “x=”, “y=”, and/or“z=”)
 ' is available for all of the different source solid bodies
-' Inner Cone Rtop Ztop Rbot Zbot 
-        CONE 502 13.00 15.52 1.81 6.5 
-' Outer Cone 
-        CONE 503 14.00 15.52 2.19 6.0  
-' Cylinder R ZMAX ZMIN 
-' Inner Cylinder 
-        zCylinder 504 13.00 28.82 15.52 
-' Outer Cylinder 
-        zCylinder 505 14.00 28.82 15.52 
-' Cover 
-        zCylinder 506 14.00 30.02 28.82     
-' Zr Foil  
-        zCylinder 508 2.500 20.86 20.76 
-' Ni Foil 
-        zCylinder 509 2.500 20.96 20.86 
-' In Foil 
-        zCylinder 510 2.500 21.06 20.96 
-' Al Foil 
-        zCylinder 511 2.004 21.11254 21.11 
-' Au Foil 
-        zCylinder 512 2.004 21.13794 21.11254
-' Al Foil 2 
-        zCylinder 513 2.004 21.14048 21.13794 
-' HEU Foil 
-        zCylinder 514 2.004 21.14556 21.14048 
-' Al Foil 3 
-        zCylinder 515 2.004 21.1481 21.14556
-' TOAD 
-        zCylinder 516 2.500 21.263 21.06 
-' Al Foil 4 
-        zCylinder 517 2.500 21.363 21.263 
-' Ta Foil 
-        zCylinder 518 2.500 21.373 21.363 
-' NAS 
-        zCylinder 519 2.654 21.513 20.62 
-' Holder Fill 
-        zCylinder 520 13.00 21.513 20.62 
-' Holder 
-        zCylinder 521 13.00 21.713 20.42 
-' Vert #1, Si_1
-        zCylinder 522 7.600 21.81 20.42 origin x=-0.2998 
-' Vert #1, Si_1
-        zCylinder 523 8.600 21.81 20.42 origin x=-0.2998 
-' Vert #2, Si_2
-        zCylinder 524 7.600 28.76 21.81 origin x=-0.2998 
-' Vert #2, Si_2
-        zCylinder 525 8.600 28.76 21.81 origin x=-0.2998 
-' W Layer Rtop Ztop Rbot Zbot 
-        CONE 526 7.167 10.98 1.61 6.500 origin x=-0.1997  
-' Bi_1 Layer  
-        CONE 527 12.8 15.52 7.167 10.98 origin x=-0.1997    
-' Bi_2 
-        zCylinder 528 12.8 20.42 15.52 origin x=-0.1997 
-' Bi_3A Outer 
-        zCylinder 529 12.8 21.81 20.42 origin x=-0.1997 
-' Bi_3A Inner 
-        zCylinder 530 8.70 21.81 20.42 origin x=-0.1997 
-' Bi_3B Inner 
-        zCylinder 531 7.50 21.81 20.42 origin x=-0.3999 
-' Bi_4A Outer 
-        zCylinder 532 12.8 22.72 21.81 origin x=-0.1997 
-' Bi_4A Inner 
-        zCylinder 533 8.70 22.72 21.81 origin x=-0.1997 
-' Bi_4B 
-        zCylinder 534 7.50 22.72 21.81 origin x=-0.3999 
-' PrA Outer 
-        zCylinder 535 12.8 23.42 22.74 origin x=-0.1997 
-' PrA Inner 
-        zCylinder 536 8.70 23.42 22.74 origin x=-0.1997 
-' PrB 
-        zCylinder 537 7.50 23.42 22.74 origin x=-0.3999 
-' PrA Mylar Wrapper Outer 
-        zCylinder 538 12.8 23.44 22.72 origin x=-0.1997 
-' PrA Mylar Wrapper Inner 
-        zCylinder 539 8.70 23.44 22.72 origin x=-0.1997 
-' PrB Mylar Wrapper 
-        zCylinder 540 7.50 23.44 22.72 origin x=-0.3999
-' B4CA Outer 
-        zCylinder 541 12.8 28.82 23.44 origin x=-0.1997 
-' B4CA Inner 
-        zCylinder 542 8.70 28.82 23.44 origin x=-0.1997 
-' B4CB 
-        zCylinder 543 7.50 28.82 23.44 origin x=-0.3999 
-' Kill Radius 
-        sphere 544 63.75
-' Drawer 
-' Plane in Scale is aX+bY+cZ+d=0
-' Format is PLANE LABEL XPL=a YPL=b ZPL=c CON=d
-' Only input non-zero values 
-' Note D is negative from MCNP... 
-        PLANE 620 XPL=1 
-' NAS 
-        zCylinder 621 2.89 23.31 20.42 
-' More Planes 
-        PLANE 622 YPL=1.0 CON=2.69
-        PLANE 623 YPL=1.0 CON=-2.69
-        PLANE 624 YPL=1.0 CON=2.89
-        PLANE 625 YPL=1.0 CON=-2.89
-        PLANE 626 ZPL=1.0 CON=-20.42 
-        PLANE 627 ZPL=1.0 CON=-20.62
-        PLANE 628 ZPL=1.0 CON=-21.513
-        PLANE 629 ZPL=1.0 CON=-21.713 
 ' Format for media filling media material# 1(relic) Fill Area 
 ' Density needs to be included in material definition instead 
-' Media Filling 
-'
-' Density needs to be included in material definition instead 
+' Media Filling: density is included in material definition  
 ' The KENO geometry numbers the media objects sequentially from the beginning of the input file.
-' Volumes are not calculated automatically. If they are not included, it is set to -1 (not used).  
-' 1 Front Cone 
+' Volumes are not always calculated automatically. If they are not included, it is set to -1 (not used).  
+' Inner Cone      Rtop Ztop Rbot Zbot 
+        CONE 502 13.00 24.52 1.81 15.5
+' Outer Cone  
+        CONE 503 14.00 24.52 2.19 15 
+' 1 Front Al-6061 Cone
         media 1 1 -502 503 
-' 2 Main Body 
+' Cylinder R ZMAX ZMIN 
+' Inner Cylinder 
+        zCylinder 504 13.00 37.82 24.52 
+' Outer Cylinder 
+        zCylinder 505 14.00 37.82 24.52 
+' 2 Main Al-6061 Body 
         media 1 1 -504 505
-' 3 Back Cover 
+' Cover 
+        zCylinder 506 14.00 39.02 37.82    
+' 3 Back Al-6061 Cover 
         media 1 1 506
-' 4 Zr Foil 
+' 4 Zr Foil  
+        zCylinder 508 2.500 29.86 29.76 
         media 3 1 508 vol=1.963495408
 ' 5 Ni Foil 
+        zCylinder 509 2.500 29.96 29.86 
         media 4 1 509 vol=1.963495408
 ' 6 In Foil 
+        zCylinder 510 2.500 30.06 29.96 
         media 5 1 510 vol=1.963495408
 ' 7 Al Foil 
+        zCylinder 511 2.004 30.11254 30.11 
         media 6 1 511 vol=0.032046383
 ' 8 Au Foil 
+        zCylinder 512 2.004 30.13794 30.11254
         media 8 1 512 vol=0.320463834
-' 9 Al Foil 
+' 9 Al Foil 2 
+        zCylinder 513 2.004 30.14048 30.13794 
         media 6 1 513 vol=0.032046383
 ' 10 HEU Foil 
+        zCylinder 514 2.004 30.14556 30.14048 
         media 9 1 514 vol=0.064092767
-' 11 Al Foil 
-        media 6 1 515 vol=0.032046383  
-' 12 TOAD 
+' 11 Al Foil 3 
+        zCylinder 515 2.004 30.1481 30.14556
+        media 6 1 515 vol=0.032046383
+' 12 Target Option Activation Device TOAD 
+        zCylinder 516 2.500 30.263 30.06 
         media 1 1 516 -511 -512 -513 -514 -515
-' 13 Al Foil 
+' 13 Al Foil 4 
+        zCylinder 517 2.500 30.363 30.263 
         media 6 1 517 vol=1.963495408
-' Not including Ta foil for now. 
-' 14  NAS 
+' 14 Neutron activation spectrometer 
+        zCylinder 519 2.654 30.513 29.62 
         media 1 1 519 -508 -509 -510 -511 -513 -514 -515 -516  -517
-' 15 Drawer Filler 
-        media 10 1 520 -519 -620 627 -628 622 -623 504
-' 16-20 Drawer 
-        media 1  1 621 -519  626 620 -629
-        media 1  1 -620 -629 626 -625 623 504
-        media 1  1 -620 -629 626 -622 624 504
-        media 1  1 -519 -620 628 -629 622 -623 504
-        media 1  1 -519 -620 626 -627 622 -623 504
-'        media 
-' 21-24 Vert Si_1 original vol=62.51. Split up here. 
-        media 11 1 -522 523 629
-        media 11 1 -522 523 -629 625
-        media 11 1 -522 523 -629 -624
-        media 11 1 -522 523 -629 -625 624 620
-' 25 Vert Si_2
-        media 11 1 -524 525 504 -521 vol=353.71
-' 26 W Layer 
+' 15 NAS Holder  
+        zCylinder 620 2.89 30.713 29.42
+' This cuboid is the inner region of the drawer  
+' Cuboid (Cube) Xmax Xmin Ymax Ymin Zmax Zmin
+        CUBOID 631 13 0 2.69 -2.69 30.513 29.62
+        media 1  1 620 -519 -631
+' 16 Lead Drawer Fill 
+        media 10 1 631 -519 504
+' 17 Al-6061 Drawer 
+        CUBOID 630 13 0 2.89 -2.89 30.713 29.42
+        media 1  1 630 -631 -620 504
+' 18 Vertical #1, Si_1
+        zCylinder 522 7.600 30.81 29.42 origin x=-0.2998 
+        zCylinder 523 8.600 30.81 29.42 origin x=-0.2998 
+        media 11 1 -522 523 -630 vol=62.1
+' 19 Vertical #2, Si_2 
+        zCylinder 524 7.600 37.76 30.81 origin x=-0.2998 
+        zCylinder 525 8.600 37.76 30.81 origin x=-0.2998 
+        media 11 1 -524 525 504  vol=353.71
+' 20 W Layer 
+        CONE 526 7.167 19.98 1.61 15.500 origin x=-0.1997  
         media 12 1 526 
-' 27 Bi_1 Layer 
+' 21-22 Bi_1&2 Layers  
+        CONE 527 12.8 24.52 7.167 19.98 origin x=-0.1997    
+        zCylinder 528 12.8 29.42 24.52 origin x=-0.1997 
         media 14 1 527
-' 28 Bi_2 Layer 
         media 14 1 528 
-' 29-32 Bi_3A Vol original =351.2 cc
-        media 14 1 -530 529 629 -523
-        media 14 1 -530 529 -629 625  -523
-        media 14 1 -530 529 -629 -624 -523
-        media 14 1 -530 529 -629 -625 624 620 -523
-' 33-36 Bi_3B original vol=164.8 cc
-        media 14 1 -519 531 629 522 
-        media 14 1 -519 531 -629 625
-        media 14 1 -519 531 -629 -624
-        media 14 1 -519 531 -629 -625 624 620 -621
-' 37-40 Bi_4A original vol=252.01 cc
-        media 14 1 -533 532 629 -523 -525
-        media 14 1 -533 532 -629 625 -523 -525  
-        media 14 1 -533 532 -629 -624 -523 -525
-        media 14 1 -533 532 -629 -625 624 620 -523 -525  
-' 41 Bi_4B 
+' 23 Bi_3A Outer Cylinder
+        zCylinder 529 12.8 30.81 29.42 origin x=-0.1997 
+'  Bi_3A Inner Cylinder
+        zCylinder 530 8.70 30.81 29.42 origin x=-0.1997 
+        media 14 1 -530 529 -630 -523
+' 24 Bi_3B Inner 
+        zCylinder 531 7.50 30.81 29.42 origin x=-0.3999 
+        media 14 1 531 -620 -630 522
+' 25 Bi_4A Outer 
+        zCylinder 532 12.8 31.72 30.81 origin x=-0.1997 
+' Bi_4A Inner 
+        zCylinder 533 8.70 31.72 30.81 origin x=-0.1997 
+        media 14 1 532 -533 -620 -630 -525
+' 26 Bi_4B 
+        zCylinder 534 7.50 31.72 30.81 origin x=-0.3999 
         media 14 1 534 524 vol=161.81
-' 42 PrA Outer Region 
+' 27 PrA Outer 
+        zCylinder 535 12.8 32.42 31.74 origin x=-0.1997 
+' PrA Inner cylinder
+        zCylinder 536 8.70 32.42 31.74 origin x=-0.1997 
         media 13 1 535 -536 -525 504 vol=188.31
-' 43 PrB Middle Region 
+' 28 PrB Middle Region
+        zCylinder 537 7.50 32.42 31.74 origin x=-0.3999 
         media 13 1 537 524 vol=120.17
-' 44-45 Mylar Wrapper Outer
+' 29-30 PrA Mylar Wrapper Outer 
+        zCylinder 538 12.8 32.44 31.72 origin x=-0.1997 
+' PrA Mylar Wrapper Inner 
+        zCylinder 539 8.70 32.44 31.72 origin x=-0.1997 
         media 16 1 538 -539 -535 504 -525 
         media 16 1 538 -539 536 504 -525
-' 46 Mylar Wrapper Inner 
-        zCylinder 652 7.500 28.76 21.81 origin x=-0.3999
-        media 16 1 540 -537 652 524 -521 
-' 47 B4CA 
-        zCylinder 653 8.700 28.76 21.81 origin x=-0.1997 
-        media 15 1 541 -542 -525 -653
-' 48 B4CB 
-        zCylinder 660 7.500 28.86 21.81 origin x=-0.3999
-        zCylinder 661 7.600 28.86 21.81 origin x=-0.2998 
-        media 15 1 543 660 661
+' 31 PrB Mylar Wrapper
+        zCylinder 540 7.50 32.44 31.72 origin x=-0.3999
+        media 16 1 540 -537 524 
+' 32 B4CA Outer 
+        zCylinder 541 12.8 37.82 32.44 origin x=-0.1997 
+' B4CA Inner 
+        zCylinder 542 8.70 37.82 32.44 origin x=-0.1997 
+        media 15 1 541 -542 -525
+' 33-34 B4CB 
+        zCylinder 543 7.50 37.82 32.44 origin x=-0.3999 
+        media 15 1 543 524
+        zCylinder 560 7.50 37.82 37.76 origin x=-0.3999 
+        media 15 1 560
 ' ETA Fill 
-' The media can be inline with the geometry! 
-' 49 Outer cylinder fill top region
-        zCylinder 700 12.8 28.82 21.81 origin x=-0.1997 
-        zCylinder 701 13.00 28.82 21.81 
-        media 16 1 701 -700
-' 50 Outer cylinder fill bottom region
-        zCylinder 702 12.8 20.42 15.52 origin x=-0.1997 
-        zCylinder 703 13.00 20.42 15.52 
-        media 16 1 703 -702
-' 51-54 Void around drawer on outer cylinder 
-        zCylinder 704 12.8 21.81 20.42 origin x=-0.1997 
-        zCylinder 705 13.00 21.81 20.42 
-        media 16 1 -704 705 629
-        media 16 1 -704 705 -629 625
-        media 16 1 -704 705 -629 -624
-        media 16 1 -704 705 -629 -625 624 620
-' 55 Void above silicon Cylinder 
-' Cylinders to fill void above Si
-        zCylinder 650 8.70 28.86 28.76 origin x=-0.1997 
-        zCylinder 651 7.50 28.86 28.76 origin x=-0.3999 
-        media 16 1 -651 650 504
-' 56 Bottom Cone
-        media 16 1 502 -526 -527
+' 35 Outer cylinder fill void
+        zCylinder 700 12.8 37.82 24.52 origin x=-0.1997 
+        media 16 1 504 -700 -630 -506
+' 36 Void above silicon Cylinder 
+        zCylinder 650 8.70 37.82 37.76 origin x=-0.1997 
+        zCylinder 651 7.50 37.82 37.76 origin x=-0.3999 
+        media 16 1 650 -651 -506
+' 37 Bottom Cone
+       media 16 1 502 -526 -527
 ' Cylinders around drawer and vertical Si cylinders 
-' 57-60 Lower Inner Cylinder Inside of Si Vert
-        media 16 1 -531 522 629
-        media 16 1 -531 522 -629 625
-        media 16 1 -531 522 -629 -624
-        media 16 1 -531 522 -629 -625 624 620
-' 61-64 Lower Cylinder Outside of Si Vert
-        media 16 1 -523 530 629
-        media 16 1 -523 530 -629 625
-        media 16 1 -523 530 -629 -624
-        media 16 1 -523 530 -629 -625 624 620
-' 65 Top void cylinder inside of SI vert 
-        media 16 1 -652 524 504 -521 
-' 66 Top void cylinder inside of SI vert 
-        media 16 1 -525 653 504 -521 
-' 67 Chamber Fill 
+' 38 Inner Si Void
+        zCylinder 710 7.6 37.76 29.42 origin x=-0.2998 
+        zCylinder 711 7.5 37.76 29.42 origin x=-0.3999 
+        media 16 1 710 -711 -630 -543
+' 39 Outer Si Void 
+        zCylinder 712 8.7 37.76 29.42 origin x=-0.1997
+        zCylinder 713 8.6 37.76 29.42 origin x=-0.2998  
+        media 16 1 712 -713 -630
+' 40 Chamber Fill 
+' Kill Radius 
+        sphere 544 63.75
         media 0 1 -503 -505 -506 544
     boundary 544
+
 end geometry
 
 '-------------------------------------------------------------------------------
@@ -1991,7 +1874,7 @@ read sources
 ' Source needs reference. 
     src 11
         title="NIF DT Source"
-        neutrons  strength=1	
+        neutrons  strength=3.7E+15	
 ' Source Strength in n. Needs to be updated to real value 
 ' Info from email from LLNL
         sphere 0 origin x=0 y=0 z=-9
@@ -2157,7 +2040,7 @@ read parameters
 ' Use continuous energy
     ceLibrary='ce_v7.1_endf.xml'
     randomSeed=8650005740006085
-    batches=75
+    batches=10000
     neutrons  noPhotons
     fissionMult=0  secondaryMult=0 
     perBatch=100000

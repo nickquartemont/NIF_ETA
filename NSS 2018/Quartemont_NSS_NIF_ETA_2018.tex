@@ -1,0 +1,543 @@
+%% Quartemont_NENG685_RSM_Final_Project.tex
+%% 5 Nov 2017
+
+\documentclass[journal]{IEEEtran}
+
+% Some very useful LaTeX packages include:
+% (uncomment the ones you want to load)
+
+% *** CITATION PACKAGES ***
+\usepackage{url}
+\usepackage{cite}
+% cite.sty was written by Donald Arseneau
+% V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
+% \cite{} output to follow that of the IEEE. Loading the cite package will
+% result in citation numbers being automatically sorted and properly
+% "compressed/ranged". e.g., [1], [9], [2], [7], [5], [6] without using
+% cite.sty will become [1], [2], [5]--[7], [9] using cite.sty. cite.sty's
+% \cite will automatically add leading space, if needed.
+
+% *** GRAPHICS RELATED PACKAGES ***
+\usepackage{graphicx}
+
+% graphicx was written by David Carlisle and Sebastian Rahtz. It is
+% required if you want graphics, photos, etc. graphicx.sty is already
+% installed on most LaTeX systems. The latest version and documentation
+% can be obtained at: 
+% http://www.ctan.org/pkg/graphicx
+% Another good source of documentation is "Using Imported Graphics in
+% LaTeX2e" by Keith Reckdahl which can be found at:
+% http://www.ctan.org/pkg/epslatex
+%
+% latex, and pdflatex in dvi mode, support graphics in encapsulated
+% postscript (.eps) format. pdflatex in pdf mode supports graphics
+% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
+% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
+% not a bitmapped formats (.jpeg, .png). The IEEE frowns on bitmapped formats
+% which can result in "jaggedy"/blurry rendering of lines and letters as
+% well as large increases in file sizes.
+%
+% You can find documentation about the pdfTeX application at:
+% http://www.tug.org/applications/pdftex
+
+% *** MATH PACKAGES ***
+%
+\usepackage{amsmath}
+% A popular package from the American Mathematical Society that provides
+% many useful and powerful commands for dealing with mathematics.
+%
+% Note that the amsmath package sets \interdisplaylinepenalty to 10000
+% thus preventing page breaks from occurring within multiline equations. Use:
+\interdisplaylinepenalty=2500
+% after loading amsmath to restore such page breaks as IEEEtran.cls normally
+% does. amsmath.sty is already installed on most LaTeX systems. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/pkg/amsmath
+
+% *** SPECIALIZED LIST PACKAGES ***
+%
+%\usepackage{algorithmic}
+% algorithmic.sty was written by Peter Williams and Rogerio Brito.
+% This package provides an algorithmic environment fo describing algorithms.
+% You can use the algorithmic environment in-text or within a figure
+% environment to provide for a floating algorithm. Do NOT use the algorithm
+% floating environment provided by algorithm.sty (by the same authors) or
+% algorithm2e.sty (by Christophe Fiorio) as the IEEE does not use dedicated
+% algorithm float types and packages that provide these will not provide
+% correct IEEE style captions. The latest version and documentation of
+% algorithmic.sty can be obtained at:
+% http://www.ctan.org/pkg/algorithms
+% Also of interest may be the (relatively newer and more customizable)
+% algorithmicx.sty package by Szasz Janos:
+% http://www.ctan.org/pkg/algorithmicx
+
+% *** ALIGNMENT PACKAGES ***
+%
+\usepackage{array}
+% Frank Mittelbach's and David Carlisle's array.sty patches and improves
+% the standard LaTeX2e array and tabular environments to provide better
+% appearance and additional user controls. As the default LaTeX2e table
+% generation code is lacking to the point of almost being broken with
+% respect to the quality of the end results, all users are strongly
+% advised to use an enhanced (at the very least that provided by array.sty)
+% set of table tools. array.sty is already installed on most systems. The
+% latest version and documentation can be obtained at:
+% http://www.ctan.org/pkg/array
+
+% *** SUBFIGURE PACKAGES ***
+\ifCLASSOPTIONcompsoc
+\usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
+\else
+\usepackage[caption=false,font=footnotesize]{subfig}
+\fi
+% subfig.sty, written by Steven Douglas Cochran, is the modern replacement
+% for subfigure.sty, the latter of which is no longer maintained and is
+% incompatible with some LaTeX packages including fixltx2e. However,
+% subfig.sty requires and automatically loads Axel Sommerfeldt's caption.sty
+% which will override IEEEtran.cls' handling of captions and this will result
+% in non-IEEE style figure/table captions. To prevent this problem, be sure
+% and invoke subfig.sty's "caption=false" package option (available since
+% subfig.sty version 1.3, 2005/06/28) as this is will preserve IEEEtran.cls
+% handling of captions.
+% Note that the Computer Society format requires a larger sans serif font
+% than the serif footnote size font used in traditional IEEE formatting
+% and thus the need to invoke different subfig.sty package options depending
+% on whether compsoc mode has been enabled.
+%
+% The latest version and documentation of subfig.sty can be obtained at:
+% http://www.ctan.org/pkg/subfig
+
+\ifCLASSOPTIONcaptionsoff
+\usepackage[nomarkers]{endfloat}
+\let\MYoriglatexcaption\caption
+\renewcommand{\caption}[2][\relax]{\MYoriglatexcaption[#2]{#2}}
+\fi
+% endfloat.sty was written by James Darrell McCauley, Jeff Goldberg and 
+% Axel Sommerfeldt. This package may be useful when used in conjunction with 
+% IEEEtran.cls'  captionsoff option. Some IEEE journals/societies require that
+% submissions have lists of figures/tables at the end of the paper and that
+% figures/tables without any captions are placed on a page by themselves at
+% the end of the document. If needed, the draftcls IEEEtran class option or
+% \CLASSINPUTbaselinestretch interface can be used to increase the line
+% spacing as well. Be sure and use the nomarkers option of endfloat to
+% prevent endfloat from "marking" where the figures would have been placed
+% in the text. The two hack lines of code above are a slight modification of
+% that suggested by in the endfloat docs (section 8.4.1) to ensure that
+% the full captions always appear in the list of figures/tables - even if
+% the user used the short optional argument of \caption[]{}.
+% IEEE papers do not typically make use of \caption[]'s optional argument,
+% so this should not be an issue. A similar trick can be used to disable
+% captions of packages such as subfig.sty that lack options to turn off
+% the subcaptions:
+% For subfig.sty:
+% \let\MYorigsubfloat\subfloat
+% \renewcommand{\subfloat}[2][\relax]{\MYorigsubfloat[]{#2}}
+% However, the above trick will not work if both optional arguments of
+% the \subfloat command are used. Furthermore, there needs to be a
+% description of each subfigure *somewhere* and endfloat does not add
+% subfigure captions to its list of figures. Thus, the best approach is to
+% avoid the use of subfigure captions (many IEEE journals avoid them anyway)
+% and instead reference/explain all the subfigures within the main caption.
+% The latest version of endfloat.sty and its documentation can obtained at:
+% http://www.ctan.org/pkg/endfloat
+%
+% The IEEEtran \ifCLASSOPTIONcaptionsoff conditional can also be used
+% later in the document, say, to conditionally put the References on a 
+% page by themselves.
+
+\begin{document}
+	%
+	% paper title
+	% Titles are generally capitalized except for words such as a, an, and, as,
+	% at, but, by, for, in, nor, of, on, or, the, to and up, which are usually
+	% not capitalized unless they are the first or last word of the title.
+	% Linebreaks \\ can be used within to get better formatting as desired.
+	% Do not put math or special symbols in the title.
+	\title{ROTATING SCATTER MASK FOR NEUTRON SOURCE IMAGING}
+	%
+	% author names and IEEE memberships
+	% note positions of commas and nonbreaking spaces ( ~ ) LaTeX will not break
+	% a structure at a ~ so this keeps an author's name from being broken across
+	% two lines.
+	% use \thanks{} to gain access to the first footnote area
+	% a separate \thanks must be used for each paragraph as LaTeX2e's \thanks
+	% was not built to handle multiple paragraphs
+	
+	\author{Nicholas~Quartemont}
+	
+	% The paper headers
+	\markboth{NENG 685 Final Project}%
+	{Shell \MakeLowercase{\textit{et al.}}: NENT 685 Final Project}
+	% The only time the second header will appear is for the odd numbered pages
+	% after the title page when using the twoside option.
+	
+	% make the title area
+	\maketitle
+	
+	% As a general rule, do not put math, special symbols or citations
+	% in the abstract or keywords.
+	\begin{abstract}
+		Rotating scattering masks offer a method to characterize radiation sources when coupled with a radiation detector which is beneficial for the broad scientific community to locate and track unknown radiation sources.  A rotating scattering mass is a material with complex geometry placed over a detector to increase the linear independence of the solutions.  The objective was to use a gamma radiation mask setup and translate it to detect and locate neutron sources.  The monte-carlo transport code, MCNP6.14, was used to create detector energy dependent response functions.  The detector response was compared in 72 source positions for 500 keV, 2 MeV, and 14.1 MeV source neutrons with a mask composed of a lead-bismuth eutectic and a high-density polyethylene.  The energy depended response functions shown strong linear relationship of 0.99 +/- 0.02, which minimizes the direction detectability of source neutrons in short timescales. The integrated response function displays more uniqueness in the detectability; however, more measurement time is required to characterize the source.  The uniqueness of the detector responses indicates that the entire mask response is required to determine a solution for the source position. 
+	\end{abstract}
+	
+	% Note that keywords are not normally used for peerreview papers.
+	\begin{IEEEkeywords}
+		neutron, detection, scattering, imaging, mask, nuclear
+	\end{IEEEkeywords}
+	
+	
+	% For peer review papers, you can put extra information on the cover
+	% page as needed:
+	% \ifCLASSOPTIONpeerreview
+	% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+	% \fi
+	%
+	% For peerreview papers, this IEEEtran command inserts a page break and
+	% creates the second title. It will be ignored for other modes.
+	\IEEEpeerreviewmaketitle
+	
+	\section{Introduction}
+	% The very first letter is a 2 line initial drop letter followed
+	% by the rest of the first word in caps.
+	% form to use if the first word consists of a single letter:
+	% \IEEEPARstart{A}{demo} file is ....
+	% form to use if you need the single drop letter followed by
+	% normal text (unknown if ever used by the IEEE):
+	% \IEEEPARstart{A}{}demo file is .... 
+	% Here we have the typical use of a "T" for an initial drop letter
+	% and "HIS" in caps to complete the first word.
+	\IEEEPARstart{N}{eutron} measurement and detection is important for an array of applications of interest to the Department of Defense and the scientific community in general.  Notable applications of neutron detection are nuclear non-proliferation monitoring, nuclear materials security and search, and weapons detection.  A robust capability enables the source to be characterized and located. 
+	
+	\ The Air Force Institute of Technology (AFIT) has demonstrated rotating scattering masks (RSMs) capability to provide a means of determining the location of a gamma radiation source.  The RSM is used in conjunction with a detector to provide a source location on the order of an hour. The RSM application can also be extended to a degree for neutron sources.  Energy deposition differs between gammas and neutrons in materials, which creates a major challenge for this project.  Gamma radiation deposits energy in relatively fine peaks, while neutron radiation creates a spectrum of responses from a detector. 
+	
+	\ This work aims to modify the gamma RSM model with a neutron source to provide a first-look at the uniqueness of the detector responses, with a focus on linearly independent solutions to decrease the time to orient the direction to the radiation source.  Important aspects of neutron detection modeled and varied in conjunction with the RSM include neutron energy, source direction, and RSM material.  The detector response for each variation can be analyzed.  A large variance in the response of a detector allows for low degeneracy in the solution for source location.  The uniqueness of the detector responses will be represented by the dot product of two response matrices divided by the product of magnitudes of each matrix.   
+	
+	\section{Problem Description}
+	\ The RSM is modeled with varying neutron energy, source position, and RSM material.  The scope of the project is limited to 0.5, 2, and 14.1 MeV neutrons using the existing RSM geometry with a 2'' EJ-309 detector. The source location is placed at 72 points. The RSM is modeled with two materials: a high-density polyethylene (HDPE) and a Lead-Bismuth eutectic (LBE).  The results to be presented show the energy deposited in the detector as a function of energy, which is linked to the uniqueness of the response functions.  The scope determined allows for a  top level view of the feasibility of extending the RSM to neutron sources. 
+	
+	\ The 72 source locations are 86.36 cm from the detector with an azimuthal angle $\phi$ of 45 degrees. The experimental setup is shown in Figure \ref{fig:3d}\cite{RSM_T}.  Each angle tested is at five degree increments in the horizontal plane, completing a full 2$\pi$ rotation around the azimuthal angle.  The rotation characterizes a slice of the response from the whole RSM. 
+	
+	\begin{figure}[h]
+	    \includegraphics[width=\linewidth]{Images/Experiment_Setup.png}
+	    \caption{Experimental Setup.}
+	    \label{fig:3d}
+    \end{figure}
+	
+	\ The uniqueness of the response functions is determined with a model assurance criterion (MAC) as shown in equation \ref{eq:MACeq}.  The MAC represents the relationship between two vectors, which will be unity if there is a strong linear relationship and zero to indicate linear independence \cite{RSM_T}.  The MAC between two responses is a function of the magnitude of the detector counts and the energy spectrum of the counts.  The MAC is determined for each neutron source energy and RSM material.  A matrix of MACs can be formed to show the general uniqueness of the RSM with angular dependence. The error is the MAC is taken as the square root of the quadrature sum of the errors in the underlying distribution. 
+	
+	\begin{equation} \label{eq:MACeq}
+	MAC = (\dfrac{\mathbf{A} \cdot \mathbf{B}}{|\mathbf{A}| |\mathbf{B}|})^2  
+	%MAC = (\dfrac{|\dfrac{b}{H}-\hat{x}|_{\infty}}{|\dfrac{b}{H}|_{\infty}})  
+	\end{equation}
+     
+    \ The mix of neutron energy, source location, and RSM material provides a comprehensive first look analysis of the uniqueness of the detector responses.  The neutron energy source was chosen to test neutrons at low energy that are still detectable with an EJ-309, fission energy, and fusion energy.  The neutrons interact with the RSM material and scatter or pass through, to the detector.  The LBE and HDPE materials offer two very different options for neutron interaction.  LBE is composed of high atomic mass isotopes, so the average neutron energy loss is very low.  HDPE is composed of a low mass organic compounds, so more thermalization of the neutrons occurs.
+	
+	\section{Description of Work}
+	\ The process to build and analyze the neutron RSM involved MCNP Version 6.14 and Python 2.7. MCNP was used for the model, neutron transport calculations, and detector response. Post-processing of the data from MCNP utilized Python.  MCNP created a large number of output files, 72 for each setup.  Python's features allow for an expedited process of evaluating the entire dataset.   
+	
+	\ The MCNP model used for the RSM was adapted from a collection of MCNP6.14 scripts for the gamma RSM work conducted at AFIT\cite{RSMcode}. The key modifications made to the MCNP script include the MCNP geometry, RSM materials, source definition, and detector tally. 
+	
+	\ The 2'' EJ-309 detector employed a model from an external Github Repository from Slaybaugh Lab \cite{88ej309}. The EJ-309 required a modification to fit inside of the RSM, which involved external interfaces, such as mounts and flanges to be removed. The EJ-309 is 2'' in diameter. 
+	
+	\ The detector response in MCNP utilized the F8 tally built-in, which counts the energy distribution of pulses in a detector\cite{MCNP6}. The energy distribution is created from an energy balance from the events in the simulation. The neutron energies are cutoff at 250 keV, which is a typical threshold value to cause scintillation in an EJ-309 detector.  The F8 tally utilizes two catch energy bins to remove counts that do not transfer to a physical pulse count. These catch bins occur at 0 eV and 1 eV.  The catch bins are necessary despite the energy cutoff because the neutrons can still impart energies below 250 keV to the detector. 
+	
+	\ The tally chosen is an area of potential error in the results.  The F8 tally sets a warning message when an F8 tally is utilized with neutrons, as the results may be unreliable.  The Los Alamos National Laboratory manual for MCNP6 cites that the correct pulses for the F8 tally are extremely limited \cite{MCNP6}. Neutrons may not work as expected because of their non-analog physics, which is more complex than gamma interactions with material \cite{MCNP6}. 
+	
+	\ The gamma RSM model was generally left intact for the neutron source modifications.  The neutron cross-section libraries were changed to the neutron form.  The source definition was modified to emit neutrons instead of gammas. The LBE was modeled at 44.5 weight percent lead and 55.5 weight percent bismuth with a density of $ 10.756 g/cm^3$ \cite{LBE}. 
+	
+	\ The geometry of the MCNP model is shown in Figure \ref{fig:geometry}.  The shape of the RSM is not readily apparent in this form.  The mask is a surface of varying thicknesses.  The plane at a height of 10 centimeters is important for analysis as it is in-line with the source direction to the detector.  The MCNP files require MCNP Version 6.14 to utilize the unstructured mesh that defines the RSM geometry.  The RSM geometry utilized is the the same as the original work. 
+	
+	\begin{figure}[ht]
+		\includegraphics[width=\linewidth]{Images/All.png}
+		\caption{MCNP Geometry.}
+		\label{fig:geometry}
+	\end{figure}
+    
+    \ The MCNP input utilized the ENDF/B-VI nuclear data files at room temperature.  The number of source particles for each run is 10,000,000.  On 16 cores, the 72 simulations over the six configurations can be accomplished in approximately one day. 
+    
+    \ The post-processing analysis centers around flexibility and repeatability to optimize the turnaround of output information to changes in the project.  A prompt return of output is essential to parse through the six configurations of 72 MCNP output files.  
+    
+    \ A MCNP 6.14 tally reading output function in Python automates the process of importing data into a structured array for post-processing.  The tally reading function is adapted from a Github Repository from Nuclear Engineering 685 at AFIT\cite{N685}. The tally reading function is coupled with a file searching function to search through the output files and extract the tally information.  The MCNP inputs and post-processing functions are available on a Github Repository\cite{RSMcode}. 
+   
+	\section{Results}
+    \ The detector response, detector response functions, and MAC value aspects of the results highlight the deficiency in the RSM setup to image a neutron source.  The detector response shows the energy dependent pulse count for a tally.  The neutron response function is the integrated detector response.  The MAC values show the uniqueness of the response function. 
+      
+	\subsection{Detector Responses}
+    \ The detector responses are shown for the LBE tally results.  Overall, there are a few aspects of the response functions that are not physical.  It is highly likely that this area requires further work to determine a new tally to produce the correct results.  The remainder of the analysis is carried out to aid in future studies.  The plots are done with errorbars. 
+    
+    \ The expected results for this section is an increases in energy deposition tallies as the energy is decreased.  The peak value should occur at low energies.  The mechanism for energy deposition for neutrons in detectors is elastic and inelastic scattering.  Based on the angle of the scatter, the neutron will deposit a fraction of its energy to the detector.  
+    
+    \ The results of the 14.1 MeV neutron source MCNP simulation detector responses with the F8 tally are shown in Figure \ref{fig:ESpec} for the LBE RSM. The detector response curves follow the same shape the HDPE RSM at 14.1 MeV.  
+	
+	\begin{figure}[ht]
+		\includegraphics[width=\linewidth]{Images/FluxLBE14MeV.png}
+		\centering
+		\caption{Detector Response Energy Spectrum for 14.1 MeV Neutrons in LBE RSM.}
+		\label{fig:ESpec}
+	\end{figure}
+	
+	\ The energy dependent pulse count shape is characterized by a large region of nearly constant energy deposition at low levels.  The pulse counts of energy deposition increases at lower energies, which is consistent with expectations. 
+	
+	\ There is an increase in energy deposition at the source energy that is not physical.  The increase implies that there is a preference for the neutron to deposit its full energy when interacting with the detector.  An important note here is that the shape of the detector responses is nearly the same with an increase in magnitude based on the direction.  The result of similar detector responses indicates that there is a strong linear correlation between the data sets, so the MAC is low for this slice of the RSM. 
+	
+    \ The results of the 2 MeV neutron source MCNP simulation detector responses with the F8 tally are shown in Figure \ref{fig:ESpec2} for the LBE RSM. The detector response curves follow the same shape the HDPE RSM at 2 MeV.  
+	
+	\begin{figure}[ht]
+		\includegraphics[width=\linewidth]{Images/FluxLBE2MeV.png}
+		\centering
+		\caption{Detector Response Energy Spectrum for 2 MeV Neutrons in LBE RSM.}
+		\label{fig:ESpec2}
+	\end{figure}
+
+    \ The 2 MeV detector response are also not what is expected.  Again, there is a large peak at the source energy.  Unlike the 14.1 MeV neutron source, the energy deposited for 2 MeV exceeds the total energy of the neutron, which is entirely non-physical.  The low energy depositions behave as expected. 
+	
+    \ The results of the 500 keV neutron source MCNP simulation detector responses with the F8 tally are shown in Figure \ref{fig:ESpec3} for the LBE RSM. The detector response curves have much lower values than the HDPE at this energy. 
+	
+	\begin{figure}[ht]
+		\includegraphics[width=\linewidth]{Images/FluxLBE500keV.png}
+		\centering
+		\caption{Detector Response Energy Spectrum for 500 MeV Neutrons in LBE RSM.}
+		\label{fig:ESpec3}
+	\end{figure}
+	
+	\ The 500 keV detector response shows similar traits to the 2 MeV detector response.  The maximum pulse energy is near 700 keV, which is outside of the range for 500 keV neutrons. At lower energies, the increasing counts is not as apparent.  The low counts at low energies may be attributed to the sparsity of bins at these enegies. 
+	
+	\subsection{Detector Response Functions}
+	
+	\ The detector response functions over the 2$\pi$ $\theta$ range are integrated detector responses over energy. The total counts in the bin represent the entire pulse count that is seen by the detector.  This results of this section and the subsequent sections should be taken with the results of the energy depended detector responses in mind.  Figure \ref{fig:LBE_Response} shows the detector response function for the LBE RSM.
+	
+	\begin{figure}[ht]
+		\includegraphics[width=\linewidth]{Images/LBE_Response_NT.png}
+		\centering
+		\caption{LBE Response Function.}
+		\label{fig:LBE_Response}
+	\end{figure}
+
+    \ The LBE results determine that the RSM geometry has a four-fold degeneracy in total counts.  The angular range of the peaks cooresponds very similarly to the angle range of the XY plane slice at a Z of 10 cm from Figure \ref{fig:geometry}.  In practice, the whole detector response function is taken and compared to a library of repsonse functions, so this degeneracy is not limiting the capability wholly. 
+    
+    \ There are varying trends in the response based on the material length.  Where width is largest, the 14.1 MeV neutrons have a peak pulse count.  The 14.1 MeV neutrons are more penetrating and are able to reach the detector. The 500 keV neutrons have a peak pulse count where the thickness is minimum.  Lower energy neutrons have a larger cross section, so the flux that reaches the detector has a large probability of interacting. 
+
+	\ The results for the HPDE RSM are shown in Figure \ref{fig:HDPE_Response}. The HDPE pulse counts are in general less than for the LBE mask. It is important to note here that there is an appreciable amount of variability of the integrated response functions, which can allow for detection if enough data is taken for all of the potential outcomes based on source energy and direction. 
+	
+	\begin{figure}[h]
+		\includegraphics[width=\linewidth]{Images/HDPE_Response_NT.png}
+		\centering
+		\caption{HDPE Response Function.}
+		\label{fig:HDPE_Response}
+	\end{figure}
+	
+	\ The results fo the HDPE RSM show the same trends as for the LBE RSM with the major exception of the 500 keV source neutrons and the magnitude of the counts in the detector.  HDPE is composed of lighter atomic nuclei, which strongly perturbs the interaction of neutrons.  Thermalization of neutron energies occurs as neutrons pass through the light material, which increases the cross section. 
+	
+	\ In the 500 keV case, the energy is thermalized enough that the neutrons are absorbed by the HDPE before they reach the detector. In the case of 14.1 and 2 MeV neutrons, the counts are generally lower than the LBE RSM.  The 2 MeV neutrons have a larger than expected count rate in the thicker regions. 
+	
+	\subsection{MAC Results}
+	
+	\ The results of the detector responses are complied into a MAC matrix. The MAC matrix compares each of the energy dependent responses against one another for a given material and neutron source energy.  
+	
+    \ The MAC matrix for 14.1 MeV neutrons in LBE is shown in Figure \ref{fig:MACFig}. The other MAC matrices are not shown.  The 500 keV HPDE RSM MAC matrix is not statistically significant, and the remaining MAC matrices behave nearly identically in magnitude and behavior to the 14.1 MeV is LBE. 
+	
+	\begin{figure}[h]
+		\includegraphics[width=\linewidth]{Images/14MeVLBE.png}
+		\centering
+		\caption{MAC Matrix for 14.1 MeV Neutrons in LBE RSM.}
+		\label{fig:MACFig}
+	\end{figure}	
+	
+	\ The MAC matrix shows nearly complete degeneracy in all of the values, which is expected from the relative shapes of the energy distributions in the pulse counts.  There is a wide band that appears in each of the MAC matrices from bins of approximately 35 to 52.  The bin range corresponds to a degree bin range of 175 to 260 degrees.  The region that aligns with the degree bin range is that which has the greatest pulse count, with some extension.  The results of each MAC matrix are compiled in Table \ref{table_example}.  
+
+    \begin{table}[h]
+	%% increase table row spacing, adjust to taste
+	\renewcommand{\arraystretch}{1.3}
+	\caption{An Example of a Table}
+	\label{table_example}
+	\centering
+	%% Some packages, such as MDW tools, offer better commands for making tables
+	%% than the plain LaTeX2e tabular which is used here.
+	\begin{tabular}{|c||c||c|}
+	\hline
+	MAC & Average & Average Error\\
+    \hline
+    14.1 MeV LBE & 0.998 & 0.015\\
+    \hline
+    2 MeV LBE & 0.993 & 0.018\\
+    \hline
+    500 keV LBE & 0.996 & 0.013\\
+    \hline
+    14.1 MeV HDPE & 0.998 & 0.019\\
+    \hline
+    2 MeV HDPE & 0.993 & 0.014\\
+    \hline
+    500 keV HDPE & 0.950 & 0.177\\
+    \hline
+	\end{tabular}
+	\end{table}
+
+    \ The results of each MAC are nearly complete equivalence in all directions for each energy source and for the LBE or HDPE material.  The 500 keV sample with the HDPE did not achieve statistically significant results, as the HDPE does an effective job of shielding lower energy neutrons.  The average MAC for each setup is in the range of 0.99, which is not enough to indicate the direction of the source with accuracy. 
+
+	\section{Conclusions}
+	\ The RSM geometry and material selection is not feasible for neutron imaging with the results.  The evaluation of the MAC matrices indicates that LBE is a superior material for the primary reason of not shielding from lower energy neutrons.  It is important to note that this study is a very small selection of the RSM.  Other directions in the RSM may provide less degeneracy and more suitable MAC results. 
+	
+	\ The detector response functions are not completely degenerate.  This allows for the possibility of taking data in a slice around the RSM and potentially backing out the source direction based on a library of detector responses.  Source characterization is possible if enough data of all of the source position and energies are known.  Utilizing a large sample size by rotating the RSM and taking new data is not a rapid process and should be attempted to be avoided. 
+	
+	\ Improvements to the RSM can be achieved to increase the MAC values.  A low MAC value will allow for a rapid determination of the source of the neutrons.  The energy spectrum is too similar to distinguish directionality, which causes the MAC values to move to unity.  Improvements to the RSM include changes to the geometry and materials selection to alter the neutron energy spectrum.  
+	
+	\ Potential improvements to the geometry and materials should be aimed to have properties of the LBE and HDPE.  A likely path for this is to have an other region composed of LBE with an inner thinner shield of HDPE.  This setup would provide the RSM with capabilities of highly scattering with both high and low energy loss.  The result of which will increase the detector counts and help to spread out the neutron spectrum.  
+	
+	\ Future analysis should address a few key pieces absent from this study.  Different geometry and materials should be studies, to acquire the full picture of the RSM. A new figure of merit may become apparent when the neutron energy spectrum is changed.  It is suspected that changing the spectrum will allow for the MAC to have continued use.  An investigation of the tally used and outliers should be conducted, which was not accomplished in this study.  Finally, the simulation can be conducted in MCNP-PoliMI or GEANT to handle the particle interaction and tracking at a more fine level of detail.  Documentation of this study is available on a Github Repository\cite{RSMcode}. 
+	
+	% An example of a floating figure using the graphicx package.
+	% Note that \label must occur AFTER (or within) \caption.
+	% For figures, \caption should occur after the \includegraphics.
+	% Note that IEEEtran v1.7 and later has special internal code that
+	% is designed to preserve the operation of \label within \caption
+	% even when the captionsoff option is in effect. However, because
+	% of issues like this, it may be the safest practice to put all your
+	% \label just after \caption rather than within \caption{}.
+	%
+	% Reminder: the "draftcls" or "draftclsnofoot", not "draft", class
+	% option should be used if it is desired that the figures are to be
+	% displayed while in draft mode.
+	%
+	%\begin{figure}[!t]
+	%\centering
+	%\includegraphics[width=2.5in]{myfigure}
+	% where an .eps filename suffix will be assumed under latex, 
+	% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+	% via \DeclareGraphicsExtensions.
+	%\caption{Simulation results for the network.}
+	%\label{fig_sim}
+	%\end{figure}
+	
+	% Note that the IEEE typically puts floats only at the top, even when this
+	% results in a large percentage of a column being occupied by floats.
+	
+	% An example of a double column floating figure using two subfigures.
+	% (The subfig.sty package must be loaded for this to work.)
+	% The subfigure \label commands are set within each subfloat command,
+	% and the \label for the overall figure must come after \caption.
+	% \hfil is used as a separator to get equal spacing.
+	% Watch out that the combined width of all the subfigures on a 
+	% line do not exceed the text width or a line break will occur.
+	%
+	%\begin{figure*}[!t]
+	%\centering
+	%\subfloat[Case I]{\includegraphics[width=2.5in]{box}%
+	%\label{fig_first_case}}
+	%\hfil
+	%\subfloat[Case II]{\includegraphics[width=2.5in]{box}%
+	%\label{fig_second_case}}
+	%\caption{Simulation results for the network.}
+	%\label{fig_sim}
+	%\end{figure*}
+	%
+	% Note that often IEEE papers with subfigures do not employ subfigure
+	% captions (using the optional argument to \subfloat[]), but instead will
+	% reference/describe all of them (a), (b), etc., within the main caption.
+	% Be aware that for subfig.sty to generate the (a), (b), etc., subfigure
+	% labels, the optional argument to \subfloat must be present. If a
+	% subcaption is not desired, just leave its contents blank,
+	% e.g., \subfloat[].
+	
+	
+	% An example of a floating table. Note that, for IEEE style tables, the
+	% \caption command should come BEFORE the table and, given that table
+	% captions serve much like titles, are usually capitalized except for words
+	% such as a, an, and, as, at, but, by, for, in, nor, of, on, or, the, to
+	% and up, which are usually not capitalized unless they are the first or
+	% last word of the caption. Table text will default to \footnotesize as
+	% the IEEE normally uses this smaller font for tables.
+	% The \label must come after \caption as always.
+	%
+	%\begin{table}[!t]
+	%% increase table row spacing, adjust to taste
+	%\renewcommand{\arraystretch}{1.3}
+	% if using array.sty, it might be a good idea to tweak the value of
+	% \extrarowheight as needed to properly center the text within the cells
+	%\caption{An Example of a Table}
+	%\label{table_example}
+	%\centering
+	%% Some packages, such as MDW tools, offer better commands for making tables
+	%% than the plain LaTeX2e tabular which is used here.
+	%\begin{tabular}{|c||c|}
+	%\hline
+	%One & Two\\
+	%\hline
+	%Three & Four\\
+	%\hline
+	%\end{tabular}
+	%\end{table}
+	
+	
+	% Note that the IEEE does not put floats in the very first column
+	% - or typically anywhere on the first page for that matter. Also,
+	% in-text middle ("here") positioning is typically not used, but it
+	% is allowed and encouraged for Computer Society conferences (but
+	% not Computer Society journals). Most IEEE journals/conferences use
+	% top floats exclusively. 
+	% Note that, LaTeX2e, unlike IEEE journals/conferences, places
+	% footnotes above bottom floats. This can be corrected via the
+	% \fnbelowfloat command of the stfloats package.
+	
+	% if have a single appendix:
+	%\appendix[Proof of the Zonklar Equations]
+	% or
+	%\appendix  % for no appendix heading
+	% do not use \section anymore after \appendix, only \section*
+	% is possibly needed
+	
+	% use appendices with more than one appendix
+	% then use \section to start each appendix
+	% you must declare a \section before using any
+	% \subsection or using \label (\appendices by itself
+	% starts a section numbered zero.)
+	%
+	
+	% Can use something like this to put references on a page
+	% by themselves when using endfloat and the captionsoff option.
+	\ifCLASSOPTIONcaptionsoff
+	\newpage
+	\fi
+	
+	% trigger a \newpage just before the given reference
+	% number - used to balance the columns on the last page
+	% adjust value as needed - may need to be readjusted if
+	% the document is modified later
+	%\IEEEtriggeratref{8}
+	% The "triggered" command can be changed if desired:
+	%\IEEEtriggercmd{\enlargethispage{-5in}}
+	
+	% references section
+	
+	% can use a bibliography generated by BibTeX as a .bbl file
+	% BibTeX documentation can be easily obtained at:
+	% http://mirror.ctan.org/biblio/bibtex/contrib/doc/
+	% The IEEEtran BibTeX style support page is at:
+	% http://www.michaelshell.org/tex/ieeetran/bibtex/
+	%\bibliographystyle{IEEEtran}
+	% argument is your BibTeX string definitions and bibliography database(s)
+	%\bibliography{IEEEabrv,../bib/paper}
+	%
+	% <OR> manually copy in the resultant .bbl file
+	% set second argument of \begin to the number of references
+	% (used to reserve space for the reference number labels box)
+	\begin{thebibliography}{6}
+		% 1
+		\bibitem{RSM_T}
+		J.~V. Logan, "Rotating Scatter Mask for Gamma Source Imaging," M.S. thesis, AFIT/ENP, Wright Patterson AFB, OH, 2017
+		\bibitem{RSMcode}
+		Robert Olesen. (2017) Rotating Scattering Mask Gamma MCNP Drill input. Available:
+		\url{https://github.com/nickquartemont/Neutron_RSM} 
+		\bibitem{88ej309}
+		James E Bevins. (25 April 2017) Slaybaugh Lab 88 Data. Available: \url{https://github.com/SlaybaughLab/88_Data/blob/master/Simulated/PHS/33MeVTa/BeamOnly/Model/33MeVTaBeamOnly_Det.i}
+		\bibitem{MCNP6}
+		MCNP6 Users Manual, Los Alamos National Laboratory, Los Alamos, NM, USA, 2013.
+		\bibitem{LBE}
+		Handbook on Lead-bismuth Eutectic Alloy and Lead Properties, Materials Compatibility, Thermal-hydraulics and Technologies, 2007 ed., Nuclear Energy Agency, Paris, France, 2007, pp. 25-58.
+		\bibitem{N685}
+		James E Bevins. (28 July 2017) MCNP.py. Available:
+		\url{https://github.com/jamesbevins/PyScripts/blob/master/src/GeneralNuclear/MCNP.py}
+	\end{thebibliography}
+	
+\end{document}
+
+
