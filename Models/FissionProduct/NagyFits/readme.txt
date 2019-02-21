@@ -1,0 +1,2 @@
+- fits for experiemental data to "Nagy fits" Yield = Y0*exp(-b*E)
+- GEF fission product yields 

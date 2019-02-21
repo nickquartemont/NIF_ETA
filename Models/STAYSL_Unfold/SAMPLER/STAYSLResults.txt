@@ -1,0 +1,8 @@
+Guess MCNP chi2/v 0.355 with p-value 0.956
+Largest chi2/v 8.3 with p-value 0.000
+Bootstrapped MCNP chi2/v 1.3 with p-value 0.222
+Hypothesis that activities come from the expected distribution is accepted 81.9% of the trials
+Hypothesis that activities come from the expected distribution is rejected 18.1% of the trials
+KS 2 Sample D and p-value SCALE Map to MCNP
+Worst KS = 0.094, p-val = 6.06e-01
+Best KS = 0.094, p-val = 6.06e-01
