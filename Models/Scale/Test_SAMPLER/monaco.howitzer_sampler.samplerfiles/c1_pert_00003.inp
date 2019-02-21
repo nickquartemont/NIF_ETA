@@ -1,0 +1,140 @@
+=shell
+  ln -sf C:/SCALE-6.2.2/data/scale.rev04.xn252v7.1 ft89f001
+  ln -sf ${DATA}/perturb/56n.v7.1/Sample3 ft87f001
+end
+=clarolplus
+  in=89
+  out=88
+  var=87
+  isvar=10
+  bond=yes
+  sam=3
+end
+=shell
+  mv ft88f001 xn252v7.1
+  unlink ft87f001
+  unlink ft89f001
+  mv ft10f001 crawdadPerturbMGLib
+end
+=mavric
+Monaco/MAVRIC Training - Exercise 3.  Graphite Shielding Measurements Revisited
+v7-27n19g
+
+'-------------------------------------------------------------------------------
+' Composition Block - standard SCALE input
+'-------------------------------------------------------------------------------
+read composition
+    nickel    3 den=8.908 1 300 28058 6.8077e+01 28060 2.6223e+01 28061 1.1399
+               28062 3.6346     28064 9.2550e-01 end
+    carbon       4 den=1.7 1.0 300.0 end
+end composition
+
+'-------------------------------------------------------------------------------
+' Geometry Block - SCALE standard geometry package (SGGP)
+'-------------------------------------------------------------------------------
+read geometry
+    global unit 1
+        cuboid  1   25.0 -25.0  25.0 -25.0   25.0 -25.0
+        cone    2  10.35948  25.01   0.0 0.0   rotate  a1=-90 a2=-90 a3=0
+        cuboid  3   90.0  70.0  40.0 -40.0   40.0 -40.0
+        cuboid 99  120.0 -30.0  50.0 -50.0   50.0 -50.0
+        media 3 1  1 -2
+        media 0 1  2
+        media 4 1  3
+        media 0 1  99 -1  -2 -3
+    boundary 99
+end geometry
+
+'-------------------------------------------------------------------------------
+' Definitions Block
+'-------------------------------------------------------------------------------
+read definitions
+        response 20
+                title=" total "
+            neutron
+                mat=3  MT=1 ZAID=28058 macro
+        makechart
+        end response
+
+        response 21
+                title=" n,n within group "
+            neutron
+                mat=3  MT=2022 ZAID=28058 macro
+        makechart
+        end response
+
+        response 22
+                title=" n,n"
+            neutron
+                mat=3  MT=2 ZAID=28058 macro
+        makechart
+        end response
+
+        response 23
+                title=" Ni-58(n,2n)57-Ni Foil Macro"
+            neutron
+                mat=3  MT=16 ZAID=28058 macro
+        makechart
+        end response
+
+        response 24
+                title=" capture "
+            neutron
+                mat=3  MT=101 ZAID=28058 macro
+        makechart
+        end response
+
+        response 25
+                title=" n,n'"
+            neutron
+                mat=3  MT=4 ZAID=28058 macro
+        makechart
+        end response
+
+            location 1
+                position 110 0 0
+            end location
+
+            distribution 1
+                title="Cf-252 neutrons, Watt spectrum a=1.025 MeV and b=2.926/MeV"
+                special="wattSpectrum"
+                parameters 1.025 2.926 end
+            end distribution
+
+end definitions
+
+'-------------------------------------------------------------------------------
+' Sources Block
+'   Cf-252 neutrons, Watt fission spectrum model
+'   with a=1.025 MeV and  b=2.926/MeV
+'-------------------------------------------------------------------------------
+read sources
+    src 1
+        title="Cf-252 neutrons, Watt fission spectrum model"
+        strength=4.05E+07
+        cuboid  0.01 0.01  0 0  0 0
+        neutrons
+        eDistributionID=1
+    end src
+end sources
+
+
+
+'-------------------------------------------------------------------------------
+' Parameters Block
+'-------------------------------------------------------------------------------
+read parameters
+    randomSeed=00003ecd7b4e3e8b
+    library="xn252v7.1"
+    perBatch=1 batches=1
+    fissionMult=0   noPhotons
+end parameters
+
+
+
+end data
+end
+
+=shell
+  cp C:\Users\nickq\Documents\AFIT_Masters\NIF-ETA-Experiment\Models\Scale\Test_SAMPLER/monaco.howitzer_sampler.samplerfiles/c1_pert_00003.inp C:\Users\nickq\Documents\AFIT_Masters\NIF-ETA-Experiment\Models\Scale\Test_SAMPLER/monaco.howitzer_sampler.samplerfiles/c1_pert_00003/
+end

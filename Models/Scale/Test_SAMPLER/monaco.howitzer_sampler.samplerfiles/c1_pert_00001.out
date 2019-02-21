@@ -1,0 +1,1854 @@
+ *******************************************************************************
+ *                                                                             *
+ *                                 SCALE 6.2.2                                 *
+ *                                -------------                                *
+ *                                October 2018                                 *
+ *                                                                             *
+ *           SCALE:  A Comprehensive Modeling and Simulation Suite             *
+ *                   for Nuclear Safety Analysis and Design                    *
+ *                                                                             *
+ *                      Reactor and Nuclear Systems Division                   *
+ *                        Oak Ridge National Laboratory                        *
+ *                                                                             *
+ *                           http://scale.ornl.gov                             *
+ *                            scalehelp@ornl.gov                               *
+ *                                                                             *
+ *******************************************************************************
+ *******************************************************************************
+      
+                  Job Information
+                  ---------------
+      Job started on NICK on Tue 30/10/2018 15:53:14
+      Working directory: C:\Users\nickq\AppData\Local\Temp\scale.nickq.14816\scale.nickq.6724
+      Input file name  : C:\Users\nickq\Documents\AFIT_Masters\NIF-ETA-Experiment\Models\Scale\Test_SAMPLER\monaco.howitzer_sampler.samplerfiles\c1_pert_00001.inp
+      Output file name : C:\Users\nickq\Documents\AFIT_Masters\NIF-ETA-Experiment\Models\Scale\Test_SAMPLER\monaco.howitzer_sampler.samplerfiles\c1_pert_00001.out
+      SCALE executable : C:\SCALE-6.2.2/bin/scale
+      
+ *******************************************************************************
+
+
+    module shell will be called on Tue Oct 30 15:53:14 2018.
+    sequence specification record:=shell
+Input Data:
+
+        ln -sf C:/SCALE-6.2.2/data/scale.rev04.xn252v7.1 ft89f001
+        ln -sf ${DATA}/perturb/56n.v7.1/Sample1 ft87f001
+end
+
+        1 file(s) copied.
+        1 file(s) copied.
+module shell is finished. completion code 0
+
+
+    module clarolplus will be called on Tue Oct 30 15:53:15 2018.
+    sequence specification record:=clarolplus
+Input Data:
+
+        in=89
+        out=88
+        var=87
+        isvar=10
+        bond=yes
+        sam=1
+end
+
+
+
+
+************************************************************************************************************************************
+************************************************************************************************************************************
+************************************************************************************************************************************
+*****                                                                                                                          *****
+*****                                             program verification information                                             *****
+*****                                                                                                                          *****
+*****                                           code system: SCALE   version: 6.2.0                                            *****
+*****                                                                                                                          *****
+************************************************************************************************************************************
+************************************************************************************************************************************
+*****                                                                                                                          *****
+*****                                                                                                                          *****
+*****                      program:  ClarolPlus                                                                                *****
+*****                                                                                                                          *****
+*****                      version:  6.2.2 (602002)                                                                            *****
+*****                                                                                                                          *****
+*****                     username:  nickq                                                                                     *****
+*****                                                                                                                          *****
+*****                     hostname:  NICK                                                                                      *****
+*****                                                                                                                          *****
+*****                                                                                                                          *****
+*****            date of execution:  2018-10-30                                                                                *****
+*****                                                                                                                          *****
+*****            time of execution:  15:53:15                                                                                  *****
+*****                                                                                                                          *****
+************************************************************************************************************************************
+************************************************************************************************************************************
+************************************************************************************************************************************
+
+
+
+
+clarolplus has teriminated normally. 
+    module clarolplus used 43.2877 seconds cpu time for the current pass.
+
+    module clarolplus is finished. completion code    0. total cpu time used 5.47008e-006 seconds.
+
+
+
+    module shell will be called on Tue Oct 30 15:53:58 2018.
+    sequence specification record:=shell
+Input Data:
+
+        mv ft88f001 xn252v7.1
+        unlink ft87f001
+        unlink ft89f001
+        mv ft10f001 crawdadPerturbMGLib
+end
+
+        1 file(s) moved.
+        1 file(s) moved.
+module shell is finished. completion code 0
+
+
+    module mavric will be called on Tue Oct 30 15:53:58 2018.
+    sequence specification record:=mavric
+Input Data:
+
+      Monaco/MAVRIC Training - Exercise 3.  Graphite Shielding Measurements Revisited
+      v7-27n19g
+      
+      '-------------------------------------------------------------------------------
+      ' Composition Block - standard SCALE input
+      '-------------------------------------------------------------------------------
+      read composition
+          nickel    3 den=8.908 1 300 28058 6.8077e+01 28060 2.6223e+01 28061 1.1399
+                     28062 3.6346     28064 9.2550e-01 end
+          carbon       4 den=1.7 1.0 300.0 end
+      end composition
+      
+      '-------------------------------------------------------------------------------
+      ' Geometry Block - SCALE standard geometry package (SGGP)
+      '-------------------------------------------------------------------------------
+      read geometry
+          global unit 1
+              cuboid  1   25.0 -25.0  25.0 -25.0   25.0 -25.0
+              cone    2  10.35948  25.01   0.0 0.0   rotate  a1=-90 a2=-90 a3=0
+              cuboid  3   90.0  70.0  40.0 -40.0   40.0 -40.0
+              cuboid 99  120.0 -30.0  50.0 -50.0   50.0 -50.0
+              media 3 1  1 -2
+              media 0 1  2
+              media 4 1  3
+              media 0 1  99 -1  -2 -3
+          boundary 99
+      end geometry
+      
+      '-------------------------------------------------------------------------------
+      ' Definitions Block
+      '-------------------------------------------------------------------------------
+      read definitions
+              response 20
+                      title=" total "
+                  neutron
+                      mat=3  MT=1 ZAID=28058 macro
+              makechart
+              end response
+      
+              response 21
+                      title=" n,n within group "
+                  neutron
+                      mat=3  MT=2022 ZAID=28058 macro
+              makechart
+              end response
+      
+              response 22
+                      title=" n,n"
+                  neutron
+                      mat=3  MT=2 ZAID=28058 macro
+              makechart
+              end response
+      
+              response 23
+                      title=" Ni-58(n,2n)57-Ni Foil Macro"
+                  neutron
+                      mat=3  MT=16 ZAID=28058 macro
+              makechart
+              end response
+      
+              response 24
+                      title=" capture "
+                  neutron
+                      mat=3  MT=101 ZAID=28058 macro
+              makechart
+              end response
+      
+              response 25
+                      title=" n,n'"
+                  neutron
+                      mat=3  MT=4 ZAID=28058 macro
+              makechart
+              end response
+      
+                  location 1
+                      position 110 0 0
+                  end location
+      
+                  distribution 1
+                      title="Cf-252 neutrons, Watt spectrum a=1.025 MeV and b=2.926/MeV"
+                      special="wattSpectrum"
+                      parameters 1.025 2.926 end
+                  end distribution
+      
+      end definitions
+      
+      '-------------------------------------------------------------------------------
+      ' Sources Block
+      '   Cf-252 neutrons, Watt fission spectrum model
+      '   with a=1.025 MeV and  b=2.926/MeV
+      '-------------------------------------------------------------------------------
+      read sources
+          src 1
+              title="Cf-252 neutrons, Watt fission spectrum model"
+              strength=4.05E+07
+              cuboid  0.01 0.01  0 0  0 0
+              neutrons
+              eDistributionID=1
+          end src
+      end sources
+      
+      
+      
+      '-------------------------------------------------------------------------------
+      ' Parameters Block
+      '-------------------------------------------------------------------------------
+      read parameters
+          randomSeed=00003ecd7b4e3e8b
+          library="xn252v7.1"
+          perBatch=1 batches=1
+          fissionMult=0   noPhotons
+      end parameters
+      
+      
+      
+      end data
+end
+
+
+
+
+************************************************************************************************************************************
+************************************************************************************************************************************
+************************************************************************************************************************************
+*****                                                                                                                          *****
+*****                                             program verification information                                             *****
+*****                                                                                                                          *****
+*****                                           code system: SCALE   version: 6.2.0                                            *****
+*****                                                                                                                          *****
+************************************************************************************************************************************
+************************************************************************************************************************************
+*****                                                                                                                          *****
+*****                                                                                                                          *****
+*****                      program:  mavric                                                                                    *****
+*****                                                                                                                          *****
+*****                      version:  6.2.2 (602002)                                                                            *****
+*****                                                                                                                          *****
+*****                     username:  nickq                                                                                     *****
+*****                                                                                                                          *****
+*****                     hostname:  NICK                                                                                      *****
+*****                                                                                                                          *****
+*****                                                                                                                          *****
+*****            date of execution:  2018-10-30                                                                                *****
+*****                                                                                                                          *****
+*****            time of execution:  15:53:58                                                                                  *****
+*****                                                                                                                          *****
+************************************************************************************************************************************
+************************************************************************************************************************************
+************************************************************************************************************************************
+
+
+
+No cell data found in input.
+------------------------------------------------------------------------------------
+ Mixture table for component comps at line:26, column:1
+------------------------------------------------------------------------------------
+Mixture = 3 with density(g/cc) = 8.9080 and temperature(K) = 300.00
+        Entry      Mixture      Nuclide     Density (atoms/b-cm)     Temperature (K)
+------------------------------------------------------------------------------------
+            1            3        28058            6.303591e-002              300.00
+            2            3        28060            2.347273e-002              300.00
+            3            3        28061            1.003597e-003              300.00
+            4            3        28062            3.148461e-003              300.00
+            5            3        28064            7.766345e-004              300.00
+------------------------------------------------------------------------------------
+Mixture = 4 with density(g/cc) = 1.7000 and temperature(K) = 300.00
+        Entry      Mixture      Nuclide     Density (atoms/b-cm)     Temperature (K)
+------------------------------------------------------------------------------------
+            6            4         6012            8.432538e-002              300.00
+            7            4         6013            9.120404e-004              300.00
+------------------------------------------------------------------------------------
+        Entry      Mixture      Nuclide     Density (atoms/b-cm)     Temperature (K)
+------------------------------------------------------------------------------------
+ End of mixture table for component comps at line:26, column:1
+------------------------------------------------------------------------------------
+
+Mavric built mixture pool in: 0.05 seconds.
+Mavric built celldata pool in: 0.00 seconds.
+Loaded MG Library: C:/SCALE-6.2.2/data\scale.rev10.xn27g19v7.0
+Mavric loaded ampx library in: 0.38 seconds.
+Mavric prepared 2 unit cells in 0.02 seconds.
+Mavric wrote mixing table to mixturePool.dat in 0.01 seconds.
+XSProc starting module Dancoff.
+
+ Dancoff Module Problem Description
+ ige--geometry type(0/1/2/3--inf med/slab/cyl/sphere)                         0
+ izm--number of zones or material regions                                     1
+ igo--celltype                                                                1
+ ibr--right boundary condition (0/1/2/3--vacuum/reflected/periodic/white)     0
+ ibl--left  boundary condition (0/1/2/3--vacuum/reflected/periodic/white)     0
+XSProc execution of module Dancoff completed.
+XSProc starting module Bonami.
+XSProc execution of module Bonami completed.
+XSProc starting module MixMacros.
+XSProc execution of module MixMacros completed.
+XSProc starting module Dancoff.
+
+ Dancoff Module Problem Description
+ ige--geometry type(0/1/2/3--inf med/slab/cyl/sphere)                         0
+ izm--number of zones or material regions                                     1
+ igo--celltype                                                                1
+ ibr--right boundary condition (0/1/2/3--vacuum/reflected/periodic/white)     0
+ ibl--left  boundary condition (0/1/2/3--vacuum/reflected/periodic/white)     0
+XSProc execution of module Dancoff completed.
+XSProc starting module Bonami.
+XSProc execution of module Bonami completed.
+XSProc starting module MixMacros.
+XSProc execution of module MixMacros completed.
+Mavric executed XSProc with 2 unit cells in 0.05 seconds.
+
+
+
+ MAVRIC, part  1, reading/checking detailed input                             
+ *******************************************************************************
+
+ Calling jomchk ...
+    ... done with jomchk
+
+
+
+ *******************************************************************************
+ * Sequence Input Check Routine 1                                              *
+ *     Warnings and Errors                                                     *
+ *******************************************************************************
+ Warnings (2):
+    distribution 1 parameter 3 has been reset to  1.000000E+02
+    there are no tallies defined for this problem
+ *******************************************************************************
+
+
+
+ *******************************************************************************
+ * Sequence Input Check Routine 2                                              *
+ *     Warnings and Errors                                                     *
+ *******************************************************************************
+ Warnings (8):
+    location 1 is not used by any tally or adjoint source
+    response 20 is not used by any tally or adjoint source
+    response 21 is not used by any tally or adjoint source
+    response 22 is not used by any tally or adjoint source
+    response 23 is not used by any tally or adjoint source
+    response 24 is not used by any tally or adjoint source
+    response 25 is not used by any tally or adjoint source
+    secondaryMult has been set to 0, since there is no photon transport
+ *******************************************************************************
+------------------------------------------------------------------------------------
+ Mixture table for component comps at line:26, column:1
+------------------------------------------------------------------------------------
+Mixture = 3 with density(g/cc) = 8.9080 and temperature(K) = 300.00
+        Entry      Mixture      Nuclide     Density (atoms/b-cm)     Temperature (K)
+------------------------------------------------------------------------------------
+            1            3        28058            6.303591e-002              300.00
+            2            3        28060            2.347273e-002              300.00
+            3            3        28061            1.003597e-003              300.00
+            4            3        28062            3.148461e-003              300.00
+            5            3        28064            7.766345e-004              300.00
+------------------------------------------------------------------------------------
+Mixture = 4 with density(g/cc) = 1.7000 and temperature(K) = 300.00
+        Entry      Mixture      Nuclide     Density (atoms/b-cm)     Temperature (K)
+------------------------------------------------------------------------------------
+            6            4         6012            8.432538e-002              300.00
+            7            4         6013            9.120404e-004              300.00
+------------------------------------------------------------------------------------
+        Entry      Mixture      Nuclide     Density (atoms/b-cm)     Temperature (K)
+------------------------------------------------------------------------------------
+ End of mixture table for component comps at line:26, column:1
+------------------------------------------------------------------------------------
+
+Mavric built mixture pool in: 0.05 seconds.
+Mavric built celldata pool in: 0.00 seconds.
+Loaded MG Library: C:/Users/nickq/AppData/Local/Temp/scale.nickq.14816/scale.nickq.6724/xn252v7.1
+Mavric loaded ampx library in: 3.72 seconds.
+Mavric prepared 2 unit cells in 0.00 seconds.
+Mavric wrote mixing table to mixturePool.dat in 0.00 seconds.
+XSProc starting module Dancoff.
+
+ Dancoff Module Problem Description
+ ige--geometry type(0/1/2/3--inf med/slab/cyl/sphere)                         0
+ izm--number of zones or material regions                                     1
+ igo--celltype                                                                1
+ ibr--right boundary condition (0/1/2/3--vacuum/reflected/periodic/white)     0
+ ibl--left  boundary condition (0/1/2/3--vacuum/reflected/periodic/white)     0
+XSProc execution of module Dancoff completed.
+XSProc starting module Bonami.
+XSProc execution of module Bonami completed.
+XSProc starting module MixMacros.
+XSProc execution of module MixMacros completed.
+XSProc starting module Dancoff.
+
+ Dancoff Module Problem Description
+ ige--geometry type(0/1/2/3--inf med/slab/cyl/sphere)                         0
+ izm--number of zones or material regions                                     1
+ igo--celltype                                                                1
+ ibr--right boundary condition (0/1/2/3--vacuum/reflected/periodic/white)     0
+ ibl--left  boundary condition (0/1/2/3--vacuum/reflected/periodic/white)     0
+XSProc execution of module Dancoff completed.
+XSProc starting module Bonami.
+XSProc execution of module Bonami completed.
+XSProc starting module MixMacros.
+XSProc execution of module MixMacros completed.
+Mavric executed XSProc with 2 unit cells in 0.12 seconds.
+
+
+
+ MAVRIC, part  7, writing the Monte Carlo input                               
+ *******************************************************************************
+
+1
+
+
+
+
+
+
+        ************************************************************************************************************************
+        ************************************************************************************************************************
+        ************************************************************************************************************************
+        *****                                                                                                              *****
+        *****                                       program verification information                                       *****
+        *****                                                                                                              *****
+        *****                                   code system:  SCALE    version:  6.2                                       *****
+        *****                                                                                                              *****
+        ************************************************************************************************************************
+        ************************************************************************************************************************
+        *****                                                                                                              *****
+        *****                                                                                                              *****
+        *****              program:  monaco                                                                                *****
+        *****                                                                                                              *****
+        *****        creation date:  31_mar_2017                                                                           *****
+        *****                                                                                                              *****
+        *****              library:  C:\SCALE-6.2.2\bin                                                                    *****
+        *****                                                                                                              *****
+        *****                                                                                                              *****
+        *****            prod code:  monaco                                                                                *****
+        *****                                                                                                              *****
+        *****              version:  6.2.2                                                                                 *****
+        *****                                                                                                              *****
+        *****              jobname:  nickq                                                                                 *****
+        *****                                                                                                              *****
+        *****         machine name:  NICK                                                                                  *****
+        *****                                                                                                              *****
+        *****    date of execution:  30_oct_2018                                                                           *****
+        *****                                                                                                              *****
+        *****    time of execution:  15:54:06.79                                                                           *****
+        *****                                                                                                              *****
+        *****                                                                                                              *****
+        ************************************************************************************************************************
+        ************************************************************************************************************************
+        ************************************************************************************************************************
+
+
+ '===============================================================================
+
+ 'Automatically generated input file for monaco
+
+ '===============================================================================
+
+ '-------------------------------------------------------------------------------
+
+ ' Cross Section Information
+
+ '-------------------------------------------------------------------------------
+
+ '-------------------------------------------------------------------------------
+
+ 'Geometry Block - SCALE standard geometry package (SGGP)
+
+ '-------------------------------------------------------------------------------
+
+ '-------------------------------------------------------------------------------
+
+ ' Definitions Block
+
+ '-------------------------------------------------------------------------------
+
+ '-------------------------------------------------------------------------------
+
+ ' Sources Block
+
+ '-------------------------------------------------------------------------------
+
+ '-------------------------------------------------------------------------------
+
+ ' Tallies Block
+
+ '-------------------------------------------------------------------------------
+
+ '-------------------------------------------------------------------------------
+
+ ' Parameters Block
+
+ '-------------------------------------------------------------------------------
+
+ '-------------------------------------------------------------------------------
+
+ ' Biasing Block
+
+ '-------------------------------------------------------------------------------
+
+ '-------------------------------------------------------------------------------
+
+ ' Definitions Block
+
+ '-------------------------------------------------------------------------------
+
+
+
+ *******************************************************************************
+ * User Input Check Routine 1                                                  *
+ *     Warnings and Errors                                                     *
+ *******************************************************************************
+ Warnings (1):
+    there are no tallies defined for this problem
+ *******************************************************************************
+
+
+
+ *******************************************************************************
+ * User Input Check Routine 2                                                  *
+ *     Warnings and Errors                                                     *
+ *******************************************************************************
+ Warnings (8):
+    location 1 is not used by any tally
+    response 20 is not used by any tally
+    response 21 is not used by any tally
+    response 22 is not used by any tally
+    response 23 is not used by any tally
+    response 24 is not used by any tally
+    response 25 is not used by any tally
+    energyBounds 1 is not used
+ *******************************************************************************
+
+
+
+                                 cross sections read from the ampx working library on unit    4
+
+1                                        monaco/mavric training - exercise 3.  graphite shielding measurements revisited 
+
+                                                   mixing table
+
+                                          number of scattering angles =  3
+                                      cross section message threshold = 1.0E-01
+
+
+ mixture =     3          density(g/cc) =  8.9080              temperature(K) =    300.00
+    nuclide    nucmix   atom-dens.   wgt. frac.     za      awt          temp               nuclide title
+      28058       3    6.30359E-02  6.80770E-01   28058    57.9353       300.00     ni58 2825 endf-7 rel1 rev7 mod5 Wed Nov 26 14:42:10 2014
+
+      28060       3    2.34727E-02  2.62230E-01   28060    59.9308       300.00     ni60 2831 endf-7 rel1 rev7 mod4 Wed Nov 26 14:42:10 2014
+
+      28061       3    1.00360E-03  1.13990E-02   28061    60.9311       300.00     ni61 2834 endf-7 rel1 rev7 mod5 Wed Nov 26 14:42:10 2014
+
+      28062       3    3.14846E-03  3.63460E-02   28062    61.9283       300.00     ni62 2837 endf-7 rel1 rev7 mod5 Wed Nov 26 14:42:10 2014
+
+      28064       3    7.76634E-04  9.25500E-03   28064    63.9280       300.00     ni64 2843 endf-7 rel1 rev7 mod4 Wed Nov 26 14:42:10 2014
+
+
+ mixture =     4          density(g/cc) =  1.7000              temperature(K) =    300.00
+    nuclide    nucmix   atom-dens.   wgt. frac.     za      awt          temp               nuclide title
+       6000       4    8.52374E-02  1.00000E+00    6000    12.0107       300.00     c 600 endf-7 rel1 rev7 mod0 Wed Nov 26 14:41:37 2014
+
+
+
+
+ 
+  ***** warning ***** sggp message number k6-222 follows:
+  38 transfers for mixture 3 were corrected for bad moments.
+ 
+  ***** warning ***** sggp message number k6-222 follows:
+  80 transfers for mixture 4 were corrected for bad moments.
+
+
+ Cross section preparation time: 0.094 seconds
+
+
+ Review of the Monaco User Input:
+     Title:   monaco/mavric training - exercise 3.  graphite shielding measurements revisited
+     Date:    tuesday, october 30,2018
+     Output:  c1_pert_00001
+
+ Cross section parameters
+     AMPX working library unit number      ampxFileUnit    = 4
+     ICE Monte Carlo library unit number   iceFileUnit     = 0
+     number of neutron groups                              = 252
+     number of photon groups                               = 0
+     maximum Legendre expansion order                      = 5
+     cross sections are not fully coupled  (default)
+     print mixture 1D cross sections       printTotals     = F
+     print mixture 2D cross sections       printScatters   = F
+     print angles and probabilities        printAngleProb  = F
+     print fission spectrum chi            printFissionChi = F
+     print extra 1D cross sections         printExtra      = F
+     print Legendre coefficients           printLegendre   = F
+
+     forward calculation                   (default)
+
+     Energy Boundaries 1
+         title: neutron multigroup energy boundaries
+          group   energy (eV)
+         ------  ------------
+              1   2.00000E+07
+              2   1.73300E+07
+              3   1.56800E+07
+              4   1.45500E+07
+              5   1.38400E+07
+              6   1.28400E+07
+              7   1.00000E+07
+              8   8.18700E+06
+              9   6.43400E+06
+             10   4.80000E+06
+             11   4.30400E+06
+             12   3.00000E+06
+             13   2.47900E+06
+             14   2.35400E+06
+             15   1.85000E+06
+             16   1.50000E+06
+             17   1.40000E+06
+             18   1.35600E+06
+             19   1.31700E+06
+             20   1.25000E+06
+             21   1.20000E+06
+             22   1.10000E+06
+             23   1.01000E+06
+             24   9.20000E+05
+             25   9.00000E+05
+             26   8.75000E+05
+             27   8.61100E+05
+             28   8.20000E+05
+             29   7.50000E+05
+             30   6.79000E+05
+             31   6.70000E+05
+             32   6.00000E+05
+             33   5.73000E+05
+             34   5.50000E+05
+             35   4.92000E+05
+             36   4.70000E+05
+             37   4.40000E+05
+             38   4.20000E+05
+             39   4.00000E+05
+             40   3.30000E+05
+             41   2.70000E+05
+             42   2.00000E+05
+             43   1.49000E+05
+             44   1.28300E+05
+             45   1.00000E+05
+             46   8.50000E+04
+             47   8.20000E+04
+             48   7.50000E+04
+             49   7.30000E+04
+             50   6.00000E+04
+             51   5.20000E+04
+             52   5.00000E+04
+             53   4.50000E+04
+             54   3.00000E+04
+             55   2.00000E+04
+             56   1.70000E+04
+             57   1.30000E+04
+             58   9.50000E+03
+             59   8.03000E+03
+             60   5.70000E+03
+             61   3.90000E+03
+             62   3.74000E+03
+             63   3.00000E+03
+             64   2.50000E+03
+             65   2.25000E+03
+             66   2.20000E+03
+             67   1.80000E+03
+             68   1.55000E+03
+             69   1.50000E+03
+             70   1.15000E+03
+             71   9.50000E+02
+             72   6.83000E+02
+             73   6.70000E+02
+             74   5.50000E+02
+             75   3.05000E+02
+             76   2.85000E+02
+             77   2.40000E+02
+             78   2.20000E+02
+             79   2.09500E+02
+             80   2.07400E+02
+             81   2.02000E+02
+             82   1.93000E+02
+             83   1.91500E+02
+             84   1.88500E+02
+             85   1.87700E+02
+             86   1.80000E+02
+             87   1.70000E+02
+             88   1.43000E+02
+             89   1.22000E+02
+             90   1.19000E+02
+             91   1.17500E+02
+             92   1.16000E+02
+             93   1.13000E+02
+             94   1.08000E+02
+             95   1.05000E+02
+             96   1.01200E+02
+             97   9.70000E+01
+             98   9.00000E+01
+             99   8.17000E+01
+            100   8.00000E+01
+            101   7.60000E+01
+            102   7.20000E+01
+            103   6.75000E+01
+            104   6.50000E+01
+            105   6.30000E+01
+            106   6.10000E+01
+            107   5.80000E+01
+            108   5.34000E+01
+            109   5.06000E+01
+            110   4.83000E+01
+            111   4.52000E+01
+            112   4.40000E+01
+            113   4.24000E+01
+            114   4.10000E+01
+            115   3.96000E+01
+            116   3.91000E+01
+            117   3.80000E+01
+            118   3.76300E+01
+            119   3.72700E+01
+            120   3.71300E+01
+            121   3.70000E+01
+            122   3.60000E+01
+            123   3.55000E+01
+            124   3.50000E+01
+            125   3.37500E+01
+            126   3.32500E+01
+            127   3.17500E+01
+            128   3.12500E+01
+            129   3.00000E+01
+            130   2.75000E+01
+            131   2.50000E+01
+            132   2.25000E+01
+            133   2.17500E+01
+            134   2.12000E+01
+            135   2.05000E+01
+            136   2.00000E+01
+            137   1.94000E+01
+            138   1.85000E+01
+            139   1.70000E+01
+            140   1.60000E+01
+            141   1.44000E+01
+            142   1.29000E+01
+            143   1.19000E+01
+            144   1.15000E+01
+            145   1.00000E+01
+            146   9.10000E+00
+            147   8.10000E+00
+            148   7.15000E+00
+            149   7.00000E+00
+            150   6.87500E+00
+            151   6.75000E+00
+            152   6.50000E+00
+            153   6.25000E+00
+            154   6.00000E+00
+            155   5.40000E+00
+            156   5.00000E+00
+            157   4.70000E+00
+            158   4.10000E+00
+            159   3.73000E+00
+            160   3.50000E+00
+            161   3.20000E+00
+            162   3.10000E+00
+            163   3.00000E+00
+            164   2.97000E+00
+            165   2.87000E+00
+            166   2.77000E+00
+            167   2.67000E+00
+            168   2.57000E+00
+            169   2.47000E+00
+            170   2.38000E+00
+            171   2.30000E+00
+            172   2.21000E+00
+            173   2.12000E+00
+            174   2.00000E+00
+            175   1.94000E+00
+            176   1.86000E+00
+            177   1.77000E+00
+            178   1.68000E+00
+            179   1.59000E+00
+            180   1.50000E+00
+            181   1.45000E+00
+            182   1.40000E+00
+            183   1.35000E+00
+            184   1.30000E+00
+            185   1.25000E+00
+            186   1.22500E+00
+            187   1.20000E+00
+            188   1.17500E+00
+            189   1.15000E+00
+            190   1.14000E+00
+            191   1.13000E+00
+            192   1.12000E+00
+            193   1.11000E+00
+            194   1.10000E+00
+            195   1.09000E+00
+            196   1.08000E+00
+            197   1.07000E+00
+            198   1.06000E+00
+            199   1.05000E+00
+            200   1.04000E+00
+            201   1.03000E+00
+            202   1.02000E+00
+            203   1.01000E+00
+            204   1.00000E+00
+            205   9.75000E-01
+            206   9.50000E-01
+            207   9.25000E-01
+            208   9.00000E-01
+            209   8.50000E-01
+            210   8.00000E-01
+            211   7.50000E-01
+            212   7.00000E-01
+            213   6.50000E-01
+            214   6.25000E-01
+            215   6.00000E-01
+            216   5.50000E-01
+            217   5.00000E-01
+            218   4.50000E-01
+            219   4.00000E-01
+            220   3.75000E-01
+            221   3.50000E-01
+            222   3.25000E-01
+            223   3.00000E-01
+            224   2.75000E-01
+            225   2.50000E-01
+            226   2.25000E-01
+            227   2.00000E-01
+            228   1.75000E-01
+            229   1.50000E-01
+            230   1.25000E-01
+            231   1.00000E-01
+            232   9.00000E-02
+            233   8.00000E-02
+            234   7.00000E-02
+            235   6.00000E-02
+            236   5.00000E-02
+            237   4.00000E-02
+            238   3.00000E-02
+            239   2.53000E-02
+            240   1.00000E-02
+            241   7.50000E-03
+            242   5.00000E-03
+            243   4.00000E-03
+            244   3.00000E-03
+            245   2.50000E-03
+            246   2.00000E-03
+            247   1.50000E-03
+            248   1.20000E-03
+            249   1.00000E-03
+            250   7.50000E-04
+            251   5.00000E-04
+            252   1.00000E-04
+                  1.00000E-05
+         ------  ------------
+ Geometry Essentials - for SGGP geometry
+     global unit number 1
+     regions            4 (4)
+     good regions       4
+
+       media   mixture     index          volume (cm**3)
+    --------  --------  --------  -----------------------------
+           1         3         1  -1.00000E+00 +/-  0.00000E+00
+           2         0         0  -1.00000E+00 +/-  0.00000E+00
+           3         4         2  -1.00000E+00 +/-  0.00000E+00
+           4         0         0  -1.00000E+00 +/-  0.00000E+00
+  
+ Locations (1)
+             id               x               y               z    title
+     ----------    ------------    ------------    ------------    -----------------------
+              1     1.10000E+02     0.00000E+00     0.00000E+00    
+
+ Responses (6)
+     Response 20
+         title:  total
+         A chart file has been requested
+         neutron
+         material=3  nuclide=28058  reaction=1
+         macroscopic cross section, units of /cm
+         multi-group
+          1.4346214E-01  1.5215417E-01  1.6126457E-01  1.6681548E-01  1.7264096E-01
+          1.8839292E-01  2.0922048E-01  2.2290852E-01  2.2307080E-01  2.1910966E-01
+          1.9912585E-01  1.9254038E-01  1.9175389E-01  1.7574378E-01  1.9268746E-01
+          2.0779975E-01  1.8243045E-01  2.6296159E-01  2.2074338E-01  2.0127485E-01
+          1.7794289E-01  1.5280291E-01  1.7168932E-01  2.3406377E-01  1.9147419E-01
+          8.8762158E-02  1.8425985E-01  1.6722194E-01  1.2761723E-01  2.5692203E-01
+          1.7859666E-01  1.2752247E-01  8.3017574E-02  1.6015627E-01  2.1981731E-01
+          2.5026459E-01  2.3698788E-01  6.2622550E-02  2.0682241E-01  2.7435941E-01
+          2.3397417E-01  1.8657336E-01  1.3317062E-01  1.7117076E-01  2.9471745E-01
+          4.5116391E-01  4.9143652E-01  6.1861549E-01  7.5691521E-01  6.5926943E-02
+          2.1084995E-01  3.1078810E-01  5.1812568E-01  9.7249767E-01  2.2343824E+00
+          2.0598681E+00  1.8854556E-01  4.8592072E-01  6.8396995E-01  8.9710707E-01
+          9.9904886E-01  1.0400135E+00  1.1147288E+00  1.1622307E+00  1.2038820E+00
+          1.2358519E+00  1.2821480E+00  1.3040055E+00  1.3361844E+00  1.3792836E+00
+          1.4191117E+00  1.4415253E+00  1.4535865E+00  1.4886956E+00  1.5110317E+00
+          1.5171884E+00  1.5232141E+00  1.5262010E+00  1.5274605E+00  1.5282182E+00
+          1.5296826E+00  1.5307416E+00  1.5642751E+00  1.5646703E+00  1.5655684E+00
+          1.5674182E+00  1.5713879E+00  1.5764716E+00  1.5790186E+00  1.5795106E+00
+          1.5798541E+00  1.5803494E+00  1.5812317E+00  1.5821171E+00  1.5828744E+00
+          1.5837710E+00  1.5850469E+00  1.5868137E+00  1.5879641E+00  1.5886446E+00
+          1.5896015E+00  1.5906336E+00  1.5914921E+00  1.5685170E+00  1.5690030E+00
+          1.5696157E+00  1.5705676E+00  1.5715051E+00  1.5721683E+00  1.5728888E+00
+          1.5734699E+00  1.5738542E+00  1.5742786E+00  1.5746782E+00  1.5749494E+00
+          1.5751860E+00  1.5754029E+00  1.5755107E+00  1.5755845E+00  1.5655361E+00
+          1.5657004E+00  1.5659241E+00  1.5660741E+00  1.5663387E+00  1.5666045E+00
+          1.5669201E+00  1.5672345E+00  1.5675199E+00  1.5681554E+00  1.5690254E+00
+          1.5699522E+00  1.5705875E+00  1.5708418E+00  1.5711243E+00  1.5577576E+00
+          1.5580048E+00  1.5583470E+00  1.5589330E+00  1.5595822E+00  1.5603218E+00
+          1.5612708E+00  1.5621202E+00  1.5626384E+00  1.5634299E+00  1.5645187E+00
+          1.5655116E+00  1.5666961E+00  1.5674330E+00  1.5403926E+00  1.5405662E+00
+          1.5408612E+00  1.5412712E+00  1.5417164E+00  1.5425395E+00  1.5435912E+00
+          1.5444168E+00  1.5456345E+00  1.5471171E+00  1.5481792E+00  1.5492415E+00
+          1.5500949E+00  1.5505616E+00  1.5508785E+00  1.5512081E+00  1.5517319E+00
+          1.5522831E+00  1.5528704E+00  1.5534824E+00  1.5541075E+00  1.5546960E+00
+          1.5553020E+00  1.5559970E+00  1.5568526E+00  1.5576464E+00  1.5582972E+00
+          1.5591412E+00  1.5601084E+00  1.5611384E+00  1.5622523E+00  1.5631727E+00
+          1.5638887E+00  1.5646337E+00  1.5654252E+00  1.5662772E+00  1.5669338E+00
+          1.5674040E+00  1.5678842E+00  1.5683644E+00  1.5686997E+00  1.5688946E+00
+          1.5691190E+00  1.5693296E+00  1.5695405E+00  1.5697513E+00  1.5699679E+00
+          1.5701872E+00  1.5704152E+00  1.5706432E+00  1.5708709E+00  1.5710988E+00
+          1.5713323E+00  1.5715806E+00  1.6129070E+00  1.6133330E+00  1.6139700E+00
+          1.6146458E+00  1.6153267E+00  1.6164244E+00  1.6179782E+00  1.6196512E+00
+          1.6214967E+00  1.6235351E+00  1.6251905E+00  1.6272315E+00  1.6291717E+00
+          1.6320349E+00  1.6353333E+00  1.6392057E+00  1.6424150E+00  1.6448981E+00
+          1.6476538E+00  1.6507422E+00  1.6542043E+00  1.6581137E+00  1.6626813E+00
+          1.6679836E+00  1.6742752E+00  1.6820772E+00  1.6921986E+00  1.7066041E+00
+          1.7086766E+00  1.7171418E+00  1.7271620E+00  1.7396140E+00  1.7559345E+00
+          1.7768524E+00  1.8069227E+00  1.8380032E+00  1.9176220E+00  2.0720882E+00
+          2.1734613E+00  2.2941833E+00  2.4060580E+00  2.5289085E+00  2.6451858E+00
+          2.8117579E+00  3.0162172E+00  3.2031940E+00  3.4401072E+00  3.8548057E+00
+          4.9654611E+00  1.0406802E+01
+     Response 21
+         title:  n,n within group
+         A chart file has been requested
+         neutron
+         material=3  nuclide=28058  reaction=2022
+         macroscopic cross section, units of /cm
+         multi-group
+          5.2441783E-02  5.8278468E-02  6.4516357E-02  6.6716210E-02  7.5280642E-02
+          9.4888657E-02  1.0798168E-01  1.1624478E-01  1.2282341E-01  1.1533780E-01
+          1.2306685E-01  1.2117989E-01  8.6309556E-02  1.1855406E-01  1.4276217E-01
+          1.2106667E-01  7.0164876E-02  9.7185784E-02  1.0852443E-01  8.5490893E-02
+          1.1522751E-01  9.9149337E-02  1.1821049E-01  6.2475613E-02  5.8412477E-02
+          2.1349055E-02  8.1760569E-02  1.0952423E-01  8.4027007E-02  4.4627531E-02
+          1.2673596E-01  4.8309965E-02  3.2947552E-02  1.1370435E-01  8.9176806E-02
+          1.3083775E-01  1.0160515E-01  2.6852165E-02  1.6899550E-01  2.3176247E-01
+          2.1578955E-01  1.7063538E-01  1.1653583E-01  1.4861798E-01  2.2863689E-01
+          1.2124291E-01  2.9854547E-01  1.2514782E-01  6.5403664E-01  3.9794580E-02
+          5.9253560E-02  2.0523170E-01  4.6831204E-01  8.8103982E-01  1.7157124E+00
+          2.0174875E+00  1.5172286E-01  3.8014145E-01  6.1029457E-01  8.1032263E-01
+          3.0606958E-01  8.7379906E-01  9.0156814E-01  7.8076871E-01  1.9942401E-01
+          1.0218758E+00  9.8537067E-01  3.1402686E-01  1.1612495E+00  1.1290634E+00
+          1.2690826E+00  2.0429585E-01  1.1980735E+00  1.3991134E+00  7.4312593E-01
+          1.2105486E+00  9.1845465E-01  5.4442775E-01  1.1370462E-01  2.9627944E-01
+          5.0906738E-01  8.8307736E-02  1.8214986E-01  4.9263284E-02  4.7941650E-01
+          6.5161740E-01  1.2551660E+00  1.2311025E+00  2.8885478E-01  1.4780949E-01
+          1.4973012E-01  3.0409241E-01  5.2218103E-01  3.2705093E-01  4.2689625E-01
+          4.9024094E-01  8.5360601E-01  1.0185137E+00  2.4548252E-01  5.9305242E-01
+          6.2486356E-01  7.4370172E-01  4.3895468E-01  3.5919370E-01  3.7075098E-01
+          5.7626925E-01  9.1267909E-01  6.1532187E-01  5.3293164E-01  7.5522638E-01
+          3.1044787E-01  4.2600894E-01  3.8667218E-01  4.0002641E-01  1.4739279E-01
+          3.2930849E-01  1.1362930E-01  1.1164748E-01  4.3795935E-02  4.0570294E-02
+          3.1444319E-01  1.6124429E-01  1.6353044E-01  4.1624314E-01  1.7206814E-01
+          5.2675824E-01  1.8298123E-01  4.6675517E-01  9.4282695E-01  9.9686756E-01
+          1.0509438E+00  3.8892237E-01  2.9466112E-01  3.8529397E-01  2.8165731E-01
+          3.4679528E-01  5.3784749E-01  9.1785951E-01  6.8366967E-01  1.0426086E+00
+          1.0641537E+00  8.8824289E-01  3.8918980E-01  1.1677762E+00  9.8403592E-01
+          1.0915340E+00  1.1223141E+00  2.4251947E-01  2.0256483E-01  2.0626025E-01
+          4.2152941E-01  4.3786280E-01  4.5551539E-01  1.0248343E+00  8.4139639E-01
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00
+     Response 22
+         title:  n,n
+         A chart file has been requested
+         neutron
+         material=3  nuclide=28058  reaction=2
+         macroscopic cross section, units of /cm
+         multi-group
+          5.5580015E-02  6.3199605E-02  7.1366394E-02  7.6560671E-02  8.2506583E-02
+          9.7420130E-02  1.1251060E-01  1.2124719E-01  1.2896985E-01  1.3004523E-01
+          1.3114965E-01  1.3702304E-01  1.4144009E-01  1.3198488E-01  1.6456720E-01
+          2.0481039E-01  1.8116174E-01  2.6176261E-01  2.1963384E-01  2.0026357E-01
+          1.7710534E-01  1.5211582E-01  1.7108661E-01  2.3346090E-01  1.9087029E-01
+          8.8157514E-02  1.8366714E-01  1.6678530E-01  1.2721220E-01  2.5646262E-01
+          1.7812433E-01  1.2717926E-01  8.2588393E-02  1.5974402E-01  2.1934268E-01
+          2.4982900E-01  2.3649706E-01  6.2277776E-02  2.0641015E-01  2.7388404E-01
+          2.3345949E-01  1.8597641E-01  1.3260458E-01  1.7036637E-01  2.9425203E-01
+          4.4852784E-01  4.9087098E-01  6.1851330E-01  7.5563631E-01  6.5201977E-02
+          2.0930293E-01  3.1019088E-01  5.1661239E-01  9.7097812E-01  2.2332683E+00
+          2.0511378E+00  1.8780729E-01  4.8549056E-01  6.8322710E-01  8.9657475E-01
+          9.9844758E-01  1.0392160E+00  1.1138267E+00  1.1612454E+00  1.2028593E+00
+          1.2347573E+00  1.2809339E+00  1.3027237E+00  1.3347868E+00  1.3776909E+00
+          1.4172670E+00  1.4394964E+00  1.4514321E+00  1.4860297E+00  1.5078731E+00
+          1.5138245E+00  1.5196091E+00  1.5224697E+00  1.5236769E+00  1.5244021E+00
+          1.5257948E+00  1.5268010E+00  1.5603108E+00  1.5606844E+00  1.5615336E+00
+          1.5632813E+00  1.5669933E+00  1.5716947E+00  1.5740114E+00  1.5744538E+00
+          1.5747638E+00  1.5752089E+00  1.5759993E+00  1.5767853E+00  1.5774564E+00
+          1.5782432E+00  1.5793520E+00  1.5808649E+00  1.5818366E+00  1.5824011E+00
+          1.5831893E+00  1.5840277E+00  1.5847142E+00  1.5625953E+00  1.5629839E+00
+          1.5634710E+00  1.5642126E+00  1.5649282E+00  1.5654223E+00  1.5659482E+00
+          1.5663630E+00  1.5666354E+00  1.5669266E+00  1.5671985E+00  1.5673824E+00
+          1.5675381E+00  1.5676805E+00  1.5677513E+00  1.5677998E+00  1.5582112E+00
+          1.5583208E+00  1.5584678E+00  1.5585643E+00  1.5587337E+00  1.5589021E+00
+          1.5590961E+00  1.5592880E+00  1.5594577E+00  1.5598224E+00  1.5603105E+00
+          1.5607887E+00  1.5610982E+00  1.5612099E+00  1.5613384E+00  1.5474409E+00
+          1.5475462E+00  1.5476902E+00  1.5479211E+00  1.5481592E+00  1.5484095E+00
+          1.5487043E+00  1.5489434E+00  1.5490765E+00  1.5492561E+00  1.5494899E+00
+          1.5496712E+00  1.5498603E+00  1.5499612E+00  1.5217430E+00  1.5217560E+00
+          1.5217913E+00  1.5218366E+00  1.5218888E+00  1.5219699E+00  1.5220628E+00
+          1.5221201E+00  1.5222056E+00  1.5222922E+00  1.5223521E+00  1.5224017E+00
+          1.5224391E+00  1.5224580E+00  1.5224701E+00  1.5224822E+00  1.5225012E+00
+          1.5225197E+00  1.5225387E+00  1.5225574E+00  1.5225753E+00  1.5225912E+00
+          1.5226072E+00  1.5226242E+00  1.5226439E+00  1.5226607E+00  1.5226738E+00
+          1.5226899E+00  1.5227068E+00  1.5227237E+00  1.5227405E+00  1.5227536E+00
+          1.5227630E+00  1.5227725E+00  1.5227818E+00  1.5227912E+00  1.5227982E+00
+          1.5228029E+00  1.5228076E+00  1.5228123E+00  1.5228156E+00  1.5228175E+00
+          1.5228365E+00  1.5228383E+00  1.5228402E+00  1.5228421E+00  1.5228439E+00
+          1.5228367E+00  1.5228386E+00  1.5228406E+00  1.5228424E+00  1.5228443E+00
+          1.5228461E+00  1.5228480E+00  1.5684922E+00  1.5685253E+00  1.5685894E+00
+          1.5686532E+00  1.5687172E+00  1.5688136E+00  1.5689415E+00  1.5690694E+00
+          1.5691975E+00  1.5693254E+00  1.5694209E+00  1.5704379E+00  1.5705347E+00
+          1.5706623E+00  1.5707909E+00  1.5709269E+00  1.5710221E+00  1.5710778E+00
+          1.5711439E+00  1.5712093E+00  1.5712759E+00  1.5713373E+00  1.5713798E+00
+          1.5714439E+00  1.5715258E+00  1.5715893E+00  1.5720590E+00  1.5729896E+00
+          1.5673911E+00  1.5677447E+00  1.5680813E+00  1.5686751E+00  1.5699783E+00
+          1.5712774E+00  1.5736851E+00  1.5762500E+00  1.5851932E+00  1.6046915E+00
+          1.6210064E+00  1.6427070E+00  1.6672040E+00  1.6948237E+00  1.7233448E+00
+          1.7673256E+00  1.8265505E+00  1.8848783E+00  1.9633174E+00  2.1111035E+00
+          2.5505473E+00  4.9261540E+00
+     Response 23
+         title:  Ni-58(n,2n)57-Ni Foil Macro
+         A chart file has been requested
+         neutron
+         material=3  nuclide=28058  reaction=16
+         macroscopic cross section, units of /cm
+         multi-group
+          4.9711424E-03  4.0243291E-03  2.8704417E-03  1.7449232E-03  6.6300680E-04
+          1.4614982E-05  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00
+     Response 24
+         title:  capture
+         A chart file has been requested
+         neutron
+         material=3  nuclide=28058  reaction=101
+         macroscopic cross section, units of /cm
+         multi-group
+          1.4671529E-02  1.9162048E-02  2.5255328E-02  3.0319041E-02  3.5395852E-02
+          4.2212986E-02  4.4410156E-02  4.3060904E-02  3.4740440E-02  2.7118167E-02
+          1.8393487E-02  9.2563418E-03  6.1181209E-03  3.5053343E-03  1.8872459E-03
+          1.3756142E-03  1.2686983E-03  1.1989626E-03  1.1095520E-03  1.0112739E-03
+          8.3755499E-04  6.8710422E-04  6.0270973E-04  6.0287322E-04  6.0388239E-04
+          6.0464270E-04  5.9271525E-04  4.3664164E-04  4.0503750E-04  4.5939075E-04
+          4.7233899E-04  3.4321525E-04  4.2918459E-04  4.1224305E-04  4.7462198E-04
+          4.3558363E-04  4.9082112E-04  3.4477339E-04  4.1225752E-04  4.7537739E-04
+          5.1467952E-04  5.9695106E-04  5.6602757E-04  8.0440017E-04  4.6540288E-04
+          2.6360843E-03  5.6553607E-04  1.0219363E-04  1.2789115E-03  7.2496257E-04
+          1.5470119E-03  5.9721507E-04  1.5132804E-03  1.5195711E-03  1.1139463E-03
+          8.7303602E-03  7.3826923E-04  4.3016118E-04  7.4286743E-04  5.3230223E-04
+          6.0128755E-04  7.9747447E-04  9.0208294E-04  9.8525158E-04  1.0227074E-03
+          1.0946471E-03  1.2140908E-03  1.2818251E-03  1.3975173E-03  1.5927554E-03
+          1.8447378E-03  2.0289263E-03  2.1543927E-03  2.6658329E-03  3.1585912E-03
+          3.3638301E-03  3.6050148E-03  3.7313936E-03  3.7836133E-03  3.8160530E-03
+          3.8877661E-03  3.9405982E-03  3.9642514E-03  3.9859292E-03  4.0348644E-03
+          4.1369437E-03  4.3945293E-03  4.7769353E-03  5.0071113E-03  5.0568745E-03
+          5.0902289E-03  5.1405387E-03  5.2323138E-03  5.3317302E-03  5.4179399E-03
+          5.5277497E-03  5.6949132E-03  5.9488613E-03  6.1274642E-03  6.2435172E-03
+          6.4121967E-03  6.6058581E-03  6.7778910E-03  5.9216003E-03  6.0189704E-03
+          6.1446808E-03  6.3550741E-03  6.5769491E-03  6.7459334E-03  6.9405680E-03
+          7.1068401E-03  7.2187840E-03  7.3520564E-03  7.4797610E-03  7.5669593E-03
+          7.6479291E-03  7.7223218E-03  7.7593789E-03  7.7847370E-03  7.3249085E-03
+          7.3796640E-03  7.4563332E-03  7.5098080E-03  7.6050525E-03  7.7024423E-03
+          7.8239766E-03  7.9464755E-03  8.0622866E-03  8.3330103E-03  8.7149593E-03
+          9.1634104E-03  9.4892161E-03  9.6318359E-03  9.7859379E-03  1.0316645E-02
+          1.0458593E-02  1.0656745E-02  1.1011911E-02  1.1423026E-02  1.1912267E-02
+          1.2566500E-02  1.3176802E-02  1.3561860E-02  1.4173752E-02  1.5028868E-02
+          1.5840337E-02  1.6835776E-02  1.7471772E-02  1.8649552E-02  1.8810245E-02
+          1.9069941E-02  1.9434600E-02  1.9827657E-02  2.0569722E-02  2.1528372E-02
+          2.2296674E-02  2.3428884E-02  2.4824890E-02  2.5827173E-02  2.6839738E-02
+          2.7655752E-02  2.8103613E-02  2.8408368E-02  2.8725968E-02  2.9230826E-02
+          2.9763389E-02  3.0331798E-02  3.0925004E-02  3.1532172E-02  3.2104778E-02
+          3.2694769E-02  3.3372852E-02  3.4208694E-02  3.4985614E-02  3.5623423E-02
+          3.6451281E-02  3.7401639E-02  3.8414630E-02  3.9511731E-02  4.0419005E-02
+          4.1125700E-02  4.1861170E-02  4.2643483E-02  4.3486023E-02  4.4135536E-02
+          4.4601084E-02  4.5076580E-02  4.5552073E-02  4.5884201E-02  4.6077173E-02
+          4.6282476E-02  4.6491393E-02  4.6700295E-02  4.6909205E-02  4.7123994E-02
+          4.7350544E-02  4.7576531E-02  4.7802528E-02  4.8028518E-02  4.8254508E-02
+          4.8486247E-02  4.8732541E-02  4.4414789E-02  4.4807679E-02  4.5380623E-02
+          4.5992665E-02  4.6609565E-02  4.7610778E-02  4.9036681E-02  5.0581701E-02
+          5.2299207E-02  5.4209753E-02  5.5769564E-02  5.6793594E-02  5.8637028E-02
+          6.1372605E-02  6.4542425E-02  6.8278881E-02  7.1392838E-02  7.3820303E-02
+          7.6509889E-02  7.9532838E-02  8.2928295E-02  8.6776408E-02  9.1301476E-02
+          9.6539720E-02  1.0274949E-01  1.1048791E-01  1.2013955E-01  1.3361451E-01
+          1.4128540E-01  1.4939710E-01  1.5908077E-01  1.7093898E-01  1.8595619E-01
+          2.0557504E-01  2.3323762E-01  2.6175311E-01  3.3242886E-01  4.6739657E-01
+          5.5245483E-01  6.5147637E-01  7.3885380E-01  8.3408481E-01  9.2184103E-01
+          1.0444323E+00  1.1896668E+00  1.3183158E+00  1.4767896E+00  1.7437021E+00
+          2.4149135E+00  5.4806485E+00
+     Response 25
+         title:  n,n'
+         A chart file has been requested
+         neutron
+         material=3  nuclide=28058  reaction=4
+         macroscopic cross section, units of /cm
+         multi-group
+          1.3104149E-02  1.4887480E-02  1.7350164E-02  2.0046899E-02  2.3813602E-02
+          3.8564067E-02  5.2269281E-02  5.8600410E-02  5.9360517E-02  6.1946249E-02
+          4.9582716E-02  4.6260988E-02  4.4195690E-02  4.0253567E-02  2.6233008E-02
+          1.6137452E-03  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+          0.0000000E+00  0.0000000E+00
+
+ Distributions (1)
+     Distribution 1 - binned histogram
+         title: Watt Spectrum with a= 1.02500 and b= 2.92600
+                normalization constant:  1.0000000E+00
+         wattSpectrum  1.02500  2.92600 100
+                   interval               true pdf     biased pdf      weight   
+         ---------------------------   ------------- ------------- -------------
+          1.000000E-05  1.000000E-04    3.316569E-16  3.316569E-16  1.000000E+00
+          1.000000E-04  5.000000E-04    3.486658E-15  3.486658E-15  1.000000E+00
+          5.000000E-04  7.500000E-04    3.205462E-15  3.205462E-15  1.000000E+00
+          7.500000E-04  1.000000E-03    3.795892E-15  3.795892E-15  1.000000E+00
+          1.000000E-03  1.200000E-03    3.406569E-15  3.406569E-15  1.000000E+00
+          1.200000E-03  1.500000E-03    5.659848E-15  5.659848E-15  1.000000E+00
+          1.500000E-03  2.000000E-03    1.073640E-14  1.073640E-14  1.000000E+00
+          2.000000E-03  2.500000E-03    1.217805E-14  1.217805E-14  1.000000E+00
+          2.500000E-03  3.000000E-03    1.346565E-14  1.346565E-14  1.000000E+00
+          3.000000E-03  4.000000E-03    3.036714E-14  3.036714E-14  1.000000E+00
+          4.000000E-03  5.000000E-03    3.444473E-14  3.444473E-14  1.000000E+00
+          5.000000E-03  7.500000E-03    1.013656E-13  1.013656E-13  1.000000E+00
+          7.500000E-03  1.000000E-02    1.200366E-13  1.200366E-13  1.000000E+00
+          1.000000E-02  2.530000E-02    1.035764E-12  1.035764E-12  1.000000E+00
+          2.530000E-02  3.000000E-02    4.013795E-13  4.013795E-13  1.000000E+00
+          3.000000E-02  4.000000E-02    9.602930E-13  9.602930E-13  1.000000E+00
+          4.000000E-02  5.000000E-02    1.089239E-12  1.089239E-12  1.000000E+00
+          5.000000E-02  6.000000E-02    1.204404E-12  1.204404E-12  1.000000E+00
+          6.000000E-02  7.000000E-02    1.309454E-12  1.309454E-12  1.000000E+00
+          7.000000E-02  8.000000E-02    1.406665E-12  1.406665E-12  1.000000E+00
+          8.000000E-02  9.000000E-02    1.497572E-12  1.497572E-12  1.000000E+00
+          9.000000E-02  1.000000E-01    1.583260E-12  1.583260E-12  1.000000E+00
+          1.000000E-01  1.250000E-01    4.305592E-12  4.305592E-12  1.000000E+00
+          1.250000E-01  1.500000E-01    4.760826E-12  4.760826E-12  1.000000E+00
+          1.500000E-01  1.750000E-01    5.176068E-12  5.176068E-12  1.000000E+00
+          1.750000E-01  2.000000E-01    5.560334E-12  5.560334E-12  1.000000E+00
+          2.000000E-01  2.250000E-01    5.919667E-12  5.919667E-12  1.000000E+00
+          2.250000E-01  2.500000E-01    6.258387E-12  6.258387E-12  1.000000E+00
+          2.500000E-01  2.750000E-01    6.579674E-12  6.579674E-12  1.000000E+00
+          2.750000E-01  3.000000E-01    6.885975E-12  6.885975E-12  1.000000E+00
+          3.000000E-01  3.250000E-01    7.179204E-12  7.179204E-12  1.000000E+00
+          3.250000E-01  3.500000E-01    7.460927E-12  7.460927E-12  1.000000E+00
+          3.500000E-01  3.750000E-01    7.732381E-12  7.732381E-12  1.000000E+00
+          3.750000E-01  4.000000E-01    7.994619E-12  7.994619E-12  1.000000E+00
+          4.000000E-01  4.500000E-01    1.674335E-11  1.674335E-11  1.000000E+00
+          4.500000E-01  5.000000E-01    1.770139E-11  1.770139E-11  1.000000E+00
+          5.000000E-01  5.500000E-01    1.861013E-11  1.861013E-11  1.000000E+00
+          5.500000E-01  6.000000E-01    1.947648E-11  1.947648E-11  1.000000E+00
+          6.000000E-01  6.250000E-01    1.005138E-11  1.005138E-11  1.000000E+00
+          6.250000E-01  6.500000E-01    1.025447E-11  1.025447E-11  1.000000E+00
+          6.500000E-01  7.000000E-01    2.110268E-11  2.110268E-11  1.000000E+00
+          7.000000E-01  7.500000E-01    2.187047E-11  2.187047E-11  1.000000E+00
+          7.500000E-01  8.000000E-01    2.261219E-11  2.261219E-11  1.000000E+00
+          8.000000E-01  8.500000E-01    2.333034E-11  2.333034E-11  1.000000E+00
+          8.500000E-01  9.000000E-01    2.402699E-11  2.402699E-11  1.000000E+00
+          9.000000E-01  9.250000E-01    1.226858E-11  1.226858E-11  1.000000E+00
+          9.250000E-01  9.500000E-01    1.243548E-11  1.243548E-11  1.000000E+00
+          9.500000E-01  9.750000E-01    1.260023E-11  1.260023E-11  1.000000E+00
+          9.750000E-01  1.000000E+00    1.276279E-11  1.276279E-11  1.000000E+00
+          1.000000E+00  1.010000E+00    5.150183E-12  5.150183E-12  1.000000E+00
+          1.010000E+00  1.020000E+00    5.175742E-12  5.175742E-12  1.000000E+00
+          1.020000E+00  1.030000E+00    5.201176E-12  5.201176E-12  1.000000E+00
+          1.030000E+00  1.040000E+00    5.226486E-12  5.226486E-12  1.000000E+00
+          1.040000E+00  1.050000E+00    5.251674E-12  5.251674E-12  1.000000E+00
+          1.050000E+00  1.060000E+00    5.276742E-12  5.276742E-12  1.000000E+00
+          1.060000E+00  1.070000E+00    5.301755E-12  5.301755E-12  1.000000E+00
+          1.070000E+00  1.080000E+00    5.326524E-12  5.326524E-12  1.000000E+00
+          1.080000E+00  1.090000E+00    5.351242E-12  5.351242E-12  1.000000E+00
+          1.090000E+00  1.100000E+00    5.375845E-12  5.375845E-12  1.000000E+00
+          1.100000E+00  1.110000E+00    5.400337E-12  5.400337E-12  1.000000E+00
+          1.110000E+00  1.120000E+00    5.424717E-12  5.424717E-12  1.000000E+00
+          1.120000E+00  1.130000E+00    5.448989E-12  5.448989E-12  1.000000E+00
+          1.130000E+00  1.140000E+00    5.473153E-12  5.473153E-12  1.000000E+00
+          1.140000E+00  1.150000E+00    5.497211E-12  5.497211E-12  1.000000E+00
+          1.150000E+00  1.175000E+00    1.384760E-11  1.384760E-11  1.000000E+00
+          1.175000E+00  1.200000E+00    1.399577E-11  1.399577E-11  1.000000E+00
+          1.200000E+00  1.225000E+00    1.414227E-11  1.414227E-11  1.000000E+00
+          1.225000E+00  1.250000E+00    1.428732E-11  1.428732E-11  1.000000E+00
+          1.250000E+00  1.300000E+00    2.900402E-11  2.900402E-11  1.000000E+00
+          1.300000E+00  1.350000E+00    2.956736E-11  2.956736E-11  1.000000E+00
+          1.350000E+00  1.400000E+00    3.012003E-11  3.012003E-11  1.000000E+00
+          1.400000E+00  1.450000E+00    3.066288E-11  3.066288E-11  1.000000E+00
+          1.450000E+00  1.500000E+00    3.119614E-11  3.119614E-11  1.000000E+00
+          1.500000E+00  1.590000E+00    5.746877E-11  5.746877E-11  1.000000E+00
+          1.590000E+00  1.680000E+00    5.911907E-11  5.911907E-11  1.000000E+00
+          1.680000E+00  1.770000E+00    6.072468E-11  6.072468E-11  1.000000E+00
+          1.770000E+00  1.860000E+00    6.228883E-11  6.228883E-11  1.000000E+00
+          1.860000E+00  1.940000E+00    5.664992E-11  5.664992E-11  1.000000E+00
+          1.940000E+00  2.000000E+00    4.326334E-11  4.326334E-11  1.000000E+00
+          2.000000E+00  2.120000E+00    8.847883E-11  8.847883E-11  1.000000E+00
+          2.120000E+00  2.210000E+00    6.803065E-11  6.803065E-11  1.000000E+00
+          2.210000E+00  2.300000E+00    6.943020E-11  6.943020E-11  1.000000E+00
+          2.300000E+00  2.380000E+00    6.286859E-11  6.286859E-11  1.000000E+00
+          2.380000E+00  2.470000E+00    7.199991E-11  7.199991E-11  1.000000E+00
+          2.470000E+00  2.570000E+00    8.155168E-11  8.155168E-11  1.000000E+00
+          2.570000E+00  2.670000E+00    8.315432E-11  8.315432E-11  1.000000E+00
+          2.670000E+00  2.770000E+00    8.472626E-11  8.472626E-11  1.000000E+00
+          2.770000E+00  2.870000E+00    8.626975E-11  8.626975E-11  1.000000E+00
+          2.870000E+00  2.970000E+00    8.778632E-11  8.778632E-11  1.000000E+00
+          2.970000E+00  3.000000E+00    2.662764E-11  2.662764E-11  1.000000E+00
+          3.000000E+00  3.100000E+00    8.971906E-11  8.971906E-11  1.000000E+00
+          3.100000E+00  3.200000E+00    9.117828E-11  9.117828E-11  1.000000E+00
+          3.200000E+00  3.500000E+00    2.820638E-10  2.820638E-10  1.000000E+00
+          3.500000E+00  3.730000E+00    2.246486E-10  2.246486E-10  1.000000E+00
+          3.730000E+00  4.100000E+00    3.760685E-10  3.760685E-10  1.000000E+00
+          4.100000E+00  4.700000E+00    6.464472E-10  6.464472E-10  1.000000E+00
+          4.700000E+00  5.000000E+00    3.394023E-10  3.394023E-10  1.000000E+00
+          5.000000E+00  5.400000E+00    4.685701E-10  4.685701E-10  1.000000E+00
+          5.400000E+00  6.000000E+00    7.358308E-10  7.358308E-10  1.000000E+00
+          6.000000E+00  6.250000E+00    3.178520E-10  3.178520E-10  1.000000E+00
+          6.250000E+00  6.500000E+00    3.242743E-10  3.242743E-10  1.000000E+00
+          6.500000E+00  6.750000E+00    3.305718E-10  3.305718E-10  1.000000E+00
+          6.750000E+00  6.875000E+00    1.676104E-10  1.676104E-10  1.000000E+00
+          6.875000E+00  7.000000E+00    1.691411E-10  1.691411E-10  1.000000E+00
+          7.000000E+00  7.150000E+00    2.049708E-10  2.049708E-10  1.000000E+00
+          7.150000E+00  8.100000E+00    1.347449E-09  1.347449E-09  1.000000E+00
+          8.100000E+00  9.100000E+00    1.506353E-09  1.506353E-09  1.000000E+00
+          9.100000E+00  1.000000E+01    1.428705E-09  1.428705E-09  1.000000E+00
+          1.000000E+01  1.150000E+01    2.526072E-09  2.526072E-09  1.000000E+00
+          1.150000E+01  1.190000E+01    7.028869E-10  7.028869E-10  1.000000E+00
+          1.190000E+01  1.290000E+01    1.808920E-09  1.808920E-09  1.000000E+00
+          1.290000E+01  1.440000E+01    2.846694E-09  2.846694E-09  1.000000E+00
+          1.440000E+01  1.600000E+01    3.204271E-09  3.204271E-09  1.000000E+00
+          1.600000E+01  1.700000E+01    2.086712E-09  2.086712E-09  1.000000E+00
+          1.700000E+01  1.850000E+01    3.246348E-09  3.246348E-09  1.000000E+00
+          1.850000E+01  1.940000E+01    2.012674E-09  2.012674E-09  1.000000E+00
+          1.940000E+01  2.000000E+01    1.368097E-09  1.368097E-09  1.000000E+00
+          2.000000E+01  2.050000E+01    1.155889E-09  1.155889E-09  1.000000E+00
+          2.050000E+01  2.120000E+01    1.642036E-09  1.642036E-09  1.000000E+00
+          2.120000E+01  2.175000E+01    1.309368E-09  1.309368E-09  1.000000E+00
+          2.175000E+01  2.250000E+01    1.812315E-09  1.812315E-09  1.000000E+00
+          2.250000E+01  2.500000E+01    6.258314E-09  6.258314E-09  1.000000E+00
+          2.500000E+01  2.750000E+01    6.579589E-09  6.579589E-09  1.000000E+00
+          2.750000E+01  3.000000E+01    6.885878E-09  6.885878E-09  1.000000E+00
+          3.000000E+01  3.125000E+01    3.553651E-09  3.553651E-09  1.000000E+00
+          3.125000E+01  3.175000E+01    1.441644E-09  1.441644E-09  1.000000E+00
+          3.175000E+01  3.325000E+01    4.392959E-09  4.392959E-09  1.000000E+00
+          3.325000E+01  3.375000E+01    1.486706E-09  1.486706E-09  1.000000E+00
+          3.375000E+01  3.500000E+01    3.764946E-09  3.764946E-09  1.000000E+00
+          3.500000E+01  3.550000E+01    1.525042E-09  1.525042E-09  1.000000E+00
+          3.550000E+01  3.600000E+01    1.535820E-09  1.535820E-09  1.000000E+00
+          3.600000E+01  3.700000E+01    3.103673E-09  3.103673E-09  1.000000E+00
+          3.700000E+01  3.713000E+01    4.065947E-10  4.065947E-10  1.000000E+00
+          3.713000E+01  3.727000E+01    4.386624E-10  4.386624E-10  1.000000E+00
+          3.727000E+01  3.763000E+01    1.131779E-09  1.131779E-09  1.000000E+00
+          3.763000E+01  3.800000E+01    1.168866E-09  1.168866E-09  1.000000E+00
+          3.800000E+01  3.910000E+01    3.508594E-09  3.508594E-09  1.000000E+00
+          3.910000E+01  3.960000E+01    1.611291E-09  1.611291E-09  1.000000E+00
+          3.960000E+01  4.100000E+01    4.565704E-09  4.565704E-09  1.000000E+00
+          4.100000E+01  4.240000E+01    4.644333E-09  4.644333E-09  1.000000E+00
+          4.240000E+01  4.400000E+01    5.402401E-09  5.402401E-09  1.000000E+00
+          4.400000E+01  4.520000E+01    4.116963E-09  4.116963E-09  1.000000E+00
+          4.520000E+01  4.830000E+01    1.088838E-08  1.088838E-08  1.000000E+00
+          4.830000E+01  5.060000E+01    8.308665E-09  8.308665E-09  1.000000E+00
+          5.060000E+01  5.340000E+01    1.037234E-08  1.037234E-08  1.000000E+00
+          5.340000E+01  5.800000E+01    1.763532E-08  1.763532E-08  1.000000E+00
+          5.800000E+01  6.100000E+01    1.188766E-08  1.188766E-08  1.000000E+00
+          6.100000E+01  6.300000E+01    8.090003E-09  8.090003E-09  1.000000E+00
+          6.300000E+01  6.500000E+01    8.219449E-09  8.219449E-09  1.000000E+00
+          6.500000E+01  6.750000E+01    1.045329E-08  1.045329E-08  1.000000E+00
+          6.750000E+01  7.200000E+01    1.930597E-08  1.930597E-08  1.000000E+00
+          7.200000E+01  7.600000E+01    1.767615E-08  1.767615E-08  1.000000E+00
+          7.600000E+01  8.000000E+01    1.814762E-08  1.814762E-08  1.000000E+00
+          8.000000E+01  8.170000E+01    7.852532E-09  7.852532E-09  1.000000E+00
+          8.170000E+01  9.000000E+01    3.950286E-08  3.950286E-08  1.000000E+00
+          9.000000E+01  9.700000E+01    3.476957E-08  3.476957E-08  1.000000E+00
+          9.700000E+01  1.012000E+02    2.147817E-08  2.147817E-08  1.000000E+00
+          1.012000E+02  1.050000E+02    1.982102E-08  1.982102E-08  1.000000E+00
+          1.050000E+02  1.080000E+02    1.590416E-08  1.590416E-08  1.000000E+00
+          1.080000E+02  1.130000E+02    2.699971E-08  2.699971E-08  1.000000E+00
+          1.130000E+02  1.160000E+02    1.649063E-08  1.649063E-08  1.000000E+00
+          1.160000E+02  1.175000E+02    8.325972E-09  8.325972E-09  1.000000E+00
+          1.175000E+02  1.190000E+02    8.379281E-09  8.379281E-09  1.000000E+00
+          1.190000E+02  1.220000E+02    1.691715E-08  1.691715E-08  1.000000E+00
+          1.220000E+02  1.430000E+02    1.241441E-07  1.241441E-07  1.000000E+00
+          1.430000E+02  1.700000E+02    1.734577E-07  1.734577E-07  1.000000E+00
+          1.700000E+02  1.800000E+02    6.795288E-08  6.795288E-08  1.000000E+00
+          1.800000E+02  1.877000E+02    5.363103E-08  5.363103E-08  1.000000E+00
+          1.877000E+02  1.885000E+02    5.636205E-09  5.636205E-09  1.000000E+00
+          1.885000E+02  1.915000E+02    2.124210E-08  2.124210E-08  1.000000E+00
+          1.915000E+02  1.930000E+02    1.068376E-08  1.068376E-08  1.000000E+00
+          1.930000E+02  2.020000E+02    6.497040E-08  6.497040E-08  1.000000E+00
+          2.020000E+02  2.074000E+02    3.968683E-08  3.968683E-08  1.000000E+00
+          2.074000E+02  2.095000E+02    1.557462E-08  1.557462E-08  1.000000E+00
+          2.095000E+02  2.200000E+02    7.903879E-08  7.903879E-08  1.000000E+00
+          2.200000E+02  2.400000E+02    1.557943E-07  1.557943E-07  1.000000E+00
+          2.400000E+02  2.850000E+02    3.743941E-07  3.743941E-07  1.000000E+00
+          2.850000E+02  3.050000E+02    1.764405E-07  1.764405E-07  1.000000E+00
+          3.050000E+02  5.500000E+02    2.592809E-06  2.592809E-06  1.000000E+00
+          5.500000E+02  6.700000E+02    1.521535E-06  1.521535E-06  1.000000E+00
+          6.700000E+02  6.830000E+02    1.736493E-07  1.736493E-07  1.000000E+00
+          6.830000E+02  9.500000E+02    3.913539E-06  3.913539E-06  1.000000E+00
+          9.500000E+02  1.150000E+03    3.326427E-06  3.326427E-06  1.000000E+00
+          1.150000E+03  1.500000E+03    6.536092E-06  6.536092E-06  1.000000E+00
+          1.500000E+03  1.550000E+03    1.002346E-06  1.002346E-06  1.000000E+00
+          1.550000E+03  1.800000E+03    5.250877E-06  5.250877E-06  1.000000E+00
+          1.800000E+03  2.200000E+03    9.177190E-06  9.177190E-06  1.000000E+00
+          2.200000E+03  2.250000E+03    1.210324E-06  1.210324E-06  1.000000E+00
+          2.250000E+03  2.500000E+03    6.251133E-06  6.251133E-06  1.000000E+00
+          2.500000E+03  3.000000E+03    1.344756E-05  1.344756E-05  1.000000E+00
+          3.000000E+03  3.740000E+03    2.202180E-05  2.202180E-05  1.000000E+00
+          3.740000E+03  3.900000E+03    5.070778E-06  5.070778E-06  1.000000E+00
+          3.900000E+03  5.700000E+03    6.382182E-05  6.382182E-05  1.000000E+00
+          5.700000E+03  8.030000E+03    9.872559E-05  9.872559E-05  1.000000E+00
+          8.030000E+03  9.500000E+03    7.037937E-05  7.037937E-05  1.000000E+00
+          9.500000E+03  1.300000E+04    1.894735E-04  1.894735E-04  1.000000E+00
+          1.300000E+04  1.700000E+04    2.496495E-04  2.496495E-04  1.000000E+00
+          1.700000E+04  2.000000E+04    2.076811E-04  2.076811E-04  1.000000E+00
+          2.000000E+04  3.000000E+04    8.010038E-04  8.010038E-04  1.000000E+00
+          3.000000E+04  4.500000E+04    1.462477E-03  1.462477E-03  1.000000E+00
+          4.500000E+04  5.000000E+04    5.468784E-04  5.468784E-04  1.000000E+00
+          5.000000E+04  5.200000E+04    2.263015E-04  2.263015E-04  1.000000E+00
+          5.200000E+04  6.000000E+04    9.459999E-04  9.459999E-04  1.000000E+00
+          6.000000E+04  7.300000E+04    1.666161E-03  1.666161E-03  1.000000E+00
+          7.300000E+04  7.500000E+04    2.695192E-04  2.695192E-04  1.000000E+00
+          7.500000E+04  8.200000E+04    9.693300E-04  9.693300E-04  1.000000E+00
+          8.200000E+04  8.500000E+04    4.274271E-04  4.274271E-04  1.000000E+00
+          8.500000E+04  1.000000E+05    2.238654E-03  2.238654E-03  1.000000E+00
+          1.000000E+05  1.283000E+05    4.639506E-03  4.639506E-03  1.000000E+00
+          1.283000E+05  1.490000E+05    3.696363E-03  3.696363E-03  1.000000E+00
+          1.490000E+05  2.000000E+05    1.002546E-02  1.002546E-02  1.000000E+00
+          2.000000E+05  2.700000E+05    1.548459E-02  1.548459E-02  1.000000E+00
+          2.700000E+05  3.300000E+05    1.451564E-02  1.451564E-02  1.000000E+00
+          3.300000E+05  4.000000E+05    1.806269E-02  1.806269E-02  1.000000E+00
+          4.000000E+05  4.200000E+05    5.346024E-03  5.346024E-03  1.000000E+00
+          4.200000E+05  4.400000E+05    5.417832E-03  5.417832E-03  1.000000E+00
+          4.400000E+05  4.700000E+05    8.250217E-03  8.250217E-03  1.000000E+00
+          4.700000E+05  4.920000E+05    6.136163E-03  6.136163E-03  1.000000E+00
+          4.920000E+05  5.500000E+05    1.647999E-02  1.647999E-02  1.000000E+00
+          5.500000E+05  5.730000E+05    6.641000E-03  6.641000E-03  1.000000E+00
+          5.730000E+05  6.000000E+05    7.861673E-03  7.861673E-03  1.000000E+00
+          6.000000E+05  6.700000E+05    2.065787E-02  2.065787E-02  1.000000E+00
+          6.700000E+05  6.790000E+05    2.680205E-03  2.680205E-03  1.000000E+00
+          6.790000E+05  7.500000E+05    2.128937E-02  2.128937E-02  1.000000E+00
+          7.500000E+05  8.200000E+05    2.116916E-02  2.116916E-02  1.000000E+00
+          8.200000E+05  8.611000E+05    1.247534E-02  1.247534E-02  1.000000E+00
+          8.611000E+05  8.750000E+05    4.223026E-03  4.223026E-03  1.000000E+00
+          8.750000E+05  9.000000E+05    7.597415E-03  7.597415E-03  1.000000E+00
+          9.000000E+05  9.200000E+05    6.077958E-03  6.077958E-03  1.000000E+00
+          9.200000E+05  1.010000E+06    2.730753E-02  2.730753E-02  1.000000E+00
+          1.010000E+06  1.100000E+06    2.714242E-02  2.714242E-02  1.000000E+00
+          1.100000E+06  1.200000E+06    2.983145E-02  2.983145E-02  1.000000E+00
+          1.200000E+06  1.250000E+06    1.474871E-02  1.474871E-02  1.000000E+00
+          1.250000E+06  1.317000E+06    1.955810E-02  1.955810E-02  1.000000E+00
+          1.317000E+06  1.356000E+06    1.126625E-02  1.126625E-02  1.000000E+00
+          1.356000E+06  1.400000E+06    1.259840E-02  1.259840E-02  1.000000E+00
+          1.400000E+06  1.500000E+06    2.815789E-02  2.815789E-02  1.000000E+00
+          1.500000E+06  1.850000E+06    9.265702E-02  9.265702E-02  1.000000E+00
+          1.850000E+06  2.354000E+06    1.154331E-01  1.154331E-01  1.000000E+00
+          2.354000E+06  2.479000E+06    2.525288E-02  2.525288E-02  1.000000E+00
+          2.479000E+06  3.000000E+06    9.147003E-02  9.147003E-02  1.000000E+00
+          3.000000E+06  4.304000E+06    1.479223E-01  1.479223E-01  1.000000E+00
+          4.304000E+06  4.800000E+06    3.383091E-02  3.383091E-02  1.000000E+00
+          4.800000E+06  6.434000E+06    6.121540E-02  6.121540E-02  1.000000E+00
+          6.434000E+06  8.187000E+06    2.259803E-02  2.259803E-02  1.000000E+00
+          8.187000E+06  1.000000E+07    7.068905E-03  7.068905E-03  1.000000E+00
+          1.000000E+07  1.284000E+07    2.363146E-03  2.363146E-03  1.000000E+00
+          1.284000E+07  1.384000E+07    1.767828E-04  1.767828E-04  1.000000E+00
+          1.384000E+07  1.455000E+07    6.566299E-05  6.566299E-05  1.000000E+00
+          1.455000E+07  1.568000E+07    5.327559E-05  5.327559E-05  1.000000E+00
+          1.568000E+07  1.733000E+07    2.799386E-05  2.799386E-05  1.000000E+00
+          1.733000E+07  2.000000E+07    9.523290E-06  9.523290E-06  1.000000E+00
+         ---------------------------   ------------- ------------- -------------
+
+ Energy Boundaries (1)
+     Energy Boundaries 1
+         title: neutron multigroup energy boundaries
+          group   energy (eV)
+         ------  ------------
+              1   2.00000E+07
+              2   1.73300E+07
+              3   1.56800E+07
+              4   1.45500E+07
+              5   1.38400E+07
+              6   1.28400E+07
+              7   1.00000E+07
+              8   8.18700E+06
+              9   6.43400E+06
+             10   4.80000E+06
+             11   4.30400E+06
+             12   3.00000E+06
+             13   2.47900E+06
+             14   2.35400E+06
+             15   1.85000E+06
+             16   1.50000E+06
+             17   1.40000E+06
+             18   1.35600E+06
+             19   1.31700E+06
+             20   1.25000E+06
+             21   1.20000E+06
+             22   1.10000E+06
+             23   1.01000E+06
+             24   9.20000E+05
+             25   9.00000E+05
+             26   8.75000E+05
+             27   8.61100E+05
+             28   8.20000E+05
+             29   7.50000E+05
+             30   6.79000E+05
+             31   6.70000E+05
+             32   6.00000E+05
+             33   5.73000E+05
+             34   5.50000E+05
+             35   4.92000E+05
+             36   4.70000E+05
+             37   4.40000E+05
+             38   4.20000E+05
+             39   4.00000E+05
+             40   3.30000E+05
+             41   2.70000E+05
+             42   2.00000E+05
+             43   1.49000E+05
+             44   1.28300E+05
+             45   1.00000E+05
+             46   8.50000E+04
+             47   8.20000E+04
+             48   7.50000E+04
+             49   7.30000E+04
+             50   6.00000E+04
+             51   5.20000E+04
+             52   5.00000E+04
+             53   4.50000E+04
+             54   3.00000E+04
+             55   2.00000E+04
+             56   1.70000E+04
+             57   1.30000E+04
+             58   9.50000E+03
+             59   8.03000E+03
+             60   5.70000E+03
+             61   3.90000E+03
+             62   3.74000E+03
+             63   3.00000E+03
+             64   2.50000E+03
+             65   2.25000E+03
+             66   2.20000E+03
+             67   1.80000E+03
+             68   1.55000E+03
+             69   1.50000E+03
+             70   1.15000E+03
+             71   9.50000E+02
+             72   6.83000E+02
+             73   6.70000E+02
+             74   5.50000E+02
+             75   3.05000E+02
+             76   2.85000E+02
+             77   2.40000E+02
+             78   2.20000E+02
+             79   2.09500E+02
+             80   2.07400E+02
+             81   2.02000E+02
+             82   1.93000E+02
+             83   1.91500E+02
+             84   1.88500E+02
+             85   1.87700E+02
+             86   1.80000E+02
+             87   1.70000E+02
+             88   1.43000E+02
+             89   1.22000E+02
+             90   1.19000E+02
+             91   1.17500E+02
+             92   1.16000E+02
+             93   1.13000E+02
+             94   1.08000E+02
+             95   1.05000E+02
+             96   1.01200E+02
+             97   9.70000E+01
+             98   9.00000E+01
+             99   8.17000E+01
+            100   8.00000E+01
+            101   7.60000E+01
+            102   7.20000E+01
+            103   6.75000E+01
+            104   6.50000E+01
+            105   6.30000E+01
+            106   6.10000E+01
+            107   5.80000E+01
+            108   5.34000E+01
+            109   5.06000E+01
+            110   4.83000E+01
+            111   4.52000E+01
+            112   4.40000E+01
+            113   4.24000E+01
+            114   4.10000E+01
+            115   3.96000E+01
+            116   3.91000E+01
+            117   3.80000E+01
+            118   3.76300E+01
+            119   3.72700E+01
+            120   3.71300E+01
+            121   3.70000E+01
+            122   3.60000E+01
+            123   3.55000E+01
+            124   3.50000E+01
+            125   3.37500E+01
+            126   3.32500E+01
+            127   3.17500E+01
+            128   3.12500E+01
+            129   3.00000E+01
+            130   2.75000E+01
+            131   2.50000E+01
+            132   2.25000E+01
+            133   2.17500E+01
+            134   2.12000E+01
+            135   2.05000E+01
+            136   2.00000E+01
+            137   1.94000E+01
+            138   1.85000E+01
+            139   1.70000E+01
+            140   1.60000E+01
+            141   1.44000E+01
+            142   1.29000E+01
+            143   1.19000E+01
+            144   1.15000E+01
+            145   1.00000E+01
+            146   9.10000E+00
+            147   8.10000E+00
+            148   7.15000E+00
+            149   7.00000E+00
+            150   6.87500E+00
+            151   6.75000E+00
+            152   6.50000E+00
+            153   6.25000E+00
+            154   6.00000E+00
+            155   5.40000E+00
+            156   5.00000E+00
+            157   4.70000E+00
+            158   4.10000E+00
+            159   3.73000E+00
+            160   3.50000E+00
+            161   3.20000E+00
+            162   3.10000E+00
+            163   3.00000E+00
+            164   2.97000E+00
+            165   2.87000E+00
+            166   2.77000E+00
+            167   2.67000E+00
+            168   2.57000E+00
+            169   2.47000E+00
+            170   2.38000E+00
+            171   2.30000E+00
+            172   2.21000E+00
+            173   2.12000E+00
+            174   2.00000E+00
+            175   1.94000E+00
+            176   1.86000E+00
+            177   1.77000E+00
+            178   1.68000E+00
+            179   1.59000E+00
+            180   1.50000E+00
+            181   1.45000E+00
+            182   1.40000E+00
+            183   1.35000E+00
+            184   1.30000E+00
+            185   1.25000E+00
+            186   1.22500E+00
+            187   1.20000E+00
+            188   1.17500E+00
+            189   1.15000E+00
+            190   1.14000E+00
+            191   1.13000E+00
+            192   1.12000E+00
+            193   1.11000E+00
+            194   1.10000E+00
+            195   1.09000E+00
+            196   1.08000E+00
+            197   1.07000E+00
+            198   1.06000E+00
+            199   1.05000E+00
+            200   1.04000E+00
+            201   1.03000E+00
+            202   1.02000E+00
+            203   1.01000E+00
+            204   1.00000E+00
+            205   9.75000E-01
+            206   9.50000E-01
+            207   9.25000E-01
+            208   9.00000E-01
+            209   8.50000E-01
+            210   8.00000E-01
+            211   7.50000E-01
+            212   7.00000E-01
+            213   6.50000E-01
+            214   6.25000E-01
+            215   6.00000E-01
+            216   5.50000E-01
+            217   5.00000E-01
+            218   4.50000E-01
+            219   4.00000E-01
+            220   3.75000E-01
+            221   3.50000E-01
+            222   3.25000E-01
+            223   3.00000E-01
+            224   2.75000E-01
+            225   2.50000E-01
+            226   2.25000E-01
+            227   2.00000E-01
+            228   1.75000E-01
+            229   1.50000E-01
+            230   1.25000E-01
+            231   1.00000E-01
+            232   9.00000E-02
+            233   8.00000E-02
+            234   7.00000E-02
+            235   6.00000E-02
+            236   5.00000E-02
+            237   4.00000E-02
+            238   3.00000E-02
+            239   2.53000E-02
+            240   1.00000E-02
+            241   7.50000E-03
+            242   5.00000E-03
+            243   4.00000E-03
+            244   3.00000E-03
+            245   2.50000E-03
+            246   2.00000E-03
+            247   1.50000E-03
+            248   1.20000E-03
+            249   1.00000E-03
+            250   7.50000E-04
+            251   5.00000E-04
+            252   1.00000E-04
+                  1.00000E-05
+         ------  ------------
+
+ Sources (1)
+     Source specification: 1
+         title:    Cf-252 neutrons, Watt fission spectrum model
+         strength: 4.0500000E+07 particles/sec
+         sample:   1.0000000E+00
+         energy dependence: 
+             particle: neutron 
+             energy distribution: 1
+         spatial dependence: 
+             volume of 0.000000E+00 cm**3
+             cuboid: x from  1.00000E-02 to  1.00000E-02
+                     y from  0.00000E+00 to  0.00000E+00
+                     z from  0.00000E+00 to  0.00000E+00
+             x distribution is uniform (default) 
+             y distribution is uniform (default) 
+             z distribution is uniform (default) 
+         directional dependence:
+             isotropic (default)
+
+ Parameters
+     initial random seed                   randomSeed      = 00003ECD7B4E3E8B
+     histories per batch                   perBatch        = 1
+     batches of histories                  batches         = 1
+     maximum run time (minutes)            maxMinutes      = 1.00000E+07
+     maximum number of lost particles      maximumLost     = 10
+     doppler broadening mode               db_xs_mode      = 0
+     neutron transport not specified       controlled by library choice
+     photon transport is off               noPhoton
+     fission multiplicty                   fissionMult     = 0     (no multiplication)
+     secondary multiplicty                 secondaryMult   = 0     (no multiplication)
+     stop if importance map is short       (default)
+     forward calculation                   (default)
+     do not dump collision points          (default)
+     debugBatch                            debugBatch      = 0
+     debugHistory                          debugHistory    = 0
+     debugBloops                           debugBloops     = -1
+     debugBloopMax                         debugBloopMax   = 0
+     do not debugVerbose                   (default)
+     check weight at birth                 (default)
+     do not use void in all regions        (default)
+
+ Biasing Parameters
+     roulette for low weights   T
+     splitting for high weights T
+     forced collisions          F
+     path length stretching     F
+     energy structure           252n/0p
+     using default weight windows to match problem
+     size of lower weights      252 groups by 4 regions
+     size of target weights     252 groups by 4 regions
+     size of upper weights      252 groups by 4 regions
+     no angular biasing                                
+  
+ Target Weight Window Values
+     standard biasing minimum      1.0000000E+00
+     standard biasing maximum      1.0000000E+00
+     ratio of minumum/maximum      1.0000000E+00
+
+
+
+ Starting the Monte Carlo game with 00003ECD7B4E3E8B
+
+     batch    batches        batch time   elapsed time      next randomSeed
+     ----------------     -------------  -------------     ----------------
+          1 of      1     0.000 seconds  0.000 seconds     2F2590867C7E947B
+
+ Finished 1 batches.
+
+ Total Monaco cpu time for this problem was 0.141 seconds
+
+
+    module shell will be called on Tue Oct 30 15:54:06 2018.
+    sequence specification record:=shell
+Input Data:
+
+        cp C:\Users\nickq\Documents\AFIT_Masters\NIF-ETA-Experiment\Models\Scale\Test_SAMPLER/monaco.howitzer_sampler.samplerfiles/c1_pert_00001.inp C:\Users\nickq\Documents\AFIT_Masters\NIF-ETA-Experiment\Models\Scale\Test_SAMPLER/monaco.howitzer_sampler.samplerfiles/c1_pert_00001/
+end
+
+        1 file(s) copied.
+module shell is finished. completion code 0
+
+    SCALE is finished on Tue Oct 30 15:54:06 2018.
+-------------------------- Summary --------------------------
+shell finished. used 0.319153 seconds.
+clarolplus finished. used 43.2884 seconds.
+shell finished. used 0.0948906 seconds.
+mavric finished. used 8.55855 seconds.
+shell finished. used 0.0145205 seconds.
+SCALE driver required a maximum of 25.91 MiB of RAM.
+------------------------ End Summary ------------------------
+
+c1_pert_00001.resp20.chart copied to C:\Users\nickq\Documents\AFIT_Masters\NIF-ETA-Experiment\Models\Scale\Test_SAMPLER\monaco.howitzer_sampler.samplerfiles\c1_pert_00001.resp20.chart.
+c1_pert_00001.resp21.chart copied to C:\Users\nickq\Documents\AFIT_Masters\NIF-ETA-Experiment\Models\Scale\Test_SAMPLER\monaco.howitzer_sampler.samplerfiles\c1_pert_00001.resp21.chart.
+c1_pert_00001.resp22.chart copied to C:\Users\nickq\Documents\AFIT_Masters\NIF-ETA-Experiment\Models\Scale\Test_SAMPLER\monaco.howitzer_sampler.samplerfiles\c1_pert_00001.resp22.chart.
+c1_pert_00001.resp23.chart copied to C:\Users\nickq\Documents\AFIT_Masters\NIF-ETA-Experiment\Models\Scale\Test_SAMPLER\monaco.howitzer_sampler.samplerfiles\c1_pert_00001.resp23.chart.
+c1_pert_00001.resp24.chart copied to C:\Users\nickq\Documents\AFIT_Masters\NIF-ETA-Experiment\Models\Scale\Test_SAMPLER\monaco.howitzer_sampler.samplerfiles\c1_pert_00001.resp24.chart.
+c1_pert_00001.resp25.chart copied to C:\Users\nickq\Documents\AFIT_Masters\NIF-ETA-Experiment\Models\Scale\Test_SAMPLER\monaco.howitzer_sampler.samplerfiles\c1_pert_00001.resp25.chart.

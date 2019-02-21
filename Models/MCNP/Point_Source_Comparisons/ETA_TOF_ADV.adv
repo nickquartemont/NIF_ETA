@@ -1,0 +1,17 @@
+method                       fwcadis
+
+mcnp_input                   ETA_TOF.i
+mcnp_tallies                 24
+
+anisn_library                27n19g
+
+denovo_first_group           41
+
+mesh_x      -101.0000  -14.00000  14.000000  101.00000
+mesh_x_ints         3         10          3
+
+mesh_y      -101.0000  -14.00000  14.000000  101.00000
+mesh_y_ints         3         10          3
+
+mesh_z      -101.0000  14.500000  30.000000  101.00000
+mesh_z_ints         3         10          3

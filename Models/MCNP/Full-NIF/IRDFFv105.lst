@@ -1,0 +1,507 @@
+ ACELST - List contents of an ACE-lib   
+ ====================================   
+                                        
+ 03-Li-6 IRDFFv105                                                    
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :   3006.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat 325
+                  Atomic weight ratio :    5.96340
+ List of reactions by MT-numbers:       
+      105
+ --------------------------------------------------------------------------     
+ 05-B-10 IRDFFv105                                                    
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :   5010.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat 525
+                  Atomic weight ratio :    9.92692
+ List of reactions by MT-numbers:       
+        2      107      800      801
+ --------------------------------------------------------------------------     
+ 05-B-nat IRDFFv105                                                   
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :   5000.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat 500
+                  Atomic weight ratio :   10.71813
+ List of reactions by MT-numbers:       
+        2      101      102      103      106      107
+ --------------------------------------------------------------------------     
+ 09-F-19 IRDFFv105                                                    
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :   9019.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat 925
+                  Atomic weight ratio :   18.83520
+ List of reactions by MT-numbers:       
+       16
+ --------------------------------------------------------------------------     
+ 11-Na-23 IRDFFv105                                                   
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  11023.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat1125
+                  Atomic weight ratio :   22.79230
+ List of reactions by MT-numbers:       
+        2       16      102
+ --------------------------------------------------------------------------     
+ 12-Mg-24 IRDFFv105                                                   
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  12024.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat1225
+                  Atomic weight ratio :   23.77900
+ List of reactions by MT-numbers:       
+      103
+ --------------------------------------------------------------------------     
+ 13-Al-27 IRDFFv105                                                   
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  13027.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat1325
+                  Atomic weight ratio :   26.74980
+ List of reactions by MT-numbers:       
+      103      107
+ --------------------------------------------------------------------------     
+ 14-Si-28 IRDFFv105                                                   
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  14028.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat1425
+                  Atomic weight ratio :   27.73660
+ List of reactions by MT-numbers:       
+      103
+ --------------------------------------------------------------------------     
+ 14-Si-29 IRDFFv105                                                   
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  14029.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat1428
+                  Atomic weight ratio :   28.72760
+ List of reactions by MT-numbers:       
+    10005
+ --------------------------------------------------------------------------     
+ 15-P-31 IRDFFv105                                                    
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  15031.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat1525
+                  Atomic weight ratio :   30.70770
+ List of reactions by MT-numbers:       
+      103
+ --------------------------------------------------------------------------     
+ 16-S-32 IRDFFv105                                                    
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  16032.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat1625
+                  Atomic weight ratio :   31.69740
+ List of reactions by MT-numbers:       
+      103
+ --------------------------------------------------------------------------     
+ 21-Sc-45 IRDFFv105                                                   
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  21045.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat2125
+                  Atomic weight ratio :   44.57000
+ List of reactions by MT-numbers:       
+        2      102
+ --------------------------------------------------------------------------     
+ 22-Ti-46 IRDFFv105                                                   
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  22046.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat2225
+                  Atomic weight ratio :   45.55790
+ List of reactions by MT-numbers:       
+       16      103
+ --------------------------------------------------------------------------     
+ 22-Ti-47 IRDFFv105                                                   
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  22047.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat2228
+                  Atomic weight ratio :   46.54840
+ List of reactions by MT-numbers:       
+      103    10005
+ --------------------------------------------------------------------------     
+ 22-Ti-48 IRDFFv105                                                   
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  22048.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat2231
+                  Atomic weight ratio :   47.53600
+ List of reactions by MT-numbers:       
+      103    10005
+ --------------------------------------------------------------------------     
+ 22-Ti-49 IRDFFv105                                                   
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  22049.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat2234
+                  Atomic weight ratio :   48.52740
+ List of reactions by MT-numbers:       
+    10005
+ --------------------------------------------------------------------------     
+ 23-V-51 IRDFFv105                                                    
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  23051.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat2328
+                  Atomic weight ratio :   50.50630
+ List of reactions by MT-numbers:       
+      107
+ --------------------------------------------------------------------------     
+ 24-Cr-52 IRDFFv105                                                   
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  24052.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat2431
+                  Atomic weight ratio :   51.49430
+ List of reactions by MT-numbers:       
+       16
+ --------------------------------------------------------------------------     
+ 25-Mn-55 IRDFFv105                                                   
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  25055.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat2525
+                  Atomic weight ratio :   54.46610
+ List of reactions by MT-numbers:       
+       16      102
+ --------------------------------------------------------------------------     
+ 26-Fe-54 IRDFFv105                                                   
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  26054.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat2625
+                  Atomic weight ratio :   53.47620
+ List of reactions by MT-numbers:       
+       16      103      107
+ --------------------------------------------------------------------------     
+ 26-Fe-56 IRDFFv105                                                   
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  26056.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat2631
+                  Atomic weight ratio :   55.45440
+ List of reactions by MT-numbers:       
+      103
+ --------------------------------------------------------------------------     
+ 26-Fe-58 IRDFFv105                                                   
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  26058.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat2637
+                  Atomic weight ratio :   57.43561
+ List of reactions by MT-numbers:       
+      102
+ --------------------------------------------------------------------------     
+ 27-Co-59 IRDFFv105                                                   
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  27059.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat2725
+                  Atomic weight ratio :   58.42690
+ List of reactions by MT-numbers:       
+        2       16       17      102      103      107
+ --------------------------------------------------------------------------     
+ 28-Ni-58 IRDFFv105                                                   
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  28058.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat2825
+                  Atomic weight ratio :   57.43760
+ List of reactions by MT-numbers:       
+       16      103
+ --------------------------------------------------------------------------     
+ 28-Ni-60 IRDFFv105                                                   
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  28060.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat2831
+                  Atomic weight ratio :   59.41600
+ List of reactions by MT-numbers:       
+      103
+ --------------------------------------------------------------------------     
+ 29-Cu-63 IRDFFv105                                                   
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  29063.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat2925
+                  Atomic weight ratio :   62.38940
+ List of reactions by MT-numbers:       
+        2       16      102      107
+ --------------------------------------------------------------------------     
+ 29-Cu-65 IRDFFv105                                                   
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  29065.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat2931
+                  Atomic weight ratio :   64.37000
+ List of reactions by MT-numbers:       
+       16
+ --------------------------------------------------------------------------     
+ 30-Zn-64 IRDFFv105                                                   
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  30064.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat3025
+                  Atomic weight ratio :   63.38000
+ List of reactions by MT-numbers:       
+      103
+ --------------------------------------------------------------------------     
+ 30-Zn-67 IRDFFv105                                                   
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  30067.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat3034
+                  Atomic weight ratio :   66.35220
+ List of reactions by MT-numbers:       
+      103
+ --------------------------------------------------------------------------     
+ 33-As-75 IRDFFv105                                                   
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  33075.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat3325
+                  Atomic weight ratio :   74.27800
+ List of reactions by MT-numbers:       
+       16
+ --------------------------------------------------------------------------     
+ 39-Y-89 IRDFFv105                                                    
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  39089.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat3925
+                  Atomic weight ratio :   88.14210
+ List of reactions by MT-numbers:       
+       16
+ --------------------------------------------------------------------------     
+ 40-Zr-90 IRDFFv105                                                   
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  40090.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat4025
+                  Atomic weight ratio :   89.13240
+ List of reactions by MT-numbers:       
+       16
+ --------------------------------------------------------------------------     
+ 41-Nb-93 IRDFFv105                                                   
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  41093.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat4125
+                  Atomic weight ratio :   92.10830
+ List of reactions by MT-numbers:       
+        2      102    11004    11016    10102    11102
+ --------------------------------------------------------------------------     
+ 42-Mo-92 IRDFFv105                                                   
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  42092.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat4225
+                  Atomic weight ratio :   91.11720
+ List of reactions by MT-numbers:       
+    11103
+ --------------------------------------------------------------------------     
+ 45-Rh-103 IRDFFv105                                                  
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  45103.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat4525
+                  Atomic weight ratio :  102.02100
+ List of reactions by MT-numbers:       
+    11004
+ --------------------------------------------------------------------------     
+ 47-Ag-109 IRDFFv105                                                  
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  47109.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat4731
+                  Atomic weight ratio :  107.96900
+ List of reactions by MT-numbers:       
+    12102
+ --------------------------------------------------------------------------     
+ 48-Cd-nat IRDFFv105                                                  
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  48000.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat4800
+                  Atomic weight ratio :  111.44540
+ List of reactions by MT-numbers:       
+        2      101      102      103      104      105      106      107
+ --------------------------------------------------------------------------     
+ 49-In-113 IRDFFv105                                                  
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  49113.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat4925
+                  Atomic weight ratio :  111.93400
+ List of reactions by MT-numbers:       
+        2      102    11004    10102    11102
+ --------------------------------------------------------------------------     
+ 49-In-115 IRDFFv105                                                  
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  49115.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat4931
+                  Atomic weight ratio :  113.91700
+ List of reactions by MT-numbers:       
+        2      102    11004    11016    10102    12102
+ --------------------------------------------------------------------------     
+ 53-I-127 IRDFFv105                                                   
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  53127.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat5325
+                  Atomic weight ratio :  125.81400
+ List of reactions by MT-numbers:       
+       16
+ --------------------------------------------------------------------------     
+ 57-La-139 IRDFFv105                                                  
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  57139.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat5728
+                  Atomic weight ratio :  137.71300
+ List of reactions by MT-numbers:       
+        2      102
+ --------------------------------------------------------------------------     
+ 59-Pr-141 IRDFFv105                                                  
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  59141.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat5925
+                  Atomic weight ratio :  139.69700
+ List of reactions by MT-numbers:       
+       16
+ --------------------------------------------------------------------------     
+ 64-Gd-nat IRDFFv105                                                  
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  64000.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat6400
+                  Atomic weight ratio :  155.90120
+ List of reactions by MT-numbers:       
+        2      101      102
+ --------------------------------------------------------------------------     
+ 69-Tm-169 IRDFFv105                                                  
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  69169.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat6925
+                  Atomic weight ratio :  167.48300
+ List of reactions by MT-numbers:       
+       16       17
+ --------------------------------------------------------------------------     
+ 73-Ta-181 IRDFFv105                                                  
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  73181.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat7328
+                  Atomic weight ratio :  179.39300
+ List of reactions by MT-numbers:       
+        2      102
+ --------------------------------------------------------------------------     
+ 74-W-186 IRDFFv105                                                   
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  74186.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat7443
+                  Atomic weight ratio :  184.35700
+ List of reactions by MT-numbers:       
+        2      102
+ --------------------------------------------------------------------------     
+ 79-Au-197 IRDFFv105                                                  
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  79197.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat7925
+                  Atomic weight ratio :  195.27500
+ List of reactions by MT-numbers:       
+        2       16      102
+ --------------------------------------------------------------------------     
+ 80-Hg-199 IRDFFv105                                                  
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  80199.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat8034
+                  Atomic weight ratio :  197.25900
+ List of reactions by MT-numbers:       
+    11004
+ --------------------------------------------------------------------------     
+ 82-Pb-204 IRDFFv105                                                  
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  82204.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat8225
+                  Atomic weight ratio :  202.22000
+ List of reactions by MT-numbers:       
+    11004
+ --------------------------------------------------------------------------     
+ 83-Bi-209 IRDFFv105                                                  
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  83209.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat8325
+                  Atomic weight ratio :  207.18500
+ List of reactions by MT-numbers:       
+       17
+ --------------------------------------------------------------------------     
+ 90-Th-232 IRDFFv105                                                  
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  90232.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat9040
+                  Atomic weight ratio :  230.04500
+ List of reactions by MT-numbers:       
+        2       18      102
+ --------------------------------------------------------------------------     
+ 92-U-235 IRDFFv105                                                   
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  92235.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat9228
+                  Atomic weight ratio :  233.02480
+ List of reactions by MT-numbers:       
+       18      102
+ --------------------------------------------------------------------------     
+ 92-U-238 IRDFFv105                                                   
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  92238.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat9237
+                  Atomic weight ratio :  236.00580
+ List of reactions by MT-numbers:       
+       16       18      102
+ --------------------------------------------------------------------------     
+ 93-Np-237 IRDFFv105                                                  
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  93237.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat9346
+                  Atomic weight ratio :  235.01100
+ List of reactions by MT-numbers:       
+        2       18
+ --------------------------------------------------------------------------     
+ 94-Pu-239 IRDFFv105                                                  
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  94239.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat9437
+                  Atomic weight ratio :  236.99860
+ List of reactions by MT-numbers:       
+        2       18
+ --------------------------------------------------------------------------     
+ 95-Am-241 IRDFFv105                                                  
+                          Source file : IRDFFv105                               
+             Material ZAID identifier :  95241.34y
+                         Processed on :   05/23/17
+                       MAT identifier :    mat9543
+                  Atomic weight ratio :  238.98600
+ List of reactions by MT-numbers:       
+        2       18
+ --------------------------------------------------------------------------     
