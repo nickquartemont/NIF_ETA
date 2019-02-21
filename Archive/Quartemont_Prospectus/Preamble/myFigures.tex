@@ -1,0 +1,1137 @@
+% !TEX root = ../SteadmanThesis.tex
+
+%% myFigures.tex
+% A common file to store all figure definitions
+%
+% In preparing your thesis, one of the first things you should do is
+% organize your figures.  Then, one of the last things you'll do is
+% reorder your figures so they display where you want them to in the
+% text.  Organizing figure definitions in a common files helps:
+%
+%   1. Write new figures using earlier examples.
+%
+%   2.  Isolate code and minimize the risk of introducing bugs in the
+%   final editing process.  Trust me, moving around just one line of
+%   code is easier.
+%
+%   3.  Reuse figures in other papers.  <=== the best reason!
+%
+% Note command names can not include numbers and special characters.
+%
+% To make the file more searchable, use naming conventions that map
+% the graphics filename labSetup.jpg to the command name \figlabSetup to the
+% figure label fig:labSetup.
+
+% -------------------------------------------------------------------------------------------------------------------------------------
+% Notes:	For two figures side-by-side, use width = 2.85 in.
+%		Largest single figure width is 6 in
+
+
+% Chapter 2 ----------------------------------------------------------------------------------------------------------------------------------------
+% ------------------------------------------------------------------------------------------------------------------------------------------------------
+
+\newcommand{\figIonosphereLayers}{
+\begin{figure} [btp]
+\centering
+\includegraphics[width=3.7in]{./Figures/Chapter2/IonosphereLayers.png}
+\caption[Vertical profile of the ionosphere]{Vertical profile of the ionosphere.  Densities consisting mainly of O$^+$ reach maximum values near the F$_2$ peak, seen at about 300 \emph{km} in this figure.  Additionally, a smaller peak consisting of several ion species is found in the E region near 130 \emph{km}  (Adapted from \emph{Schunk and Nagy} (2009))}
+\label{fig:IonosphereLayers}
+\end{figure}
+}
+
+\newcommand{\figChapmanLayer}{
+\begin{figure} [tbp]
+\centering
+\includegraphics[width=3in]{./Figures/Chapter2/ChapmanLayer.png}
+\caption[Chapman layer]{Chapman layer and ionization curve (dashed line).  Decreasing neutral densities ($n(z)$) and increasing solar irradiance ($I(z)$) with altitude form an ionization peak known as a Chapman layer.  (Adapted from \emph{Jenniges} (2011))}
+\label{fig:ChapmanLayer}
+\end{figure}
+}
+
+% Unused
+\newcommand{\figOpenMagnetosphere}{
+\begin{figure} [tbp]
+\centering
+\includegraphics[width=5in]{./Figures/Chapter2/OpenMagnetosphere.png}
+\caption[Open magnetospheric field lines]{Formation of open magnetic field lines.  Adapted from \emph{Prolss} (2004))}
+\label{fig:OpenMagnetosphere}
+\end{figure}
+}
+
+\newcommand{\figGeoIndicesStorm}{
+\begin{figure} [tbh]
+\centering
+\includegraphics[width=5in]{./Figures/Chapter2/GeoIndicesStorm.png}
+\caption[Geomagnetic storm \emph{a$_p$} and \emph{Dst} profiles]{Profile of \emph{a$_p$} and \emph{Dst} indices during the 10 November 1986 geomagnetic storm.  The linearly scaled, 3-hourly \emph{a$_p$} index is simply a derivation of the quasi-logarithmic-scaled \emph{K$_p$} index}
+\label{fig:GeoIndicesStorm}
+\end{figure}
+}
+
+\newcommand{\figSEDexample}{
+\begin{figure} [tbhp]
+\centering
+\includegraphics[width=4in]{./Figures/Chapter2/SEDexample.png}
+\caption[SED plume during the 31 March 2001 geomagnetic storm]{SED plume over the northern U.S. at 1930 UT during the 31 March 2001 geomagnetic storm.  The 50 TEC unit contour is outlined in red and shows the position of the SED.  Data from over 120 GPS ground stations were used to reconstruct this TEC map.  (Adapted from \emph{Foster} (2002))}
+\label{fig:SEDexample}
+\end{figure}
+}
+
+\newcommand{\figSAPS}{
+\begin{figure} [tbp]
+\centering
+\includegraphics[width=3in]{./Figures/Chapter2/SAPS.png}
+\caption[SAPS electric field]{Plasma convection pattern during geomagnetic storming that leads to SED formation.  Enhanced electric fields drive equatorial plasma (light grey patches) high into the plasmasphere, where it diffuses down magnetic field lines.  At lower mid-latitudes an enhanced polarizing electric field then erodes the plasma from the plasmasphere and transports it poleward (dark grey patches) in the Sub-Auroral Polarization Stream (SAPS).  (Adapted from \emph{Schunk and Nagy} (2009))}
+\label{fig:SAPS}
+\end{figure}
+}
+
+\newcommand{\figWorldIFM}{
+\begin{figure}[tbp]
+\begin{center}
+\subfigure[TEC]{
+\includegraphics[width=2.85in]{./Figures/Chapter2/WorldIFMTEC.png}
+\label{fig:WorldIFMTEC}
+}
+\subfigure[Electron density longitude slice, 240$^{\circ}$ E]{
+\includegraphics[width=2.85in]{./Figures/Chapter2/WorldIFMslice.png}
+\label{fig:WorldIFMslice}
+}
+\caption[IFM TEC and electron density]{IFM specification during solar minimum (Year 2007, Day 355, 2200 UT).  Note how the model output captures the equatorial Appleton Anomaly, or fountain effect, in the 240$^{\circ}$ E longitude slice (b)}
+\label{fig:WorldIFM}
+\end{center}
+\end{figure}
+}
+
+\newcommand{\figGAIMpopout}{
+\begin{figure} [tbp]
+\centering
+\includegraphics[width=5in]{./Figures/Chapter2/GAIMpopout.png}
+\caption[GAIM-GM resolutions for global and regional output]{GAIM-GM model output for global and regional modes.  Global mode resolution is typically 4.6$^{\circ}$ latitude by 15$^{\circ}$ longitude, while resolution as high as 1$^{\circ}$ latitude by 3.75$^{\circ}$ longitude can be obtained in regional mode}
+\label{fig:GAIMpopout}
+\end{figure}
+}
+
+\newcommand{\figGAIMDataSources}{
+\begin{figure} [tbp]
+\centering
+\includegraphics[width=5in]{./Figures/Chapter2/GAIMDataSources.png}
+\caption[GAIM-GM data sources]{Portrayal of some of the data sources that are available for assimilation into GAIM-GM.  (Adapted from \emph{Schunk} (2004))}
+\label{fig:GAIMDataSources}
+\end{figure}
+}
+
+\newcommand{\figSlantTEC}{
+\begin{figure} [htbp]
+\centering
+\includegraphics[width=3in]{./Figures/Chapter2/SlantTEC.png}
+\caption[Plasmasphere contribution to slant TEC]{Plasmaspheric contribution to slant TEC path between a GPS ground station and GPS satellite.  The GAIM-GM Kalman filter uses an internal algorithm to discard all extra slant TEC above the data assimilation region of 1400 \emph{km}}
+\label{fig:SlantTEC}
+\end{figure}
+}
+
+% Chapter 3 ----------------------------------------------------------------------------------------------------------------------------------------
+% ------------------------------------------------------------------------------------------------------------------------------------------------------
+
+\newcommand{\figIFMSideBySideKp}{
+\begin{figure}[btp]
+\begin{center}
+\subfigure[IFM TEC, Day 171, $K_p$ = 3]{
+\includegraphics[width=2.85in]{./Figures/Chapter3/IFMlowKp.png}
+\label{fig:IFMlowKp}
+}
+\subfigure[IFM TEC, Day 172, $K_p$ = 6]{
+\includegraphics[width=2.85in]{./Figures/Chapter3/IFMhighKp.png}
+\label{fig:IFMhighKp}
+}
+\caption[IFM TEC for $K_p$ = 1 and $K_p$ = 6]{IFM background TEC maps at 1700 UT for days 171 (a) and 172 (b) of year 2001.  Much larger TEC values are modeled by IFM on day 172 due to higher $K_p$ levels.  Unlike Figure~\ref{fig:WorldIFM}, contour smoothing was applied to these images to remove the pixelated appearance}
+\label{fig:IFMSideBySideKp}
+\end{center}
+\end{figure}
+}
+
+\newcommand{\figIFMinterp}{
+\begin{figure}[btp]
+\begin{center}
+\subfigure[Native resolution of 3$^{\circ}$ by 7.5$^{\circ}$]{
+\includegraphics[width=2.85in]{./Figures/Chapter3/IFMinterp/IFMinterpCoarse.png}
+\label{fig:IFMinterpCoarse}
+}
+\subfigure[New resolution of 1$^{\circ}$ by 3.75$^{\circ}$]{
+\includegraphics[width=2.85in]{./Figures/Chapter3/IFMinterp/IFMinterpFine.png}
+\label{fig:IFMinterpFine}
+}
+\caption[IFM interpolation to GAIM-GM resolution]{Interpolation of IFM TEC output to the finer GAIM-GM resolution, via Lanczos filtering in \matlab.  Contour smoothing was not applied to these images, hence the digitized appearance.  Year 2001, day 172,  time 1700 UT}
+\label{fig:IFMinterp}
+\end{center}
+\end{figure}
+}
+
+\newcommand{\figNovSED}{
+\begin{figure} [tbp]
+\centering
+\includegraphics[width=5in]{./Figures/Chapter3/NovSED.png}
+\caption[20 November 2003 SED]{GPS vertical TEC observations over the U.S. at 1945 UT during the height of the 20 November 2003 geomagnetic storm.  The SED is the tongue of ionization extending from the Mid-Atlantic coast to the Great Lakes.  450 GPS receivers provided vertical TEC data to create this image (Adapted from \emph{Foster} (2005))}
+\label{fig:NovSED}
+\end{figure}
+}
+
+\newcommand{\figNovStorm}{
+\begin{figure}[btp]
+\begin{center}
+\subfigure[TEC]{
+\includegraphics[width=2.85in]{./Figures/Chapter3/NovStorm/NovStormGAIM.png}
+\label{fig:NovStormGAIM}
+}
+\subfigure[Electron 40$^{\circ}$ N latitude slice]{
+\includegraphics[width=2.85in]{./Figures/Chapter3/NovStorm/NovStormSlice.png}
+\label{fig:NovStormSlice}
+}
+\caption[GAIM-GM recreation of the 20 November 2003 SED]{GAIM-GM recreation of the 20 November 2003 geomagnetic storm at 1945 UT.  Historical slant TEC data from 89 North American GPS sites (overlaid as black circles) were ingested into the model.  (a) shows TEC during the height of the storm while (b) is a vertical cross-section of electron density, taken at 40$^{\circ}$ N latitude.  The model resolution at the time was 1.333$^{\circ}$ latitude by 5$^{\circ}$ longitude}
+\label{fig:NovStorm}
+\end{center}
+\end{figure}
+}
+
+\newcommand{\figSynthSEDprofile}{
+\begin{figure}[btp]
+\begin{center}
+\subfigure[TEC]{
+\includegraphics[width=2.85in]{./Figures/Chapter3/IFMSED/IFMSEDTEC.png}
+\label{fig:IFMSEDTEC}
+}
+\subfigure[Electron 40$^{\circ}$ N latitude slice]{
+\includegraphics[width=2.85in]{./Figures/Chapter3/IFMSED/IFMSEDslice.png}
+\label{fig:IFMSEDslice}
+}
+\caption[Synthetic SED profile in the IFM]{Synthetic SED in an IFM background at 1945 UT.  The IFM was run for year 2001, day 172, with a \emph{K$_p$} of 6 and the the SED was superimposed by multiplying background densities between 200 -- 600 \emph{km} by a factor of 2.  (a) shows TEC while (b) is a vertical cross-section of electron density, taken at 40$^{\circ}$ N latitude.  The model grid resolution is 1$^{\circ}$ latitude by 3.75$^{\circ}$ longitude}
+\label{fig:SynthSEDprofile}
+\end{center}
+\end{figure}
+}
+
+\newcommand{\figSEDmove}{
+\begin{figure} [tbp]
+\centering
+\includegraphics[width=4in]{./Figures/Chapter3/SEDmovement/SEDmove.png}
+\caption[Synthetic SED trajectory]{Trajectory of synthetic SED across CONUS.  The feature originates at 22$^{\circ}$ N over the Atlantic Ocean at 1800 UT and travels in a northwestward direction at about 0.5 \emph{km/s} until disappearing at 2100 UT at 52$^{\circ}$ N over lower Manitoba, Canada}
+\label{fig:SEDmove}
+\end{figure}
+}
+
+\newcommand{\figStationPlots}{
+\begin{figure}[btp]
+\begin{center}
+\subfigure[AFWA]{
+\includegraphics[trim = 0in 0.48in 0in 0in, clip, width=2.85in]{./Figures/Chapter3/StationPlots/Dark/AFWA.png}
+\label{fig:AFWAstations}
+} \qquad
+\subfigure[AFWA$+$30]{
+\includegraphics[trim = 0in 0.48in 0in 0in, clip, width=2.85in]{./Figures/Chapter3/StationPlots/Dark/AFWApThirty.png}
+\label{fig:AFWAp30stations}
+}
+\subfigure[AFWA$+$100]{
+\includegraphics[trim = 0in 0.48in 0in 0in, clip, width=2.85in]{./Figures/Chapter3/StationPlots/Dark/AFWApHundred.png}
+\label{fig:AFWAp100stations}
+}
+\subfigure[AFWA$+$200]{
+\includegraphics[trim = 0in 0.48in 0in 0in, clip, width=2.85in]{./Figures/Chapter3/StationPlots/Dark/AFWApTwoHundred.png}
+\label{fig:AFWAp200stations}
+}
+\subfigure[AFWA$+$400]{
+\includegraphics[trim = 0in 0.48in 0in 0in, clip, width=2.85in]{./Figures/Chapter3/StationPlots/Dark/AFWApFourHundred.png}
+\label{fig:AFWAp400stations}
+}
+\caption[CORS grids]{CORs grids of GPS ground stations.  These grids use actual station locations from the CORS network}
+\label{fig:StationPlots}
+\end{center}
+\end{figure}
+}
+
+\newcommand{\figStationPlotsIdeal}{
+\begin{figure}[btp]
+\begin{center}
+\subfigure[Ideal 21]{
+\includegraphics[trim = 0in 0.48in 0in 0in, clip, width=2.85in]{./Figures/Chapter3/StationPlotsIdeal/TwentyOne.png}
+\label{fig:Ideal21stations}
+}
+\subfigure[Ideal 90]{
+\includegraphics[trim = 0in 0.48in 0in 0in, clip, width=2.85in]{./Figures/Chapter3/StationPlotsIdeal/Ninety.png}
+\label{fig:Ideal90stations}
+}
+\subfigure[Ideal 360]{
+\includegraphics[trim = 0in 0.48in 0in 0in, clip, width=2.85in]{./Figures/Chapter3/StationPlotsIdeal/ThreeSixty.png}
+\label{fig:Ideal360stations}
+}
+\subfigure[Ideal 720]{
+\includegraphics[trim = 0in 0.48in 0in 0in, clip, width=2.85in]{./Figures/Chapter3/StationPlotsIdeal/SevenTwenty.png}
+\label{fig:Ideal720stations}
+}
+\caption[Ideal grids]{Ideal grids of GPS ground stations.  These grids represent optimized distributions of ground stations and do not exist in reality}
+\label{fig:StationPlotsIdeal}
+\end{center}
+\end{figure}
+}
+
+\newcommand{\figStationDensity}{
+\begin{figure} [tbp]
+\centering
+\includegraphics[width=5in]{./Figures/Chapter3/StationDensity.png}
+\caption[Station density for the AFWA+400 grid]{GPS ground station density per model grid square for the AFWA+400 grid.  106 model grid squares have only one station, 152 model grid squares have two stations, and one model grid square over southern California has three stations.  GAIM-GM resolution was set to 1$^{\circ}$ latitude by 3.75$^{\circ}$ longitude}
+\label{fig:StationDensity}
+\end{figure}
+}
+
+\newcommand{\figVertTECerror}{
+\begin{figure} [tbp]
+\centering
+\includegraphics[width=4in]{./Figures/Chapter3/SlantTECerror/VertTECerror.png}
+\caption[Vertical TEC measurement errors]{Average vertical slant TEC error per grid square over a 24-hour period, taken for year 2001, day 172.  Vertical piercings of the IFM density background were performed at every 15-minute time step and compared to actual TEC values.  The mean absolute difference for all vertical slant TEC measurements was 2.7$\%$}
+\label{fig:VertTECerror}
+\end{figure}
+}
+
+\newcommand{\figFlowchart}{
+\begin{figure} [tbp]
+\centering
+\includegraphics[width=6in]{./Figures/Chapter3/Flowchart/Flowchart.png}
+\caption[GAIM-GM model run flowchart]{GAIM-GM model run flowchart}
+\label{fig:Flowchart}
+\end{figure}
+}
+
+% Chapter 4 ----------------------------------------------------------------------------------------------------------------------------------------
+% ------------------------------------------------------------------------------------------------------------------------------------------------------
+
+% Case 0 ----------------------------------------------------------------------
+
+\newcommand{\figCzeroTECdiff}{
+\begin{figure}[btp]
+\begin{center}
+\subfigure[IFM TEC]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case0/IFM.png}
+\label{fig:C0_TECdiff_a}
+}
+\subfigure[GAIM-GM TEC]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case0/TECzero.png}
+\label{fig:C0_TECdiff_b}
+}
+\subfigure[TEC difference]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case0/GAIMminusIFM.png}
+\label{fig:C0_TECdiff_c}
+}
+\caption[GAIM-GM with zero data assimilation vs. the IFM]{Comparison of IFM and GAIM-GM TEC specifications using zero GPS ground stations at 1945 UT. The difference of (b) - (a) is given in (c).  Even though GAIM-GM falls back on the IFM density background when no data is available, GAIM-GM's internal error covariance matrix adjusts the solution based on climatology from 1107 archived IFM runs  (see Section 2.5.3), causing the output to vary slightly from the IFM}
+\label{fig:CzeroTECdiff}
+\end{center}
+\end{figure}
+}
+
+% Unused
+\newcommand{\figCzeroEdenZero}{
+\begin{figure} [tbp]
+\centering
+\includegraphics[width=3.5in]{./Figures/Chapter4/Case0/Edenzero.png}
+\caption[Vertical profile of the ionosphere in GAIM-GM]{Vertical electron density cross section in GAIM-GM, at 40$^{\circ}$ N latitude, at 1945 UT.  The F$_2$ peak is easily distinguished as the bright green band near 400 \emph{km}}
+\label{fig:C0_EdenZero}
+\end{figure}
+}
+
+% Case 1 ----------------------------------------------------------------------
+
+\newcommand{\figConeSixPanelTEC}{
+\begin{figure}[tbp]
+\begin{center}
+\subfigure[IFM with SED]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case1/IFM.png}
+\label{fig:C1_6PanelTEC_a}
+}
+\subfigure[AFWA]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case1/AFWATEC.png}
+\label{fig:C1_6PanelTEC_b}
+}
+\subfigure[AFWA+30]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case1/AFWAp30TEC.png}
+\label{fig:C1_6PanelTEC_c}
+}
+\subfigure[AFWA+100]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case1/AFWAp100TEC.png}
+\label{fig:C1_6PanelTEC_d}
+}
+\subfigure[AFWA+200]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case1/AFWAp200TEC.png}
+\label{fig:C1_6PanelTEC_e}
+}
+\subfigure[AFWA+400]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case1/AFWAp400TEC.png}
+\label{fig:C1_6PanelTEC_f}
+}
+\caption[Case 1: GAIM-GM TEC]{GAIM-GM TEC reproduction of the synthetic SED at 1945 UT, using slant TEC data from the CORS grids.  The synthetic SED in the IFM background is shown in (a) as a reference and the locations of the 12 AFWA ground stations are shown as black double circles in (b).  GAIM-GM resolution for this and all subsequent figures is 1$^{\circ}$ latitude by 3.75$^{\circ}$ longitude}
+\label{fig:C1_6PanelTEC}
+\end{center}
+\end{figure}
+}
+
+\newcommand{\figConeEden}{
+\begin{figure}[btp]
+\begin{center}
+\subfigure[AFWA]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case1/AFWAeden.png}
+\label{fig:C1_Eden_a}
+}
+\subfigure[AFWA+30]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case1/AFWAp30eden.png}
+\label{fig:C1_Eden_b}
+}
+\caption[Case 1: GAIM-GM electron density vertical profiles]{GAIM-GM electron density reproduction of the synthetic SED, using the CORS grid at 1945 UT.  Latitude slices at 40$^{\circ}$ N are shown for the AFWA grid (a) and AFWA+30 grid (b).  The high-density core of the SED is resolved much more accurately when 30 stations are added to the  AFWA grid}
+\label{fig:C1_Eden}
+\end{center}
+\end{figure}
+}
+
+\newcommand{\figConeGAIMvIFM}{
+\begin{figure}[btp]
+\begin{center}
+\subfigure[AFWA]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case1/GAIMvIFMAFWA.png}
+\label{fig:C1_GAIMvIFM_a}
+}
+\subfigure[AFWA+30]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case1/GAIMvIFMAFWAp30.png}
+\label{fig:C1_GAIMvIFM_b}
+}
+\caption[Case 1: GAIM-GM minus IFM TEC difference]{TEC difference between GAIM-GM and IFM background at 1945 UT.  The IFM was subtracted from the GAIM-GM AFWA grid specification to create (a), while (b) shows the IFM subtracted from the GAIM-GM AFWA$+$30 grid specification.  The SED's location is clearly indicated by the dark blue patches where GAIM-GM differed most from the IFM.  White regions indicate where GAIM-GM reproduced the IFM background with very little error}
+\label{fig:C1_GAIMvIFM}
+\end{center}
+\end{figure}
+}
+
+\newcommand{\figConeDiffandSSmap}{
+\begin{figure}[tbp]
+\begin{center}
+\subfigure[AFWA+30 - AFWA TEC]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case1/TECdiff30minusAFWA.png}
+\label{fig:C1_DiffandSSmap_a}
+}
+\subfigure[AFWA+30 skill score map]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case1/SSMap30.png}
+\label{fig:C1_DiffandSSmap_b}
+}
+\caption[Case 1: Skill score map for AFWA$+$30 grid]{TEC difference and skill score map for the AFWA+30 grid at 1945 UT, compared to the AFWA grid.  The AFWA grid TEC was subtracted from the AFWA+30 grid TEC to yield (a), while (b) is the AFWA+30 grid skill score.  Greens in the skill score map show where the AFWA+30 grid was more accurate than the AFWA grid in reproducing the IFM background, while rust colors indicate worse accuracy.  Note that TEC difference maps cannot indicate areas of accuracy improvement over the AFWA grid, whereas skill score maps can}
+\label{fig:C1_DiffandSSmap}
+\end{center}
+\end{figure}
+}
+
+\newcommand{\figConeSSplots}{
+\begin{figure}[tbp]
+\begin{center}
+\subfigure[SED trajectory]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case1/SEDmove.png}
+\label{fig:C1_SSplots_a}
+}
+\subfigure[Entire map]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case1/SSentireGrid.png}
+\label{fig:C1_SSplots_b}
+}
+\subfigure[SED only]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case1/SSsed.png}
+\label{fig:C1_SSplots_c}
+}
+\subfigure[Everything but the SED]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case1/SSoutside.png}
+\label{fig:C1_SSplots_d}
+}
+\caption[Case 1: Skill score graphs for the SED period]{Skill scores for the CORS grids during the storm period from 1800 to 2045 UT.  Compared are the accuracy improvement over the AFWA grid for three domains: (b) the entire map, (c) SED only, and (d) everything but the SED.  The trajectory of the SED is shown in (a) as a reference.  Scores above zero indicate the grid was more accurate at reproducing the IFM background than the AFWA grid, while scores below zero indicate worse accuracy}
+\label{fig:C1_SSplots}
+\end{center}
+\end{figure}
+}
+
+% Case 2 ----------------------------------------------------------------------
+
+\newcommand{\figCtwoSixPanelTEC}{
+\begin{figure}[tbp]
+\begin{center}
+\subfigure[IFM with SED]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case2/IFM.png}
+\label{fig:C2_6panelTEC_a}
+}
+\subfigure[AFWA]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case2/AFWATEC.png}
+\label{fig:C2_6panelTEC_b}
+}
+\subfigure[AFWA+30]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case2/AFWAp30TEC.png}
+\label{fig:C2_6panelTEC_c}
+}
+\subfigure[AFWA+100]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case2/AFWAp100TEC.png}
+\label{fig:C2_6panelTEC_d}
+}
+\subfigure[AFWA+200]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case2/AFWAp200TEC.png}
+\label{fig:C2_6panelTEC_e}
+}
+\subfigure[AFWA+400]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case2/AFWAp400TEC.png}
+\label{fig:C2_6panelTEC_f}
+}
+\caption[Case 2: GAIM-GM TEC]{GAIM-GM TEC reproduction of the synthetic SED at 1945 UT, using GPS slant TEC data from the CORS grid.  The synthetic SED in the IFM background is shown in (a) as a reference and the 12 AFWA ground stations are plotted in (b) as black circles}
+\label{fig:C2_6PanelTEC}
+\end{center}
+\end{figure}
+}
+
+% Unused
+\newcommand{\figCtwoEden}{
+\begin{figure}[btp]
+\begin{center}
+\subfigure[AFWA]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case2/AFWAeden.png}
+\label{fig:C2_AFWAeden}
+}
+\subfigure[AFWA+30]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case2/AFWAp30eden.png}
+\label{fig:C2_AFWAp30eden}
+}
+\caption[Case 2: GAIM-GM electron density vertical profiles]{GAIM-GM electron density reproduction of the synthetic SED, using the CORS grid at 1945 UT.  Latitude slices at 40$^{\circ}$ N are shown for the AFWA grid (a) and AFWA+30 grid (b).  The high-density core of the SED is resolved much more accurately when 30 stations are added to the  AFWA grid}
+\label{fig:C2_Eden}
+\end{center}
+\end{figure}
+}
+
+\newcommand{\figCtwoGAIMvIFM}{
+\begin{figure}[btp]
+\begin{center}
+\subfigure[AFWA]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case2/GAIMvIFMAFWA.png}
+\label{fig:C2_GAIMvIFM_a}
+}
+\subfigure[AFWA+30]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case2/GAIMvIFMAFWAp30.png}
+\label{fig:C2_GAIMvIFM_b}
+}
+\caption[Case 2: GAIM-GM minus IFM TEC difference]{TEC difference between GAIM-GM and IFM background at 1945 UT.  The IFM was subtracted from the GAIM-GM AFWA grid specification to create (a), while (b) shows the IFM subtracted from the GAIM-GM AFWA$+$30 grid specification.  The SED's location is clearly indicated by the dark blue patches where GAIM-GM differed most from the IFM.  White regions indicate where GAIM-GM reproduced the IFM background with very little error}
+\label{fig:C2_GAIMvIFM}
+\end{center}
+\end{figure}
+}
+
+% Unused
+\newcommand{\figCtwoDiffandSSmap}{
+\begin{figure}[tbp]
+\begin{center}
+\subfigure[AFWA+30 - AFWA TEC]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case2/TECdiff30minusAFWA.png}
+\label{fig:C2_TECdiff30minusAFWA}
+}
+\subfigure[AFWA+30 skill score map]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case2/SSMap30.png}
+\label{fig:C2_SSMap30}
+}
+\caption[Case 2: Skill score map]{TEC difference and skill score map for the AFWA+30 grid at 1945 UT, compared to the AFWA grid.  The AFWA grid TEC was subtracted from the AFWA+30 grid TEC to yield (a), while (b) is the AFWA+30 grid skill score.  Greens in the skill score map show where the AFWA+30 grid was more accurate than the AFWA grid in reproducing the IFM background, while rust colors indicate worse accuracy.  Note that the TEC difference map cannot indicate areas of accuracy improvement over the AFWA grid, whereas the skill score map can}
+\label{fig:C2_SSmaps}
+\end{center}
+\end{figure}
+}
+
+\newcommand{\figCtwoSSplots}{
+\begin{figure}[tbp]
+\begin{center}
+\subfigure[SED trajectory]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case2/SEDmove.png}
+\label{fig:C2_SSplots_a}
+}
+\subfigure[Entire map]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case2/SSentireGrid.png}
+\label{fig:C2_SSplots_b}
+}
+\subfigure[SED only]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case2/SSsed.png}
+\label{fig:C2_SSplots_c}
+}
+\subfigure[Everything but the SED]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case2/SSoutside.png}
+\label{fig:C2_SSplots_d}
+}
+\caption[Case 2: Skill score graphs for the SED period]{Skill scores for each of the CORS grids during the storm period from 1800 -- 2045 UT.  Compared are the accuracy improvement over the AFWA grid for three domains: (b) the entire map, (c) SED only, and (d) everything except the SED.  The trajectory of the SED is shown in (a) as a reference}
+\label{fig:C2_SSplots}
+\end{center}
+\end{figure}
+}
+
+% Case 3 ----------------------------------------------------------------------
+
+\newcommand{\figCthreeFivePanelTEC}{
+\begin{figure}[tbp]
+\begin{center}
+\subfigure[IFM with SED]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case3/IFM.png}
+\label{fig:C3_5PanelTEC_a}
+} \qquad
+\subfigure[Ideal 21]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case3/Ideal21TEC.png}
+\label{fig:C3_5PanelTEC_b}
+}
+\subfigure[Ideal 90]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case3/Ideal90TEC.png}
+\label{fig:C3_5PanelTEC_c}
+}
+\subfigure[Ideal 360]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case3/Ideal360TEC.png}
+\label{fig:C3_5PanelTEC_d}
+}
+\subfigure[Ideal 720]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case3/Ideal720TEC.png}
+\label{fig:C3_5PanelTEC_e}
+}
+\caption[Case 3: GAIM-GM TEC]{GAIM-GM TEC reproduction of the synthetic SED at 1945 UT, using GPS slant TEC data from the Ideal grid.  The synthetic SED in the IFM background is shown in (a).  Note that the largest improvement occurs going from the Ideal 21 grid to the Ideal 90 grid}
+\label{fig:C3_5PanelTEC}
+\end{center}
+\end{figure}
+}
+
+\newcommand{\figCthreeEden}{
+\begin{figure}[btp]
+\begin{center}
+\subfigure[AFWA]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case3/AFWAeden.png}
+\label{fig:C3_AFWAeden}
+}
+\subfigure[Ideal 90]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case3/Ideal90eden.png}
+\label{fig:C3_Ideal90eden}
+}
+\caption[Case 3: GAIM-GM electron density vertical profiles]{GAIM-GM electron density reproduction of the synthetic SED at 1945 UT.  Latitude slices at 40$^{\circ}$ N are shown for the AFWA grid (a) and the Ideal 90 grid (b)}
+\label{fig:C3_Eden}
+\end{center}
+\end{figure}
+}
+
+\newcommand{\figCthreeGAIMvIFM}{
+\begin{figure}[btp]
+\begin{center}
+\subfigure[AFWA]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case3/GAIMvIFMAFWA.png}
+\label{fig:C3_GAIMvIFM_a}
+}
+\subfigure[Ideal 90]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case3/GAIMvIFMIdeal90.png}
+\label{fig:C3_GAIMvIFM_b}
+}
+\caption[Case 3: GAIM-GM minus IFM TEC difference]{TEC difference between GAIM-GM and IFM background at 1945 UT.  The IFM was subtracted from the GAIM-GM specification for the AFWA grid (a) and Ideal 90 grid (b).  The SED's location is clearly indicated by the dark blue patch where GAIM-GM differs most from the IFM.  White regions indicate where GAIM-GM reproduced the IFM background with very little error}
+\label{fig:C3_GAIMvIFM}
+\end{center}
+\end{figure}
+}
+
+% Unused
+\newcommand{\figCthreeDiffandSSmap}{
+\begin{figure}[tbp]
+\begin{center}
+\subfigure[Ideal 90 - AFWA TEC]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case3/TECdiffIdeal90minusAFWA.png}
+\label{fig:C3_TECdiffIdeal90minusAFWA}
+}
+\subfigure[Ideal 90 skill score map]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case3/SSMapIdeal90.png}
+\label{fig:C3_SSMapIdeal90}
+}
+\caption[Case 3: Skill score map]{TEC difference and skill score map for the Ideal 90 grid at 1945 UT, compared to the AFWA grid.  The AFWA grid TEC was subtracted from the Ideal 90 grid TEC to yield (a), while (b) is the Ideal 90 grid skill score.  Greens in the skill score map show where the Ideal 90 grid was more accurate than the AFWA grid in reproducing the IFM background, while rust colors indicate worse accuracy.  Note that the TEC difference map cannot indicate areas of accuracy improvement over the AFWA grid, whereas the skill score map can}
+\label{fig:C3_SSmaps}
+\end{center}
+\end{figure}
+}
+
+\newcommand{\figCthreeSSplots}{
+\begin{figure}[tbp]
+\begin{center}
+\subfigure[SED trajectory]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case3/SEDmove.png}
+\label{fig:C3_SEDmove}
+}
+\subfigure[Entire map]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case3/SSentireGrid.png}
+\label{fig:C3_SSentireGrid}
+}
+\subfigure[SED only]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case3/SSsed.png}
+\label{fig:C3_SSsed}
+}
+\subfigure[Everything but the SED]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case3/SSoutside.png}
+\label{fig:C3_SSoutside}
+}
+\caption[Case 3: Skill score graphs for the SED period]{Skill scores for each of the Ideal grids during the storm period from 1800 -- 2045 UT.  Compared are the accuracy improvement over the AFWA grid for three domains: (b) the entire map, (c) SED only, and (d) everything except the SED.  The trajectory of the SED is shown in (a) as a reference}
+\label{fig:C3_SSplots}
+\end{center}
+\end{figure}
+}
+
+% Case 4 ----------------------------------------------------------------------
+
+\newcommand{\figCfourMotivation}{
+\begin{figure}[tbph]
+\begin{center}
+\subfigure[Zero Stations]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case4/Edenzero.png}
+\label{fig:C4_Motivation_a}
+}
+\subfigure[AFWA+100]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case4/Eden100.png}
+\label{fig:C4_Motivation_b}
+}
+\subfigure[Density difference (b minus a)]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case4/EdenDiff.png}
+\label{fig:C4_Motivation_c}
+} \qquad
+\caption[Case 5: Electron density difference]{Motivation for Case 4, taken from Case 2 vertical density profiles at 40$^{\circ}$ N latitude.  Shown are 1945 UT specifications for: (a) GAIM-GM vertical profile with zero stations, (b) GAIM-GM vertical profile with AFWA+100 stations, and (c) the difference between the two.  Note that GAIM-GM increased electron densities throughout the entire vertical column and not just in the 200 -- 600 \emph{km} SED layer}
+\label{fig:C4_Motivation}
+\end{center}
+\end{figure}
+}
+
+\newcommand{\figCfourEden}{
+\begin{figure}[btp]
+\begin{center}
+\subfigure[IFM]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case4/IFMEdenHighSED.png}
+\label{fig:C4_Eden_a}
+}
+\subfigure[GAIM-GM]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case4/Eden100High.png}
+\label{fig:C4_Eden_b}
+}
+\caption[Case 4: High altitude SED vertical profile]{GAIM-GM electron density reproduction of the high altitude synthetic SED, using the AFWA+100 grid at 1945 UT.  Both latitude slices were taken at 40$^{\circ}$ N.  Note how GAIM-GM did not accurately capture the vertical profile of the SED}
+\label{fig:C4_Eden}
+\end{center}
+\end{figure}
+}
+
+% Case 5 ----------------------------------------------------------------------
+
+\newcommand{\figCfiveTECdiff}{
+\begin{figure} [htbp]
+\centering
+\includegraphics[width=4in]{./Figures/Chapter4/Case5/TECdiff.png}
+\caption[Case 5: Reduced Time Constant TEC difference]{TEC difference at 1945 UT caused by lowering the Time Constant from 5 down to 1.  The blue, negative difference area over the Pacific Ocean resulted because high-density perturbations relaxed out of the model solution before they could drift very far downstream.  The AFWA$+$400 grid and the modified version of GAIM-GM were used}
+\label{fig:C5_TECdiff}
+\end{figure}
+}
+
+\newcommand{\figCfiveSkillScore}{
+\begin{figure}[btp]
+\begin{center}
+\subfigure[SED movement]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case5/SEDmove.png}
+\label{fig:C5_SkillScore_a}
+}
+\subfigure[Skill Score]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case5/SSentireGrid.png}
+\label{fig:C5_SkillScore_b}
+}
+\caption[Case 5: Skill score graph for the SED period]{Time-dependent skill scores for the AFWA$+$400 grid in the modified version of GAIM-GM (b), alongside a trajectory plot of the synthetic SED's movement (a).  The sharp increase in scores at 1915 UT occurred as the SED moved onshore and over more ground receivers}
+\label{fig:C5_SkillScore}
+\end{center}
+\end{figure}
+}
+
+% Case 6 ----------------------------------------------------------------------
+
+\newcommand{\figCsixTECdiff}{
+\begin{figure} [htbp]
+\centering
+\includegraphics[width=4in]{./Figures/Chapter4/Case6/TECdiff.png}
+\caption[Case 6: TEC difference from one bad station]{TEC difference in the modified version of GAIM-GM at 1945 UT caused by bad data from one GPS ground station.  Small circles represent stations with good data while the large black circle over Ohio is the station with deliberately degraded slant TEC data (reduced by a factor of 4).  Note the far-reaching effects despite the dozens of good data sources in the region.  112 stations were used for this run}
+\label{fig:C6_TECdiff}
+\end{figure}
+}
+
+\newcommand{\figCsixSkillScore}{
+\begin{figure} [htbp]
+\centering
+\includegraphics[width=6in]{./Figures/Chapter4/Case6/SSallday.png}
+\caption[Case 6: Skill score graph for the SED period]{Skill score for the entire map, comparing the AFWA$+$100 grid with good data to the AFWA$+$100 grid where one station's data were reduced by a factor of four to simulate erroneous data.  The modified version of GAIM-GM was used.  The storm period is defined by the two vertical asymptotes.  Note the three sudden drops in skill score in the latter half of the day due to ingestion of bad data}
+\label{fig:C6_SkillScore}
+\end{figure}
+}
+
+\newcommand{\figCfiveSkillScoreMaps}{
+\begin{figure}[btp]
+\begin{center}
+\subfigure[1730 UT]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case6/SSmap1730.png}
+\label{fig:C6_SkillScoreMaps_a}
+}
+\subfigure[1745 UT]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case6/SSmap1745.png}
+\label{fig:C6_SkillScoreMaps_b}
+}
+\caption[Case 6: Skill score maps for the AFWA$+$100 grid]{Time-dependent skill score maps showing the sudden appearance of a large area of negative skill scores over the Atlantic Ocean.  The modified version of GAIM-GM was run using the AFWA$+$100 list where data from one station over Ohio was purposely degraded (slant TEC reduced by a factor of 4).  The area of abruptly lower skill scores was caused by degraded low-angle slant TEC measurements as two satellites over the mid-Atlantic Ocean came the Ohio station's view}
+\label{fig:C6_SkillScoreMaps}
+\end{center}
+\end{figure}
+}
+
+% Case 7 ----------------------------------------------------------------------
+
+\newcommand{\figCsevenTEC}{
+\begin{figure}[btp]
+\begin{center}
+\subfigure[Ideal 21 grid]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case7/Ideal21TEC.png}
+\label{fig:C7_TEC_a}
+}
+\subfigure[Reversed Ideal 21 grid]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case7/IdealFliptTEC.png}
+\label{fig:C7_TEC_b}
+}
+\caption[Case 7: GAIM-GM TEC]{GAIM-GM TEC maps at 1945 UT using (a) the Ideal 21 grid and (b) a left-right reversed Ideal 21 grid.  The modified version of GAIM-GM was used.  By simply adjusting the arrangement of GPS ground stations (and without changing the average distance between stations), the SED was reproduced more accurately}
+\label{fig:C7_TEC}
+\end{center}
+\end{figure}
+}
+
+\newcommand{\figCsevenSkillScore}{
+\begin{figure}[btp]
+\begin{center}
+\subfigure[SED movement]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case7/SEDmove.png}
+\label{fig:C7_SkillScore_a}
+}
+\subfigure[Skill Scores]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case7/SSentireGrid.png}
+\label{fig:C7_SkillScore_b}
+}
+\caption[Case 7: Skill score graph for the SED period]{Skill scores for the entire map, comparing the Ideal 21grid to the Reversed Ideal 21 grid.  As a reference, both grids are superimposed on the SED movement plot in (a).  The small black circles denote the Ideal 21 grid and the large red circles denote the Reversed Ideal 21 grid.  The Reversed grid's station locations were more favorable for this SED's specific trajectory, resulting in largely improved skill scores}
+\label{fig:C7_SkillScore}
+\end{center}
+\end{figure}
+}
+
+
+% Case 8 ----------------------------------------------------------------------
+
+\newcommand{\figCeightSixPanelTEC}{
+\begin{figure}
+\begin{center}
+\subfigure[IFM with SED]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case8/IFM.png}
+\label{fig:C8_6PanelTEC_a}
+}
+\subfigure[AFWA]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case8/AFWATEC.png}
+\label{fig:C8_6PanelTEC_b}
+}
+\subfigure[AFWA+30]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case8/AFWAp30TEC.png}
+\label{fig:C8_6PanelTEC_c}
+}
+\subfigure[AFWA+100]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case8/AFWAp100TEC.png}
+\label{fig:C8_6PanelTEC_d}
+}
+\subfigure[AFWA+200]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case8/AFWAp200TEC.png}
+\label{fig:C8_6PanelTEC_e}
+}
+\subfigure[AFWA+400]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case8/AFWAp400TEC.png}
+\label{fig:C8_6PanelTEC_f}
+}
+\caption[Case 8: GAIM-GM TEC]{GAIM-GM TEC reproduction of the synthetic SED at 1945 UT, using GPS slant TEC data from the CORS grids.  The synthetic SED in the depleted IFM background is shown in (a) as a reference and the 12 AFWA ground stations are plotted as black circles in (b)}
+\label{fig:C8_6PanelTEC}
+\end{center}
+\end{figure}
+}
+
+\newcommand{\figCeightEden}{
+\begin{figure}[h!]
+\begin{center}
+\subfigure[IFM]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case8/IFMeden.png}
+\label{fig:C8_Eden_a}
+}\qquad
+\subfigure[GAIM-GM: AFWA grid]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case8/AFWAeden.png}
+\label{fig:C8_Eden_b}
+}
+\subfigure[GAIM-GM: AFWA+30 grid]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case8/AFWAp30eden.png}
+\label{fig:C8_Eden_c}
+}
+\caption[Case 8: Electron density vertical profiles]{IFM and GAIM-GM electron density vertical profiles at 1945 UT.  Latitude slices at 40$^{\circ}$ N are shown for the IFM background (a), AFWA grid output (b) and AFWA+30 grid output (c)}
+\label{fig:C8_Eden}
+\end{center}
+\end{figure}
+}
+
+% Unused
+\newcommand{\figCeightGAIMvIFM}{
+\begin{figure}
+\begin{center}
+\subfigure[AFWA]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case8/GAIMvIFMAFWA.png}
+\label{fig:C8_GAIMvIFM_a}
+}
+\subfigure[AFWA+30]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case8/GAIMvIFMAFWAp30.png}
+\label{fig:C8_GAIMvIFM_b}
+}
+\caption[Case 8: GAIM-GM minus IFM TEC difference]{TEC difference between GAIM-GM and depleted IFM background at 1945 UT.  The IFM was subtracted from the GAIM-GM specification for the AFWA grid (a) and AFWA+30 grid (b).  White regions indicate where GAIM-GM reproduced the IFM background with very little error}
+\label{fig:C8_GAIMvIFM}
+\end{center}
+\end{figure}
+}
+
+% Unused
+\newcommand{\figCeightDiffandSSmap}{
+\begin{figure}[tbh]
+\begin{center}
+\subfigure[AFWA+30 - AFWA TEC]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case8/TECdiff30minusAFWA.png}
+\label{fig:C8_DiffandSSmap_a}
+}
+\subfigure[AFWA+30 skill score map]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case8/SSMap30.png}
+\label{fig:C8_DiffandSSmap_b}
+}
+\caption[Case 8: Skill score map]{TEC difference and skill score map for the AFWA+30 grid at 1945 UT, compared to the AFWA grid.  The AFWA grid TEC was subtracted from the AFWA+30 grid TEC to yield (a), while (b) is the AFWA+30 grid skill score.  Greens in the skill score map show where the AFWA+30 grid was more accurate than the AFWA grid in reproducing the IFM background, while rust colors indicate worse accuracy.  Note that the TEC difference map cannot indicate areas of accuracy improvement over the AFWA grid, whereas the skill score map can}
+\label{fig:C8_DiffandSSmap}
+\end{center}
+\end{figure}
+}
+
+\newcommand{\figCeightSSplots}{
+\begin{figure}[h!]
+\begin{center}
+\subfigure[SED trajectory]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case8/SEDmove.png}
+\label{fig:C8_SSplots_a}
+}
+\subfigure[SED only]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case8/SSsed.png}
+\label{fig:C8_SSplots_b}
+}
+\caption[Case 8: Skill score graph for the SED period]{SED skill scores for each of the CORS grids during the storm period from 1800 -- 2045 UT.  The trajectory of the SED is shown in (a) as a reference.  Scores above 0 indicate the grid was more accurate at reproducing the IFM background than the AFWA grid, while scores below zero indicate worse accuracy}
+\label{fig:C8_SSplots}
+\end{center}
+\end{figure}
+}
+
+% Case 9 ----------------------------------------------------------------------
+
+\newcommand{\figCnineTECdiff}{
+\begin{figure} [tbph]
+\centering
+\includegraphics[width=4in]{./Figures/Chapter4/Case9/TECdiff.png}
+\caption[Case 9: TEC difference from changing the Time Constant]{TEC difference at 1945 UT caused by lowering the Time Constant from 5 to 1 for the AFWA grid.  All background IFM densities above 30$^{\circ}$ were depleted by a factor of 4 prior to slant TEC piercing, therefore these large percentage differences equate to relatively small TEC unit differences.  Note that most of the differences occured downstream of the GPS ground stations}
+\label{fig:C9_TECdiff}
+\end{figure}
+}
+
+% Case 10 ----------------------------------------------------------------------
+
+\newcommand{\figCtenCompare}{
+\begin{figure}[tbp]
+\begin{center}
+\subfigure[TEC: 15$^{\circ}$ Elevation Mask]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case10/TEC.png}
+\label{fig:C10_Compare_a}
+}
+\subfigure[TEC: 45$^{\circ}$ Elevation Mask]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case10/TEC45.png}
+\label{fig:C10_Compare_b}
+}
+\subfigure[Density: 15$^{\circ}$ Elevation Mask]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case10/Eden.png}
+\label{fig:C10_Compare_c}
+}
+\subfigure[Density: 45$^{\circ}$ Elevation Mask]{
+\includegraphics[width=2.85in]{./Figures/Chapter4/Case10/Eden45.png}
+\label{fig:C10_Compare_d}
+}
+\caption[Case 10: GAIM-GM TEC and electron density profile]{TEC and electron density vertical profiles in GAIM-GM, using the AFWA grid.  Output in the left column used the default 15$^{\circ}$ Elevation Mask for cutting slant TEC, while output in the right column used a narrower 45$^{\circ}$ Elevation Mask, limiting the amount of satellites observed by the ground stations at any given instance.  The IFM background densities above 30$^{\circ}$ had been depleted by a factor of 4 prior to slant TEC piercing}
+\label{fig:C10_Compare}
+\end{center}
+\end{figure}
+}
+
+
+% Chapter 5 ----------------------------------------------------------------------------------------------------------------------------------------
+% ------------------------------------------------------------------------------------------------------------------------------------------------------
+
+\newcommand{\figSkillScoreSummary}{
+\begin{figure}[htbp]
+\begin{center}
+\subfigure[Case 1]{
+\includegraphics[width=1.35in]{./Figures/Chapter5/Color/SSSC1.png}
+\label{fig:SkillScoreSummary_a}
+}
+\subfigure[Case 8]{
+\includegraphics[width=1.35in]{./Figures/Chapter5/Color/SSSC8.png}
+\label{fig:SkillScoreSummary_b}
+}
+\subfigure[Case 2]{
+\includegraphics[width=1.35in]{./Figures/Chapter5/Color/SSSC2.png}
+\label{fig:SkillScoreSummary_c}
+}
+\subfigure[Case 3]{
+\includegraphics[width=1.35in]{./Figures/Chapter5/Color/SSSC3.png}
+\label{fig:SkillScoreSummary_d}
+}
+\caption[Skill score summary]{GAIM-GM skill score summaries for the 4 most important cases, which are: (a) normal GAIM-GM with CORS grids; (b) normal GAIM-GM with CORS grids and depleted IFM background; (c) modified GAIM-GM with CORS grids; and (d) modified GAIM-GM with Ideal grids}
+\label{fig:SkillScoreSummary}
+\end{center}
+\end{figure}
+}
+
+% Miscellaneous normal size Skill Score color figures
+
+\newcommand{\figConeSStrend}{
+\begin{figure} [htbp]
+\centering
+\includegraphics[width=4in]{./Figures/Chapter4/Case1/SStrend.png}
+\caption[Case 1: Skill score summary]{GAIM-GM skill scores for Case 1.  The skill scores during the 1800 - 2045 UT storm period were averaged for each CORS grid, for the domains of the entire map (black dashed), the SED (red) and everything but the SED (blue).  Scores above the black zero line indicate improvement over the 12-station AFWA grid.}
+\label{fig:C1_SStrend}
+\end{figure}
+}
+
+\newcommand{\figCtwoSStrend}{
+\begin{figure} [htbp]
+\centering
+\includegraphics[width=4in]{./Figures/Chapter4/Case2/SStrend.png}
+\caption[Case 2: Skill score summary]{GAIM-GM skill scores for Case 2.  The skill scores during the 1800 - 2045 UT storm period were averaged for each CORS grid, for the domains of the entire map (black dashed), the SED (red) and everything but the SED (blue).  Scores above the black zero line indicate improvement over the 12-station AFWA grid.}
+\label{fig:C2_SStrend}
+\end{figure}
+}
+
+\newcommand{\figCthreeSStrend}{
+\begin{figure} [htbp]
+\centering
+\includegraphics[width=4in]{./Figures/Chapter4/Case3/SStrend.png}
+\caption[Case 3: Skill score summary]{GAIM-GM skill scores for Case 3.  The skill scores during the 1800 - 2045 UT storm period were averaged for each Ideal grid, for the domains of the entire map (black dashed), the SED (red) and everything but the SED (blue).  Scores above the black zero line indicate improvement over the 12-station AFWA grid.}
+\label{fig:C3_SStrend}
+\end{figure}
+}
+
+\newcommand{\figCeightSStrend}{
+\begin{figure} [htbp]
+\centering
+\includegraphics[width=4in]{./Figures/Chapter4/Case8/SStrend.png}
+\caption[Case 8: Skill score summary]{GAIM-GM skill scores for Case 8.  The skill scores during the 1800 - 2045 UT storm period were averaged for each CORS grid, for the domains of the entire map (black dashed), the SED (red) and everything but the SED (blue).  Scores above the black zero line indicate improvement over the 12-station AFWA grid.}
+\label{fig:C8_SStrend}
+\end{figure}
+}
+
+
+
+
+
+% Appendix 1 (A) ---------------------------------------------------------------------------------------------------------------------------------
+% ------------------------------------------------------------------------------------------------------------------------------------------------------
+% Unused
+\newcommand{\figWorldGPSstations}{
+\begin{figure} [htbp]
+\centering
+\includegraphics[width=5in]{./Figures/Appendix1/WorldGPSstations.png}
+\caption[World-wide distribution of GPS ground stations]{Distribution of some of the GPS ground stations in the world-wide network}
+\label{fig:WorldGPSstations}
+\end{figure}
+}
+
+\newcommand{\figSatelliteDistro}{
+\begin{figure} [htbp]
+\centering
+\includegraphics[trim = 0.5in 0.2in 0.5in 0.2in, clip, width=5in]{./Figures/Appendix1/SatelliteDistro.png}
+\caption[GPS satellite orbital tracks]{Orbital tracks for all 32 GPS satellites over the course of one day, at 15-minute time steps.  The orbital inclination of 55$^{\circ}$ prevents overflight of the polar regions}
+\label{fig:SatelliteDistro}
+\end{figure}
+}
+% trim = left bottom right top
+
+\newcommand{\figCORS}{
+\begin{figure} [htbp]
+\centering
+\includegraphics[trim = 0in 0.48in 0in 0in, clip, width=5.5in]{./Figures/Appendix1/CORSblack.png}
+\caption[CORS network]{Continuously Operating Reference Stations (CORS) network over CONUS.  There are 1920 stations shown here, with the majority located over the eastern U.S. }
+\label{fig:CORS}
+\end{figure}
+}
+
+% Appendix 2 (B) ---------------------------------------------------------------------------------------------------------------------------------
+% ------------------------------------------------------------------------------------------------------------------------------------------------------
+
+\newcommand{\figSEDcompare}{
+\begin{figure}[tbph]
+\begin{center}
+\subfigure[Real SED in GAIM-GM]{
+\includegraphics[width=2.85in]{./Figures/Appendix2/GAstation/RealSED.png}
+\label{fig:SEDcompareRealSED}
+}
+\subfigure[Synthetic SED in IFM]{
+\includegraphics[width=2.85in]{./Figures/Appendix2/GAstation/SEDTEC.png}
+\label{fig:SEDcompareSEDTEC}
+}
+\caption[Real SED in GAIM-GM vs. synthetic SED in the IFM]{Historical depiction of an SED in GAIM-GM (left), versus a synthetic SED (right).  The synthetic SED's small profile make it a challenging target for slant TEC measurements over sparsely populated GPS ground station networks}
+\label{fig:SEDcompare}
+\end{center}
+\end{figure}
+}
+
+\newcommand{\figGAstation}{
+\begin{figure}[tbph]
+\begin{center}
+\subfigure[11 station list]{
+\includegraphics[width=2.85in]{./Figures/Appendix2/GAstation/OldAFWAList.png}
+\label{fig:GAstation_a}
+}
+\subfigure[12 station list]{
+\includegraphics[width=2.85in]{./Figures/Appendix2/GAstation/NewAFWAList.png}
+\label{fig:GAstation_b}
+}
+\subfigure[Percent TEC difference]{
+\includegraphics[width=2.85in]{./Figures/Appendix2/GAstation/GAdifference.png}
+\label{fig:GAstation_c}
+} \qquad
+\caption[TEC differences due to the 12th AFWA station]{Differences in GAIM-GM TEC specifications due to the addition of a 12th GPS ground station over Georgia.  (a) illustrates how station sparsity can cause GAIM-GM to spread perturbations into regions well beyond the SED.  (b) shows the correction provided by the extra ground station.  The difference between the two TEC specifications, shown in (c), is about 20\% over the new station}
+\label{fig:GAstation}
+\end{center}
+\end{figure}
+}
+
+
+
+% Appendix 3 (C) ---------------------------------------------------------------------------------------------------------------------------------
+% ------------------------------------------------------------------------------------------------------------------------------------------------------
+
+\newcommand{\figSlantTECcuts}{
+\begin{figure} [bhtp]
+\centering
+\includegraphics[width=5.5in]{./Figures/Appendix3/SlantTECcuts.png}
+\caption[Slant TEC paths using the AFWA grid]{Slant TEC paths through IFM background to AFWA ground stations at 1945 UT.  Triangles represent GPS satellites and circles are the ground stations.  The exact number of slant TEC measurements for this time step was 300 (not all slant paths are shown).  The SED can be seen over the U. S. East Coast}
+\label{fig:SlantTECcuts}
+\end{figure}
+}
+
+% Appendix 4 (D) ---------------------------------------------------------------------------------------------------------------------------------
+% ------------------------------------------------------------------------------------------------------------------------------------------------------
+
+% Test sideways figure
+\newcommand{\figCORSsideways}{
+\begin{sidewaysfigure} [htbp]
+\centering
+\includegraphics[trim = 0in 0.48in 0in 0in, clip, width=6in]{./Figures/Appendix2/CORSblack.png}
+\caption[Continuously Operating Reference Stations]{Continuously Operating Reference Stations}
+\label{fig:CORSsideways}
+\end{sidewaysfigure}
+}
+
+
+
+
+
+
+
+
+
+

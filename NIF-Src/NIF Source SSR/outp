@@ -1,0 +1,559 @@
+          Code Name & Version = MCNP6, 1.0
+  
+     _/      _/        _/_/_/       _/      _/       _/_/_/         _/_/_/
+    _/_/  _/_/      _/             _/_/    _/       _/    _/     _/       
+   _/  _/  _/      _/             _/  _/  _/       _/_/_/       _/_/_/    
+  _/      _/      _/             _/    _/_/       _/           _/    _/   
+ _/      _/        _/_/_/       _/      _/       _/             _/_/      
+  
+  +---------------------------------------------------------------------+
+  | Copyright 2008. Los Alamos National Security, LLC.  All rights      |
+  | reserved.                                                           |
+  |   This material was produced under U.S. Government contract         |
+  | DE-AC52-06NA25396 for Los Alamos National Laboratory, which is      |
+  | operated by Los Alamos National Security, LLC, for the U.S.         |
+  | Department of Energy. The Government is granted for itself and      |
+  | others acting on its behalf a paid-up, nonexclusive, irrevocable    |
+  | worldwide license in this material to reproduce, prepare derivative |
+  | works, and perform publicly and display publicly. Beginning five    |
+  | (5) years after 2008, subject to additional five-year worldwide     |
+  | renewals, the Government is granted for itself and others acting on |
+  | its behalf a paid-up, nonexclusive, irrevocable worldwide license   |
+  | in this material to reproduce, prepare derivative works, distribute |
+  | copies to the public, perform publicly and display publicly, and to |
+  | permit others to do so. NEITHER THE UNITED STATES NOR THE UNITED    |
+  | STATES DEPARTMENT OF ENERGY, NOR LOS ALAMOS NATIONAL SECURITY, LLC, |
+  | NOR ANY OF THEIR EMPLOYEES, MAKES ANY WARRANTY, EXPRESS OR IMPLIED, |
+  | OR ASSUMES ANY LEGAL LIABILITY OR RESPONSIBILITY FOR THE ACCURACY,  |
+  | COMPLETENESS, OR USEFULNESS OF ANY INFORMATION, APPARATUS, PRODUCT, |
+  | OR PROCESS DISCLOSED, OR REPRESENTS THAT ITS USE WOULD NOT INFRINGE |
+  | PRIVATELY OWNED RIGHTS.                                             |
+  +---------------------------------------------------------------------+
+  
+1mcnp     version 6     ld=05/08/13                     07/26/18 20:28:39 
+ *************************************************************************                 probid =  07/26/18 20:28:39 
+ ip i=eta_flux.i                                                                 
+
+ 
+  warning.  universe map (print table 128) disabled.
+ 
+  warning.  Physics models disabled.
+         1-       NIF Target Chamber with ETA (surface source run)                                
+         2-       c                                                                               
+         3-       100   30  -1.29e-32     -200 u=1 imp:n=0                                        
+         4-       101   30  -1.29e-32     -100 200 u=1 imp:n=1                                    
+         5-       102   30  -1.29e-32     100 u=1 imp:n=1                                         
+         6-       89200 0    -148  fill=1(1)      imp:n=1                                         
+         7-       89203 30  -1.29e-32   -89201 89202 -89203 148    imp:n=1                        
+         8-       8     0              #89203        imp:n=0                                      
+         9-                                                                                       
+        10-       c Surface Cards                                                                 
+        11-       100 RCC   0 0 0.001  0 0 23.96  17.50             $ Fill                        
+        12-       148 1 RCC   0 0 0  0 0 23.98  17.501          $ universe for ETA                
+        13-       200 RPP -12.0208 12.0208 -12.0208 12.0208 0.001 23.96                           
+        14-       89201 1  CZ    17.502                                                           
+        15-       89202 1  PZ    -.001                                                            
+        16-       89203 1  PZ    23.982                                                           
+        17-       c                                                                               
+        18-                                                                                       
+        19-       *tr1 -8.333553495 12.47204418 0  90 90 180 146.25 123.75 90 123.75 33.75 90     
+        20-       c                                                                               
+        21-       c   Vacuum                                                                      
+        22-       m30 7014 0.7840 8016 0.2110 18000 0.0050                                        
+        23-       mode   n                                                                        
+        24-       c                                                                               
+        25-       F1:n 200.1 200.2 200.3 200.4                                                    
+        26-       C1 0 1                                                                          
+        27-       E1 0.625e-6 25ILOG 13.5 100I 14.0 14.02 14.0299 14.031 10ILOG 20.0              
+        28-       c                                                                               
+        29-       F11:n 200.1 200.2 200.3 200.4                                                   
+        30-       FC11 200.1/2 are y 200.3.4 are x. 200.4 is drawer side mcnp                     
+        31-       C11 -0.75 -0.5 -0.25 0 0.25 0.5 0.75 1                                          
+        32-       E11 0.625e-6 25ILOG 13.5 100I 14.0 14.02 14.0299 14.031 10ILOG 20.0             
+        33-       c                                                                               
+        34-       SSR                                                                             
+        35-       c SSW  -89201(89200) 89202(89200) -89203(89200)                                 
+        36-       c                                                                               
+        37-       print -85 -86 -128 -130 -140 -161 -162                                          
+        38-       nps 1e9                                                                         
+ 
+  comment.  total nubar used if fissionable isotopes are present.
+ 
+  warning.  zero neutron  importance within non-void cell      100.
+
+ surface      100.3 and surface      200.6 are the same.      200.6 will be deleted.
+ 
+  comment.           1 surfaces were deleted for being the same as others.
+1source                                                                                                 print table 10
+
+ values of defaulted or explicitly defined source variables
+
+    cel        0.0000E+00
+    old
+    new
+    col        0.0000E+00
+    tr         0.0000E+00
+    poa        0.0000E+00   0.0000E+00   0.0000E+00
+    bcw        0.0000E+00   0.0000E+00   0.0000E+00
+    ext        0.0000E+00
+    axs        0.0000E+00   0.0000E+00   0.0000E+00
+    wgt        1.0000E+00
+    psc        1.0000E-02
+    par        0.0000E+00
+    pty        0.0000E+00
+
+ information from the header of surface-source file rssa
+
+
+ the file was written by mcnp     version 5.mpi with probid =  03/27/18 16:18:51  and ending with dump no.    11
+ the title of the creation run was     IF Target Bay with Detailed Chamber- TARPOS only inside TC                      
+ the original number of histories was   100000000
+ the total number of tracks recorded was    17806534 from    17677716 independent histories.
+
+ creation-run surfaces
+       surface      type      coefficients
+     1   -89201     gq          6.91342E-01  3.08658E-01  1.00000E+00  9.23880E-01  0.00000E+00
+                               0.00000E+00  3.78610E-09  2.52979E-09  0.00000E+00 -3.06320E+02
+     2    89202     p          -5.55570E-01  8.31470E-01  0.00000E+00  1.49990E+01
+     3   -89203     p          -5.55570E-01  8.31470E-01  0.00000E+00  3.89820E+01
+
+ this ssr problem will use the following particles if available: neutron 
+
+ summary for all particles per surface or cell.
+     no.                total tracks           independent histories
+      1                   89784                   89505
+      2                17597723                17587883
+      3                  119027                  110946
+
+ neutron  summary per surface or cell.
+     no.        tracks       indp. tracks     uncollided     indp. uncol.
+      1          89784          89505              0              0
+      2       17597723       17587883       17468844       17468844
+      3         119027         110946              0              0
+
+ this problem uses collision option  0 and reads from
+     surface(s)    89201    89202    89203
+ this surface source will occur   1 times.
+
+1tally        1                                                                                         print table 30
+           tally type 1    number of particles crossing a surface.                             
+           particle(s): neutrons 
+ surfaces  200.1 200.2 200.3 200.4                                                                                                     
+
+ angle  bins
+     -1.00000E+00  to  0.00000E+00 mu    
+      0.00000E+00  to  1.00000E+00 mu    
+
+ energy bins
+      0.00000E+00  to  6.25000E-07 MeV   
+      6.25000E-07  to  1.19667E-06 MeV   
+      1.19667E-06  to  2.29123E-06 MeV   
+      2.29123E-06  to  4.38695E-06 MeV   
+      4.38695E-06  to  8.39958E-06 MeV   
+      8.39958E-06  to  1.60824E-05 MeV   
+      1.60824E-05  to  3.07926E-05 MeV   
+      3.07926E-05  to  5.89577E-05 MeV   
+      5.89577E-05  to  1.12885E-04 MeV   
+      1.12885E-04  to  2.16137E-04 MeV   
+      2.16137E-04  to  4.13832E-04 MeV   
+      4.13832E-04  to  7.92352E-04 MeV   
+      7.92352E-04  to  1.51709E-03 MeV   
+      1.51709E-03  to  2.90474E-03 MeV   
+      2.90474E-03  to  5.56162E-03 MeV   
+      5.56162E-03  to  1.06487E-02 MeV   
+      1.06487E-02  to  2.03887E-02 MeV   
+      2.03887E-02  to  3.90377E-02 MeV   
+      3.90377E-02  to  7.47444E-02 MeV   
+      7.47444E-02  to  1.43111E-01 MeV   
+      1.43111E-01  to  2.74011E-01 MeV   
+      2.74011E-01  to  5.24641E-01 MeV   
+      5.24641E-01  to  1.00451E+00 MeV   
+      1.00451E+00  to  1.92332E+00 MeV   
+      1.92332E+00  to  3.68252E+00 MeV   
+      3.68252E+00  to  7.05082E+00 MeV   
+      7.05082E+00  to  1.35000E+01 MeV   
+      1.35000E+01  to  1.35050E+01 MeV   
+      1.35050E+01  to  1.35099E+01 MeV   
+      1.35099E+01  to  1.35149E+01 MeV   
+      1.35149E+01  to  1.35198E+01 MeV   
+      1.35198E+01  to  1.35248E+01 MeV   
+      1.35248E+01  to  1.35297E+01 MeV   
+      1.35297E+01  to  1.35347E+01 MeV   
+      1.35347E+01  to  1.35396E+01 MeV   
+      1.35396E+01  to  1.35446E+01 MeV   
+      1.35446E+01  to  1.35495E+01 MeV   
+      1.35495E+01  to  1.35545E+01 MeV   
+      1.35545E+01  to  1.35594E+01 MeV   
+      1.35594E+01  to  1.35644E+01 MeV   
+      1.35644E+01  to  1.35693E+01 MeV   
+      1.35693E+01  to  1.35743E+01 MeV   
+      1.35743E+01  to  1.35792E+01 MeV   
+      1.35792E+01  to  1.35842E+01 MeV   
+      1.35842E+01  to  1.35891E+01 MeV   
+      1.35891E+01  to  1.35941E+01 MeV   
+      1.35941E+01  to  1.35990E+01 MeV   
+      1.35990E+01  to  1.36040E+01 MeV   
+      1.36040E+01  to  1.36089E+01 MeV   
+      1.36089E+01  to  1.36139E+01 MeV   
+      1.36139E+01  to  1.36188E+01 MeV   
+      1.36188E+01  to  1.36238E+01 MeV   
+      1.36238E+01  to  1.36287E+01 MeV   
+      1.36287E+01  to  1.36337E+01 MeV   
+      1.36337E+01  to  1.36386E+01 MeV   
+      1.36386E+01  to  1.36436E+01 MeV   
+      1.36436E+01  to  1.36485E+01 MeV   
+      1.36485E+01  to  1.36535E+01 MeV   
+      1.36535E+01  to  1.36584E+01 MeV   
+      1.36584E+01  to  1.36634E+01 MeV   
+      1.36634E+01  to  1.36683E+01 MeV   
+      1.36683E+01  to  1.36733E+01 MeV   
+      1.36733E+01  to  1.36782E+01 MeV   
+      1.36782E+01  to  1.36832E+01 MeV   
+      1.36832E+01  to  1.36881E+01 MeV   
+      1.36881E+01  to  1.36931E+01 MeV   
+      1.36931E+01  to  1.36980E+01 MeV   
+      1.36980E+01  to  1.37030E+01 MeV   
+      1.37030E+01  to  1.37079E+01 MeV   
+      1.37079E+01  to  1.37129E+01 MeV   
+      1.37129E+01  to  1.37178E+01 MeV   
+      1.37178E+01  to  1.37228E+01 MeV   
+      1.37228E+01  to  1.37277E+01 MeV   
+      1.37277E+01  to  1.37327E+01 MeV   
+      1.37327E+01  to  1.37376E+01 MeV   
+      1.37376E+01  to  1.37426E+01 MeV   
+      1.37426E+01  to  1.37475E+01 MeV   
+      1.37475E+01  to  1.37525E+01 MeV   
+      1.37525E+01  to  1.37574E+01 MeV   
+      1.37574E+01  to  1.37624E+01 MeV   
+      1.37624E+01  to  1.37673E+01 MeV   
+      1.37673E+01  to  1.37723E+01 MeV   
+      1.37723E+01  to  1.37772E+01 MeV   
+      1.37772E+01  to  1.37822E+01 MeV   
+      1.37822E+01  to  1.37871E+01 MeV   
+      1.37871E+01  to  1.37921E+01 MeV   
+      1.37921E+01  to  1.37970E+01 MeV   
+      1.37970E+01  to  1.38020E+01 MeV   
+      1.38020E+01  to  1.38069E+01 MeV   
+      1.38069E+01  to  1.38119E+01 MeV   
+      1.38119E+01  to  1.38168E+01 MeV   
+      1.38168E+01  to  1.38218E+01 MeV   
+      1.38218E+01  to  1.38267E+01 MeV   
+      1.38267E+01  to  1.38317E+01 MeV   
+      1.38317E+01  to  1.38366E+01 MeV   
+      1.38366E+01  to  1.38416E+01 MeV   
+      1.38416E+01  to  1.38465E+01 MeV   
+      1.38465E+01  to  1.38515E+01 MeV   
+      1.38515E+01  to  1.38564E+01 MeV   
+      1.38564E+01  to  1.38614E+01 MeV   
+      1.38614E+01  to  1.38663E+01 MeV   
+      1.38663E+01  to  1.38713E+01 MeV   
+      1.38713E+01  to  1.38762E+01 MeV   
+      1.38762E+01  to  1.38812E+01 MeV   
+      1.38812E+01  to  1.38861E+01 MeV   
+      1.38861E+01  to  1.38911E+01 MeV   
+      1.38911E+01  to  1.38960E+01 MeV   
+      1.38960E+01  to  1.39010E+01 MeV   
+      1.39010E+01  to  1.39059E+01 MeV   
+      1.39059E+01  to  1.39109E+01 MeV   
+      1.39109E+01  to  1.39158E+01 MeV   
+      1.39158E+01  to  1.39208E+01 MeV   
+      1.39208E+01  to  1.39257E+01 MeV   
+      1.39257E+01  to  1.39307E+01 MeV   
+      1.39307E+01  to  1.39356E+01 MeV   
+      1.39356E+01  to  1.39406E+01 MeV   
+      1.39406E+01  to  1.39455E+01 MeV   
+      1.39455E+01  to  1.39505E+01 MeV   
+      1.39505E+01  to  1.39554E+01 MeV   
+      1.39554E+01  to  1.39604E+01 MeV   
+      1.39604E+01  to  1.39653E+01 MeV   
+      1.39653E+01  to  1.39703E+01 MeV   
+      1.39703E+01  to  1.39752E+01 MeV   
+      1.39752E+01  to  1.39802E+01 MeV   
+      1.39802E+01  to  1.39851E+01 MeV   
+      1.39851E+01  to  1.39901E+01 MeV   
+      1.39901E+01  to  1.39950E+01 MeV   
+      1.39950E+01  to  1.40000E+01 MeV   
+      1.40000E+01  to  1.40200E+01 MeV   
+      1.40200E+01  to  1.40299E+01 MeV   
+      1.40299E+01  to  1.40310E+01 MeV   
+      1.40310E+01  to  1.44905E+01 MeV   
+      1.44905E+01  to  1.49650E+01 MeV   
+      1.49650E+01  to  1.54551E+01 MeV   
+      1.54551E+01  to  1.59613E+01 MeV   
+      1.59613E+01  to  1.64840E+01 MeV   
+      1.64840E+01  to  1.70238E+01 MeV   
+      1.70238E+01  to  1.75813E+01 MeV   
+      1.75813E+01  to  1.81571E+01 MeV   
+      1.81571E+01  to  1.87517E+01 MeV   
+      1.87517E+01  to  1.93658E+01 MeV   
+      1.93658E+01  to  2.00000E+01 MeV   
+      total bin
+
+1tally       11                                                                                         print table 30
++                                   200.1/2 are y 200.3.4 are x. 200.4 is drawer side mcnp                     
+           tally type 1    number of particles crossing a surface.                             
+           particle(s): neutrons 
+ surfaces  200.1 200.2 200.3 200.4                                                                                                     
+
+ angle  bins
+     -1.00000E+00  to -7.50000E-01 mu    
+     -7.50000E-01  to -5.00000E-01 mu    
+     -5.00000E-01  to -2.50000E-01 mu    
+     -2.50000E-01  to  0.00000E+00 mu    
+      0.00000E+00  to  2.50000E-01 mu    
+      2.50000E-01  to  5.00000E-01 mu    
+      5.00000E-01  to  7.50000E-01 mu    
+      7.50000E-01  to  1.00000E+00 mu    
+
+ energy bins
+      0.00000E+00  to  6.25000E-07 MeV   
+      6.25000E-07  to  1.19667E-06 MeV   
+      1.19667E-06  to  2.29123E-06 MeV   
+      2.29123E-06  to  4.38695E-06 MeV   
+      4.38695E-06  to  8.39958E-06 MeV   
+      8.39958E-06  to  1.60824E-05 MeV   
+      1.60824E-05  to  3.07926E-05 MeV   
+      3.07926E-05  to  5.89577E-05 MeV   
+      5.89577E-05  to  1.12885E-04 MeV   
+      1.12885E-04  to  2.16137E-04 MeV   
+      2.16137E-04  to  4.13832E-04 MeV   
+      4.13832E-04  to  7.92352E-04 MeV   
+      7.92352E-04  to  1.51709E-03 MeV   
+      1.51709E-03  to  2.90474E-03 MeV   
+      2.90474E-03  to  5.56162E-03 MeV   
+      5.56162E-03  to  1.06487E-02 MeV   
+      1.06487E-02  to  2.03887E-02 MeV   
+      2.03887E-02  to  3.90377E-02 MeV   
+      3.90377E-02  to  7.47444E-02 MeV   
+      7.47444E-02  to  1.43111E-01 MeV   
+      1.43111E-01  to  2.74011E-01 MeV   
+      2.74011E-01  to  5.24641E-01 MeV   
+      5.24641E-01  to  1.00451E+00 MeV   
+      1.00451E+00  to  1.92332E+00 MeV   
+      1.92332E+00  to  3.68252E+00 MeV   
+      3.68252E+00  to  7.05082E+00 MeV   
+      7.05082E+00  to  1.35000E+01 MeV   
+      1.35000E+01  to  1.35050E+01 MeV   
+      1.35050E+01  to  1.35099E+01 MeV   
+      1.35099E+01  to  1.35149E+01 MeV   
+      1.35149E+01  to  1.35198E+01 MeV   
+      1.35198E+01  to  1.35248E+01 MeV   
+      1.35248E+01  to  1.35297E+01 MeV   
+      1.35297E+01  to  1.35347E+01 MeV   
+      1.35347E+01  to  1.35396E+01 MeV   
+      1.35396E+01  to  1.35446E+01 MeV   
+      1.35446E+01  to  1.35495E+01 MeV   
+      1.35495E+01  to  1.35545E+01 MeV   
+      1.35545E+01  to  1.35594E+01 MeV   
+      1.35594E+01  to  1.35644E+01 MeV   
+      1.35644E+01  to  1.35693E+01 MeV   
+      1.35693E+01  to  1.35743E+01 MeV   
+      1.35743E+01  to  1.35792E+01 MeV   
+      1.35792E+01  to  1.35842E+01 MeV   
+      1.35842E+01  to  1.35891E+01 MeV   
+      1.35891E+01  to  1.35941E+01 MeV   
+      1.35941E+01  to  1.35990E+01 MeV   
+      1.35990E+01  to  1.36040E+01 MeV   
+      1.36040E+01  to  1.36089E+01 MeV   
+      1.36089E+01  to  1.36139E+01 MeV   
+      1.36139E+01  to  1.36188E+01 MeV   
+      1.36188E+01  to  1.36238E+01 MeV   
+      1.36238E+01  to  1.36287E+01 MeV   
+      1.36287E+01  to  1.36337E+01 MeV   
+      1.36337E+01  to  1.36386E+01 MeV   
+      1.36386E+01  to  1.36436E+01 MeV   
+      1.36436E+01  to  1.36485E+01 MeV   
+      1.36485E+01  to  1.36535E+01 MeV   
+      1.36535E+01  to  1.36584E+01 MeV   
+      1.36584E+01  to  1.36634E+01 MeV   
+      1.36634E+01  to  1.36683E+01 MeV   
+      1.36683E+01  to  1.36733E+01 MeV   
+      1.36733E+01  to  1.36782E+01 MeV   
+      1.36782E+01  to  1.36832E+01 MeV   
+      1.36832E+01  to  1.36881E+01 MeV   
+      1.36881E+01  to  1.36931E+01 MeV   
+      1.36931E+01  to  1.36980E+01 MeV   
+      1.36980E+01  to  1.37030E+01 MeV   
+      1.37030E+01  to  1.37079E+01 MeV   
+      1.37079E+01  to  1.37129E+01 MeV   
+      1.37129E+01  to  1.37178E+01 MeV   
+      1.37178E+01  to  1.37228E+01 MeV   
+      1.37228E+01  to  1.37277E+01 MeV   
+      1.37277E+01  to  1.37327E+01 MeV   
+      1.37327E+01  to  1.37376E+01 MeV   
+      1.37376E+01  to  1.37426E+01 MeV   
+      1.37426E+01  to  1.37475E+01 MeV   
+      1.37475E+01  to  1.37525E+01 MeV   
+      1.37525E+01  to  1.37574E+01 MeV   
+      1.37574E+01  to  1.37624E+01 MeV   
+      1.37624E+01  to  1.37673E+01 MeV   
+      1.37673E+01  to  1.37723E+01 MeV   
+      1.37723E+01  to  1.37772E+01 MeV   
+      1.37772E+01  to  1.37822E+01 MeV   
+      1.37822E+01  to  1.37871E+01 MeV   
+      1.37871E+01  to  1.37921E+01 MeV   
+      1.37921E+01  to  1.37970E+01 MeV   
+      1.37970E+01  to  1.38020E+01 MeV   
+      1.38020E+01  to  1.38069E+01 MeV   
+      1.38069E+01  to  1.38119E+01 MeV   
+      1.38119E+01  to  1.38168E+01 MeV   
+      1.38168E+01  to  1.38218E+01 MeV   
+      1.38218E+01  to  1.38267E+01 MeV   
+      1.38267E+01  to  1.38317E+01 MeV   
+      1.38317E+01  to  1.38366E+01 MeV   
+      1.38366E+01  to  1.38416E+01 MeV   
+      1.38416E+01  to  1.38465E+01 MeV   
+      1.38465E+01  to  1.38515E+01 MeV   
+      1.38515E+01  to  1.38564E+01 MeV   
+      1.38564E+01  to  1.38614E+01 MeV   
+      1.38614E+01  to  1.38663E+01 MeV   
+      1.38663E+01  to  1.38713E+01 MeV   
+      1.38713E+01  to  1.38762E+01 MeV   
+      1.38762E+01  to  1.38812E+01 MeV   
+      1.38812E+01  to  1.38861E+01 MeV   
+      1.38861E+01  to  1.38911E+01 MeV   
+      1.38911E+01  to  1.38960E+01 MeV   
+      1.38960E+01  to  1.39010E+01 MeV   
+      1.39010E+01  to  1.39059E+01 MeV   
+      1.39059E+01  to  1.39109E+01 MeV   
+      1.39109E+01  to  1.39158E+01 MeV   
+      1.39158E+01  to  1.39208E+01 MeV   
+      1.39208E+01  to  1.39257E+01 MeV   
+      1.39257E+01  to  1.39307E+01 MeV   
+      1.39307E+01  to  1.39356E+01 MeV   
+      1.39356E+01  to  1.39406E+01 MeV   
+      1.39406E+01  to  1.39455E+01 MeV   
+      1.39455E+01  to  1.39505E+01 MeV   
+      1.39505E+01  to  1.39554E+01 MeV   
+      1.39554E+01  to  1.39604E+01 MeV   
+      1.39604E+01  to  1.39653E+01 MeV   
+      1.39653E+01  to  1.39703E+01 MeV   
+      1.39703E+01  to  1.39752E+01 MeV   
+      1.39752E+01  to  1.39802E+01 MeV   
+      1.39802E+01  to  1.39851E+01 MeV   
+      1.39851E+01  to  1.39901E+01 MeV   
+      1.39901E+01  to  1.39950E+01 MeV   
+      1.39950E+01  to  1.40000E+01 MeV   
+      1.40000E+01  to  1.40200E+01 MeV   
+      1.40200E+01  to  1.40299E+01 MeV   
+      1.40299E+01  to  1.40310E+01 MeV   
+      1.40310E+01  to  1.44905E+01 MeV   
+      1.44905E+01  to  1.49650E+01 MeV   
+      1.49650E+01  to  1.54551E+01 MeV   
+      1.54551E+01  to  1.59613E+01 MeV   
+      1.59613E+01  to  1.64840E+01 MeV   
+      1.64840E+01  to  1.70238E+01 MeV   
+      1.70238E+01  to  1.75813E+01 MeV   
+      1.75813E+01  to  1.81571E+01 MeV   
+      1.81571E+01  to  1.87517E+01 MeV   
+      1.87517E+01  to  1.93658E+01 MeV   
+      1.93658E+01  to  2.00000E+01 MeV   
+      total bin
+1material composition                                                                                   print table 40
+
+ material
+  number     component nuclide, atom fraction
+
+       30            7014, 7.84000E-01       8016, 2.11000E-01      18000, 5.00000E-03
+
+
+
+
+
+ material
+  number     component nuclide, mass fraction
+
+       30            7014, 7.54370E-01       8016, 2.31905E-01      18000, 1.37248E-02
+1cell volumes and masses                                                                                print table 50
+
+              cell     atom          gram         input       calculated                            reason volume
+                      density       density       volume        volume         mass       pieces    not calculated
+
+        1      100  5.33800E-34   1.29000E-32   0.00000E+00   1.38483E+04   1.78643E-28      0                      
+        2      101  5.33800E-34   1.29000E-32   0.00000E+00   0.00000E+00   0.00000E+00      0      asymmetric      
+        3      102  5.33800E-34   1.29000E-32   0.00000E+00   0.00000E+00   0.00000E+00      0      infinite        
+        4    89200  0.00000E+00   0.00000E+00   0.00000E+00   2.30741E+04   0.00000E+00      1                      
+        5    89203  5.33800E-34   1.29000E-32   0.00000E+00   5.52396E+00   7.12591E-32      1                      
+        6        8  0.00000E+00   0.00000E+00   0.00000E+00   0.00000E+00   0.00000E+00      0      infinite        
+1surface areas                                                                                          print table 50
+
+           surface      input      calculated    reason area
+                        area          area       not calculated
+
+        2      100.1    0.00000E+00   2.63454E+03                   
+        3      100.2    0.00000E+00   9.62113E+02                   
+        4      100.3    0.00000E+00   0.00000E+00   asymmetric      
+        6      148.1    0.00000E+00   3.95533E+03                   
+        7      148.2    0.00000E+00   1.44333E+03                   
+        8      148.3    0.00000E+00   1.44333E+03                   
+       10      200.1    0.00000E+00   5.76013E+02                   
+       11      200.2    0.00000E+00   5.76013E+02                   
+       12      200.3    0.00000E+00   5.76013E+02                   
+       13      200.4    0.00000E+00   5.76013E+02                   
+       14      200.5    0.00000E+00   5.77999E+02                   
+       16    89201      0.00000E+00   2.63737E+03                   
+       17    89202      0.00000E+00   9.62333E+02                   
+       18    89203      0.00000E+00   9.62333E+02                   
+1cells                                                                                                  print table 60
+
+                               atom        gram                                            neutron                                     
+              cell      mat   density     density     volume       mass            pieces importance                                   
+
+        1      100       30  5.33800E-34 1.29000E-32 1.38483E+04 1.78643E-28           0  0.0000E+00                                   
+        2      101       30  5.33800E-34 1.29000E-32 0.00000E+00 0.00000E+00           0  1.0000E+00                                   
+        3      102       30  5.33800E-34 1.29000E-32 0.00000E+00 0.00000E+00           0  1.0000E+00                                   
+        4    89200        0  0.00000E+00 0.00000E+00 2.30741E+04 0.00000E+00           1  1.0000E+00                                   
+        5    89203       30  5.33800E-34 1.29000E-32 5.52396E+00 7.12591E-32           1  1.0000E+00                                   
+        6        8        0  0.00000E+00 0.00000E+00 0.00000E+00 0.00000E+00           0  0.0000E+00                                   
+
+ total                                               3.69279E+04 1.78714E-28
+1surfaces                                                                                               print table 70
+
+           surface        trans  type   surface coefficients
+
+        1      100                rcc
+        2      100.1              cz    1.7500000E+01
+        3      100.2              pz    2.3961000E+01
+        4      100.3              p     0.0000000E+00   0.0000000E+00  -1.0000000E+00  -1.0000000E-03
+        5      148                rcc
+        6      148.1          1   gq    6.9134172E-01   3.0865828E-01   1.0000000E+00   9.2387953E-01   0.0000000E+00
+                                   0.0000000E+00   3.7860989E-09   2.5297904E-09   0.0000000E+00  -3.0628500E+02
+        7      148.2          1   p    -5.5557023E-01   8.3146961E-01   0.0000000E+00   3.8980000E+01
+        8      148.3          1   p     5.5557023E-01  -8.3146961E-01   0.0000000E+00  -1.5000000E+01
+        9      200                rpp
+       10      200.1              px    1.2020800E+01
+       11      200.2              p    -1.0000000E+00   0.0000000E+00   0.0000000E+00   1.2020800E+01
+       12      200.3              py    1.2020800E+01
+       13      200.4              p     0.0000000E+00  -1.0000000E+00   0.0000000E+00   1.2020800E+01
+       14      200.5              pz    2.3960000E+01
+       16    89201            1   gq    6.9134172E-01   3.0865828E-01   1.0000000E+00   9.2387953E-01   0.0000000E+00
+                                   0.0000000E+00   3.7860989E-09   2.5297904E-09   0.0000000E+00  -3.0632000E+02
+       17    89202            1   p    -5.5557023E-01   8.3146961E-01   0.0000000E+00   1.4999000E+01
+       18    89203            1   p    -5.5557023E-01   8.3146961E-01   0.0000000E+00   3.8982000E+01
+1  identical surfaces                                                                                   print table 70
+
+   master surface     identical surfaces
+
+       100.3         200.6                                                                                                             
+
+
+   surface coefficients for identical surfaces not used.
+
+             surface     trans  type   surface coefficients
+
+       15      200.6              p     0.0000000E+00   0.0000000E+00  -1.0000000E+00  -1.0000000E-03
+1  cell temperatures in mev for the free-gas thermal neutron treatment.                                 print table 72
+
+   all non-zero importance cells with materials have a temperature for thermal neutrons of 2.5300E-08 mev.
+
+ ***************************************************
+ * Random Number Generator  =                    1 *
+ * Random Number Seed       =       19073486328125 *
+ * Random Number Multiplier =       19073486328125 *
+ * Random Number Adder      =                    0 *
+ * Random Number Bits Used  =                   48 *
+ * Random Number Stride     =               152917 *
+ ***************************************************
+
+
+         3 warning messages so far.

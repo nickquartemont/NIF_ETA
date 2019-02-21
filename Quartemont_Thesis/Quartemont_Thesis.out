@@ -1,0 +1,74 @@
+\BOOKMARK [0][-]{Doc-Start}{Abstract}{}% 1
+\BOOKMARK [0][-]{chapter*.1}{Acknowledgements}{}% 2
+\BOOKMARK [0][-]{chapter*.3}{List of Figures}{}% 3
+\BOOKMARK [0][-]{chapter*.4}{List of Tables}{}% 4
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 5
+\BOOKMARK [1][-]{section.1.1}{Motivation}{chapter.1}% 6
+\BOOKMARK [2][-]{subsection.1.1.1}{Nuclear Weapon Certification Capability Gap}{section.1.1}% 7
+\BOOKMARK [2][-]{subsection.1.1.2}{Technical Nuclear Forensics Capability Gap}{section.1.1}% 8
+\BOOKMARK [2][-]{subsection.1.1.3}{Neutron Environment Capability Gaps}{section.1.1}% 9
+\BOOKMARK [1][-]{section.1.2}{Background}{chapter.1}% 10
+\BOOKMARK [1][-]{section.1.3}{Problem}{chapter.1}% 11
+\BOOKMARK [1][-]{section.1.4}{Questions and Hypothesis}{chapter.1}% 12
+\BOOKMARK [1][-]{section.1.5}{Assumptions and Limitations}{chapter.1}% 13
+\BOOKMARK [1][-]{section.1.6}{Approach}{chapter.1}% 14
+\BOOKMARK [1][-]{section.1.7}{Innovations}{chapter.1}% 15
+\BOOKMARK [0][-]{chapter.2}{Literature Review}{}% 16
+\BOOKMARK [1][-]{section.2.1}{Neutron Interactions with Matter}{chapter.2}% 17
+\BOOKMARK [2][-]{subsection.2.1.1}{Elastic Scattering \(n,n\)}{section.2.1}% 18
+\BOOKMARK [2][-]{subsection.2.1.2}{Inelastic Scattering \(n,n'\)}{section.2.1}% 19
+\BOOKMARK [2][-]{subsection.2.1.3}{Neutron Evaporation \(n,xn\)}{section.2.1}% 20
+\BOOKMARK [2][-]{subsection.2.1.4}{Radiative Capture \(n,\)}{section.2.1}% 21
+\BOOKMARK [1][-]{section.2.2}{Nuclear Fission}{chapter.2}% 22
+\BOOKMARK [2][-]{subsection.2.2.1}{Fission Theory}{section.2.2}% 23
+\BOOKMARK [2][-]{subsection.2.2.2}{Fission Products}{section.2.2}% 24
+\BOOKMARK [2][-]{subsection.2.2.3}{Nagy Fits for Fission Product Isotopes}{section.2.2}% 25
+\BOOKMARK [1][-]{section.2.3}{Nuclear Data}{chapter.2}% 26
+\BOOKMARK [2][-]{subsection.2.3.1}{Nuclear Data Libraries}{section.2.3}% 27
+\BOOKMARK [2][-]{subsection.2.3.2}{Nuclear Data Covariance}{section.2.3}% 28
+\BOOKMARK [2][-]{subsection.2.3.3}{Nuclear Data Stochastic Sampling}{section.2.3}% 29
+\BOOKMARK [1][-]{section.2.4}{Monte Carlo Neutron Transport}{chapter.2}% 30
+\BOOKMARK [2][-]{subsection.2.4.1}{Monte Carlo Neutron Transport Theory}{section.2.4}% 31
+\BOOKMARK [2][-]{subsection.2.4.2}{Comparison of Monte Carlo Neutron Transport Results}{section.2.4}% 32
+\BOOKMARK [1][-]{section.2.5}{Foil Activation}{chapter.2}% 33
+\BOOKMARK [2][-]{subsection.2.5.1}{Foil Activation Theory}{section.2.5}% 34
+\BOOKMARK [2][-]{subsection.2.5.2}{Selection of Experimental Foils}{section.2.5}% 35
+\BOOKMARK [1][-]{section.2.6}{Neutron Energy Spectrum Unfolding}{chapter.2}% 36
+\BOOKMARK [0][-]{chapter.3}{Methodology}{}% 37
+\BOOKMARK [1][-]{section.3.1}{Energy Tuning Assembly Design}{chapter.3}% 38
+\BOOKMARK [2][-]{subsection.3.1.1}{NIF Constraints}{section.3.1}% 39
+\BOOKMARK [2][-]{subsection.3.1.2}{NIF Source}{section.3.1}% 40
+\BOOKMARK [1][-]{section.3.2}{Radiation Transport}{chapter.3}% 41
+\BOOKMARK [2][-]{subsection.3.2.1}{Nuclear Data Libraries}{section.3.2}% 42
+\BOOKMARK [2][-]{subsection.3.2.2}{MCNP}{section.3.2}% 43
+\BOOKMARK [2][-]{subsection.3.2.3}{MAVRIC}{section.3.2}% 44
+\BOOKMARK [2][-]{subsection.3.2.4}{SCALE Sampler Sequence}{section.3.2}% 45
+\BOOKMARK [1][-]{section.3.3}{Nuclear Data Covariance}{chapter.3}% 46
+\BOOKMARK [2][-]{subsection.3.3.1}{Sampling Transport Related Uncertainties}{section.3.3}% 47
+\BOOKMARK [2][-]{subsection.3.3.2}{Sampling Nuclear Data Covariance Libraries}{section.3.3}% 48
+\BOOKMARK [2][-]{subsection.3.3.3}{The Case for Sampling with Alternative Probability Distribution Functions}{section.3.3}% 49
+\BOOKMARK [2][-]{subsection.3.3.4}{Mapping Nuclear Data Systematic Error to Alternate Group Structures}{section.3.3}% 50
+\BOOKMARK [1][-]{section.3.4}{Activation Foil Pack and Neutron Energy Spectrum Unfolding}{chapter.3}% 51
+\BOOKMARK [2][-]{subsection.3.4.1}{Activation Foils Selection}{section.3.4}% 52
+\BOOKMARK [2][-]{subsection.3.4.2}{Neutron Flux Unfolding with STAYSL}{section.3.4}% 53
+\BOOKMARK [1][-]{section.3.5}{Fission Product Isotopes}{chapter.3}% 54
+\BOOKMARK [2][-]{subsection.3.5.1}{GEF}{section.3.5}% 55
+\BOOKMARK [2][-]{subsection.3.5.2}{Nagy Fits for Fission Product Isotopes}{section.3.5}% 56
+\BOOKMARK [2][-]{subsection.3.5.3}{Systematic Uncertainties}{section.3.5}% 57
+\BOOKMARK [1][-]{section.3.6}{Statistical Analysis Tests}{chapter.3}% 58
+\BOOKMARK [0][-]{chapter.4}{Analysis and Results}{}% 59
+\BOOKMARK [1][-]{section.4.1}{ETA Monte Carlo Simulation Results}{chapter.4}% 60
+\BOOKMARK [2][-]{subsection.4.1.1}{ETA Performance - Neutron Fluence Environment Comparison to TN+PFNS}{section.4.1}% 61
+\BOOKMARK [2][-]{subsection.4.1.2}{STAYSL Neutron Fluence with Mapped Systematic Uncertainty}{section.4.1}% 62
+\BOOKMARK [2][-]{subsection.4.1.3}{Neutron Flux Timing Profile}{section.4.1}% 63
+\BOOKMARK [2][-]{subsection.4.1.4}{Foil Activation}{section.4.1}% 64
+\BOOKMARK [1][-]{section.4.2}{STAYSL Neutron Flux Unfolding Results}{chapter.4}% 65
+\BOOKMARK [1][-]{section.4.3}{Fission Products}{chapter.4}% 66
+\BOOKMARK [2][-]{subsection.4.3.1}{HEU Fission Spectra}{section.4.3}% 67
+\BOOKMARK [2][-]{subsection.4.3.2}{GEF}{section.4.3}% 68
+\BOOKMARK [2][-]{subsection.4.3.3}{Nagy Fits}{section.4.3}% 69
+\BOOKMARK [0][-]{chapter.5}{Conclusions and Recommendations}{}% 70
+\BOOKMARK [1][-]{section.5.1}{Modeled ETA Experiment}{chapter.5}% 71
+\BOOKMARK [1][-]{section.5.2}{Future Work}{chapter.5}% 72
+\BOOKMARK [0][-]{chapter.1}{Reproducibility}{}% 73
+\BOOKMARK [0][-]{chapter*.70}{Bibliography}{}% 74

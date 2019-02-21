@@ -1,0 +1,2308 @@
+          Code Name & Version = MCNP6, 1.0
+  
+     _/      _/        _/_/_/       _/      _/       _/_/_/         _/_/_/
+    _/_/  _/_/      _/             _/_/    _/       _/    _/     _/       
+   _/  _/  _/      _/             _/  _/  _/       _/_/_/       _/_/_/    
+  _/      _/      _/             _/    _/_/       _/           _/    _/   
+ _/      _/        _/_/_/       _/      _/       _/             _/_/      
+  
+  +---------------------------------------------------------------------+
+  | Copyright 2008. Los Alamos National Security, LLC.  All rights      |
+  | reserved.                                                           |
+  |   This material was produced under U.S. Government contract         |
+  | DE-AC52-06NA25396 for Los Alamos National Laboratory, which is      |
+  | operated by Los Alamos National Security, LLC, for the U.S.         |
+  | Department of Energy. The Government is granted for itself and      |
+  | others acting on its behalf a paid-up, nonexclusive, irrevocable    |
+  | worldwide license in this material to reproduce, prepare derivative |
+  | works, and perform publicly and display publicly. Beginning five    |
+  | (5) years after 2008, subject to additional five-year worldwide     |
+  | renewals, the Government is granted for itself and others acting on |
+  | its behalf a paid-up, nonexclusive, irrevocable worldwide license   |
+  | in this material to reproduce, prepare derivative works, distribute |
+  | copies to the public, perform publicly and display publicly, and to |
+  | permit others to do so. NEITHER THE UNITED STATES NOR THE UNITED    |
+  | STATES DEPARTMENT OF ENERGY, NOR LOS ALAMOS NATIONAL SECURITY, LLC, |
+  | NOR ANY OF THEIR EMPLOYEES, MAKES ANY WARRANTY, EXPRESS OR IMPLIED, |
+  | OR ASSUMES ANY LEGAL LIABILITY OR RESPONSIBILITY FOR THE ACCURACY,  |
+  | COMPLETENESS, OR USEFULNESS OF ANY INFORMATION, APPARATUS, PRODUCT, |
+  | OR PROCESS DISCLOSED, OR REPRESENTS THAT ITS USE WOULD NOT INFRINGE |
+  | PRIVATELY OWNED RIGHTS.                                             |
+  +---------------------------------------------------------------------+
+  
+1mcnp     version 6.mpi ld=07/27/15                     06/22/17 09:55:42 
+ *************************************************************************                 probid =  06/22/17 09:55:42 
+ i=bare_Godiva_Fission.in o=bare_Godiva_Fission.out wwinp=wwinp                  
+
+ 
+  warning.  Physics models disabled.
+         1-       This models a mat#1  sphere with R= 8.7410 and rho=18.7426                      
+         2-       c                                                                               
+         3-       c April 15th, 2016                                                              
+         4-       c                                                                               
+         5-       c Mat1=235U                                                                     
+         6-       c                                                                               
+         7-       c Initial radius and Mass taken to be 100% of Godiva (U235) and Jezebel (Pu239) 
+         8-       c   -> keff = 1.0                                                               
+         9-       c                                                                               
+        10-       c In this calculation, we are assuming: Watt fission spectra, volume src        
+        11-       c                                                                               
+        12-       c Addtionally, we are neglecting: time dependence, reflection and moderation dt 
+        13-       c         or explosives, temperature variation w/ time, and spatial variation of
+        14-       c          fission birth events, spatial variation of density                   
+        15-       c                                                                               
+        16-       c Ref:"Intercomparison of Calculations for Godiva and Jezebel"                  
+        17-       c                                                                               
+        18-       c                                                                               
+        19-       c ******************************************************************************
+        20-       c  Cell Cards                                                                   
+        21-       c ******************************************************************************
+        22-       c Fissile cylinder                                                              
+        23-       1  9             -18.743         -1                      imp:n,p=1              
+        24-       c Problem Boundaries                                                            
+        25-       2  0                         1                           imp:n,p=0 $ kill zone  
+        26-                                                                                       
+        27-       c ******************************************************************************
+        28-       c Surfaces                                                                      
+        29-       c ******************************************************************************
+        30-       c Fissile material cylinder                                                     
+        31-       1 SO 8.741                                                                      
+        32-                                                                                       
+        33-       c ******************************************************************************
+        34-       c Data Cards                                                                    
+        35-       c ******************************************************************************
+        36-       TOTNU NO             $Prompt Component Only                                     
+        37-       NONU                 $All Fission treated as capture ->no multiplication        
+  warning.  tallies with nonu card do not include any fission neutrons.
+        38-       PRINT                                                                           
+        39-       MODE n               $Neglect photons                                           
+        40-       NPS 5E10                                                                        
+        41-       c ****************************************************************************  
+        42-       c  Materials                                                                    
+        43-       c ****************************************************************************  
+        44-       C name: HEU                                                                     
+        45-       C density = 18.7                                                                
+        46-       m9                                                                              
+        47-            92233 -2.0000e-05                                                          
+        48-            92234 -9.3898e-03                                                          
+        49-            92235 -9.3215e-01                                                          
+        50-            92236 -2.9999e-03                                                          
+        51-            92238 -5.5439e-02                                                          
+        52-       C name: 234U                                                                    
+        53-       C density = 18.7                                                                
+        54-       m20                                                                             
+  warning.  material        20 is used only for a perturbation or tally.
+        55-            92234 1.0                                                                  
+        56-       C name: 235U                                                                    
+        57-       C density = 18.7                                                                
+        58-       m21                                                                             
+  warning.  material        21 is used only for a perturbation or tally.
+        59-            92235 1.0                                                                  
+        60-       C name: 236U                                                                    
+        61-       C density = 18.7                                                                
+        62-       m22                                                                             
+  warning.  material        22 is used only for a perturbation or tally.
+        63-            92236 1.0                                                                  
+        64-       C name: 238U                                                                    
+        65-       C density = 18.7                                                                
+        66-       m23                                                                             
+  warning.  material        23 is used only for a perturbation or tally.
+        67-            92238 1.0                                                                  
+        68-       c ****************************************************************************  
+        69-       c  Source                                                                       
+        70-       c ****************************************************************************  
+        71-       SDEF PAR=n X=d1 Y=d2 Z=d3 CELL=1 ERG=d4 wgt=1.000392642e+00                     
+        72-       SI1  -8.741        8.741                                                        
+        73-       SP1  0  1                                                                       
+        74-       SI2  -8.741        8.741                                                        
+        75-       SP2  0  1                                                                       
+        76-       SI3  -8.741        8.741                                                        
+        77-       SP3  0  1                                                                       
+        78-       SP4 -3 0.988        2.249                                                       
+        79-       c ****************************************************************************  
+        80-       c  ADVANTG EDITS                                                                
+        81-       c ****************************************************************************  
+        82-       c  SDEF WGT parameter relative uncertainty = 0.0603%                            
+        83-       wwp:n 5.0 j 100 j -1 0 5.857500994e+00                                          
+        84-       c ****************************************************************************  
+        85-       c  Tallies                                                                      
+        86-       c ****************************************************************************  
+        87-       c *** HEU ***                                                                   
+        88-       FC4 Uranium Flux Spectra - STAYSL Bins (Number per cm^2 per src neutron)        
+        89-       F4:n 1                                                                          
+        90-       E4  1.00E-10 1.00E-09 1.00E-08 2.30E-08 5.00E-08 7.60E-08 1.15E-07              
+        91-            1.70E-07 2.55E-07 3.80E-07 5.50E-07 8.40E-07 1.28E-06 1.90E-06             
+        92-            2.80E-06 4.25E-06 6.30E-06 9.20E-06 1.35E-05 2.10E-05 3.00E-05             
+        93-            4.50E-05 6.90E-05 1.00E-04 1.35E-04 1.70E-04 2.20E-04 2.80E-04             
+        94-            3.60E-04 4.50E-04 5.75E-04 7.60E-04 9.60E-04 1.28E-03 1.60E-03             
+        95-            2.00E-03 2.70E-03 3.40E-03 4.50E-03 5.50E-03 7.20E-03 9.20E-03             
+        96-            1.20E-02 1.50E-02 1.90E-02 2.55E-02 3.20E-02 4.00E-02 5.25E-02             
+        97-            6.60E-02 8.80E-02 1.10E-01 1.35E-01 1.60E-01 1.90E-01 2.20E-01             
+        98-            2.55E-01 2.90E-01 3.20E-01 3.60E-01 4.00E-01 4.50E-01 5.00E-01             
+        99-            5.50E-01 6.00E-01 6.60E-01 7.20E-01 7.80E-01 8.40E-01 9.20E-01             
+       100-            1.00E+00 1.20E+00 1.40E+00 1.60E+00 1.80E+00 2.00E+00 2.30E+00             
+       101-            2.60E+00 2.90E+00 3.30E+00 3.70E+00 4.10E+00 4.50E+00 5.00E+00             
+       102-            5.50E+00 6.00E+00 6.70E+00 7.40E+00 8.20E+00 9.00E+00 1.00E+01             
+       103-            1.10E+01 1.20E+01 1.30E+01 1.40E+01 1.50E+01 1.60E+01 1.70E+01             
+       104-            1.80E+01 1.90E+01 2.00E+01 2.10E+01 2.20E+01 2.30E+01 2.40E+01             
+       105-            2.50E+01 2.60E+01 2.70E+01 2.80E+01 2.90E+01 3.00E+01 3.10E+01             
+       106-            3.20E+01 3.30E+01 3.40E+01 3.50E+01 3.60E+01 3.70E+01 3.80E+01             
+       107-            3.90E+01 4.00E+01 4.10E+01 4.20E+01 4.30E+01 4.40E+01 4.50E+01             
+       108-            4.60E+01 4.70E+01 4.80E+01 4.90E+01 5.00E+01 5.10E+01 5.20E+01             
+       109-            5.30E+01 5.40E+01 5.50E+01 5.60E+01 5.70E+01 5.80E+01 5.90E+01             
+       110-            6.00E+01                                                                   
+       111-       c                                                                               
+       112-       FC14 Uranium Flux Spectra (Number per cm^2 per src neutron)                     
+       113-       F14:n 1                                                                         
+       114-       c                                                                               
+       115-       FC24 Fission Reaction Rate (Fissions per cm^3 per src particle)                 
+       116-       F24:n 1                                                                         
+       117-       FM24  (-1 9 -6)     $Flux * atom density of material 9 * sigma f                
+       118-       c                                                                               
+       119-       FC964 U234 Fission Reaction Rate (Fissions per cm^3 per src particle)           
+       120-       F964:n 1                                                                        
+       121-       FM964  (-0.0093898 20 -6)     $Flux * atom density of material 20 * sigma f     
+       122-       c                                                                               
+       123-       FC974 U235 Fission Reaction Rate (Fissions per cm^3 per src particle)           
+       124-       F974:n 1                                                                        
+       125-       FM974  (-0.93217 21 -6)     $Flux * atom density of material 21 * sigma f       
+       126-       c                                                                               
+       127-       FC984 U236 Fission Reaction Rate (Fissions per cm^3 per src particle)           
+       128-       F984:n 1                                                                        
+       129-       FM984  (-0.003 22 -6)     $Flux * atom density of material 22 * sigma f         
+       130-       c                                                                               
+       131-       FC994 U238 Fission Reaction Rate (Fissions per cm^3 per src particle)           
+       132-       F994:n 1                                                                        
+       133-       FM994  (-0.05544 23 -6)     $Flux * atom density of material 23 * sigma f       
+       134-       E0   4.1399E-07                                                                 
+       135-            1.1253E-06                                                                 
+       136-            0.000003059                                                                
+       137-            0.000010677                                                                
+       138-            0.000029023                                                                
+       139-            0.0001013                                                                  
+       140-            0.00027536                                                                 
+       141-            0.00058295                                                                 
+       142-            0.0012341                                                                  
+       143-            0.0033546                                                                  
+       144-            0.010333                                                                   
+       145-            0.021875                                                                   
+       146-            0.024788                                                                   
+       147-            0.034307                                                                   
+       148-            0.052475                                                                   
+       149-            0.11109                                                                    
+       150-            0.15764                                                                    
+       151-            0.24724                                                                    
+       152-            0.36883                                                                    
+       153-            0.55023                                                                    
+       154-            0.63928                                                                    
+       155-            0.74274                                                                    
+       156-            0.82085                                                                    
+       157-            0.96164                                                                    
+       158-            1.108                                                                      
+       159-            1.4227                                                                     
+       160-            1.8268                                                                     
+       161-            2.3069                                                                     
+       162-            2.3852                                                                     
+       163-            3.0119                                                                     
+       164-            4.0657                                                                     
+       165-            4.7237                                                                     
+       166-            4.9659                                                                     
+       167-            6.3763                                                                     
+       168-            7.4082                                                                     
+       169-            8.1873                                                                     
+       170-            9.0484                                                                     
+       171-            10                                                                         
+       172-            11.052                                                                     
+       173-            12.214                                                                     
+       174-            12.523                                                                     
+       175-            13.84                                                                      
+       176-            14.191                                                                     
+       177-            14.918                                                                     
+       178-            16.905                                                                     
+       179-            19.64                                                                      
+ 
+  comment.  prompt nubar used if fissionable isotopes are present.
+1   neutron  weight window                                                                              print table 20
+
+ reading mesh-based weight windows from file wwinp with probid =
+
+
+ 
+  warning.  energy of top neutron weight-window bin set to emax.
+
+ weight-window game parameters
+         1  5.00000E+00
+         2  3.00000E+00
+         3  1.00000E+02
+         4  1.00000E+00
+         5 -1.00000E+00
+         6  0.00000E+00
+         7  5.85750E+00
+         8 -1.00000E+00
+         9  0.00000E+00
+        10  0.00000E+00
+        11  0.00000E+00
+
+ weight window applied at collisions and surfaces.
+
+ all windows multiplied by a factor of 5.8575E+00
+1source                                                                                                 print table 10
+
+ values of defaulted or explicitly defined source variables
+
+    cel        1.0000E+00
+    sur        0.0000E+00
+    tme        0.0000E+00
+    dir        isotropic 
+    pos        0.0000E+00   0.0000E+00   0.0000E+00
+    rad        0.0000E+00
+    ext        0.0000E+00
+    axs        0.0000E+00   0.0000E+00   0.0000E+00
+    vec        0.0000E+00   0.0000E+00   0.0000E+00
+    ccc        0.0000E+00
+    nrm        1.0000E+00
+    ara        0.0000E+00
+    wgt        1.0004E+00
+    eff        1.0000E-02
+    par        1.0000E+00
+    tr         0.0000E+00
+    bem        0.0000E+00   0.0000E+00   0.0000E+00
+    bap        0.0000E+00   0.0000E+00   0.0000E+00
+    loc        0.0000E+00   0.0000E+00   0.0000E+00
+    dat        0.0000E+00   0.0000E+00   0.0000E+00
+
+
+
+ probability distribution        4 for source variable erg
+ energy function 3:  watt (fission) spectrum (endf law 10)
+
+     f(e)=c*exp(-e/a)*sinh(sqrt(b*e))
+     a = 9.8800E-01     b = 2.2490E+00     c = 4.3962E-01
+
+     the mean of source distribution        4 is  2.0308E+00
+
+
+
+ probability distribution        1 for source variable x  
+ unbiased histogram distribution
+
+ source        source           cumulative          probability
+  entry         value           probability           of bin
+
+    1      -8.74100E+00        0.000000E+00        0.000000E+00
+    2       8.74100E+00        1.000000E+00        1.000000E+00
+
+
+
+ probability distribution        2 for source variable y  
+ unbiased histogram distribution
+
+ source        source           cumulative          probability
+  entry         value           probability           of bin
+
+    1      -8.74100E+00        0.000000E+00        0.000000E+00
+    2       8.74100E+00        1.000000E+00        1.000000E+00
+
+
+
+ probability distribution        3 for source variable z  
+ unbiased histogram distribution
+
+ source        source           cumulative          probability
+  entry         value           probability           of bin
+
+    1      -8.74100E+00        0.000000E+00        0.000000E+00
+    2       8.74100E+00        1.000000E+00        1.000000E+00
+
+
+ order of sampling source variables.
+ par cel x   y   z   pos erg tme wgt
+
+1tally        4                                                                                         print table 30
++                                   Uranium Flux Spectra - STAYSL Bins (Number per cm^2 per src neutron)       
+           tally type 4    track length estimate of particle flux.                             
+           particle(s): neutrons 
+ cells     1                                                                                                                           
+
+ energy bins
+      0.00000E+00  to  1.00000E-10 MeV   
+      1.00000E-10  to  1.00000E-09 MeV   
+      1.00000E-09  to  1.00000E-08 MeV   
+      1.00000E-08  to  2.30000E-08 MeV   
+      2.30000E-08  to  5.00000E-08 MeV   
+      5.00000E-08  to  7.60000E-08 MeV   
+      7.60000E-08  to  1.15000E-07 MeV   
+      1.15000E-07  to  1.70000E-07 MeV   
+      1.70000E-07  to  2.55000E-07 MeV   
+      2.55000E-07  to  3.80000E-07 MeV   
+      3.80000E-07  to  5.50000E-07 MeV   
+      5.50000E-07  to  8.40000E-07 MeV   
+      8.40000E-07  to  1.28000E-06 MeV   
+      1.28000E-06  to  1.90000E-06 MeV   
+      1.90000E-06  to  2.80000E-06 MeV   
+      2.80000E-06  to  4.25000E-06 MeV   
+      4.25000E-06  to  6.30000E-06 MeV   
+      6.30000E-06  to  9.20000E-06 MeV   
+      9.20000E-06  to  1.35000E-05 MeV   
+      1.35000E-05  to  2.10000E-05 MeV   
+      2.10000E-05  to  3.00000E-05 MeV   
+      3.00000E-05  to  4.50000E-05 MeV   
+      4.50000E-05  to  6.90000E-05 MeV   
+      6.90000E-05  to  1.00000E-04 MeV   
+      1.00000E-04  to  1.35000E-04 MeV   
+      1.35000E-04  to  1.70000E-04 MeV   
+      1.70000E-04  to  2.20000E-04 MeV   
+      2.20000E-04  to  2.80000E-04 MeV   
+      2.80000E-04  to  3.60000E-04 MeV   
+      3.60000E-04  to  4.50000E-04 MeV   
+      4.50000E-04  to  5.75000E-04 MeV   
+      5.75000E-04  to  7.60000E-04 MeV   
+      7.60000E-04  to  9.60000E-04 MeV   
+      9.60000E-04  to  1.28000E-03 MeV   
+      1.28000E-03  to  1.60000E-03 MeV   
+      1.60000E-03  to  2.00000E-03 MeV   
+      2.00000E-03  to  2.70000E-03 MeV   
+      2.70000E-03  to  3.40000E-03 MeV   
+      3.40000E-03  to  4.50000E-03 MeV   
+      4.50000E-03  to  5.50000E-03 MeV   
+      5.50000E-03  to  7.20000E-03 MeV   
+      7.20000E-03  to  9.20000E-03 MeV   
+      9.20000E-03  to  1.20000E-02 MeV   
+      1.20000E-02  to  1.50000E-02 MeV   
+      1.50000E-02  to  1.90000E-02 MeV   
+      1.90000E-02  to  2.55000E-02 MeV   
+      2.55000E-02  to  3.20000E-02 MeV   
+      3.20000E-02  to  4.00000E-02 MeV   
+      4.00000E-02  to  5.25000E-02 MeV   
+      5.25000E-02  to  6.60000E-02 MeV   
+      6.60000E-02  to  8.80000E-02 MeV   
+      8.80000E-02  to  1.10000E-01 MeV   
+      1.10000E-01  to  1.35000E-01 MeV   
+      1.35000E-01  to  1.60000E-01 MeV   
+      1.60000E-01  to  1.90000E-01 MeV   
+      1.90000E-01  to  2.20000E-01 MeV   
+      2.20000E-01  to  2.55000E-01 MeV   
+      2.55000E-01  to  2.90000E-01 MeV   
+      2.90000E-01  to  3.20000E-01 MeV   
+      3.20000E-01  to  3.60000E-01 MeV   
+      3.60000E-01  to  4.00000E-01 MeV   
+      4.00000E-01  to  4.50000E-01 MeV   
+      4.50000E-01  to  5.00000E-01 MeV   
+      5.00000E-01  to  5.50000E-01 MeV   
+      5.50000E-01  to  6.00000E-01 MeV   
+      6.00000E-01  to  6.60000E-01 MeV   
+      6.60000E-01  to  7.20000E-01 MeV   
+      7.20000E-01  to  7.80000E-01 MeV   
+      7.80000E-01  to  8.40000E-01 MeV   
+      8.40000E-01  to  9.20000E-01 MeV   
+      9.20000E-01  to  1.00000E+00 MeV   
+      1.00000E+00  to  1.20000E+00 MeV   
+      1.20000E+00  to  1.40000E+00 MeV   
+      1.40000E+00  to  1.60000E+00 MeV   
+      1.60000E+00  to  1.80000E+00 MeV   
+      1.80000E+00  to  2.00000E+00 MeV   
+      2.00000E+00  to  2.30000E+00 MeV   
+      2.30000E+00  to  2.60000E+00 MeV   
+      2.60000E+00  to  2.90000E+00 MeV   
+      2.90000E+00  to  3.30000E+00 MeV   
+      3.30000E+00  to  3.70000E+00 MeV   
+      3.70000E+00  to  4.10000E+00 MeV   
+      4.10000E+00  to  4.50000E+00 MeV   
+      4.50000E+00  to  5.00000E+00 MeV   
+      5.00000E+00  to  5.50000E+00 MeV   
+      5.50000E+00  to  6.00000E+00 MeV   
+      6.00000E+00  to  6.70000E+00 MeV   
+      6.70000E+00  to  7.40000E+00 MeV   
+      7.40000E+00  to  8.20000E+00 MeV   
+      8.20000E+00  to  9.00000E+00 MeV   
+      9.00000E+00  to  1.00000E+01 MeV   
+      1.00000E+01  to  1.10000E+01 MeV   
+      1.10000E+01  to  1.20000E+01 MeV   
+      1.20000E+01  to  1.30000E+01 MeV   
+      1.30000E+01  to  1.40000E+01 MeV   
+      1.40000E+01  to  1.50000E+01 MeV   
+      1.50000E+01  to  1.60000E+01 MeV   
+      1.60000E+01  to  1.70000E+01 MeV   
+      1.70000E+01  to  1.80000E+01 MeV   
+      1.80000E+01  to  1.90000E+01 MeV   
+      1.90000E+01  to  2.00000E+01 MeV   
+      2.00000E+01  to  2.10000E+01 MeV   
+      2.10000E+01  to  2.20000E+01 MeV   
+      2.20000E+01  to  2.30000E+01 MeV   
+      2.30000E+01  to  2.40000E+01 MeV   
+      2.40000E+01  to  2.50000E+01 MeV   
+      2.50000E+01  to  2.60000E+01 MeV   
+      2.60000E+01  to  2.70000E+01 MeV   
+      2.70000E+01  to  2.80000E+01 MeV   
+      2.80000E+01  to  2.90000E+01 MeV   
+      2.90000E+01  to  3.00000E+01 MeV   
+      3.00000E+01  to  3.10000E+01 MeV   
+      3.10000E+01  to  3.20000E+01 MeV   
+      3.20000E+01  to  3.30000E+01 MeV   
+      3.30000E+01  to  3.40000E+01 MeV   
+      3.40000E+01  to  3.50000E+01 MeV   
+      3.50000E+01  to  3.60000E+01 MeV   
+      3.60000E+01  to  3.70000E+01 MeV   
+      3.70000E+01  to  3.80000E+01 MeV   
+      3.80000E+01  to  3.90000E+01 MeV   
+      3.90000E+01  to  4.00000E+01 MeV   
+      4.00000E+01  to  4.10000E+01 MeV   
+      4.10000E+01  to  4.20000E+01 MeV   
+      4.20000E+01  to  4.30000E+01 MeV   
+      4.30000E+01  to  4.40000E+01 MeV   
+      4.40000E+01  to  4.50000E+01 MeV   
+      4.50000E+01  to  4.60000E+01 MeV   
+      4.60000E+01  to  4.70000E+01 MeV   
+      4.70000E+01  to  4.80000E+01 MeV   
+      4.80000E+01  to  4.90000E+01 MeV   
+      4.90000E+01  to  5.00000E+01 MeV   
+      5.00000E+01  to  5.10000E+01 MeV   
+      5.10000E+01  to  5.20000E+01 MeV   
+      5.20000E+01  to  5.30000E+01 MeV   
+      5.30000E+01  to  5.40000E+01 MeV   
+      5.40000E+01  to  5.50000E+01 MeV   
+      5.50000E+01  to  5.60000E+01 MeV   
+      5.60000E+01  to  5.70000E+01 MeV   
+      5.70000E+01  to  5.80000E+01 MeV   
+      5.80000E+01  to  5.90000E+01 MeV   
+      5.90000E+01  to  6.00000E+01 MeV   
+      total bin
+
+1tally       14                                                                                         print table 30
++                                   Uranium Flux Spectra (Number per cm^2 per src neutron)                     
+           tally type 4    track length estimate of particle flux.                             
+           particle(s): neutrons 
+ cells     1                                                                                                                           
+
+ energy bins
+      0.00000E+00  to  4.13990E-07 MeV   
+      4.13990E-07  to  1.12530E-06 MeV   
+      1.12530E-06  to  3.05900E-06 MeV   
+      3.05900E-06  to  1.06770E-05 MeV   
+      1.06770E-05  to  2.90230E-05 MeV   
+      2.90230E-05  to  1.01300E-04 MeV   
+      1.01300E-04  to  2.75360E-04 MeV   
+      2.75360E-04  to  5.82950E-04 MeV   
+      5.82950E-04  to  1.23410E-03 MeV   
+      1.23410E-03  to  3.35460E-03 MeV   
+      3.35460E-03  to  1.03330E-02 MeV   
+      1.03330E-02  to  2.18750E-02 MeV   
+      2.18750E-02  to  2.47880E-02 MeV   
+      2.47880E-02  to  3.43070E-02 MeV   
+      3.43070E-02  to  5.24750E-02 MeV   
+      5.24750E-02  to  1.11090E-01 MeV   
+      1.11090E-01  to  1.57640E-01 MeV   
+      1.57640E-01  to  2.47240E-01 MeV   
+      2.47240E-01  to  3.68830E-01 MeV   
+      3.68830E-01  to  5.50230E-01 MeV   
+      5.50230E-01  to  6.39280E-01 MeV   
+      6.39280E-01  to  7.42740E-01 MeV   
+      7.42740E-01  to  8.20850E-01 MeV   
+      8.20850E-01  to  9.61640E-01 MeV   
+      9.61640E-01  to  1.10800E+00 MeV   
+      1.10800E+00  to  1.42270E+00 MeV   
+      1.42270E+00  to  1.82680E+00 MeV   
+      1.82680E+00  to  2.30690E+00 MeV   
+      2.30690E+00  to  2.38520E+00 MeV   
+      2.38520E+00  to  3.01190E+00 MeV   
+      3.01190E+00  to  4.06570E+00 MeV   
+      4.06570E+00  to  4.72370E+00 MeV   
+      4.72370E+00  to  4.96590E+00 MeV   
+      4.96590E+00  to  6.37630E+00 MeV   
+      6.37630E+00  to  7.40820E+00 MeV   
+      7.40820E+00  to  8.18730E+00 MeV   
+      8.18730E+00  to  9.04840E+00 MeV   
+      9.04840E+00  to  1.00000E+01 MeV   
+      1.00000E+01  to  1.10520E+01 MeV   
+      1.10520E+01  to  1.22140E+01 MeV   
+      1.22140E+01  to  1.25230E+01 MeV   
+      1.25230E+01  to  1.38400E+01 MeV   
+      1.38400E+01  to  1.41910E+01 MeV   
+      1.41910E+01  to  1.49180E+01 MeV   
+      1.49180E+01  to  1.69050E+01 MeV   
+      1.69050E+01  to  1.96400E+01 MeV   
+      total bin
+
+1tally       24                                                                                         print table 30
++                                   Fission Reaction Rate (Fissions per cm^3 per src particle)                 
+           tally type 4    track length estimate of particle flux.                             
+           particle(s): neutrons 
+ cells     1                                                                                                                           
+
+ multiplier bins
+ att  constant    material   reactions or material-rho*x pairs
+    -1.00000E+00        9         -6
+
+ energy bins
+      0.00000E+00  to  4.13990E-07 MeV   
+      4.13990E-07  to  1.12530E-06 MeV   
+      1.12530E-06  to  3.05900E-06 MeV   
+      3.05900E-06  to  1.06770E-05 MeV   
+      1.06770E-05  to  2.90230E-05 MeV   
+      2.90230E-05  to  1.01300E-04 MeV   
+      1.01300E-04  to  2.75360E-04 MeV   
+      2.75360E-04  to  5.82950E-04 MeV   
+      5.82950E-04  to  1.23410E-03 MeV   
+      1.23410E-03  to  3.35460E-03 MeV   
+      3.35460E-03  to  1.03330E-02 MeV   
+      1.03330E-02  to  2.18750E-02 MeV   
+      2.18750E-02  to  2.47880E-02 MeV   
+      2.47880E-02  to  3.43070E-02 MeV   
+      3.43070E-02  to  5.24750E-02 MeV   
+      5.24750E-02  to  1.11090E-01 MeV   
+      1.11090E-01  to  1.57640E-01 MeV   
+      1.57640E-01  to  2.47240E-01 MeV   
+      2.47240E-01  to  3.68830E-01 MeV   
+      3.68830E-01  to  5.50230E-01 MeV   
+      5.50230E-01  to  6.39280E-01 MeV   
+      6.39280E-01  to  7.42740E-01 MeV   
+      7.42740E-01  to  8.20850E-01 MeV   
+      8.20850E-01  to  9.61640E-01 MeV   
+      9.61640E-01  to  1.10800E+00 MeV   
+      1.10800E+00  to  1.42270E+00 MeV   
+      1.42270E+00  to  1.82680E+00 MeV   
+      1.82680E+00  to  2.30690E+00 MeV   
+      2.30690E+00  to  2.38520E+00 MeV   
+      2.38520E+00  to  3.01190E+00 MeV   
+      3.01190E+00  to  4.06570E+00 MeV   
+      4.06570E+00  to  4.72370E+00 MeV   
+      4.72370E+00  to  4.96590E+00 MeV   
+      4.96590E+00  to  6.37630E+00 MeV   
+      6.37630E+00  to  7.40820E+00 MeV   
+      7.40820E+00  to  8.18730E+00 MeV   
+      8.18730E+00  to  9.04840E+00 MeV   
+      9.04840E+00  to  1.00000E+01 MeV   
+      1.00000E+01  to  1.10520E+01 MeV   
+      1.10520E+01  to  1.22140E+01 MeV   
+      1.22140E+01  to  1.25230E+01 MeV   
+      1.25230E+01  to  1.38400E+01 MeV   
+      1.38400E+01  to  1.41910E+01 MeV   
+      1.41910E+01  to  1.49180E+01 MeV   
+      1.49180E+01  to  1.69050E+01 MeV   
+      1.69050E+01  to  1.96400E+01 MeV   
+      total bin
+
+1tally      964                                                                                         print table 30
++                                    U234 Fission Reaction Rate (Fissions per cm^3 per src particle)           
+           tally type 4    track length estimate of particle flux.                             
+           particle(s): neutrons 
+ cells     1                                                                                                                           
+
+ multiplier bins
+ att  constant    material   reactions or material-rho*x pairs
+    -9.38980E-03       20         -6
+
+ energy bins
+      0.00000E+00  to  4.13990E-07 MeV   
+      4.13990E-07  to  1.12530E-06 MeV   
+      1.12530E-06  to  3.05900E-06 MeV   
+      3.05900E-06  to  1.06770E-05 MeV   
+      1.06770E-05  to  2.90230E-05 MeV   
+      2.90230E-05  to  1.01300E-04 MeV   
+      1.01300E-04  to  2.75360E-04 MeV   
+      2.75360E-04  to  5.82950E-04 MeV   
+      5.82950E-04  to  1.23410E-03 MeV   
+      1.23410E-03  to  3.35460E-03 MeV   
+      3.35460E-03  to  1.03330E-02 MeV   
+      1.03330E-02  to  2.18750E-02 MeV   
+      2.18750E-02  to  2.47880E-02 MeV   
+      2.47880E-02  to  3.43070E-02 MeV   
+      3.43070E-02  to  5.24750E-02 MeV   
+      5.24750E-02  to  1.11090E-01 MeV   
+      1.11090E-01  to  1.57640E-01 MeV   
+      1.57640E-01  to  2.47240E-01 MeV   
+      2.47240E-01  to  3.68830E-01 MeV   
+      3.68830E-01  to  5.50230E-01 MeV   
+      5.50230E-01  to  6.39280E-01 MeV   
+      6.39280E-01  to  7.42740E-01 MeV   
+      7.42740E-01  to  8.20850E-01 MeV   
+      8.20850E-01  to  9.61640E-01 MeV   
+      9.61640E-01  to  1.10800E+00 MeV   
+      1.10800E+00  to  1.42270E+00 MeV   
+      1.42270E+00  to  1.82680E+00 MeV   
+      1.82680E+00  to  2.30690E+00 MeV   
+      2.30690E+00  to  2.38520E+00 MeV   
+      2.38520E+00  to  3.01190E+00 MeV   
+      3.01190E+00  to  4.06570E+00 MeV   
+      4.06570E+00  to  4.72370E+00 MeV   
+      4.72370E+00  to  4.96590E+00 MeV   
+      4.96590E+00  to  6.37630E+00 MeV   
+      6.37630E+00  to  7.40820E+00 MeV   
+      7.40820E+00  to  8.18730E+00 MeV   
+      8.18730E+00  to  9.04840E+00 MeV   
+      9.04840E+00  to  1.00000E+01 MeV   
+      1.00000E+01  to  1.10520E+01 MeV   
+      1.10520E+01  to  1.22140E+01 MeV   
+      1.22140E+01  to  1.25230E+01 MeV   
+      1.25230E+01  to  1.38400E+01 MeV   
+      1.38400E+01  to  1.41910E+01 MeV   
+      1.41910E+01  to  1.49180E+01 MeV   
+      1.49180E+01  to  1.69050E+01 MeV   
+      1.69050E+01  to  1.96400E+01 MeV   
+      total bin
+
+1tally      974                                                                                         print table 30
++                                    U235 Fission Reaction Rate (Fissions per cm^3 per src particle)           
+           tally type 4    track length estimate of particle flux.                             
+           particle(s): neutrons 
+ cells     1                                                                                                                           
+
+ multiplier bins
+ att  constant    material   reactions or material-rho*x pairs
+    -9.32170E-01       21         -6
+
+ energy bins
+      0.00000E+00  to  4.13990E-07 MeV   
+      4.13990E-07  to  1.12530E-06 MeV   
+      1.12530E-06  to  3.05900E-06 MeV   
+      3.05900E-06  to  1.06770E-05 MeV   
+      1.06770E-05  to  2.90230E-05 MeV   
+      2.90230E-05  to  1.01300E-04 MeV   
+      1.01300E-04  to  2.75360E-04 MeV   
+      2.75360E-04  to  5.82950E-04 MeV   
+      5.82950E-04  to  1.23410E-03 MeV   
+      1.23410E-03  to  3.35460E-03 MeV   
+      3.35460E-03  to  1.03330E-02 MeV   
+      1.03330E-02  to  2.18750E-02 MeV   
+      2.18750E-02  to  2.47880E-02 MeV   
+      2.47880E-02  to  3.43070E-02 MeV   
+      3.43070E-02  to  5.24750E-02 MeV   
+      5.24750E-02  to  1.11090E-01 MeV   
+      1.11090E-01  to  1.57640E-01 MeV   
+      1.57640E-01  to  2.47240E-01 MeV   
+      2.47240E-01  to  3.68830E-01 MeV   
+      3.68830E-01  to  5.50230E-01 MeV   
+      5.50230E-01  to  6.39280E-01 MeV   
+      6.39280E-01  to  7.42740E-01 MeV   
+      7.42740E-01  to  8.20850E-01 MeV   
+      8.20850E-01  to  9.61640E-01 MeV   
+      9.61640E-01  to  1.10800E+00 MeV   
+      1.10800E+00  to  1.42270E+00 MeV   
+      1.42270E+00  to  1.82680E+00 MeV   
+      1.82680E+00  to  2.30690E+00 MeV   
+      2.30690E+00  to  2.38520E+00 MeV   
+      2.38520E+00  to  3.01190E+00 MeV   
+      3.01190E+00  to  4.06570E+00 MeV   
+      4.06570E+00  to  4.72370E+00 MeV   
+      4.72370E+00  to  4.96590E+00 MeV   
+      4.96590E+00  to  6.37630E+00 MeV   
+      6.37630E+00  to  7.40820E+00 MeV   
+      7.40820E+00  to  8.18730E+00 MeV   
+      8.18730E+00  to  9.04840E+00 MeV   
+      9.04840E+00  to  1.00000E+01 MeV   
+      1.00000E+01  to  1.10520E+01 MeV   
+      1.10520E+01  to  1.22140E+01 MeV   
+      1.22140E+01  to  1.25230E+01 MeV   
+      1.25230E+01  to  1.38400E+01 MeV   
+      1.38400E+01  to  1.41910E+01 MeV   
+      1.41910E+01  to  1.49180E+01 MeV   
+      1.49180E+01  to  1.69050E+01 MeV   
+      1.69050E+01  to  1.96400E+01 MeV   
+      total bin
+
+1tally      984                                                                                         print table 30
++                                    U236 Fission Reaction Rate (Fissions per cm^3 per src particle)           
+           tally type 4    track length estimate of particle flux.                             
+           particle(s): neutrons 
+ cells     1                                                                                                                           
+
+ multiplier bins
+ att  constant    material   reactions or material-rho*x pairs
+    -3.00000E-03       22         -6
+
+ energy bins
+      0.00000E+00  to  4.13990E-07 MeV   
+      4.13990E-07  to  1.12530E-06 MeV   
+      1.12530E-06  to  3.05900E-06 MeV   
+      3.05900E-06  to  1.06770E-05 MeV   
+      1.06770E-05  to  2.90230E-05 MeV   
+      2.90230E-05  to  1.01300E-04 MeV   
+      1.01300E-04  to  2.75360E-04 MeV   
+      2.75360E-04  to  5.82950E-04 MeV   
+      5.82950E-04  to  1.23410E-03 MeV   
+      1.23410E-03  to  3.35460E-03 MeV   
+      3.35460E-03  to  1.03330E-02 MeV   
+      1.03330E-02  to  2.18750E-02 MeV   
+      2.18750E-02  to  2.47880E-02 MeV   
+      2.47880E-02  to  3.43070E-02 MeV   
+      3.43070E-02  to  5.24750E-02 MeV   
+      5.24750E-02  to  1.11090E-01 MeV   
+      1.11090E-01  to  1.57640E-01 MeV   
+      1.57640E-01  to  2.47240E-01 MeV   
+      2.47240E-01  to  3.68830E-01 MeV   
+      3.68830E-01  to  5.50230E-01 MeV   
+      5.50230E-01  to  6.39280E-01 MeV   
+      6.39280E-01  to  7.42740E-01 MeV   
+      7.42740E-01  to  8.20850E-01 MeV   
+      8.20850E-01  to  9.61640E-01 MeV   
+      9.61640E-01  to  1.10800E+00 MeV   
+      1.10800E+00  to  1.42270E+00 MeV   
+      1.42270E+00  to  1.82680E+00 MeV   
+      1.82680E+00  to  2.30690E+00 MeV   
+      2.30690E+00  to  2.38520E+00 MeV   
+      2.38520E+00  to  3.01190E+00 MeV   
+      3.01190E+00  to  4.06570E+00 MeV   
+      4.06570E+00  to  4.72370E+00 MeV   
+      4.72370E+00  to  4.96590E+00 MeV   
+      4.96590E+00  to  6.37630E+00 MeV   
+      6.37630E+00  to  7.40820E+00 MeV   
+      7.40820E+00  to  8.18730E+00 MeV   
+      8.18730E+00  to  9.04840E+00 MeV   
+      9.04840E+00  to  1.00000E+01 MeV   
+      1.00000E+01  to  1.10520E+01 MeV   
+      1.10520E+01  to  1.22140E+01 MeV   
+      1.22140E+01  to  1.25230E+01 MeV   
+      1.25230E+01  to  1.38400E+01 MeV   
+      1.38400E+01  to  1.41910E+01 MeV   
+      1.41910E+01  to  1.49180E+01 MeV   
+      1.49180E+01  to  1.69050E+01 MeV   
+      1.69050E+01  to  1.96400E+01 MeV   
+      total bin
+
+1tally      994                                                                                         print table 30
++                                    U238 Fission Reaction Rate (Fissions per cm^3 per src particle)           
+           tally type 4    track length estimate of particle flux.                             
+           particle(s): neutrons 
+ cells     1                                                                                                                           
+
+ multiplier bins
+ att  constant    material   reactions or material-rho*x pairs
+    -5.54400E-02       23         -6
+
+ energy bins
+      0.00000E+00  to  4.13990E-07 MeV   
+      4.13990E-07  to  1.12530E-06 MeV   
+      1.12530E-06  to  3.05900E-06 MeV   
+      3.05900E-06  to  1.06770E-05 MeV   
+      1.06770E-05  to  2.90230E-05 MeV   
+      2.90230E-05  to  1.01300E-04 MeV   
+      1.01300E-04  to  2.75360E-04 MeV   
+      2.75360E-04  to  5.82950E-04 MeV   
+      5.82950E-04  to  1.23410E-03 MeV   
+      1.23410E-03  to  3.35460E-03 MeV   
+      3.35460E-03  to  1.03330E-02 MeV   
+      1.03330E-02  to  2.18750E-02 MeV   
+      2.18750E-02  to  2.47880E-02 MeV   
+      2.47880E-02  to  3.43070E-02 MeV   
+      3.43070E-02  to  5.24750E-02 MeV   
+      5.24750E-02  to  1.11090E-01 MeV   
+      1.11090E-01  to  1.57640E-01 MeV   
+      1.57640E-01  to  2.47240E-01 MeV   
+      2.47240E-01  to  3.68830E-01 MeV   
+      3.68830E-01  to  5.50230E-01 MeV   
+      5.50230E-01  to  6.39280E-01 MeV   
+      6.39280E-01  to  7.42740E-01 MeV   
+      7.42740E-01  to  8.20850E-01 MeV   
+      8.20850E-01  to  9.61640E-01 MeV   
+      9.61640E-01  to  1.10800E+00 MeV   
+      1.10800E+00  to  1.42270E+00 MeV   
+      1.42270E+00  to  1.82680E+00 MeV   
+      1.82680E+00  to  2.30690E+00 MeV   
+      2.30690E+00  to  2.38520E+00 MeV   
+      2.38520E+00  to  3.01190E+00 MeV   
+      3.01190E+00  to  4.06570E+00 MeV   
+      4.06570E+00  to  4.72370E+00 MeV   
+      4.72370E+00  to  4.96590E+00 MeV   
+      4.96590E+00  to  6.37630E+00 MeV   
+      6.37630E+00  to  7.40820E+00 MeV   
+      7.40820E+00  to  8.18730E+00 MeV   
+      8.18730E+00  to  9.04840E+00 MeV   
+      9.04840E+00  to  1.00000E+01 MeV   
+      1.00000E+01  to  1.10520E+01 MeV   
+      1.10520E+01  to  1.22140E+01 MeV   
+      1.22140E+01  to  1.25230E+01 MeV   
+      1.25230E+01  to  1.38400E+01 MeV   
+      1.38400E+01  to  1.41910E+01 MeV   
+      1.41910E+01  to  1.49180E+01 MeV   
+      1.49180E+01  to  1.69050E+01 MeV   
+      1.69050E+01  to  1.96400E+01 MeV   
+      total bin
+1material composition                                                                                   print table 40
+
+ material
+  number     component nuclide, atom fraction
+
+        9           92233, 2.01856E-05      92234, 9.43640E-03      92235, 9.32779E-01      92236, 2.98918E-03
+                    92238, 5.47757E-02
+       20           92234, 1.00000E+00
+       21           92235, 1.00000E+00
+       22           92236, 1.00000E+00
+       23           92238, 1.00000E+00
+
+
+
+
+
+ material
+  number     component nuclide, mass fraction
+
+        9           92233, 2.00000E-05      92234, 9.38981E-03      92235, 9.32151E-01      92236, 2.99990E-03
+                    92238, 5.54391E-02
+       20           92234, 1.00000E+00
+       21           92235, 1.00000E+00
+       22           92236, 1.00000E+00
+       23           92238, 1.00000E+00
+1cell volumes and masses                                                                                print table 50
+
+              cell     atom          gram         input       calculated                            reason volume
+                      density       density       volume        volume         mass       pieces    not calculated
+
+        1        1  4.79890E-02   1.87430E+01   0.00000E+00   2.79751E+03   5.24338E+04      1                      
+        2        2  0.00000E+00   0.00000E+00   0.00000E+00   0.00000E+00   0.00000E+00      0      infinite        
+1surface areas                                                                                          print table 50
+
+           surface      input      calculated    reason area
+                        area          area       not calculated
+
+        1        1      0.00000E+00   9.60135E+02                   
+1cells                                                                                                  print table 60
+
+                               atom        gram                                            neutron    photon                           
+              cell      mat   density     density     volume       mass            pieces importance importance                        
+
+        1        1        9  4.79890E-02 1.87430E+01 2.79751E+03 5.24338E+04           1  1.0000E+00 1.0000E+00                        
+        2        2        0  0.00000E+00 0.00000E+00 0.00000E+00 0.00000E+00           0  0.0000E+00 0.0000E+00                        
+
+ total                                               2.79751E+03 5.24338E+04
+1surfaces                                                                                               print table 70
+
+           surface        trans  type   surface coefficients
+
+        1        1                so    8.7410000E+00
+1  cell temperatures in mev for the free-gas thermal neutron treatment.                                 print table 72
+
+   all non-zero importance cells with materials have a temperature for thermal neutrons of 2.5300E-08 mev.
+
+    minimum source weight = 1.0004E+00    maximum source weight = 1.0004E+00
+
+ ***************************************************
+ * Random Number Generator  =                    1 *
+ * Random Number Seed       =       19073486328125 *
+ * Random Number Multiplier =       19073486328125 *
+ * Random Number Adder      =                    0 *
+ * Random Number Bits Used  =                   48 *
+ * Random Number Stride     =               152917 *
+ ***************************************************
+
+
+         7 warning messages so far.
+1physical constants                                                                                     print table 98
+
+
+       name                    value     description
+
+ huge_float      1.0000000000000E+36     infinity
+        pie      3.1415926535898E+00     pi
+      euler      5.7721566490153E-01     euler constant
+     avogad      6.0220434469282E+23     avogadro number (molecules/mole)
+      aneut      1.0086649670000E+00     neutron mass (amu)
+      avgdn      5.9703109000000E-01     avogadro number/neutron mass (1.e-24*molecules/mole/amu)
+      slite      2.9979250000000E+02     speed of light (cm/shake)
+     planck      4.1357320000000E-13     planck constant (mev shake)
+      fscon      1.3703930000000E+02     inverse fine structure constant h*c/(2*pi*e**2)
+
+ particle masses:   ipt       mass (mev)           particle      anti-particle
+
+                      1    9.3958000000000E+02     neutron        5   Aneutron
+                      3    5.1100800000000E-01     electron       8   positron
+                      4    1.0565835700000E+02     mu_minus      16   mu_plus 
+                      9    9.3827199800000E+02     proton        19   Aproton 
+                     10    1.1156830000000E+03     lambda0       25   Alambda0
+                     11    1.1893700000000E+03     sigma+        26   Asigma+ 
+                     12    1.1974490000000E+03     sigma-        27   Asigma- 
+                     13    1.3148300000000E+03     xi0           28   Axi0    
+                     14    1.3213100000000E+03     xi_minus      29   xi_plus 
+                     15    1.6724500000000E+03     omega-        30   Aomega- 
+                     20    1.3957018000000E+02     pi_plus       35   pi_minus
+                     21    1.3497660000000E+02     pi_zero 
+                     22    4.9367700000000E+02     k_plus        36   k_minus 
+                     23    4.9767200000000E+02     k0_short
+                     24    4.9767200000000E+02     k0_long 
+                     31    1.8756127600000E+03     deuteron
+                     32    2.8089208600000E+03     triton  
+                     33    2.8083913200000E+03     helion  
+                     34    3.7273790400000E+03     alpha   
+
+
+ fission q-values:     nuclide    q(mev)   nuclide    q(mev)
+                         90232    171.91     91233    175.57
+                         92233    180.84     92234    179.45
+                         92235    180.88     92236    179.50
+                         92237    180.40     92238    181.31
+                         92239    180.40     92240    180.40
+                         93237    183.67     94238    186.65
+                         94239    189.44     94240    186.36
+                         94241    188.99     94242    185.98
+                         94243    187.48     95241    190.83
+                         95242    190.54     95243    190.25
+                         96242    190.49     96244    190.49
+                         other    180.00
+
+ parallel options:
+
+     mpi
+     omp
+
+     default datapath: /global/scratch/co_nuclear/MCNP/MCNP_DATA/                                      
+                       /global/home/groups/ac_nuclear/MCNP/MCNP_DATA                                   
+
+ the following conditional compilation symbols were defined:
+
+     CEM
+     CEM_M6
+     CINDER
+     GFORTRAN
+     LAQGSM
+     LINUX
+     LLNL_FISS
+     MPI
+     OMP
+     PLOT
+     UNIX
+     XLIB
+1cross-section tables                                                                                   print table 100
+     XSDIR used: /global/scratch/co_nuclear/MCNP/MCNP_DATA//xsdir_mcnp6.1
+
+     table    length
+
+                        tables from file xdata/endf71x/U/92233.710nc                                     
+
+  92233.80c  348915  U233 ENDF71x (jlconlin)  Ref. see jlconlin (ref 09/prompt nu10:00:53)        mat9222      12/20/12
+                     probability tables used from 6.0000E-04 to 4.0000E-02 mev.
+
+                        tables from file xdata/endf71x/U/92234.710nc                                     
+
+  92234.80c  337472  U234 ENDF71x (jlconlin)  Ref. see jlconlin (ref 09/prompt nu10:00:53)        mat9225      12/19/12
+                     probability tables used from 1.5000E-03 to 1.0000E-01 mev.
+
+                        tables from file xdata/endf71x/U/92235.710nc                                     
+
+  92235.80c  671015  U235 ENDF71x (jlconlin)  Ref. see jlconlin (ref 09/prompt nu10:00:53)        mat9228      12/19/12
+                     probability tables used from 2.2500E-03 to 2.5000E-02 mev.
+
+                        tables from file xdata/endf71x/U/92236.710nc                                     
+
+  92236.80c  261368  U236 ENDF71x (jlconlin)  Ref. see jlconlin (ref 09/prompt nu10:00:53)        mat9231      12/19/12
+                     probability tables used from 1.5000E-03 to 1.0000E-01 mev.
+
+                        tables from file xdata/endf71x/U/92238.710nc                                     
+
+  92238.80c 1308148  U238 ENDF71x (jlconlin)  Ref. see jlconlin (ref 09/prompt nu10:00:53)        mat9237      12/13/12
+                     probability tables used from 2.0000E-02 to 1.4903E-01 mev.
+
+  total     2926918
+
+1particles and energy limits                                                                            print table 101
+
+                         particle      maximum       smallest      largest       always        always
+                         cutoff        particle      table         table         use table     use model
+   particle type         energy        energy        maximum       maximum       below         above
+
+    1  n    neutron     0.0000E+00    1.0000E+36    2.0000E+01    3.0000E+01    1.0000E+36    1.0000E+36
+ 
+
+ ***********************************************************************************************************************
+
+ dump no.    1 on file runtpe     nps =           0     coll =              0     ctm =        0.00   nrn =             
+    0
+
+         7 warning messages so far.
+1starting mcrun.      cp0 =  0.04                                                                       print table 110
+
+      This models a mat#1  sphere with R= 8.7410 and rho=18.7426                      
+ master starting     191 MPI slave tasks with       1 threads each  06/22/17 09:55:45 
+ master set rendezvous nps =  5000000000,  work chunks =   191    06/22/17 09:55:45 
+                                                                                                                                        
+                                                                                                                                        
+     nps    x          y          z          cell       surf     u          v          w        energy     weight      time             
+                                                                                                                                        
+      1 -1.288E+00  3.295E+00  4.557E-01        1          0  7.849E-02 -1.898E-01 -9.787E-01  1.115E+00  1.000E+00  0.000E+00          
+      2 -3.094E+00 -5.179E+00 -1.578E+00        1          0 -5.590E-01 -7.136E-01 -4.222E-01  1.502E+00  1.000E+00  0.000E+00          
+      3  3.132E+00 -2.812E+00 -1.093E+00        1          0 -4.766E-01 -5.920E-01  6.498E-01  4.379E-01  1.000E+00  0.000E+00          
+      4 -2.056E+00 -8.430E+00 -7.049E-01        1          0  6.802E-01 -1.139E-01  7.241E-01  2.099E+00  1.000E+00  0.000E+00          
+      5  4.253E+00 -1.765E+00 -7.657E-01        1          0 -7.624E-01 -3.926E-01  5.144E-01  3.397E+00  1.000E+00  0.000E+00          
+      6 -9.742E-01  5.897E+00  2.202E+00        1          0 -9.613E-01  2.711E-01  4.784E-02  1.128E+00  1.000E+00  0.000E+00          
+      7  6.272E+00  5.226E-01  3.950E+00        1          0 -8.718E-01  4.835E-01 -7.883E-02  3.516E+00  1.000E+00  0.000E+00          
+      8  2.444E+00 -4.156E+00 -3.121E+00        1          0 -6.112E-01 -2.218E-01 -7.598E-01  2.366E+00  1.000E+00  0.000E+00          
+      9  5.121E+00 -1.711E+00 -9.680E-01        1          0 -8.672E-01 -8.206E-02  4.911E-01  1.500E-01  1.000E+00  0.000E+00          
+     10 -2.206E+00  6.385E+00 -2.543E+00        1          0  1.473E-01  5.937E-01 -7.911E-01  2.490E+00  1.000E+00  0.000E+00          
+     11 -3.433E+00 -9.113E-01  6.359E+00        1          0  5.836E-01 -8.008E-01 -1.343E-01  5.119E-01  1.000E+00  0.000E+00          
+     12 -1.881E+00  1.606E+00  6.127E+00        1          0  5.276E-01 -8.980E-02 -8.447E-01  1.286E+00  1.000E+00  0.000E+00          
+     13 -4.895E+00  2.774E+00  6.587E+00        1          0  8.336E-01 -5.522E-01  1.502E-02  6.674E-02  1.000E+00  0.000E+00          
+     14 -2.831E+00 -4.548E+00 -7.111E-01        1          0 -9.780E-02  4.671E-01  8.788E-01  9.275E-01  1.000E+00  0.000E+00          
+     15 -6.475E+00 -9.890E-01 -4.679E+00        1          0 -4.562E-01  4.920E-01  7.415E-01  3.868E+00  1.000E+00  0.000E+00          
+     16 -2.744E+00 -4.799E+00 -4.319E+00        1          0  1.508E-01 -3.290E-01 -9.322E-01  2.537E+00  1.000E+00  0.000E+00          
+     17 -7.905E+00  1.453E+00 -3.115E+00        1          0 -3.897E-01 -1.997E-02 -9.207E-01  8.076E-01  1.000E+00  0.000E+00          
+     18  2.554E+00 -2.558E+00  2.624E+00        1          0 -5.685E-01 -7.194E-01  3.990E-01  6.877E-01  1.000E+00  0.000E+00          
+     19 -6.045E-01  5.927E-02 -3.815E+00        1          0 -3.874E-01  1.650E-01 -9.070E-01  2.027E+00  1.000E+00  0.000E+00          
+     20  8.662E-01 -7.127E+00 -4.128E-01        1          0  9.142E-01  3.408E-01  2.193E-01  2.647E+00  1.000E+00  0.000E+00          
+     21  5.533E+00  1.897E-01  3.265E+00        1          0  3.376E-01 -8.326E-01  4.392E-01  2.118E+00  1.000E+00  0.000E+00          
+     22 -1.630E+00 -8.452E-01  8.188E+00        1          0  2.821E-01  8.538E-01 -4.375E-01  2.124E+00  1.000E+00  0.000E+00          
+     23  4.324E+00 -1.770E+00 -2.796E+00        1          0  9.858E-01  7.214E-02  1.518E-01  1.979E+00  1.000E+00  0.000E+00          
+     24  2.233E+00 -6.111E+00  2.235E+00        1          0  4.959E-01  4.147E-01  7.629E-01  1.270E+00  1.000E+00  0.000E+00          
+     25 -1.843E+00 -6.610E+00  2.044E+00        1          0  1.727E-01  4.074E-03  9.850E-01  1.429E+00  1.000E+00  0.000E+00          
+     26 -3.524E+00 -3.997E+00  6.824E+00        1          0 -9.612E-01 -2.288E-01  1.538E-01  1.316E+00  1.000E+00  0.000E+00          
+     27  4.398E+00  2.781E+00  2.719E+00        1          0 -2.784E-01 -1.621E-01 -9.467E-01  1.721E-01  1.000E+00  0.000E+00          
+     28  1.810E+00  4.929E+00  1.465E+00        1          0  5.822E-02  9.909E-01 -1.212E-01  2.411E+00  1.000E+00  0.000E+00          
+     29 -3.720E+00 -9.626E-01 -3.828E+00        1          0 -6.477E-01  2.437E-01 -7.219E-01  2.361E+00  1.000E+00  0.000E+00          
+     30 -2.941E+00  2.069E+00 -2.355E+00        1          0  1.652E-01  7.501E-02  9.834E-01  3.559E-01  1.000E+00  0.000E+00          
+     31  2.577E+00 -2.514E+00  2.291E-01        1          0  2.941E-01 -7.430E-01  6.012E-01  4.171E+00  1.000E+00  0.000E+00          
+     32 -2.147E+00 -5.465E+00 -5.875E+00        1          0  8.132E-01 -7.322E-02 -5.773E-01  5.187E-01  1.000E+00  0.000E+00          
+     33  2.252E+00 -5.609E+00 -1.408E-01        1          0  7.693E-01 -5.631E-01  3.019E-01  1.484E+00  1.000E+00  0.000E+00          
+     34  6.810E+00 -2.734E+00  2.435E+00        1          0  9.865E-01  1.625E-01 -1.963E-02  4.700E+00  1.000E+00  0.000E+00          
+     35 -4.653E+00  4.273E-01  1.774E+00        1          0  7.027E-01  5.880E-01  4.006E-01  6.207E-01  1.000E+00  0.000E+00          
+     36 -7.036E+00 -1.254E+00 -6.297E-01        1          0 -8.048E-01  1.910E-01  5.620E-01  3.321E+00  1.000E+00  0.000E+00          
+     37 -3.846E+00  3.691E+00 -6.345E+00        1          0 -4.297E-01  2.282E-02 -9.027E-01  1.481E+00  1.000E+00  0.000E+00          
+     38  1.285E+00 -5.153E+00 -5.705E+00        1          0  3.551E-01 -6.279E-01 -6.926E-01  7.875E-01  1.000E+00  0.000E+00          
+     39  5.324E+00 -5.529E+00 -4.459E-01        1          0 -7.653E-01  2.351E-01  5.993E-01  1.943E+00  1.000E+00  0.000E+00          
+     40  1.049E+00 -1.653E+00  2.808E+00        1          0  6.921E-01  6.956E-01 -1.926E-01  3.666E+00  1.000E+00  0.000E+00          
+     41 -4.129E+00 -2.981E+00 -4.505E+00        1          0  3.664E-01  5.764E-01 -7.304E-01  1.884E-01  1.000E+00  0.000E+00          
+     42 -2.608E+00  4.337E+00  2.200E+00        1          0 -3.200E-02 -8.374E-01 -5.456E-01  1.334E+00  1.000E+00  0.000E+00          
+     43  5.417E+00  5.665E+00 -1.548E+00        1          0  3.485E-01  8.869E-01  3.033E-01  1.643E+00  1.000E+00  0.000E+00          
+     44  5.057E+00 -1.195E+00  6.245E+00        1          0 -8.779E-01  4.388E-01 -1.918E-01  5.486E-01  1.000E+00  0.000E+00          
+     45 -1.816E+00 -1.590E+00 -4.679E+00        1          0 -1.024E-01  6.382E-01 -7.630E-01  2.716E+00  1.000E+00  0.000E+00          
+     46 -6.058E+00 -2.466E+00 -5.715E+00        1          0 -5.573E-01  8.232E-01 -1.087E-01  2.734E-01  1.000E+00  0.000E+00          
+     47  6.730E+00  4.469E+00  3.159E+00        1          0 -8.012E-01 -5.822E-01  1.383E-01  3.797E+00  1.000E+00  0.000E+00          
+     48  7.381E+00  7.550E-02  2.874E+00        1          0 -4.379E-01 -5.245E-01 -7.302E-01  8.503E-01  1.000E+00  0.000E+00          
+     49 -4.252E+00 -3.195E+00  6.110E-01        1          0  9.413E-01 -1.383E-01  3.080E-01  2.716E+00  1.000E+00  0.000E+00          
+     50 -5.765E+00  9.746E-01  5.320E+00        1          0 -1.857E-01 -9.819E-01 -3.583E-02  9.217E+00  1.000E+00  0.000E+00          
+ warning.  weight of source particle is below window.                                                                                   
+ nps =       10307     nrn =                  10 erg = 9.5657E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =    26184892     nrn =                   7 erg = 4.3744E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =    52373936     nrn =                   9 erg = 2.5008E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =    78559081     nrn =                   7 erg = 7.2784E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =   104724883     nrn =                   7 erg = 1.8285E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =   130892177     nrn =                   7 erg = 9.6361E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =   157101643     nrn =                   9 erg = 3.6321E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =   183248727     nrn =                  13 erg = 1.6997E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =   209425729     nrn =                   7 erg = 2.8670E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =   235606962     nrn =                  24 erg = 1.3123E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =   261782740     nrn =                  10 erg = 6.0259E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =   287969828     nrn =                  19 erg = 2.0235E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =   314149202     nrn =                   9 erg = 8.3851E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =   340314464     nrn =                  13 erg = 2.1916E-03     wgt = 1.0004E+00                                                  
+ warning.  no reaction mt found. collision resampled. zaid =  92235.80c                                                                 
+ nps =   361523072     nrn =                  39 erg = 6.7131E-01                                                                       
+ warning.  weight of source particle is below window.                                                                                   
+ nps =   366497018     nrn =                  15 erg = 2.1751E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =   392679658     nrn =                  10 erg = 9.0231E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =   418852925     nrn =                  10 erg = 2.3132E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =   445034351     nrn =                  12 erg = 2.9259E-04     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =   471212424     nrn =                   7 erg = 5.1891E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =   497391580     nrn =                   7 erg = 3.9721E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =   523560889     nrn =                   7 erg = 1.7922E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =   549748343     nrn =                   7 erg = 1.1568E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =   575924164     nrn =                   7 erg = 7.5750E-04     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =   602097631     nrn =                  17 erg = 8.5812E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =   628277071     nrn =                   7 erg = 2.5488E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =   654454524     nrn =                   7 erg = 2.0733E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =   680629512     nrn =                  14 erg = 4.3779E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =   706807769     nrn =                  13 erg = 1.0313E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =   732984400     nrn =                  24 erg = 2.1250E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =   759169750     nrn =                   7 erg = 1.9973E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =   785340498     nrn =                  10 erg = 6.8414E-04     wgt = 1.0004E+00                                                  
+ warning.  no reaction mt found. collision resampled. zaid =  92235.80c                                                                 
+ nps =   804825473     nrn =                  74 erg = 7.1037E-01                                                                       
+ warning.  weight of source particle is below window.                                                                                   
+ nps =   811520274     nrn =                   7 erg = 2.0786E-02     wgt = 1.0004E+00                                                  
+ warning.  no reaction mt found. collision resampled. zaid =  92235.80c                                                                 
+ nps =   825707120     nrn =                 157 erg = 7.1669E-02                                                                       
+ warning.  weight of source particle is below window.                                                                                   
+ nps =   837697696     nrn =                  14 erg = 7.8603E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =   863878342     nrn =                  11 erg = 1.2258E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =   890056728     nrn =                  10 erg = 5.5354E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =   916234676     nrn =                  12 erg = 1.5973E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =   942419324     nrn =                  15 erg = 1.9690E-03     wgt = 1.0004E+00                                                  
+ warning.  no reaction mt found. collision resampled. zaid =  92235.80c                                                                 
+ nps =   965153123     nrn =                  99 erg = 1.1706E-01                                                                       
+ warning.  weight of source particle is below window.                                                                                   
+ nps =   968603297     nrn =                  10 erg = 5.8647E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =   994766073     nrn =                   9 erg = 5.7181E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  1020959885     nrn =                  11 erg = 3.2481E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  1047129671     nrn =                  10 erg = 3.3656E-02     wgt = 1.0004E+00                                                  
+ warning.  no reaction mt found. collision resampled. zaid =  92235.80c                                                                 
+ nps =  1050964069     nrn =                  89 erg = 1.2138E-01                                                                       
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  1073307320     nrn =                   7 erg = 9.2213E-04     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  1099478694     nrn =                   7 erg = 1.8485E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  1125661573     nrn =                   7 erg = 5.4335E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  1151843766     nrn =                  13 erg = 7.8039E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  1178010676     nrn =                   7 erg = 6.8120E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  1204198209     nrn =                  10 erg = 8.0885E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  1230369775     nrn =                   7 erg = 1.6597E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  1256560074     nrn =                  13 erg = 2.6736E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  1282723108     nrn =                  19 erg = 6.1942E-04     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  1308916784     nrn =                   7 erg = 4.4531E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  1335092698     nrn =                  10 erg = 1.2896E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  1361257725     nrn =                   7 erg = 1.2535E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  1387437529     nrn =                  10 erg = 7.8550E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  1413616284     nrn =                  13 erg = 2.6047E-04     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  1439796299     nrn =                   7 erg = 2.1862E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  1465974049     nrn =                  13 erg = 8.8330E-04     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  1492149653     nrn =                  13 erg = 2.6907E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  1518326617     nrn =                   9 erg = 1.2015E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  1544503747     nrn =                  10 erg = 5.2221E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  1570681201     nrn =                  16 erg = 1.0141E-02     wgt = 1.0004E+00                                                  
+ warning.  no reaction mt found. collision resampled. zaid =  92238.80c                                                                 
+ nps =  1580495378     nrn =                  53 erg = 2.1714E-01                                                                       
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  1596860043     nrn =                   7 erg = 1.3832E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  1623041836     nrn =                  10 erg = 8.6173E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  1649214814     nrn =                  10 erg = 4.7217E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  1675412839     nrn =                   7 erg = 9.8060E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  1701573500     nrn =                   7 erg = 2.7045E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  1727754823     nrn =                   7 erg = 1.6345E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  1753940943     nrn =                  10 erg = 3.2810E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  1780112198     nrn =                   7 erg = 8.9573E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  1806289875     nrn =                  10 erg = 3.0998E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  1832467049     nrn =                  13 erg = 1.9051E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  1858642079     nrn =                  13 erg = 4.3166E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  1884816920     nrn =                  10 erg = 1.9443E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  1910995219     nrn =                   7 erg = 9.3142E-03     wgt = 1.0004E+00                                                  
+ warning.  no reaction mt found. collision resampled. zaid =  92235.80c                                                                 
+ nps =  1932512699     nrn =                  34 erg = 1.6649E-01                                                                       
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  1937191916     nrn =                  15 erg = 2.4498E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  1963355976     nrn =                   9 erg = 1.7259E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  1989538723     nrn =                  10 erg = 7.7321E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  2015716985     nrn =                  14 erg = 2.5201E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  2041908945     nrn =                  15 erg = 9.1620E-03     wgt = 1.0004E+00                                                  
+ warning.  no reaction mt found. collision resampled. zaid =  92235.80c                                                                 
+ nps =  2047406392     nrn =                 118 erg = 1.1829E-01                                                                       
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  2068065166     nrn =                   9 erg = 8.2132E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  2094243854     nrn =                   7 erg = 1.0314E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  2120418915     nrn =                   7 erg = 4.2727E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  2146605976     nrn =                  14 erg = 3.0259E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  2172776426     nrn =                   9 erg = 6.1442E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  2198978211     nrn =                  13 erg = 2.0231E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  2225137035     nrn =                  19 erg = 7.2059E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  2251313210     nrn =                   7 erg = 9.5022E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  2277497165     nrn =                   7 erg = 3.4982E-04     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  2303673108     nrn =                  10 erg = 5.7001E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  2329846100     nrn =                  13 erg = 1.2935E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  2356022682     nrn =                  15 erg = 4.2962E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  2382202581     nrn =                  13 erg = 2.9328E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  2408378141     nrn =                   7 erg = 8.2280E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  2434559328     nrn =                   7 erg = 8.5975E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  2460736897     nrn =                  12 erg = 6.5749E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  2486919644     nrn =                  10 erg = 6.3485E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  2513089615     nrn =                  13 erg = 1.8170E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  2539279081     nrn =                   9 erg = 2.9494E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  2565445547     nrn =                  14 erg = 1.9089E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  2591634710     nrn =                  12 erg = 1.7763E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  2617810451     nrn =                  10 erg = 7.0553E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  2643982277     nrn =                  17 erg = 1.4163E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  2670159418     nrn =                   7 erg = 4.7049E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  2696337896     nrn =                   7 erg = 7.4093E-03     wgt = 1.0004E+00                                                  
+ warning.  no reaction mt found. collision resampled. zaid =  92235.80c                                                                 
+ nps =  2704636423     nrn =                  17 erg = 1.8944E-01                                                                       
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  2722513336     nrn =                  12 erg = 5.2452E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  2748717333     nrn =                  13 erg = 6.9898E-04     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  2774871671     nrn =                  13 erg = 6.6503E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  2801049492     nrn =                  11 erg = 8.4637E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  2827225206     nrn =                  12 erg = 3.3351E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  2853406913     nrn =                  12 erg = 3.1026E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  2879593080     nrn =                   7 erg = 9.6141E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  2905766557     nrn =                   9 erg = 1.2102E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  2931938463     nrn =                  15 erg = 8.2239E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  2958127112     nrn =                  19 erg = 2.0978E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  2984298431     nrn =                  13 erg = 1.7862E-02     wgt = 1.0004E+00                                                  
+ warning.  no reaction mt found. collision resampled. zaid =  92235.80c                                                                 
+ nps =  3009602399     nrn =                  59 erg = 2.5112E-01                                                                       
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  3010472419     nrn =                  25 erg = 2.0890E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  3036653288     nrn =                   7 erg = 9.2021E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  3062846371     nrn =                  10 erg = 9.8956E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  3089006938     nrn =                  10 erg = 9.8552E-03     wgt = 1.0004E+00                                                  
+ warning.  no reaction mt found. collision resampled. zaid =  92235.80c                                                                 
+ nps =  3095468694     nrn =                 157 erg = 2.2070E-01                                                                       
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  3115186737     nrn =                  10 erg = 5.6824E-04     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  3141365574     nrn =                   7 erg = 3.5984E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  3167546264     nrn =                  10 erg = 8.6071E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  3193719979     nrn =                  13 erg = 2.2009E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  3219896580     nrn =                   7 erg = 1.5872E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  3246073527     nrn =                   7 erg = 1.8971E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  3272267240     nrn =                  10 erg = 2.1189E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  3298430692     nrn =                  12 erg = 8.5926E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  3324609019     nrn =                   7 erg = 3.3344E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  3350797776     nrn =                   9 erg = 7.1029E-04     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  3376972590     nrn =                  12 erg = 1.3504E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  3403142542     nrn =                  10 erg = 5.9397E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  3429326331     nrn =                  17 erg = 5.7481E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  3455512122     nrn =                  11 erg = 4.5155E-05     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  3481682995     nrn =                  25 erg = 8.4701E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  3507855365     nrn =                  13 erg = 1.6860E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  3534040761     nrn =                   9 erg = 9.7323E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  3560213201     nrn =                   9 erg = 1.4423E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  3586408811     nrn =                  13 erg = 1.0118E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  3612567567     nrn =                   7 erg = 6.5880E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  3638758884     nrn =                   7 erg = 1.1036E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  3664945962     nrn =                   7 erg = 8.9357E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  3691103679     nrn =                  16 erg = 7.2006E-04     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  3717286364     nrn =                  11 erg = 3.2897E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  3743471918     nrn =                   7 erg = 1.6956E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  3769639932     nrn =                  13 erg = 1.5476E-01     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  3795826045     nrn =                  12 erg = 5.3145E-04     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  3821990425     nrn =                   7 erg = 2.0798E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  3848176698     nrn =                  13 erg = 2.4484E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  3874356270     nrn =                   9 erg = 1.4235E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  3900525322     nrn =                  10 erg = 4.8801E-04     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  3926701714     nrn =                   7 erg = 8.4119E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  3952887459     nrn =                   9 erg = 1.6131E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  3979089919     nrn =                   9 erg = 8.6235E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  4005253305     nrn =                   7 erg = 1.1531E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  4031443478     nrn =                   7 erg = 2.7076E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  4057592684     nrn =                  24 erg = 1.0314E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  4083770091     nrn =                  12 erg = 1.2022E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  4109950864     nrn =                   7 erg = 2.0214E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  4136126314     nrn =                  12 erg = 1.2088E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  4162317669     nrn =                   9 erg = 4.3330E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  4188484301     nrn =                   7 erg = 8.3887E-04     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  4214670528     nrn =                  10 erg = 5.9514E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  4240841562     nrn =                  11 erg = 1.6091E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  4267024642     nrn =                  18 erg = 2.7164E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  4293194570     nrn =                  12 erg = 3.3177E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  4319380763     nrn =                   9 erg = 3.2978E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  4345558541     nrn =                   7 erg = 8.3804E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  4371728200     nrn =                   7 erg = 7.6752E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  4397907296     nrn =                  12 erg = 1.0720E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  4424084933     nrn =                  10 erg = 8.3791E-04     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  4450269751     nrn =                   7 erg = 2.6155E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  4476440224     nrn =                   7 erg = 2.5325E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  4502618185     nrn =                  10 erg = 7.1507E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  4528800509     nrn =                   7 erg = 5.4774E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  4554975622     nrn =                   7 erg = 3.5512E-04     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  4581160039     nrn =                   7 erg = 2.9636E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  4607331639     nrn =                  16 erg = 1.2585E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  4633508805     nrn =                   7 erg = 1.1185E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  4659691279     nrn =                   7 erg = 2.3413E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  4685868133     nrn =                  12 erg = 4.2444E-02     wgt = 1.0004E+00                                                  
+ warning.  no reaction mt found. collision resampled. zaid =  92235.80c                                                                 
+ nps =  4690998509     nrn =                  67 erg = 9.5337E-02                                                                       
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  4712044494     nrn =                   7 erg = 1.2506E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  4738226047     nrn =                  10 erg = 1.9705E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  4764399999     nrn =                   7 erg = 9.5489E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  4790594919     nrn =                  15 erg = 8.3106E-04     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  4816757907     nrn =                  10 erg = 1.8251E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  4842934016     nrn =                   9 erg = 2.9225E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  4869112727     nrn =                   7 erg = 3.6708E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  4895290319     nrn =                  10 erg = 3.4208E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  4921469848     nrn =                   7 erg = 5.0203E-03     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  4947648739     nrn =                   7 erg = 9.3184E-02     wgt = 1.0004E+00                                                  
+ warning.  weight of source particle is below window.                                                                                   
+ nps =  4973822877     nrn =                   9 erg = 3.2187E-02     wgt = 1.0004E+00                                                  
+ master set rendezvous nps = 10000000000,  work chunks =   191    06/22/17 10:15:28 
+ master set rendezvous nps = 15000000000,  work chunks =   191    06/22/17 10:35:05 
+ master set rendezvous nps = 20000000000,  work chunks =   191    06/22/17 10:54:39 
+
+ ***********************************************************************************************************************
+
+ dump no.    2 on file runtpe     nps = 20000000000     coll =    66255878680     ctm =    14017.43   nrn =     
+ 790548514740
+ master set rendezvous nps = 25000000000,  work chunks =   191    06/22/17 11:14:11 
+ master set rendezvous nps = 30000000000,  work chunks =   191    06/22/17 11:33:45 
+ master set rendezvous nps = 35000000000,  work chunks =   191    06/22/17 11:53:18 
+ master set rendezvous nps = 40000000000,  work chunks =   191    06/22/17 12:12:51 
+
+ ***********************************************************************************************************************
+
+ dump no.    3 on file runtpe     nps = 40000000000     coll =   132511733026     ctm =    28034.78   nrn =    
+ 1581098591521
+ master set rendezvous nps = 45000000000,  work chunks =   191    06/22/17 12:32:24 
+ master set rendezvous nps = 50000000000,  work chunks =   191    06/22/17 12:51:56 
+1problem summary                                                                                                           
+
+      run terminated when 50000000000  particle histories were done.
++                                                                                                    06/22/17 13:11:29 
+      This models a mat#1  sphere with R= 8.7410 and rho=18.7426                           probid =  06/22/17 09:55:42 
+
+ neutron creation    tracks      weight        energy            neutron loss        tracks      weight        energy
+                                 (per source particle)                                           (per source particle)
+
+ source         50000000000    1.0004E+00    2.0308E+00          escape         36729060981    6.1586E-01    9.9099E-01
+ nucl. interaction        0    0.            0.                  energy cutoff            0    0.            0.        
+ particle decay           0    0.            0.                  time cutoff              0    0.            0.        
+ weight window    107258096    9.8081E-02    5.6181E-02          weight window  13556068910    9.8081E-02    5.6182E-02
+ cell importance          0    0.            0.                  cell importance          0    0.            0.        
+ weight cutoff            0    0.            0.                  weight cutoff            0    0.            0.        
+ e or t importance        0    0.            0.                  e or t importance        0    0.            0.        
+ dxtran                   0    0.            0.                  dxtran                   0    0.            0.        
+ forced collisions        0    0.            0.                  forced collisions        0    0.            0.        
+ exp. transform           0    0.            0.                  exp. transform           0    0.            0.        
+ upscattering             0    0.            3.5312E-16          downscattering           0    0.            4.9118E-01
+ photonuclear             0    0.            0.                  capture                  0    4.0326E-02    2.4652E-02
+ (n,xn)           355586895    4.5123E-03    3.0524E-03          loss to (n,xn)   177715100    2.2553E-03    1.7438E-02
+ prompt fission           0    0.            0.                  loss to fission          0    3.4646E-01    5.0964E-01
+ delayed fission          0    0.            0.                  nucl. interaction        0    0.            0.        
+ prompt photofis          0    0.            0.                  particle decay           0    0.            0.        
+ tabular boundary         0    0.            0.                  tabular boundary         0    0.            0.        
+ tabular sampling         0    0.            0.                  elastic scatter          0    0.            0.        
+     total      50462844991    1.1030E+00    2.0901E+00              total      50462844991    1.1030E+00    2.0901E+00
+
+   number of neutrons banked               274960096        average time of (shakes)              cutoffs
+   neutron tracks per source particle     1.0093E+00          escape            5.2323E-01          tco   1.0000E+33
+   neutron collisions per source particle 3.3128E+00          capture           9.8480E-01          eco   0.0000E+00
+   total neutron collisions              -1863769664          capture or escape 5.5160E-01          wc1  -5.0000E-01
+   net multiplication              1.0023E+00 0.0000          any termination   6.3942E-01          wc2  -2.5000E-01
+
+ computer time so far in this run 37550.93 minutes            maximum number ever in bank         5
+ computer time in mcrun           35043.71 minutes            bank overflows to backup file       0
+ source particles per minute            1.4268E+06
+ random numbers generated            1976377153704            most random numbers used was        1028 in history  3473567827
+ 
+  warning.  random number period exceeded.  decrease stride.
+
+ range of sampled source weights = 1.0004E+00 to 1.0004E+00
+
+ source efficiency = 0.5236  in cell        1
+
+ 7204680 source particles had weight below window.
+ by increasing ww energy interval:       6      26      94     649    2719   19024   77911  208145  644479 1117056
+   1938037 1460797  202337  435610  425623  632211   39839     117       0       0       0       0       0       0
+         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+         0       0       0       0       0       0       0       0
+
+ neutron reaction mt loop failed  81 times.
+
+ estimated system efficiency for MPI usage =  1%
+
+ number of histories processed by each MPI task
+           0   261780100   261780100   261780110   261780100   261780110   261780100   261780110   261780100   261780110
+   261780100   261780110   261780100   261780110   261780100   261780110   261780100   261780110   261780100   261780100
+   261780110   261780100   261780110   261780100   261780110   261780100   261780110   261780100   261780110   261780100
+   261780110   261780100   261780110   261780100   261780110   261780100   261780100   261780110   261780100   261780110
+   261780100   261780110   261780100   261780110   261780100   261780110   261780100   261780110   261780100   261780110
+   261780100   261780110   261780100   261780100   261780110   261780100   261780110   261780100   261780110   261780100
+   261780110   261780100   261780110   261780100   261780110   261780100   261780110   261780100   261780110   261780100
+   261780100   261780110   261780100   261780110   261780100   261780110   261780100   261780110   261780100   261780110
+   261780100   261780110   261780100   261780110   261780100   261780110   261780100   261780100   261780110   261780100
+   261780110   261780100   261780110   261780100   261780110   261780100   261780110   261780100   261780110   261780100
+   261780110   261780100   261780110   261780100   261780110   261780100   261780100   261780110   261780100   261780110
+   261780100   261780110   261780100   261780110   261780100   261780110   261780100   261780110   261780100   261780110
+   261780100   261780110   261780100   261780100   261780110   261780100   261780110   261780100   261780110   261780100
+   261780110   261780100   261780110   261780100   261780110   261780100   261780110   261780100   261780110   261780100
+   261780100   261780110   261780100   261780110   261780100   261780110   261780100   261780110   261780100   261780110
+   261780100   261780110   261780100   261780110   261780100   261780110   261780100   261780100   261780110   261780100
+   261780110   261780100   261780110   261780100   261780110   261780100   261780110   261780100   261780110   261780100
+   261780110   261780100   261780110   261780100   261780100   261780110   261780100   261780110   261780100   261780110
+   261780100   261780110   261780100   261780110   261780100   261780110   261780100   261780110   261780100   261780110
+   261780100   261780110
+1source distribution frequency tables                                                                   print table 170
+
+ the expected values below do not include the effect of the rejection loop which samples position.
+
+
+ source distribution   1  for x  
+
+                                         number                                       weight
+             source
+   n          value         sampled      expected  sampled/expected      sampled      expected  sampled/expected
+
+   1      8.74100E+00      1.0000E+00   1.0000E+00   1.0000E+00         1.0004E+00   1.0004E+00   1.0000E+00
+ total                     1.0000E+00   1.0000E+00   1.0000E+00         1.0004E+00   1.0004E+00   1.0000E+00
+
+
+ source distribution   2  for y  
+
+                                         number                                       weight
+             source
+   n          value         sampled      expected  sampled/expected      sampled      expected  sampled/expected
+
+   1      8.74100E+00      1.0000E+00   1.0000E+00   1.0000E+00         1.0004E+00   1.0004E+00   1.0000E+00
+ total                     1.0000E+00   1.0000E+00   1.0000E+00         1.0004E+00   1.0004E+00   1.0000E+00
+
+
+ source distribution   3  for z  
+
+                                         number                                       weight
+             source
+   n          value         sampled      expected  sampled/expected      sampled      expected  sampled/expected
+
+   1      8.74100E+00      1.0000E+00   1.0000E+00   1.0000E+00         1.0004E+00   1.0004E+00   1.0000E+00
+ total                     1.0000E+00   1.0000E+00   1.0000E+00         1.0004E+00   1.0004E+00   1.0000E+00
+ 
+  warning.  some of the geometry is covered by a weight window mesh.
+1neutron  activity in each cell                                                                         print table 126
+
+                       tracks     population   collisions   collisions     number        flux        average      average
+              cell    entering                               * weight     weighted     weighted   track weight   track mfp
+                                                          (per history)    energy       energy     (relative)      (cm)
+
+        1        1 50000000000  50274960100 165639954880    2.3911E+00   8.5171E-01   1.4723E+00   7.3491E-01   2.6433E+00
+
+           total   50000000000  50274960100 165639954880    2.3911E+00
+1neutron  weight balance in each cell                                                                   print table 130
+
+        cell index        1
+       cell number        1       total                                                                                         
+
+ external events:
+          entering  0.0000E+00  0.0000E+00
+            source  1.0004E+00  1.0004E+00
+     energy cutoff  0.0000E+00  0.0000E+00
+       time cutoff  0.0000E+00  0.0000E+00
+           exiting -6.1586E-01 -6.1586E-01
+                    ----------  ----------
+             total  3.8453E-01  3.8453E-01
+
+ variance reduction events:
+     weight window -3.9196E-07 -3.9196E-07
+   cell importance  0.0000E+00  0.0000E+00
+     weight cutoff  0.0000E+00  0.0000E+00
+ e or t importance  0.0000E+00  0.0000E+00
+            dxtran  0.0000E+00  0.0000E+00
+ forced collisions  0.0000E+00  0.0000E+00
+    exp. transform  0.0000E+00  0.0000E+00
+                    ----------  ----------
+             total -3.9196E-07 -3.9196E-07
+
+ physical events:
+           capture -4.0326E-02 -4.0326E-02
+            (n,xn)  4.5123E-03  4.5123E-03
+    loss to (n,xn) -2.2553E-03 -2.2553E-03
+           fission  0.0000E+00  0.0000E+00
+   loss to fission -3.4646E-01 -3.4646E-01
+      photonuclear  0.0000E+00  0.0000E+00
+ nucl. interaction  0.0000E+00  0.0000E+00
+  tabular boundary  0.0000E+00  0.0000E+00
+        decay gain  0.0000E+00  0.0000E+00
+  tabular sampling  0.0000E+00  0.0000E+00
+        decay loss  0.0000E+00  0.0000E+00
+      photofission  0.0000E+00  0.0000E+00
+                    ----------  ----------
+             total -3.8453E-01 -3.8453E-01
+
+                    ----------  ----------
+             total  0.0000E+00  0.0000E+00
+ 
+1neutron activity of each nuclide in each cell, per source particle                                     print table 140
+
+      cell     cell   nuclides     atom       total  collisions   wgt. lost   wgt. gain   wgt. gain     photons  photon wgt  avg photon
+     index     name            fraction  collisions    * weight  to capture  by fission   by (n,xn)    produced    produced      energy
+
+         1        1  92233.80c 2.02E-05     3358767  4.8449E-05  1.2162E-05  0.0000E+00  1.3580E-08           0  0.0000E+00  0.0000E+00
+                     92234.80c 9.44E-03  1572681388  2.2700E-02  2.9791E-03  0.0000E+00  3.7336E-06           0  0.0000E+00  0.0000E+00
+                     92235.80c 9.33E-01154311724529  2.2276E+00  3.7859E-01  0.0000E+00  2.0927E-03           0  0.0000E+00  0.0000E+00
+                     92236.80c 2.99E-03   515049964  7.4099E-03  4.8290E-04  0.0000E+00  3.6025E-06           0  0.0000E+00  0.0000E+00
+                     92238.80c 5.48E-02  9237140232  1.3337E-01  4.7218E-03  0.0000E+00  1.5699E-04           0  0.0000E+00  0.0000E+00
+
+              total                    165639954880  2.3911E+00  3.8679E-01  0.0000E+00  2.2570E-03           0  0.0000E+00  0.0000E+00
+
+
+        total over all cells by nuclide       total  collisions   wgt. lost   wgt. gain   wgt. gain     photons  photon wgt  avg photon
+                                         collisions    * weight  to capture  by fission   by (n,xn)    produced    produced      energy
+
+                     92233.80c              3358767  4.8449E-05  1.2162E-05  0.0000E+00  1.3580E-08           0  0.0000E+00  0.0000E+00
+                     92234.80c           1572681388  2.2700E-02  2.9791E-03  0.0000E+00  3.7336E-06           0  0.0000E+00  0.0000E+00
+                     92235.80c         154311724529  2.2276E+00  3.7859E-01  0.0000E+00  2.0927E-03           0  0.0000E+00  0.0000E+00
+                     92236.80c            515049964  7.4099E-03  4.8290E-04  0.0000E+00  3.6025E-06           0  0.0000E+00  0.0000E+00
+                     92238.80c           9237140232  1.3337E-01  4.7218E-03  0.0000E+00  1.5699E-04           0  0.0000E+00  0.0000E+00
+
+1tally        4        nps = 50000000000
++                                   Uranium Flux Spectra - STAYSL Bins (Number per cm^2 per src neutron)       
+           tally type 4    track length estimate of particle flux.      units   1/cm**2        
+           particle(s): neutrons 
+
+           volumes 
+                   cell:       1                                                                                   
+                         2.79751E+03
+ 
+ cell  1                                                                                                                               
+      energy   
+    1.0000E-10   0.00000E+00 0.0000
+    1.0000E-09   0.00000E+00 0.0000
+    1.0000E-08   0.00000E+00 0.0000
+    2.3000E-08   0.00000E+00 0.0000
+    5.0000E-08   0.00000E+00 0.0000
+    7.6000E-08   0.00000E+00 0.0000
+    1.1500E-07   0.00000E+00 0.0000
+    1.7000E-07   0.00000E+00 0.0000
+    2.5500E-07   0.00000E+00 0.0000
+    3.8000E-07   0.00000E+00 0.0000
+    5.5000E-07   1.78682E-15 1.0000
+    8.4000E-07   3.29491E-14 1.0000
+    1.2800E-06   4.34263E-13 0.3492
+    1.9000E-06   2.69947E-12 0.1907
+    2.8000E-06   4.50301E-12 0.1494
+    4.2500E-06   1.21588E-11 0.1821
+    6.3000E-06   1.50823E-11 0.1624
+    9.2000E-06   2.43965E-11 0.1361
+    1.3500E-05   2.72515E-11 0.0972
+    2.1000E-05   5.23346E-11 0.0762
+    3.0000E-05   9.01402E-11 0.0606
+    4.5000E-05   1.25468E-10 0.0409
+    6.9000E-05   3.13018E-10 0.0306
+    1.0000E-04   4.12442E-10 0.0250
+    1.3500E-04   4.95192E-10 0.0167
+    1.7000E-04   5.99552E-10 0.0164
+    2.2000E-04   9.56771E-10 0.0131
+    2.8000E-04   9.82073E-10 0.0116
+    3.6000E-04   1.93453E-09 0.0075
+    4.5000E-04   2.54420E-09 0.0068
+    5.7500E-04   3.21651E-09 0.0057
+    7.6000E-04   5.47507E-09 0.0039
+    9.6000E-04   7.44741E-09 0.0035
+    1.2800E-03   1.33130E-08 0.0026
+    1.6000E-03   1.64009E-08 0.0019
+    2.0000E-03   2.24309E-08 0.0017
+    2.7000E-03   5.08405E-08 0.0012
+    3.4000E-03   6.42617E-08 0.0011
+    4.5000E-03   1.19879E-07 0.0007
+    5.5000E-03   1.34519E-07 0.0006
+    7.2000E-03   2.83050E-07 0.0005
+    9.2000E-03   4.38190E-07 0.0004
+    1.2000E-02   7.54459E-07 0.0003
+    1.5000E-02   9.58482E-07 0.0002
+    1.9000E-02   1.58086E-06 0.0002
+    2.5500E-02   3.14337E-06 0.0001
+    3.2000E-02   3.81085E-06 0.0001
+    4.0000E-02   5.60061E-06 0.0001
+    5.2500E-02   1.03882E-05 0.0001
+    6.6000E-02   1.28910E-05 0.0001
+    8.8000E-02   2.46968E-05 0.0000
+    1.1000E-01   2.76982E-05 0.0000
+    1.3500E-01   3.43218E-05 0.0000
+    1.6000E-01   3.61411E-05 0.0000
+    1.9000E-01   4.48221E-05 0.0000
+    2.2000E-01   4.52783E-05 0.0000
+    2.5500E-01   5.27551E-05 0.0000
+    2.9000E-01   5.18787E-05 0.0000
+    3.2000E-01   4.35420E-05 0.0000
+    3.6000E-01   5.72293E-05 0.0000
+    4.0000E-01   5.59455E-05 0.0000
+    4.5000E-01   6.71863E-05 0.0000
+    5.0000E-01   6.41682E-05 0.0000
+    5.5000E-01   6.13709E-05 0.0000
+    6.0000E-01   5.83337E-05 0.0000
+    6.6000E-01   6.56354E-05 0.0000
+    7.2000E-01   6.10058E-05 0.0000
+    7.8000E-01   5.69131E-05 0.0000
+    8.4000E-01   5.33844E-05 0.0000
+    9.2000E-01   6.61424E-05 0.0000
+    1.0000E+00   6.07697E-05 0.0000
+    1.2000E+00   1.33276E-04 0.0000
+    1.4000E+00   1.11929E-04 0.0000
+    1.6000E+00   9.63482E-05 0.0000
+    1.8000E+00   8.38644E-05 0.0000
+    2.0000E+00   7.35091E-05 0.0000
+    2.3000E+00   9.46438E-05 0.0000
+    2.6000E+00   7.95069E-05 0.0000
+    2.9000E+00   6.69676E-05 0.0000
+    3.3000E+00   7.31977E-05 0.0000
+    3.7000E+00   5.77892E-05 0.0000
+    4.1000E+00   4.51240E-05 0.0000
+    4.5000E+00   3.49927E-05 0.0000
+    5.0000E+00   3.26622E-05 0.0000
+    5.5000E+00   2.33897E-05 0.0000
+    6.0000E+00   1.67302E-05 0.0001
+    6.7000E+00   1.54215E-05 0.0001
+    7.4000E+00   9.18181E-06 0.0001
+    8.2000E+00   5.98029E-06 0.0001
+    9.0000E+00   3.27180E-06 0.0001
+    1.0000E+01   2.08460E-06 0.0001
+    1.1000E+01   9.61981E-07 0.0002
+    1.2000E+01   4.42729E-07 0.0003
+    1.3000E+01   2.01453E-07 0.0005
+    1.4000E+01   8.96352E-08 0.0007
+    1.5000E+01   3.95842E-08 0.0010
+    1.6000E+01   1.74542E-08 0.0015
+    1.7000E+01   7.63102E-09 0.0023
+    1.8000E+01   3.37226E-09 0.0035
+    1.9000E+01   1.45285E-09 0.0053
+    2.0000E+01   6.32137E-10 0.0081
+    2.1000E+01   2.69126E-10 0.0124
+    2.2000E+01   1.18219E-10 0.0189
+    2.3000E+01   4.86651E-11 0.0289
+    2.4000E+01   2.18625E-11 0.0436
+    2.5000E+01   9.19875E-12 0.0686
+    2.6000E+01   3.30074E-12 0.1129
+    2.7000E+01   1.23364E-12 0.1849
+    2.8000E+01   6.66516E-13 0.2473
+    2.9000E+01   2.75331E-13 0.3976
+    3.0000E+01   1.32602E-13 0.5987
+    3.1000E+01   1.39856E-14 1.0000
+    3.2000E+01   0.00000E+00 0.0000
+    3.3000E+01   0.00000E+00 0.0000
+    3.4000E+01   0.00000E+00 0.0000
+    3.5000E+01   0.00000E+00 0.0000
+    3.6000E+01   0.00000E+00 0.0000
+    3.7000E+01   0.00000E+00 0.0000
+    3.8000E+01   0.00000E+00 0.0000
+    3.9000E+01   0.00000E+00 0.0000
+    4.0000E+01   0.00000E+00 0.0000
+    4.1000E+01   0.00000E+00 0.0000
+    4.2000E+01   0.00000E+00 0.0000
+    4.3000E+01   0.00000E+00 0.0000
+    4.4000E+01   0.00000E+00 0.0000
+    4.5000E+01   0.00000E+00 0.0000
+    4.6000E+01   0.00000E+00 0.0000
+    4.7000E+01   0.00000E+00 0.0000
+    4.8000E+01   0.00000E+00 0.0000
+    4.9000E+01   0.00000E+00 0.0000
+    5.0000E+01   0.00000E+00 0.0000
+    5.1000E+01   0.00000E+00 0.0000
+    5.2000E+01   0.00000E+00 0.0000
+    5.3000E+01   0.00000E+00 0.0000
+    5.4000E+01   0.00000E+00 0.0000
+    5.5000E+01   0.00000E+00 0.0000
+    5.6000E+01   0.00000E+00 0.0000
+    5.7000E+01   0.00000E+00 0.0000
+    5.8000E+01   0.00000E+00 0.0000
+    5.9000E+01   0.00000E+00 0.0000
+    6.0000E+01   0.00000E+00 0.0000
+      total      2.19115E-03 0.0000
+
+ there are no nonzero tallies in the tally fluctuation chart bin for tally        4
+
+1tally       14        nps = 50000000000
++                                   Uranium Flux Spectra (Number per cm^2 per src neutron)                     
+           tally type 4    track length estimate of particle flux.      units   1/cm**2        
+           particle(s): neutrons 
+
+           volumes 
+                   cell:       1                                                                                   
+                         2.79751E+03
+ 
+ cell  1                                                                                                                               
+      energy   
+    4.1399E-07   0.00000E+00 0.0000
+    1.1253E-06   2.93101E-13 0.4413
+    3.0590E-06   8.05148E-12 0.1108
+    1.0677E-05   5.93801E-11 0.0838
+    2.9023E-05   1.43367E-10 0.0459
+    1.0130E-04   8.91062E-10 0.0173
+    2.7536E-04   2.92000E-09 0.0072
+    5.8295E-04   7.96883E-09 0.0038
+    1.2341E-03   2.39166E-08 0.0020
+    3.3546E-03   1.51623E-07 0.0007
+    1.0333E-02   1.26873E-06 0.0002
+    2.1875E-02   4.31250E-06 0.0001
+    2.4788E-02   1.45563E-06 0.0002
+    3.4307E-02   5.70433E-06 0.0001
+    5.2475E-02   1.44535E-05 0.0001
+    1.1109E-01   6.67475E-05 0.0000
+    1.5764E-01   6.55541E-05 0.0000
+    2.4724E-01   1.34675E-04 0.0000
+    3.6883E-01   1.76795E-04 0.0000
+    5.5023E-01   2.36451E-04 0.0000
+    6.3928E-01   1.01571E-04 0.0000
+    7.4274E-01   1.05154E-04 0.0000
+    8.2085E-01   7.15892E-05 0.0000
+    9.6164E-01   1.15065E-04 0.0000
+    1.1080E+00   1.03580E-04 0.0000
+    1.4227E+00   1.81803E-04 0.0000
+    1.8268E+00   1.78970E-04 0.0000
+    2.3069E+00   1.59734E-04 0.0000
+    2.3852E+00   2.19928E-05 0.0000
+    3.0119E+00   1.44696E-04 0.0000
+    4.0657E+00   1.50471E-04 0.0000
+    4.7237E+00   5.43811E-05 0.0000
+    4.9659E+00   1.48122E-05 0.0001
+    6.3763E+00   5.12733E-05 0.0000
+    7.4082E+00   1.54322E-05 0.0001
+    8.1873E+00   5.82943E-06 0.0001
+    9.0484E+00   3.48276E-06 0.0001
+    1.0000E+01   1.94307E-06 0.0001
+    1.1052E+01   9.94352E-07 0.0002
+    1.2214E+01   4.67968E-07 0.0003
+    1.2523E+01   6.75598E-08 0.0008
+    1.3840E+01   1.56025E-07 0.0005
+    1.4191E+01   2.00981E-08 0.0014
+    1.4918E+01   2.72168E-08 0.0012
+    1.6905E+01   2.67690E-08 0.0013
+    1.9640E+01   5.76582E-09 0.0027
+      total      2.19115E-03 0.0000
+
+ there are no nonzero tallies in the tally fluctuation chart bin for tally       14
+
+1tally       24        nps = 50000000000
++                                   Fission Reaction Rate (Fissions per cm^3 per src particle)                 
+           tally type 4    track length estimate of particle flux.                             
+           particle(s): neutrons 
+
+           volumes 
+                   cell:       1                                                                                   
+                         2.79751E+03
+ 
+ cell  1                                                                                                                               
+ multiplier bin:  -1.00000E+00         9          -6                                                                                   
+      energy   
+    4.1399E-07   0.00000E+00 0.0000
+    1.1253E-06   9.43070E-13 0.4668
+    3.0590E-06   5.05687E-12 0.1124
+    1.0677E-05   3.19213E-11 0.0732
+    2.9023E-05   1.27796E-10 0.0401
+    1.0130E-04   6.48483E-10 0.0152
+    2.7536E-04   1.75396E-09 0.0068
+    5.8295E-04   3.58905E-09 0.0036
+    1.2341E-03   8.06705E-09 0.0019
+    3.3546E-03   3.46792E-08 0.0007
+    1.0333E-02   1.83913E-07 0.0002
+    2.1875E-02   4.74777E-07 0.0001
+    2.4788E-02   1.45376E-07 0.0002
+    3.4307E-02   5.29014E-07 0.0001
+    5.2475E-02   1.21282E-06 0.0001
+    1.1109E-01   4.90881E-06 0.0000
+    1.5764E-01   4.29290E-06 0.0000
+    2.4724E-01   8.10009E-06 0.0000
+    3.6883E-01   9.81426E-06 0.0000
+    5.5023E-01   1.24124E-05 0.0000
+    6.3928E-01   5.11964E-06 0.0000
+    7.4274E-01   5.30027E-06 0.0000
+    8.2085E-01   3.61814E-06 0.0000
+    9.6164E-01   5.93862E-06 0.0000
+    1.1080E+00   5.60890E-06 0.0000
+    1.4227E+00   9.99674E-06 0.0000
+    1.8268E+00   1.03636E-05 0.0000
+    2.3069E+00   9.50177E-06 0.0000
+    2.3852E+00   1.29854E-06 0.0000
+    3.0119E+00   8.40304E-06 0.0000
+    4.0657E+00   8.24908E-06 0.0000
+    4.7237E+00   2.84802E-06 0.0000
+    4.9659E+00   7.53166E-07 0.0001
+    6.3763E+00   2.58291E-06 0.0000
+    7.4082E+00   1.06401E-06 0.0001
+    8.1873E+00   4.76142E-07 0.0001
+    9.0484E+00   2.92500E-07 0.0001
+    1.0000E+01   1.61358E-07 0.0001
+    1.1052E+01   8.16136E-08 0.0002
+    1.2214E+01   3.76956E-08 0.0003
+    1.2523E+01   5.61998E-09 0.0008
+    1.3840E+01   1.38823E-08 0.0005
+    1.4191E+01   1.95065E-09 0.0014
+    1.4918E+01   2.67378E-09 0.0012
+    1.6905E+01   2.68918E-09 0.0013
+    1.9640E+01   5.61452E-10 0.0027
+      total      1.23846E-04 0.0000
+
+ there are no nonzero tallies in the tally fluctuation chart bin for tally       24
+
+1tally      964        nps = 50000000000
++                                    U234 Fission Reaction Rate (Fissions per cm^3 per src particle)           
+           tally type 4    track length estimate of particle flux.                             
+           particle(s): neutrons 
+
+           volumes 
+                   cell:       1                                                                                   
+                         2.79751E+03
+ 
+ cell  1                                                                                                                               
+ multiplier bin:  -9.38980E-03        20          -6                                                                                   
+      energy   
+    4.1399E-07   0.00000E+00 0.0000
+    1.1253E-06   8.23517E-19 0.4318
+    3.0590E-06   1.29067E-17 0.1106
+    1.0677E-05   1.13781E-15 0.2945
+    2.9023E-05   1.59007E-17 0.0812
+    1.0130E-04   4.43671E-15 0.0804
+    2.7536E-04   8.07629E-14 0.0431
+    5.8295E-04   1.10370E-12 0.0149
+    1.2341E-03   5.51357E-13 0.0089
+    3.3546E-03   3.54963E-13 0.0012
+    1.0333E-02   6.74365E-12 0.0002
+    2.1875E-02   2.20676E-11 0.0001
+    2.4788E-02   6.60124E-12 0.0002
+    3.4307E-02   3.07755E-11 0.0001
+    5.2475E-02   9.36136E-11 0.0001
+    1.1109E-01   5.80274E-10 0.0000
+    1.5764E-01   1.31222E-09 0.0000
+    2.4724E-01   3.05603E-09 0.0000
+    3.6883E-01   9.51658E-09 0.0000
+    5.5023E-01   4.53572E-08 0.0000
+    6.3928E-01   3.54624E-08 0.0000
+    7.4274E-01   4.93801E-08 0.0000
+    8.2085E-01   4.11875E-08 0.0000
+    9.6164E-01   5.96694E-08 0.0000
+    1.1080E+00   5.22184E-08 0.0000
+    1.4227E+00   1.01916E-07 0.0000
+    1.8268E+00   1.15542E-07 0.0000
+    2.3069E+00   1.08939E-07 0.0000
+    2.3852E+00   1.47076E-08 0.0000
+    3.0119E+00   9.68382E-08 0.0000
+    4.0657E+00   9.94919E-08 0.0000
+    4.7237E+00   3.41685E-08 0.0000
+    4.9659E+00   8.96321E-09 0.0001
+    6.3763E+00   2.99811E-08 0.0000
+    7.4082E+00   1.17258E-08 0.0001
+    8.1873E+00   5.48046E-09 0.0001
+    9.0484E+00   3.39766E-09 0.0001
+    1.0000E+01   1.88592E-09 0.0001
+    1.1052E+01   9.43855E-10 0.0002
+    1.2214E+01   4.20142E-10 0.0003
+    1.2523E+01   5.86336E-11 0.0008
+    1.3840E+01   1.35805E-10 0.0005
+    1.4191E+01   1.85689E-11 0.0014
+    1.4918E+01   2.63887E-11 0.0012
+    1.6905E+01   2.82478E-11 0.0013
+    1.9640E+01   5.84465E-12 0.0027
+      total      9.32577E-07 0.0000
+
+ there are no nonzero tallies in the tally fluctuation chart bin for tally      964
+
+1tally      974        nps = 50000000000
++                                    U235 Fission Reaction Rate (Fissions per cm^3 per src particle)           
+           tally type 4    track length estimate of particle flux.                             
+           particle(s): neutrons 
+
+           volumes 
+                   cell:       1                                                                                   
+                         2.79751E+03
+ 
+ cell  1                                                                                                                               
+ multiplier bin:  -9.32170E-01        21          -6                                                                                   
+      energy   
+    4.1399E-07   0.00000E+00 0.0000
+    1.1253E-06   9.42415E-13 0.4668
+    3.0590E-06   5.05126E-12 0.1124
+    1.0677E-05   3.18794E-11 0.0732
+    2.9023E-05   1.27699E-10 0.0401
+    1.0130E-04   6.47972E-10 0.0152
+    2.7536E-04   1.75262E-09 0.0068
+    5.8295E-04   3.58537E-09 0.0036
+    1.2341E-03   8.06062E-09 0.0019
+    3.3546E-03   3.46546E-08 0.0007
+    1.0333E-02   1.83778E-07 0.0002
+    2.1875E-02   4.74424E-07 0.0001
+    2.4788E-02   1.45268E-07 0.0002
+    3.4307E-02   5.28615E-07 0.0001
+    5.2475E-02   1.21188E-06 0.0001
+    1.1109E-01   4.90482E-06 0.0000
+    1.5764E-01   4.28860E-06 0.0000
+    2.4724E-01   8.09139E-06 0.0000
+    3.6883E-01   9.79781E-06 0.0000
+    5.5023E-01   1.23579E-05 0.0000
+    6.3928E-01   5.08007E-06 0.0000
+    7.4274E-01   5.24595E-06 0.0000
+    8.2085E-01   3.57245E-06 0.0000
+    9.6164E-01   5.86705E-06 0.0000
+    1.1080E+00   5.54162E-06 0.0000
+    1.4227E+00   9.83691E-06 0.0000
+    1.8268E+00   1.00311E-05 0.0000
+    2.3069E+00   9.14361E-06 0.0000
+    2.3852E+00   1.24853E-06 0.0000
+    3.0119E+00   8.07738E-06 0.0000
+    4.0657E+00   7.91069E-06 0.0000
+    4.7237E+00   2.72524E-06 0.0000
+    4.9659E+00   7.20309E-07 0.0001
+    6.3763E+00   2.46666E-06 0.0000
+    7.4082E+00   1.01242E-06 0.0001
+    8.1873E+00   4.53782E-07 0.0001
+    9.0484E+00   2.78883E-07 0.0001
+    1.0000E+01   1.53791E-07 0.0001
+    1.1052E+01   7.77776E-08 0.0002
+    1.2214E+01   3.59305E-08 0.0003
+    1.2523E+01   5.36963E-09 0.0008
+    1.3840E+01   1.32802E-08 0.0005
+    1.4191E+01   1.86573E-09 0.0014
+    1.4918E+01   2.55399E-09 0.0012
+    1.6905E+01   2.56223E-09 0.0013
+    1.9640E+01   5.33675E-10 0.0027
+      total      1.21540E-04 0.0000
+
+ there are no nonzero tallies in the tally fluctuation chart bin for tally      974
+
+1tally      984        nps = 50000000000
++                                    U236 Fission Reaction Rate (Fissions per cm^3 per src particle)           
+           tally type 4    track length estimate of particle flux.                             
+           particle(s): neutrons 
+
+           volumes 
+                   cell:       1                                                                                   
+                         2.79751E+03
+ 
+ cell  1                                                                                                                               
+ multiplier bin:  -3.00000E-03        22          -6                                                                                   
+      energy   
+    4.1399E-07   0.00000E+00 0.0000
+    1.1253E-06   4.46016E-19 0.4391
+    3.0590E-06   1.50597E-17 0.1128
+    1.0677E-05   1.44865E-14 0.3909
+    2.9023E-05   2.15322E-17 0.0527
+    1.0130E-04   5.27243E-14 0.0850
+    2.7536E-04   5.00041E-14 0.0313
+    5.8295E-04   1.07826E-13 0.0124
+    1.2341E-03   2.04249E-13 0.0051
+    3.3546E-03   5.84563E-13 0.0011
+    1.0333E-02   2.90680E-12 0.0003
+    2.1875E-02   6.98293E-12 0.0001
+    2.4788E-02   1.99503E-12 0.0002
+    3.4307E-02   6.97548E-12 0.0001
+    5.2475E-02   1.46381E-11 0.0001
+    1.1109E-01   4.38785E-11 0.0000
+    1.5764E-01   2.75705E-11 0.0000
+    2.4724E-01   4.48872E-11 0.0000
+    3.6883E-01   6.31663E-11 0.0000
+    5.5023E-01   1.91625E-10 0.0000
+    6.3928E-01   2.10878E-10 0.0000
+    7.4274E-01   6.13704E-10 0.0000
+    8.2085E-01   1.13812E-09 0.0000
+    9.6164E-01   4.09863E-09 0.0000
+    1.1080E+00   5.69323E-09 0.0000
+    1.4227E+00   1.68682E-08 0.0000
+    1.8268E+00   1.83511E-08 0.0000
+    2.3069E+00   1.91656E-08 0.0000
+    2.3852E+00   2.78990E-09 0.0000
+    3.0119E+00   1.81100E-08 0.0000
+    4.0657E+00   1.92252E-08 0.0000
+    4.7237E+00   6.90548E-09 0.0000
+    4.9659E+00   1.84104E-09 0.0001
+    6.3763E+00   6.56817E-09 0.0000
+    7.4082E+00   2.94576E-09 0.0001
+    8.1873E+00   1.30375E-09 0.0001
+    9.0484E+00   7.81490E-10 0.0001
+    1.0000E+01   4.32285E-10 0.0001
+    1.1052E+01   2.17668E-10 0.0002
+    1.2214E+01   1.01774E-10 0.0003
+    1.2523E+01   1.46979E-11 0.0008
+    1.3840E+01   3.43313E-11 0.0005
+    1.4191E+01   4.67061E-12 0.0014
+    1.4918E+01   6.59209E-12 0.0012
+    1.6905E+01   6.86764E-12 0.0013
+    1.9640E+01   1.50282E-12 0.0027
+      total      1.27836E-07 0.0000
+
+ there are no nonzero tallies in the tally fluctuation chart bin for tally      984
+
+1tally      994        nps = 50000000000
++                                    U238 Fission Reaction Rate (Fissions per cm^3 per src particle)           
+           tally type 4    track length estimate of particle flux.                             
+           particle(s): neutrons 
+
+           volumes 
+                   cell:       1                                                                                   
+                         2.79751E+03
+ 
+ cell  1                                                                                                                               
+ multiplier bin:  -5.54400E-02        23          -6                                                                                   
+      energy   
+    4.1399E-07   0.00000E+00 0.0000
+    1.1253E-06   2.34710E-21 0.4363
+    3.0590E-06   4.98847E-20 0.1105
+    1.0677E-05   1.58908E-18 0.2503
+    2.9023E-05   7.18026E-18 0.1412
+    1.0130E-04   3.36073E-17 0.0605
+    2.7536E-04   4.63778E-17 0.0369
+    5.8295E-04   3.35674E-16 0.0185
+    1.2341E-03   1.45433E-13 0.0175
+    3.3546E-03   1.22124E-17 0.0031
+    1.0333E-02   2.69610E-13 0.0019
+    2.1875E-02   7.52849E-13 0.0010
+    2.4788E-02   8.56652E-14 0.0008
+    3.4307E-02   1.21834E-12 0.0004
+    5.2475E-02   2.61072E-12 0.0002
+    1.1109E-01   8.11884E-12 0.0000
+    1.5764E-01   2.33553E-11 0.0000
+    2.4724E-01   2.45545E-11 0.0000
+    3.6883E-01   6.03779E-11 0.0000
+    5.5023E-01   2.13223E-10 0.0000
+    6.3928E-01   2.17557E-10 0.0000
+    7.4274E-01   4.72002E-10 0.0000
+    8.2085E-01   7.17449E-10 0.0000
+    9.6164E-01   3.53024E-09 0.0000
+    1.1080E+00   5.39515E-09 0.0000
+    1.4227E+00   3.42655E-08 0.0000
+    1.8268E+00   1.93567E-07 0.0000
+    2.3069E+00   2.26019E-07 0.0000
+    2.3852E+00   3.19799E-08 0.0000
+    3.0119E+00   2.07241E-07 0.0000
+    4.0657E+00   2.16418E-07 0.0000
+    4.7237E+00   8.06670E-08 0.0000
+    4.9659E+00   2.17826E-08 0.0001
+    6.3763E+00   7.88268E-08 0.0000
+    7.4082E+00   3.66225E-08 0.0001
+    8.1873E+00   1.54294E-08 0.0001
+    9.0484E+00   9.34589E-09 0.0001
+    1.0000E+01   5.19898E-09 0.0001
+    1.1052E+01   2.64940E-09 0.0002
+    1.2214E+01   1.23179E-09 0.0003
+    1.2523E+01   1.75228E-10 0.0008
+    1.3840E+01   4.27532E-10 0.0005
+    1.4191E+01   6.10717E-11 0.0014
+    1.4918E+01   8.60060E-11 0.0012
+    1.6905E+01   9.10742E-11 0.0013
+    1.9640E+01   2.02873E-11 0.0027
+      total      1.17277E-06 0.0000
+
+ there are no nonzero tallies in the tally fluctuation chart bin for tally      994
+
+1    some tally scores were not made for various reasons:
+
+                                  beyond last bin     not in
+                   tally       user  segment   mult   angle   energy   time             
+                     14          0       0       0       0   61156       0
+                     24          0       0       0       0   61156       0
+                    964          0       0       0       0   61156       0
+                    974          0       0       0       0   61156       0
+                    984          0       0       0       0   61156       0
+                    994          0       0       0       0   61156       0
+
+1status of the statistical checks used to form confidence intervals for the mean for each tally bin
+
+
+ tally   result of statistical checks for the tfc bin (the first check not passed is listed) and error magnitude check for all bins
+
+        4   no nonzero tallies were made in the tally fluctuation chart bin                           
+         missed all bin error check:   142 tally bins had    39 bins with zeros and    14 bins with relative errors exceeding 0.10
+
+       14   no nonzero tallies were made in the tally fluctuation chart bin                           
+         missed all bin error check:    47 tally bins had     1 bins with zeros and     2 bins with relative errors exceeding 0.10
+
+       24   no nonzero tallies were made in the tally fluctuation chart bin                           
+         missed all bin error check:    47 tally bins had     1 bins with zeros and     2 bins with relative errors exceeding 0.10
+
+      964   no nonzero tallies were made in the tally fluctuation chart bin                           
+         missed all bin error check:    47 tally bins had     1 bins with zeros and     3 bins with relative errors exceeding 0.10
+
+      974   no nonzero tallies were made in the tally fluctuation chart bin                           
+         missed all bin error check:    47 tally bins had     1 bins with zeros and     2 bins with relative errors exceeding 0.10
+
+      984   no nonzero tallies were made in the tally fluctuation chart bin                           
+         missed all bin error check:    47 tally bins had     1 bins with zeros and     3 bins with relative errors exceeding 0.10
+
+      994   no nonzero tallies were made in the tally fluctuation chart bin                           
+         missed all bin error check:    47 tally bins had     1 bins with zeros and     4 bins with relative errors exceeding 0.10
+
+
+ the 10 statistical checks are only for the tally fluctuation chart bin and do not apply to other tally bins.
+
+ the tally bins with zeros may or may not be correct: compare the source, cutoffs, multipliers, et cetera with the tally bins.
+
+ warning.       7 of the     7 tally fluctuation chart bins did not pass all 10 statistical checks.
+ warning.       7 of the     7 tallies had bins with relative errors greater than recommended.
+1tally fluctuation charts                              
+
+                            tally        4                          tally       14                          tally       24
+          nps      mean     error   vov  slope    fom      mean     error   vov  slope    fom      mean     error   vov  slope    fom
+   5000000000   2.1911E-03 0.0000 0.0000  3.5 1.0E+30   2.1911E-03 0.0000 0.0000  3.5 1.0E+30   1.2385E-04 0.0000 0.0000  9.9 1.0E+30
+  10000000000   2.1911E-03 0.0000 0.0000  3.0 1.0E+30   2.1911E-03 0.0000 0.0000  3.0 1.0E+30   1.2385E-04 0.0000 0.0000 10.0 1.0E+30
+  15000000000   2.1912E-03 0.0000 0.0000  2.8 1.0E+30   2.1912E-03 0.0000 0.0000  2.8 1.0E+30   1.2385E-04 0.0000 0.0000 10.0 1.0E+30
+  20000000000   2.1912E-03 0.0000 0.0000  3.2 1.0E+30   2.1912E-03 0.0000 0.0000  3.2 1.0E+30   1.2385E-04 0.0000 0.0000 10.0 1.0E+30
+  25000000000   2.1912E-03 0.0000 0.0000  3.3 1.0E+30   2.1912E-03 0.0000 0.0000  3.3 1.0E+30   1.2385E-04 0.0000 0.0000 10.0 1.0E+30
+  30000000000   2.1912E-03 0.0000 0.0000  2.9 1.0E+30   2.1912E-03 0.0000 0.0000  2.9 1.0E+30   1.2385E-04 0.0000 0.0000 10.0 1.0E+30
+  35000000000   2.1912E-03 0.0000 0.0000  3.4 1.0E+30   2.1912E-03 0.0000 0.0000  3.4 1.0E+30   1.2385E-04 0.0000 0.0000 10.0 1.0E+30
+  40000000000   2.1912E-03 0.0000 0.0000  3.8 1.0E+30   2.1912E-03 0.0000 0.0000  3.8 1.0E+30   1.2385E-04 0.0000 0.0000 10.0 1.0E+30
+  45000000000   2.1912E-03 0.0000 0.0000  0.0 1.0E+30   2.1912E-03 0.0000 0.0000  0.0 1.0E+30   1.2385E-04 0.0000 0.0000  0.0 1.0E+30
+  50000000000   2.1912E-03 0.0000 0.0000  0.0 1.0E+30   2.1912E-03 0.0000 0.0000  0.0 1.0E+30   1.2385E-04 0.0000 0.0000  0.0 1.0E+30
+ 
+
+                            tally      964                          tally      974                          tally      984
+          nps      mean     error   vov  slope    fom      mean     error   vov  slope    fom      mean     error   vov  slope    fom
+   5000000000   9.3257E-07 0.0000 0.0000  1.9 1.0E+30   1.2154E-04 0.0000 0.0000  9.9 1.0E+30   1.2783E-07 0.0000 0.0000  1.8 1.0E+30
+  10000000000   9.3258E-07 0.0000 0.0000  4.4 1.0E+30   1.2154E-04 0.0000 0.0000 10.0 1.0E+30   1.2784E-07 0.0000 0.0000  1.8 1.0E+30
+  15000000000   9.3257E-07 0.0000 0.0000  9.1 1.0E+30   1.2154E-04 0.0000 0.0000 10.0 1.0E+30   1.2784E-07 0.0000 0.0000  2.0 1.0E+30
+  20000000000   9.3258E-07 0.0000 0.0000  9.7 1.0E+30   1.2154E-04 0.0000 0.0000 10.0 1.0E+30   1.2784E-07 0.0000 0.0000  2.2 1.0E+30
+  25000000000   9.3258E-07 0.0000 0.0000  7.5 1.0E+30   1.2154E-04 0.0000 0.0000 10.0 1.0E+30   1.2784E-07 0.0000 0.0000  2.2 1.0E+30
+  30000000000   9.3258E-07 0.0000 0.0000  7.3 1.0E+30   1.2154E-04 0.0000 0.0000 10.0 1.0E+30   1.2784E-07 0.0000 0.0000  2.1 1.0E+30
+  35000000000   9.3258E-07 0.0000 0.0000 10.0 1.0E+30   1.2154E-04 0.0000 0.0000 10.0 1.0E+30   1.2784E-07 0.0000 0.0000  2.3 1.0E+30
+  40000000000   9.3258E-07 0.0000 0.0000 10.0 1.0E+30   1.2154E-04 0.0000 0.0000 10.0 1.0E+30   1.2784E-07 0.0000 0.0000  2.4 1.0E+30
+  45000000000   9.3258E-07 0.0000 0.0000  0.0 1.0E+30   1.2154E-04 0.0000 0.0000  0.0 1.0E+30   1.2784E-07 0.0000 0.0000  0.0 1.0E+30
+  50000000000   9.3258E-07 0.0000 0.0000  0.0 1.0E+30   1.2154E-04 0.0000 0.0000  0.0 1.0E+30   1.2784E-07 0.0000 0.0000  0.0 1.0E+30
+ 
+
+                            tally      994
+          nps      mean     error   vov  slope    fom
+   5000000000   1.1728E-06 0.0000 0.0000 10.0 1.0E+30
+  10000000000   1.1728E-06 0.0000 0.0000 10.0 1.0E+30
+  15000000000   1.1728E-06 0.0000 0.0000 10.0 1.0E+30
+  20000000000   1.1728E-06 0.0000 0.0000  6.4 1.0E+30
+  25000000000   1.1728E-06 0.0000 0.0000  6.6 1.0E+30
+  30000000000   1.1728E-06 0.0000 0.0000  6.4 1.0E+30
+  35000000000   1.1728E-06 0.0000 0.0000  7.1 1.0E+30
+  40000000000   1.1728E-06 0.0000 0.0000  7.7 1.0E+30
+  45000000000   1.1728E-06 0.0000 0.0000  0.0 1.0E+30
+  50000000000   1.1728E-06 0.0000 0.0000  0.0 1.0E+30
+
+ ***********************************************************************************************************************
+
+ dump no.    4 on file runtpe     nps = 50000000000     coll =   165639954880     ctm =    35043.71   nrn =    
+ 1976377153704
+
+        11 warning messages so far.
+
+
+ run terminated when 50000000000  particle histories were done.
+
+ computer time =37550.94 minutes
+
+ mcnp     version 6.mpi 07/27/15                     06/22/17 13:11:30                     probid =  06/22/17 09:55:42 

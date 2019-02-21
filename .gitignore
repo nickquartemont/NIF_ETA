@@ -1,0 +1,147 @@
+# MCNP
+IRDFFv105
+runtp*
+*_sw
+*.gz
+
+# Latex
+*.log
+*.aux
+*.bbl
+*.lof
+*.toc
+
+# Misc
+*.$$$
+
+# Microsoft docs
+
+# GEF
+*.dmp
+*.rnd
+
+# Scale 
+*.jar
+*.chart
+*.msm
+*.terminal
+
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# Translations
+*.mo
+*.pot
+
+# Sphinx documentation
+docs/_build/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+
+Models/MCNP/Full-NIF/rssa
+NIF-Src/NIF Source SSR/rssa
+Models/MCNP/Full-NIF/wssa
+*.msg
+*.path
+*.aux
+*.aux
+*.bbl
+*.blg
+*.lof
+*.log
+*.lot
+*.toc
+Documents/HEART 2019/Figures/CE_Fluence_diff.eps
+Documents/HEART 2019/Figures/DifferentialFlux_c.eps
+Documents/HEART 2019/Figures/ETA_3d_H.eps
+Documents/HEART 2019/Figures/RSSA_Spectrum.eps
+Documents/HEART 2019/Figures/U235_RelUncert.eps
+*.tiff
+Models/Scale/Archive/ETA_Sampler_MG2/ETA_SAMPLER.adjoint.dff
+Models/Scale/Archive/ETA_Sampler_MG3/ETA_SAMPLER.adjoint.dff
+Models/Scale/Archive/ETA_Sampler_MG4/ETA_SAMPLER.adjoint.dff
+Models/Scale/ETA_Sampler/ETA_SAMPLER.samplerfiles - old/ETA_SAMPLER.adjoint.dff
+Models/STAYSL_Unfold/Unpurturbed/STAYSL/sta_dam.dat
+Models/STAYSL_Unfold/Unpurturbed/STAYSL/sta_xfr.dat
+Models/STAYSL_Unfold/Unpurturbed/STAYSL/sta_xfr.dat
+Models/STAYSL_Unfold/Unpurturbed/STAYSL/sta_xfr.dat
+Models/STAYSL_Unfold/Unpurturbed/STAYSL/sta_dam.dat
+Quartemont_Thesis/Preamble/.DS_Store
+Models/Scale/ScalePy/staysl_pnnl_error.txt
+Models/STAYSL_Unfold/SAMPLER/sta_dam.dat
+Models/STAYSL_Unfold/SAMPLER/sta_xfr.dat
+Models/STAYSL_Unfold/Unpurturbed/STAYSL/sta_dam.dat
+Models/STAYSL_Unfold/Unpurturbed/STAYSL/sta_xfr.dat
+Quartemont_Thesis/.DS_Store
+Quartemont_Thesis/Back/.DS_Store
+*.bst
+Quartemont_Thesis/Back/vita.tex
+Quartemont_Thesis/Figures/.DS_Store
+Quartemont_Thesis/Front/.DS_Store
+FP_Distro/GEF/GEF_92_236_n.dat
+Models/FissionProduct/GEF_92_236_n.dat
+Models/FissionProduct/GEF_92_239_n.dat
+Models/STAYSL_Unfold/SAMPLER/sta_dam.dat
+Models/STAYSL_Unfold/SAMPLER/sta_xfr.dat
+Models/STAYSL_Unfold/Unpurturbed/STAYSL/sta_xfr.dat
+Models/STAYSL_Unfold/Unpurturbed/STAYSL/sta_dam.dat
+Models/FissionProduct/GEF/GEF_92_239_n.dat
+Models/FissionProduct/GEF/GEF_92_236_n.dat
+Models/STAYSL_Unfold/SAMPLER/sta_spe.dat
+Models/STAYSL_Unfold/SAMPLER/sta_fir.dat
+Models/STAYSL_Unfold/SAMPLER/sta_dam.dat

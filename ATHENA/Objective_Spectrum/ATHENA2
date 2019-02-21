@@ -1,0 +1,16 @@
+
+#!/bin/bash
+
+#PBS -N MCNP
+#PBS -l nodes=1:ppn=16
+#PBS -l walltime=100:00:00
+#PBS -j oe
+
+module add /app/afit/modulefiles/
+module add mcnp
+
+cd /home/nquartem/ATHENA/Be_5/
+
+mcnp6 tasks 32 i=Boost_5cm_Be.i o=Boost_5cm_Be.o
+mcnp6 tasks 32 i=Watt_5cm_Be.i o=Watt_5cm_Be.o
+

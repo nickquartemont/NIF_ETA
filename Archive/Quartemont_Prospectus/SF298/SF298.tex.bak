@@ -1,0 +1,51 @@
+\date{March 2010}
+\ReportDate{27--03--2010} \ReportType{Master's Thesis}
+\DatesCovered{Aug 2008 --- Mar 2010}
+
+\Title{\centering \MakeUppercase{Evaluation of Interplanetary
+Magnetic Field Tracing Models Using Impulsive SEP's}}
+
+\Title{\centering \MakeUppercase{Evaluation of Interplanetary
+Magnetic Field Tracing Models Using Impulsive SEP's}}
+
+%\ContractNumber{DACA99--99--C--9999}
+
+%\GrantNumber{}
+%\ProgramElementNumber{}
+\ProjectNumber{N/A}
+%\TaskNumber{}
+%\WorkUnitNumber{}
+
+\Author{Brian P. Elliott, Capt, USAF}
+
+\PerformingOrg{Air Force Institute of Technology\\[-1pt]
+    Graduate School of Engineering and Management (AFIT/EN)\\[-1pt]
+    2950 Hobson Way\\[-1pt]
+    WPAFB OH 45433-7765}
+
+\POReportNumber{AFIT/GE/ENP/10-M??}
+
+\SponsoringAgency{AFRL/RDHE (Dr. Keith Cartwright)\\[-1pt]
+3550 Aberdeen Ave SE\\[-1pt]
+Kirtland AFB, NM 87117-5776\\[-1pt]
+246-9101, keith.cartwright@kirtland.af.mil }
+
+\Acronyms{AFRL/RDHE}
+%\SMReportNumber{}
+\DistributionStatement{APPROVED FOR PUBLIC RELEASE; DISTRIBUTION UNLIMITED.}
+
+\Abstract{Mitigation approaches for single surface multipactor at dielectric windows are investigated using Particle-In-Cell (PIC) simulations. Initially baseline susceptibility diagrams are constructed analytically and compared with self-consistent, dynamic system trajectories.   The power deposited on the surface of a dielectric window in an HPM system is considered using three different methods and the results of PIC simulations.  Geometric mitigation is then considered by varying the window orientation with respect to the HPM electric field.  Small angular deviations, less than 20 degrees, from the nominal case of normal incidence show dramatic changes in the susceptibility diagram.  A materials approach to mitigation is then considered. Titanium Nitride, TiN, coatings applied to the dielectric surface can substantially reduce the secondary emission yield.  Representative modifications of the secondary emission yield are simulated and the resulting susceptibility diagrams are discussed.     }
+
+\SubjectTerms{Electron Multipactor, Multipactor, Multipactor Mitigation, Dielectric Surface, HPM Systems, High-Powered Microwave Systems, Thing Film Coatings, Oblique Incidence}
+
+\NumberPages{117}
+%\ReportClassification{}
+%\PageClassification{}
+%\AbstractClassification{}
+\AbstractLimitation{U}
+
+\ResponsiblePerson{Dr. William F. Bailey}
+
+\RPTelephone{(937) 255-3636, x4501; william.bailey@afit.edu}
+
+\MakeRptDocPage

@@ -1,0 +1,268 @@
+% EXAMPLES
+
+\newcommand{\figdielMultSimple}{
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.75]{Chapter1/figures/diel_mult_simple.pdf}
+\caption{The general geometry for single surface multipactor}
+\label{fig:diel_mult_simple}
+\end{center}
+\end{figure}
+}
+
+\newcommand{\figMeanEnergy}{
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.7]{Chapter2/figures/impact_energy.pdf}
+\caption[The mean impact energy of collected particles]{The mean impact energy of collected particles at discrete time steps is shown.  In this system, space charge effects are considered and the following parameters are used: \erf = 5.5 MV/m, $\delta_{max0}=3$, $\mathcal{E}_{max0}=420$ eV, $f=2.45\e9$ GHz and $k_s=1$.  The dotted red line shows the impact energy which is equal to $3.6 \mathcal{E}_{max0}$.  From this figure, it is evident that very few particles obtain an energy  requiring Equation \ref{eq:w_new}, however, for these few cases, this additional region is imperative for numerical stability.}
+\label{fig:mean_energy}
+\end{center}
+\end{figure}
+}
+
+\newcommand{\figSecEMForms}{
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[scale=0.85, width=6in]{Chapter2/figures/sec_em_forms.pdf}
+\caption[Comparison of three forms of the SEE equations]{Comparison of the forms of the secondary emission equation.  The horizontal dotted line shows the crossover point where $\delta = 1$, while the vertical dotted line shows the point at which $\mathcal{E}_i \approx 3.6 \mathcal{E}_{max0}$.  }
+\label{fig:sec_em_forms}
+\end{center}
+\end{figure}
+}
+
+\newcommand{\figdielMultSimpleTwo}{
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.7]{Chapter1/figures/diel_mult_simple.pdf}
+\caption[Figure \ref{fig:diel_mult_simple} is shown again for convenience]{Figure \ref{fig:diel_mult_simple} is shown again for convenience.  The general geometry for single surface multipactor.}
+\label{fig:diel_mult_simple_2}
+\end{center}
+\end{figure}
+}
+
+\newcommand{\figSusCurves}{
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.75]{Chapter2/figures/sus_curve.pdf}
+\caption[Kishek's universal susceptibility curves \cite{kishek_98}]{Reproduction of Kishek's universal susceptibility curves \cite{kishek_98} for the simple (no space charge) case.  The values are normalized to the frequency and $\mathcal{E}_{max0}$, hence, the term "universal".}
+\label{fig:sus_curves}
+\end{center}
+\end{figure}
+}
+
+\newcommand{\figVerBowtie}{
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[scale=0.85]{Chapter2/figures/ver_bowtie.pdf}
+\caption[Kim and Verboncoeur's \cite{verboncoeur_2005} periodic susceptibility curves]{Reproduction of Kim and Verboncoeur's \cite{verboncoeur_2005} periodic susceptibility curves or "bowtie" diagrams.  Since this curve is not normalized, it varies for each set of parameters (\erf, $f$, $\delta_{max0}$, $\mathcal{E}_{max0}$).  The parameters for this plot are: $E_{RF0} = 3$ MV/m, $f = 1$ GHz, $\delta_{max0} = 2$, $\mathcal{E}_{max0} = 400$ eV. The dotted lines are "guidlines" from the case in which space charge effects were ignored.}
+\label{fig:verbowtie}
+\end{center}
+\end{figure}
+}
+
+\newcommand{\figpicFlow}{
+\begin{figure}
+\begin{center}
+\includegraphics*[scale=0.9, viewport=100 450 500 725, clip]{Chapter2/figures/pic_flow.pdf}
+\caption[The general mathematical flow of PIC codes]{The general mathematical flow of PIC codes, as given by Birdsall \cite{birdsall}.}
+\label{fig:pic_flow}
+\end{center}
+\end{figure}
+}
+
+\newcommand{\figsecEMcomp}{
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.75]{Chapter2/figures/sec_em_comp.pdf}
+\caption[A comparision of secondary emission yield curves]{A comparision of secondary emission yield curves.  The only parameter varied in this plot is $\delta_{max0}$, showing the drastic difference a reduction in this material parameter can make.}
+\label{fig:sec_em_comp}
+\end{center}
+\end{figure}
+}
+
+\newcommand{\figdielMultNew}{
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[scale=0.75]{Chapter2/figures/diel_mult_new.pdf}
+\caption[The oblique geometry for single surface multipactor]{The
+geometry for single surface multipactor given an angle of incidence,
+$\psi$, between the surface and \erf.  This geometry is equivalent to placing the window at some angle $\psi$ off of normal to the waveguide.}
+\label{fig:diel_mult_new}
+\end{center}
+\end{figure}
+}
+
+\newcommand{\figobliqueSecOne}{
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[scale=0.8]{Chapter2/figures/oblique_sec_1.pdf}
+\caption{Secondary emission curve as given by Valfells, et al. \cite{valfells}}
+\label{fig:oblique_sec}
+\end{center}
+\end{figure}
+}
+
+\newcommand{\figicepicSystem}{
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[scale=0.7]{Chapter3/figures/icepic_system.pdf}
+\caption[The geometry used for ICEPIC simulations]{The geometry used for ICEPIC simulations. $Nx$ and $Nz$ are the number of cells in the respective direction, $dz=\lambda / 3000$ is the width of a cell.  The particle emitter, planewave emitter and planewave absorber take up no physical space.}
+\label{fig:icepic_system}
+\end{center}
+\end{figure}
+}
+
+\newcommand{\fignscSusCurveComp}{	
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.8]{Chapter3/figures/nsc_sus_comp.pdf}
+\caption[Comparison with Fichtl's multipactor boundary curves]{Comparison with Fichtl's multipactor boundary curves.  The labeled points correspond with the points selected for Figure \ref{fig:mp_evolve} and are in reference to the Rogers case with no scattering or reflection effects (solid green line).}
+\label{fig:nsc_sus_curve_comp}
+\end{center}
+\end{figure}
+}
+
+\newcommand{\figmpEvolve}{
+\begin{figure}
+\begin{center}
+\subfigure[Well above curve]{
+\includegraphics[scale=0.6]{Chapter3/figures/fichtl_8a_1.pdf}
+\label{fig:mp_ev1}
+}
+\subfigure[Well below curve]{
+\includegraphics[scale=0.6]{Chapter3/figures/fichtl_8b_1.pdf}
+\label{fig:mp_ev2}
+}
+\subfigure[Just above curve]{
+\includegraphics[scale=0.6]{Chapter3/figures/fichtl_8c_1.pdf}
+\label{fig:mp_ev3}
+}
+\subfigure[Just below curve]{
+\includegraphics[scale=0.6]{Chapter3/figures/fichtl_8d_1.pdf}
+\label{fig:mp_ev4}
+}
+\end{center}
+\caption[Particle growth near the lower multipactor boundary curve]{Particle growth for points near the lower multipactor boundary curve.  In this case, $f=2.45$ GHz.  Each of these points is shown on Figure \ref{fig:nsc_sus_curve_comp}}
+\label{fig:mp_evolve}
+\end{figure}
+}
+
+\newcommand{\figfichtlpdep}{
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.75]{Chapter3/figures/fichtl_17.pdf}
+\caption[Fraction of input power deposited on the surface]{Fraction of input power deposited on the dielectric window as calculated by Fichtl \cite{fichtl}}
+\label{fig:fichtl_pdep}
+\end{center}
+\end{figure}
+}
+
+\newcommand{\figverEvolution}{
+\begin{figure}
+\begin{center}
+\subfigure[Fields]{
+\includegraphics[scale=0.6]{Chapter3/figures/ver_fields_a.pdf}
+}
+\subfigure[Particles]{
+\includegraphics[scale=0.62]{Chapter3/figures/ver_part_a.pdf}
+}
+\caption[Evolution of fields and particles in a multipactoring system]{Evolution in time of fields and particles in a multipactoring system, with $E_{RF}=3$ MV/m and $f=1$ GHz.  Note that the fields are only shown for a small portion of the entire simulation, but the particle count represents the simulation in its entirety.}
+\label{fig:ver_evolution}
+\end{center}
+\end{figure}
+}
+
+\newcommand{\figverBowC}{
+\begin{figure}
+\begin{center}
+\subfigure[$E_{RF}=3$ MV/m, $f=1$ GHz]{
+\includegraphics[scale=0.6]{Chapter3/figures/ver_bowtie_a.pdf}
+\label{fig:ver_bow_a}
+}
+\subfigure[$E_{RF}=0.3$ MV/m, $f=1$ GHz]{
+\includegraphics[scale=0.6]{Chapter3/figures/ver_bowtie_b.pdf}
+\label{fig:ver_bow_b}
+} \\
+\subfigure[$E_{RF}=3$ MV/m, $f=10$ GHz]{
+\includegraphics[scale=0.6]{Chapter3/figures/ver_bowtie_c.pdf}
+\label{fig:ver_bow_c}
+}
+\caption["Bowtie" plots from Kim and Verboncoeur \cite{verboncoeur_2005}]{Results of the simulations detailed by Kim and Verboncoeur \cite{verboncoeur_2005}.  These curves detail the evolution of \erf and \edc in time, representing a periodic steady state.  The arrows show the direction of the system trajectory and the areas of electron density growth and decay are labeled.}
+\label{fig:ver_bow}
+\end{center}
+\end{figure}
+}
+
+\newcommand{\figobliqueConf}{
+\begin{figure}[htb]
+\begin{center}
+\includegraphics*[scale=0.8, viewport=-100 0 450 405]{Chapter3/figures/oblique_field_comp.pdf}
+\caption[Comparison of the theoretical and ICEPIC fields]{Comparison of the theoretical and ICEPIC \edc and \erf fields in the oblique case.  The theoretical case has been run out to longer times than }
+\label{fig:oblique_conf}
+\end{center}
+\end{figure}
+}
+
+\newcommand{\figobliqueSusCurveA}{
+\begin{figure}[htb]
+%\centering
+\begin{center}
+\subfigure[$\psi=0^{\circ}$]{
+\includegraphics[scale=0.39]{Chapter4/figures/oblique_PSI=0deg_2.pdf}
+\label{fig:oblique_0}
+}%
+\quad
+\subfigure[$\psi=5^{\circ}$]{
+\includegraphics[scale=0.39]{Chapter4/figures/oblique_PSI=5deg_2.pdf}
+\label{fig:oblique_5}
+}\\
+\subfigure[$\psi=8^{\circ}$]{
+\includegraphics[scale=0.39]{Chapter4/figures/oblique_PSI=8deg_2.pdf}
+\label{fig:oblique_8}
+}\quad
+\subfigure[$\psi=10^{\circ}$]{
+\includegraphics[scale=0.39]{Chapter4/figures/oblique_PSI=10deg_2.pdf}
+\label{fig:oblique_10}
+}\\
+\subfigure[$\psi=15^{\circ}$]{
+\includegraphics[scale=0.39]{Chapter4/figures/oblique_PSI=15deg_2.pdf}
+\label{fig:oblique_15}
+}\quad
+\subfigure[$\psi=20^{\circ}$]{
+\includegraphics[scale=0.39]{Chapter4/figures/oblique_PSI=20deg_2.pdf}
+\label{fig:oblique_20}
+}%
+\end{center}%
+\caption[Susceptibility curves generated from \matlab simulations]{Susceptibility curves generated from \matlab simulations, where \edc and \erf are scaled as [MV/m] $\times \left( f / 1 \mbox{GHz} \right)^{-1} \left(\mathcal{E}_{max0}/400 \mbox{eV} \right)^{-1/2}$.  In this system, $\delta_{max0}=3$.  Plus signs (+) represent points at which multipactor occurs and circles ($\circ$) represent areas where multipactor does not occur.}
+\label{fig:oblique_sus_curve_a}
+\end{figure}
+}
+
+\newcommand{\figobliqueSusComp}{
+\begin{figure}[htb]
+\begin{center}
+\subfigure[$\psi=0^{\circ}$]{
+\includegraphics[scale=0.6]{Chapter4/figures/oblique_sus_comp_psi=0_new_1.pdf}
+}%
+\quad
+\subfigure[$\psi=10^{\circ}$]{
+\includegraphics[scale=0.6]{Chapter4/figures/oblique_sus_comp_psi=10_new_1.pdf}
+}\\
+\subfigure[$\psi=15^{\circ}$]{
+\includegraphics[scale=0.6]{Chapter4/figures/oblique_sus_comp_psi=15_new_1.pdf}
+}%
+\end{center}%
+\caption[Susceptibility curves generated from ICEPIC simulations]{Susceptibility curves generated from ICEPIC simulations, where \edc and \erf are scaled as [MV/m] $\times \left( f / 1 \mbox{GHz} \right)^{-1} \left(\mathcal{E}_{max0}/400 \mbox{eV} \right)^{-1/2}$.  In this case, only the lower boundary is shown.}
+\label{fig:oblique_sus_comp}
+\end{figure}
+}
+
+\newcommand{\figfilmPowerDepComp}{
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[scale=1.0]{Chapter4/figures/film_comp_1.pdf}
+\caption[Comparison of power deposition for thinly coated dielectric]{Comparison of the power deposition metrics for the bare dielectric and the dielectric covered by a thin coating of a low-SEY material.}
+\label{fig:film_power_dep_comp}
+\end{center}
+\end{figure}
+}
