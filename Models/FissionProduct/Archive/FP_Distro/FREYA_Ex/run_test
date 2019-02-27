@@ -1,0 +1,48 @@
+#!/bin/sh
+#
+# run_test [1]
+#
+# Jerome Verbeke, 10/30/2014
+# mods by Doug Wright
+
+export CC=gcc
+export CXX=g++
+export FC=gfortran
+
+#....choose linker based on availability of fortran compiler
+which $FC > /dev/null && export LD=$FC || export LD=$CXX
+
+export LD_LIBRARY_PATH=/home/pyne-user/FREYA_v1.9.1/lib
+export DYLD_LIBRARY_PATH=${LD_LIBRARY_PATH} # MacOSX
+export INCLUDE='-I/home/pyne-user/FREYA_v1.9.1/include'
+export LIBS='-L/home/pyne-user/FREYA_v1.9.1/lib -lFission -lstdc++ -lm'
+# export EXTRAFCFLAGS='-nofor_main'
+export EXTRAFCFLAGS=''
+
+#....process command line arguments (select which test to run)
+if [ $# -eq 0 ]; then
+    export test1=1
+else
+    export test$1=1
+fi
+
+#....compile and run the tests
+if [ ! -z ${test1+x} ]; then
+   which $FC > /dev/null || ( echo Need $FC to link FREYA test && exit )
+   echo Compiling and linking testFreya
+   $CC  testFreya.c -g -O3 -DFREYA -c $INCLUDE
+   $LD  testFreya.o -g -O3 -o testFreya $EXTRAFCFLAGS $LIBS
+
+   export FREYADATAPATH=/home/pyne-user/FREYA_v1.9.1/data_freya
+   echo "set FREYADATAPATH=$FREYADATAPATH"
+   echo "running testFreya (takes 7 seconds on aztec)"
+   if [ -f testFreyaSpec.res ]; then rm -f testFreyaSpec.res; fi
+   if [ -f testFreyaSpecTotal.res ]; then rm -f testFreyaSpecTotal.res; fi
+   if [ -f testFreyaTotal.res ]; then rm -f testFreyaTotal.res; fi
+   time ./testFreya
+   diff -s testFreyaNuDist.res testFreyaNuDist.goldref
+   diff -s testFreyaSpec.res testFreyaSpec.goldref
+   diff -s testFreyaSpecTotal.res testFreyaSpecTotal.goldref
+   diff -s testFreyaTotal.res testFreyaTotal.goldref
+   echo
+fi

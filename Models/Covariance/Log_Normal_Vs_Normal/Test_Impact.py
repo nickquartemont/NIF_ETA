@@ -132,14 +132,14 @@ MnDataEval=np.loadtxt('Mn_Evaluation.txt')
 # Fourth is uncert 
 
 plot([MnData[:,0],MnData[:,2],MnData[:,1],MnData[:,3]],[MnDataEval[:,0],MnDataEval[:,1]],
-     yMin=0.0001,logX=False, logY=True, xMin=13.5,xMax=15.5,legendLoc=2, 
+     yMin=0.0001,yMax=0.2,logX=False, logY=True, xMin=13.5,xMax=15.5,legendLoc=2, 
      xLabel='$\mathbf{Energy \ [MeV]}$', 
      yLabel='$\mathbf{\sigma \ [barns]}$',includeMarkers=True, 
      linestyle=['','--'],
      dataLabel=['Experimental Data','ENDF/B-VII.1'],
      includeLines=True,savePath='Mn_Eval.png',dpi=600)
 plot([MnData[:,0],MnData[:,2],MnData[:,1],MnData[:,3]],[MnDataEval[:,0],MnDataEval[:,1]],
-     yMin=0.0001,logX=False, logY=True, xMin=13.5,xMax=15.5,legendLoc=2, 
+     yMin=0.0001,yMax=0.2,logX=False, logY=True, xMin=13.5,xMax=15.5,legendLoc=2, 
      xLabel='$\mathbf{Energy \ [MeV]}$', 
      yLabel='$\mathbf{\sigma \ [barns]}$',includeMarkers=True, 
      linestyle=['','--'],

@@ -1,0 +1,179 @@
+This models a mat#1  sphere with R= 8.7410 and rho=18.7426
+c
+c April 15th, 2016
+c
+c Mat1=235U
+c
+c Initial radius and Mass taken to be 100% of Godiva (U235) and Jezebel (Pu239)
+c   -> keff = 1.0
+c
+c In this calculation, we are assuming: Watt fission spectra, volume src
+c
+c Addtionally, we are neglecting: time dependence, reflection and moderation dt tamper
+c         or explosives, temperature variation w/ time, and spatial variation of DT and
+c          fission birth events, spatial variation of density
+c
+c Ref:"Intercomparison of Calculations for Godiva and Jezebel"
+c
+c
+c *******************************************************************************************
+c  Cell Cards
+c *******************************************************************************************
+c Fissile cylinder
+1  9             -18.743         -1                      imp:n,p=1     
+c Problem Boundaries
+2  0                         1                           imp:n,p=0 $ kill zone
+
+c *******************************************************************************************
+c Surfaces
+c *******************************************************************************************
+c Fissile material cylinder
+1 SO 8.741
+
+c *******************************************************************************************
+c Data Cards
+c *******************************************************************************************
+TOTNU NO             $Prompt Component Only
+NONU                 $All Fission treated as capture ->no multiplication
+PRINT
+MODE n               $Neglect photons
+NPS 5E10
+c ****************************************************************************
+c  Materials  
+c ****************************************************************************
+C name: HEU
+C density = 18.7
+m9
+     92233 -2.0000e-05
+     92234 -9.3898e-03
+     92235 -9.3215e-01
+     92236 -2.9999e-03
+     92238 -5.5439e-02
+C name: 234U
+C density = 18.7
+m20
+     92234 1.0
+C name: 235U
+C density = 18.7
+m21
+     92235 1.0
+C name: 236U
+C density = 18.7
+m22
+     92236 1.0
+C name: 238U
+C density = 18.7
+m23
+     92238 1.0
+c ****************************************************************************
+c  Source  
+c ****************************************************************************
+SDEF PAR=n X=d1 Y=d2 Z=d3 CELL=1 ERG=d4 wgt=1.000392642e+00
+SI1  -8.741        8.741
+SP1  0  1
+SI2  -8.741        8.741
+SP2  0  1
+SI3  -8.741        8.741
+SP3  0  1
+SP4 -3 0.988        2.249
+c ****************************************************************************
+c  ADVANTG EDITS  
+c ****************************************************************************
+c  SDEF WGT parameter relative uncertainty = 0.0603%
+wwp:n 5.0 j 100 j -1 0 5.857500994e+00
+c ****************************************************************************
+c  Tallies    
+c ****************************************************************************
+c *** HEU ***
+FC4 Uranium Flux Spectra - STAYSL Bins (Number per cm^2 per src neutron)
+F4:n 1
+E4  1.00E-10 1.00E-09 1.00E-08 2.30E-08 5.00E-08 7.60E-08 1.15E-07
+     1.70E-07 2.55E-07 3.80E-07 5.50E-07 8.40E-07 1.28E-06 1.90E-06
+     2.80E-06 4.25E-06 6.30E-06 9.20E-06 1.35E-05 2.10E-05 3.00E-05
+     4.50E-05 6.90E-05 1.00E-04 1.35E-04 1.70E-04 2.20E-04 2.80E-04
+     3.60E-04 4.50E-04 5.75E-04 7.60E-04 9.60E-04 1.28E-03 1.60E-03
+     2.00E-03 2.70E-03 3.40E-03 4.50E-03 5.50E-03 7.20E-03 9.20E-03
+     1.20E-02 1.50E-02 1.90E-02 2.55E-02 3.20E-02 4.00E-02 5.25E-02
+     6.60E-02 8.80E-02 1.10E-01 1.35E-01 1.60E-01 1.90E-01 2.20E-01
+     2.55E-01 2.90E-01 3.20E-01 3.60E-01 4.00E-01 4.50E-01 5.00E-01
+     5.50E-01 6.00E-01 6.60E-01 7.20E-01 7.80E-01 8.40E-01 9.20E-01
+     1.00E+00 1.20E+00 1.40E+00 1.60E+00 1.80E+00 2.00E+00 2.30E+00
+     2.60E+00 2.90E+00 3.30E+00 3.70E+00 4.10E+00 4.50E+00 5.00E+00
+     5.50E+00 6.00E+00 6.70E+00 7.40E+00 8.20E+00 9.00E+00 1.00E+01
+     1.10E+01 1.20E+01 1.30E+01 1.40E+01 1.50E+01 1.60E+01 1.70E+01
+     1.80E+01 1.90E+01 2.00E+01 2.10E+01 2.20E+01 2.30E+01 2.40E+01
+     2.50E+01 2.60E+01 2.70E+01 2.80E+01 2.90E+01 3.00E+01 3.10E+01
+     3.20E+01 3.30E+01 3.40E+01 3.50E+01 3.60E+01 3.70E+01 3.80E+01
+     3.90E+01 4.00E+01 4.10E+01 4.20E+01 4.30E+01 4.40E+01 4.50E+01
+     4.60E+01 4.70E+01 4.80E+01 4.90E+01 5.00E+01 5.10E+01 5.20E+01
+     5.30E+01 5.40E+01 5.50E+01 5.60E+01 5.70E+01 5.80E+01 5.90E+01
+     6.00E+01 
+c
+FC14 Uranium Flux Spectra (Number per cm^2 per src neutron)
+F14:n 1
+c
+FC24 Fission Reaction Rate (Fissions per cm^3 per src particle)
+F24:n 1
+FM24  (-1 9 -6)     $Flux * atom density of material 9 * sigma f
+c
+FC964 U234 Fission Reaction Rate (Fissions per cm^3 per src particle)
+F964:n 1
+FM964  (-0.0093898 20 -6)     $Flux * atom density of material 20 * sigma f
+c
+FC974 U235 Fission Reaction Rate (Fissions per cm^3 per src particle)
+F974:n 1
+FM974  (-0.93217 21 -6)     $Flux * atom density of material 21 * sigma f
+c
+FC984 U236 Fission Reaction Rate (Fissions per cm^3 per src particle)
+F984:n 1
+FM984  (-0.003 22 -6)     $Flux * atom density of material 22 * sigma f
+c
+FC994 U238 Fission Reaction Rate (Fissions per cm^3 per src particle)
+F994:n 1
+FM994  (-0.05544 23 -6)     $Flux * atom density of material 23 * sigma f
+E0   4.1399E-07
+     1.1253E-06
+     0.000003059
+     0.000010677
+     0.000029023
+     0.0001013
+     0.00027536
+     0.00058295
+     0.0012341
+     0.0033546
+     0.010333
+     0.021875
+     0.024788
+     0.034307
+     0.052475
+     0.11109
+     0.15764
+     0.24724
+     0.36883
+     0.55023
+     0.63928
+     0.74274
+     0.82085
+     0.96164
+     1.108
+     1.4227
+     1.8268
+     2.3069
+     2.3852
+     3.0119
+     4.0657
+     4.7237
+     4.9659
+     6.3763
+     7.4082
+     8.1873
+     9.0484
+     10
+     11.052
+     12.214
+     12.523
+     13.84
+     14.191
+     14.918
+     16.905
+     19.64

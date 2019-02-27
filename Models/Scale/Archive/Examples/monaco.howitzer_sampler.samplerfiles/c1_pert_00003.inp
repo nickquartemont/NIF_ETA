@@ -1,0 +1,183 @@
+=shell
+  ln -sf C:/SCALE-6.2.2/data/scale.rev04.xn252v7.1 ft89f001
+  ln -sf ${DATA}/perturb/56n.v7.1/Sample3 ft87f001
+end
+=clarolplus
+  in=89
+  out=88
+  var=87
+  isvar=10
+  bond=yes
+  sam=3
+end
+=shell
+  mv ft88f001 xn252v7.1
+  unlink ft87f001
+  unlink ft89f001
+  mv ft10f001 crawdadPerturbMGLib
+end
+=mavric
+Monaco/MAVRIC Training - Exercise 3.  Graphite Shielding Measurements Revisited
+v7-27n19g
+
+'-------------------------------------------------------------------------------
+' Composition Block - standard SCALE input
+'-------------------------------------------------------------------------------
+read composition
+    nickel    3 den=8.908 1 300 28058 6.8077e+01 28060 2.6223e+01 28061 1.1399
+               28062 3.6346     28064 9.2550e-01 end
+    carbon       4 den=1.7 1.0 300.0 end
+end composition
+
+'-------------------------------------------------------------------------------
+' Geometry Block - SCALE standard geometry package (SGGP)
+'-------------------------------------------------------------------------------
+read geometry
+    global unit 1
+        cuboid  1   25.0 -25.0  25.0 -25.0   25.0 -25.0
+        cone    2  10.35948  25.01   0.0 0.0   rotate  a1=-90 a2=-90 a3=0
+        cuboid  3   90.0  70.0  40.0 -40.0   40.0 -40.0
+        cuboid 99  120.0 -30.0  50.0 -50.0   50.0 -50.0
+        media 3 1  1 -2
+        media 0 1  2
+        media 4 1  3
+        media 0 1  99 -1  -2 -3
+    boundary 99
+end geometry
+
+'-------------------------------------------------------------------------------
+' Definitions Block
+'-------------------------------------------------------------------------------
+read definitions
+    response 22
+        title=" Ni-58(n,2n)57-Ni Foil Macro"
+    neutron
+'        mat=4  ZAID=28058 macro
+'IRDFF-1.05: NI-58(N,2N)NI-57
+    bounds
+     12.4298E+6
+        12.6E+6
+       12.65E+6
+        12.7E+6
+        12.8E+6
+        12.9E+6
+          13E+6
+        13.1E+6
+        13.2E+6
+        13.3E+6
+        13.4E+6
+        13.5E+6
+        13.6E+6
+        13.7E+6
+        13.8E+6
+        13.9E+6
+        14.1E+6
+        14.4E+6
+        14.6E+6
+        14.7E+6
+        14.8E+6
+        14.9E+6
+          15E+6
+        15.1E+6
+        15.2E+6
+        15.3E+6
+        15.5E+6
+        15.7E+6
+        15.9E+6
+        16.2E+6
+        16.6E+6
+        17.3E+6
+        18.4E+6
+        20.2E+6
+    end
+    values
+        0.000000E+00
+        4.222126E-05
+        6.577860E-05
+        9.088581E-05
+        1.459622E-04
+        2.078540E-04
+        2.769060E-04
+        3.533799E-04
+        4.374333E-04
+        5.290951E-04
+        6.282405E-04
+        7.345827E-04
+        8.476439E-04
+        9.667818E-04
+        1.091164E-03
+        1.219814E-03
+        1.485403E-03
+        1.886230E-03
+        2.141544E-03
+        2.262775E-03
+        2.378805E-03
+        2.489175E-03
+        2.593581E-03
+        2.691886E-03
+        2.784082E-03
+        2.870296E-03
+        3.025705E-03
+        3.160646E-03
+        3.278233E-03
+        3.429179E-03
+        3.598310E-03
+        3.854324E-03
+        4.253411E-03
+        4.958323E-03
+    end
+makechart
+    end response
+   response 23
+        title=" Ni-58(n,2n)57-Ni Foil Macro"
+    neutron
+        mat=3  MT=16 ZAID=28058 macro
+makechart
+end response
+    location 1
+        position 110 0 0
+    end location
+
+    distribution 1
+        title="Cf-252 neutrons, Watt spectrum a=1.025 MeV and b=2.926/MeV"
+        special="wattSpectrum"
+        parameters 1.025 2.926 end
+    end distribution
+
+end definitions
+
+'-------------------------------------------------------------------------------
+' Sources Block
+'   Cf-252 neutrons, Watt fission spectrum model
+'   with a=1.025 MeV and  b=2.926/MeV
+'-------------------------------------------------------------------------------
+read sources
+    src 1
+        title="Cf-252 neutrons, Watt fission spectrum model"
+        strength=4.05E+07
+        cuboid  0.01 0.01  0 0  0 0
+        neutrons
+        eDistributionID=1
+    end src
+end sources
+
+
+
+'-------------------------------------------------------------------------------
+' Parameters Block
+'-------------------------------------------------------------------------------
+read parameters
+    randomSeed=00003ecd7b4e3e8b
+    library="xn252v7.1"
+    perBatch=1 batches=1
+    fissionMult=0   noPhotons
+end parameters
+
+
+
+end data
+end
+
+=shell
+  cp C:\Users\nickq\Documents\AFIT_Masters\NIF-ETA-Experiment\Models\Scale\Archive\Examples/monaco.howitzer_sampler.samplerfiles/c1_pert_00003.inp C:\Users\nickq\Documents\AFIT_Masters\NIF-ETA-Experiment\Models\Scale\Archive\Examples/monaco.howitzer_sampler.samplerfiles/c1_pert_00003/
+end

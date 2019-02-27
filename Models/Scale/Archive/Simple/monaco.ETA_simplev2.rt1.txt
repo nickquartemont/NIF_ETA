@@ -1,0 +1,43 @@
+     Region Tally 1 (neutron)
+         tally limited to unit: 1
+         tally limited to region: 10
+         tally limited to media: 10
+         energyBounds:    1 with 1 groups
+         timeBounds:      1 with 1 bins
+         comment:          U-235 Foil Fission Rate
+         volume (cm**3)    6.4092767E-02
+         using responses: 11
+         multiplier:         1.0000000E+00
+
+ Details for the final tally
+
+         Total Neutron Fluxes - over all energy groups and time bins
+
+                upper energy        track-length estimator          collision-density estimator   
+         group      (eV)             value  uncertainty     rel         value  uncertainty     rel
+         -----  ------------  ------------ ------------ -------  ------------ ------------ -------
+                               0.00000E+00  0.00000E+00 0.00000   0.00000E+00  0.00000E+00 0.00000
+         -----  ------------  ------------ ------------ -------  ------------ ------------ -------
+
+         Response: 11 (using track-length fluxes)
+             U-235 Foil Fission Macro
+
+             for time bin 1 ( 0.0000000E+00 to  1.0000000E+06 sec)
+
+                upper energy
+         group      (eV)             value  uncertainty     rel
+         -----  ------------  ------------ ------------ -------
+           all        groups   0.00000E+00
+         -----  ------------  ------------ ------------ -------
+
+         Total Response - over all energy groups and time bins
+
+                upper energy
+         group      (eV)             value  uncertainty     rel
+         -----  ------------  ------------ ------------ -------
+         total                 0.00000E+00  0.00000E+00 0.00000
+         -----  ------------  ------------ ------------ -------
+
+
+ Simulation Behavior and Statistical Checks
+
