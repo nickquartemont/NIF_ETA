@@ -1,0 +1,100 @@
+\documentclass[12pt,letterpaper, oneside]{book}
+%% THESIS STARTER KIT
+% use these files to see if you can compile using your program of choice
+\usepackage{enpThesis}
+\graphicspath{{Figures/}}
+\usepackage{SF298/sf298}
+\usepackage{cite}	
+\usepackage{url}
+\usepackage{subfigure}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{caption}
+%\usepackage{notoccite}% PREVENTS CITES IN CAPTIONS FROM MISNUMBERING YOUR REFERENCES 
+
+  
+
+% Experimental additions to fix formatting errors -----------------------------------------
+%\geometry{top=1in, bottom=1.25in, left=1.25in, right=1.25in}
+%\setlength{\intextsep}{0.5in}
+%\setlength{\floatsep}{0.5in}
+%\setlength{\belowcaptionskip}{0.15in}
+%\setlength{\abovecaptionskip}{0.15in}
+% -------------------------------------------------------------------------------------------------------
+
+\input{Preamble/mytitle}
+\input{Preamble/commonSymbols}
+\input{Preamble/myFigures}
+\input{Preamble/myTables}
+%\signed
+%\signedDate{March 2009}
+
+%\captionsetup[table]{skip=-10pt}
+
+\begin{document}
+
+\frontmatter
+\flyleaf                        % Generates the flyleaf.
+\disclaimerpage                 % Produces the disclaimer page
+\titlepageAFIT                      % Produces the title page.
+\approvalpage                   % Produces the approvalpage
+
+%\input{Front/abstract}
+%\input{Front/dedication}
+%\input{Front/acknowledgements}      % Or preface, whatever you prefer.
+\tableofcontents                % Table of Contents
+\listoffigures                  % List of Figures, List of Tables, and List of
+\listoftables                   % Symbols will be placed here, if applicable.
+%\listofsymbols % DO NOT use these if you have no such lists.
+%        % To put symbols in the list use command \symbol[#1]{#2}
+%        % where #2 is the symbol and #1 is the definition to be put in the
+%        % list of symbols. The symbol is also automatically put in
+%        % your text.  Leave out [#1] if you don't want a definition.
+%\listofabbreviations
+%        % similar to the list of symbols.  Use command \abbreviation[#1]{#2}
+%        % where #2 is the abbreviation and #1 is the definition to be
+%        % put in the list of abbreviations. The abbreviation is also
+%        % automatically put in your text.  Leave out [#1] if you don't
+%        % want a definition. Use \abbreviationFull[#1]{#2} to include the definition
+%        % in the text followed by the abbreviation in parentheses
+
+
+\mainmatter
+\renewcommand\thechapter{\arabic{chapter}}
+% Introduction
+\chapter{Introduction}
+\label{chap:Introduction}
+\input{Main/Introduction}	
+% Introduction
+\chapter{Theory}
+\label{chap:Theory}
+\input{Main/Theory}			
+% Theory
+\chapter{Methodology}
+\label{chap:Methodology}
+\input{Main/Methodology}			
+% Methodology
+\chapter{Research Schedule}
+\label{chap:ResearchSchedule}
+\input{Main/ResearchSchedule}
+% Thesis
+\chapter{Results}
+\label{chap:Results}
+\input{Main/Results}	
+% Results	
+
+\backmatter
+\singlespace
+%\bibliographystyle{Back/thesnumb3}
+%\bibliographystyle{Back/agu}
+\bibliographystyle{Back/IEEEtran} 						
+\bibliography{Back/MyBibliography}
+%\bibliographystyle{unsrt}
+  \addtocontents{toc}{\vspace{10pt}} %space between bibliography and vita in toc
+\clearpage
+
+%
+%\input{Back/vita}
+%\input{SF298/SF298}
+
+\end{document}
