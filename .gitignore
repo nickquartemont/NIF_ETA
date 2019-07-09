@@ -5,11 +5,6 @@ runtp*
 *.gz
 
 # Latex
-*.log
-*.aux
-*.bbl
-*.lof
-*.toc
 
 # Misc
 *.$$$
