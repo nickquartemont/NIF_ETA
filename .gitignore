@@ -140,3 +140,8 @@ Models/FissionProduct/GEF/GEF_92_236_n.dat
 Models/STAYSL_Unfold/SAMPLER/sta_spe.dat
 Models/STAYSL_Unfold/SAMPLER/sta_fir.dat
 Models/STAYSL_Unfold/SAMPLER/sta_dam.dat
+Models/FPPT/Inputs/GEF_92_236_n.dat
+Models/FPPT/Inputs/GEF_92_237_n.dat
+Models/FPPT/Inputs/GEF_92_239_n.dat
+Models/FPPT/Inputs/GEF_94_240_n.dat
+Models/FPPT/Inputs/GEF_94_241_n.dat
